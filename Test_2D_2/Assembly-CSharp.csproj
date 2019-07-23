@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resourses\Scripts\Collect.cs" />
+    <Compile Include="Assets\Resourses\Scripts\Main.cs" />
     <Compile Include="Assets\Resourses\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Resourses\Scripts\Tools\ExtendedMethods.cs" />
+    <Compile Include="Assets\Resourses\Scripts\Tools\Util.cs" />
     <Compile Include="Assets\XLua\Examples\01_Helloworld\Helloworld.cs" />
     <Compile Include="Assets\XLua\Examples\02_U3DScripting\LuaBehaviour.cs" />
     <Compile Include="Assets\XLua\Examples\04_LuaObjectOrented\InvokeLua.cs" />
