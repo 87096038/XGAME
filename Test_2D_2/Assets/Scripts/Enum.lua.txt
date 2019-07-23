@@ -1,0 +1,13 @@
+﻿Enum = {}
+
+--参数为表，起始位置
+function Enum.createEnumTbl(tbl, index)
+    local enumTbl = {}
+    local enumIndex = index or 0
+    for i, v in ipairs(tbl) do
+        enumTbl[v] = enumIndex + i
+    end
+    return enumTbl
+end
+
+return Enum
