@@ -1,4 +1,5 @@
-﻿Enum = {}
+﻿--[[
+Enum = {}
 
 --参数为表，起始位置
 function Enum.createEnumTbl(tbl, index)
@@ -11,3 +12,13 @@ function Enum.createEnumTbl(tbl, index)
 end
 
 return Enum
+--]]
+
+---eggs: 彩蛋
+RoomType={born=1, normal=2, treasure=3, shop=4, boss=5, eggs=6}
+
+---pistol: 手枪   spear: 长矛   rifle: 步枪
+EnemyType={normal_pistol=1, normal_spear=2, normal_shotgun=3, normal_rifle=4}
+
+---sniper_rifle: 狙击枪    laser_gun: 激光枪
+WeaponType={ormal_pistol=1, normal_rifle=2, normal_shotgun=3, normal_sniper_rifle=4, normal_Laser_gun=5}

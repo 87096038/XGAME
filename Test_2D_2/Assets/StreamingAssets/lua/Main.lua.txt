@@ -1,7 +1,6 @@
 --[[
     程序入口
 --]]
---package.path = CS.UnityEngine.Application.streamingAssetsPath ..'/lua/tools/?.lua.txt;'..CS.UnityEngine.Application.streamingAssetsPath ..'/lua/?.lua.txt';
 ResourceMgr = require("ResourceManager")
 PathMgr = require("PathManager")
 SceneMgr = require("SceneManager")
@@ -28,9 +27,9 @@ Engine=CS.UnityEngine
 Main=Engine.GameObject.Find("Main"):GetComponent("Main")
 
 function InitTitle()
-    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
-   --ResourceMgr:DestroyObject(go)
-    --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
+    local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
+    ResourceMgr:DestroyObject(go)
+    local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
 
 
     --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")

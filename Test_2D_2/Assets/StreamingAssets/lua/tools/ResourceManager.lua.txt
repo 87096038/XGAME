@@ -16,7 +16,7 @@ function ResourceManager:Init()
     self.AssetCacheMap={}
     ---在用的物体的缓存
     self.GameObjectMap={}
-    ---实例化后物体缓存池
+    ---未使用物体的缓存池
     self.ObjectPool={}
 
     --池中物体所放置的位置(将物体移动到看不到的地方以实现destroy的效果)
@@ -41,7 +41,7 @@ function ResourceManager:GetGameObject(path, name, parent, position, positionRel
             go = table.remove(self.ObjectPool[Path])
             local transf = go:GetComponent("Transform")
             transf:SetParent(parent)
-            transf:Translate(position or CS.UnityEngine.Vector3.Zero, positionRelativeTo or CS.UnityEngine.Space.World)
+            transf:Translate(position or CS.UnityEngine.Vector3.zero, positionRelativeTo or CS.UnityEngine.Space.World)
             if rotation then
                 transf:Rotate(rotation.eulerAngles, rotationRelativeTo or CS.UnityEngine.Space.World)
             end
