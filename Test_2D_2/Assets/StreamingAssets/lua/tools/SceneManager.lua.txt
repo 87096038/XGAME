@@ -1,0 +1,52 @@
+--[[
+    场景及UI管理
+--]]
+local SceneManager={}
+
+SceneManagement=CS.UnityEngine.SceneManagement.SceneManager
+
+function SceneManager:Init()
+    --存储场景 由于存的是场景的Index, 所以会boxing和unboxing, 后面改
+    self.sceneStack = CS.System.Collections.Stack()
+
+    --存储UI
+    self.UIStack = CS.System.Collections.Stack()
+end
+
+--加载场景
+function SceneManager:LoadScene(sceneIndex)
+    if sceneStack then
+        sceneStack:Push(sceneIndex)
+        SceneManagement.LoadScene(sceneIndex)
+    end
+end
+
+--返回上一场景
+function SceneManager:BackScene()
+    if sceneStack and sceneStack.Count >= 2 then
+        sceneStack:Pop()
+        local scene = sceneStack:Peek()
+        SceneManagement.LoadScene(scene)
+    end
+end
+
+--加载UI
+function SceneManager:LoadUI(ui)
+    if UIStack then
+        UIStack:Push(ui)
+        --加载ui
+    end
+end
+
+--返回上级UI
+function SceneManager:BackUI()
+    if UIStack and UIStack.Count >= 1 then
+        UIStack:Pop()
+        local ui = UIStack:Peek()
+        --销毁 ui
+    end
+end
+
+SceneManager:Init()
+
+return SceneManager

@@ -1,0 +1,196 @@
+--[[
+    管理资源加载
+--]]
+PathMgr = require("PathManager")
+local ResourceManager={}
+
+ResourceManager.IS_RELEASE_MODE = true
+
+function ResourceManager:Init()
+
+    ---AB包缓存
+    self.AssetBundleCacheMap={}
+    ---AB包依赖缓存
+    self.AssetBundleIndependenceMap={}
+    ---Asset缓存
+    self.AssetCacheMap={}
+    ---在用的物体的缓存
+    self.GameObjectMap={}
+    ---实例化后物体缓存池
+    self.ObjectPool={}
+
+    --池中物体所放置的位置(将物体移动到看不到的地方以实现destroy的效果)
+    self.placePoint = CS.UnityEngine.Vector3(5000, 5000, 5000)
+
+end
+
+
+--------------------------------- 常用外部接口 ---------------------------
+---获取实例化的物体
+function ResourceManager:GetGameObject(path, name, parent, position, positionRelativeTo, rotation, rotationRelativeTo)
+    local go, Path
+    local ABPath
+    if ResourceManager.IS_RELEASE_MODE then
+        ABPath = CS.UnityEngine.Application.streamingAssetsPath.."/"..path
+        Path = self:GetFullABName(ABPath, name)
+    else
+        Path = "Resources/"..path
+    end
+    if self.ObjectPool[Path] ~= nil then
+        if #self.ObjectPool[Path] > 0 then
+            go = table.remove(self.ObjectPool[Path])
+            local transf = go:GetComponent("Transform")
+            transf:SetParent(parent)
+            transf:Translate(position or CS.UnityEngine.Vector3.Zero, positionRelativeTo or CS.UnityEngine.Space.World)
+            if rotation then
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or CS.UnityEngine.Space.World)
+            end
+        end
+    end
+    --如果池中没有就新实例化一个
+    local asset
+    if not go then
+        if ResourceManager.IS_RELEASE_MODE then
+            asset = self:Load(ABPath, name)
+        else
+            asset = self:Load(Path, name)
+        end
+        go = self:Instantiate(asset, parent, position, positionRelativeTo, rotation, rotationRelativeTo)
+    end
+    self.GameObjectMap[go] = Path
+    return go
+end
+
+--回收物体入池
+function ResourceManager:DestroyObject(gameObject)
+    local path =  self.GameObjectMap[gameObject]
+    trans =  gameObject:GetComponent("Transform")
+    trans:SetParent(nil)
+    trans:Translate(self.placePoint)
+    if self.ObjectPool[path] == nil then
+        self.ObjectPool[path] = {gameObject}
+    else
+        table.insert(self.ObjectPool[path], gameObject)
+    end
+    self.GameObjectMap[gameObject] = nil
+end
+
+---更改池的位置
+function ResourceManager:SetPlacePoint(x, y, z)
+    self.placePoint.x = x or self.placePoint.x
+    self.placePoint.y = y or self.placePoint.y
+    self.placePoint.z = z or self.placePoint.z
+end
+
+
+---------------------------------- 不常用外部接口 -----------------------------
+---Load，返回Asset(name: 如歌是AB包则为其资源的名称)
+function ResourceManager:Load(path, name)
+
+    local asset
+    if self.IS_RELEASE_MODE then
+        local ab = self:LoadAssetBundle(path)
+        asset = self:LoadAsset(ab, name)
+    else
+        asset = self:LoadResource(path)
+    end
+    return asset
+end
+
+---AB包加载Asset
+function ResourceManager:LoadAsset(ab, name)
+    local go = ab.assetBundle:LoadAsset(name)
+    print("LoadAsset")
+    return go
+end
+
+---实例化
+function ResourceManager:Instantiate(original, parent, position, positionRelativeTo, rotation, rotationRelativeTo)
+    --[[
+    在Instantiate中，是先setParent再setPosition的，因此在有parent的情况下传position也是set的世界坐标
+    --]]
+    if not original then
+        print("the original is nil!")
+        return nil
+    end
+    local go
+    if parent then
+        if(CS.Util.IsNull(parent))then
+            print("the parent gameobject is null!")
+            return nil
+        else
+            go = CS.UnityEngine.Object.Instantiate(original, parent)
+            local transf = go:GetComponent("Transform")
+            if position then
+                transf:Translate(position, positionRelativeTo or CS.UnityEngine.Space.World)
+            end
+            if rotation then
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or CS.UnityEngine.Space.World)
+            end
+        end
+    else
+        go = CS.UnityEngine.Object.Instantiate(original, position or CS.UnityEngine.Vector3.zero, rotation or CS.UnityEngine.Quaternion.identity)
+    end
+    return go
+end
+
+-------------------------------- 内部使用 -------------------------------
+
+---通过AB包路径 和 要加载的资源名 生成一个唯一的资源路径(并不实际存在)
+function ResourceManager:GetFullABName(path, name)
+    pre, suffix = PathMgr:RemoveSuffix(path)
+    return pre.."/"..name..suffix
+end
+
+---加载AB包,返回的是封装后的AB
+function ResourceManager:LoadAssetBundle(path)
+    local ab = self.AssetBundleCacheMap[path]
+    if ab then
+        ab.refCount = ab.refCount + 1
+    else
+        local cache = CS.UnityEngine.AssetBundle.LoadFromFile(path)
+        ab = {assetBundle=cache, refCount=1}
+        self.AssetBundleCacheMap[path]=ab
+    end
+    --manifest = ab:LoadAsset("AssetBundleManifest");
+    --dependence = manifest:GetAllDependencies("BG")
+    return ab
+end
+
+---加载Asset, 通过Resources
+function ResourceManager:LoadResource(path)
+    local asset = AssetCacheMap[path]
+    if not asset then
+        asset = CS.UnityEngine.Resources.Load(path)
+        AssetCacheMap[path] = asset
+    end
+    print("LoadResource: "..path)
+    return asset
+end
+
+---释放AB包
+function ResourceManager:ReleaseAssetBundle(path)
+    local ab = AssetBundleCacheMap[path]
+    if ab then
+        ab.refCount = ab.refCount - 1
+        if ab.refCount <= 0 then
+            ab.assetBundle:Unload(false)
+            self.assetBundleCacheMap[path] = nil
+        end
+
+    end
+end
+
+---释放Asset
+function ResourceManager:ReleaseAsset(path)
+
+end
+
+---释放物品池
+function ResourceManager:ReleaseGameObjectPool()
+
+end
+
+ResourceManager:Init()
+
+return ResourceManager

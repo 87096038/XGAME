@@ -1,0 +1,109 @@
+--[[
+    程序入口
+--]]
+
+ResourceMgr = require("ResourceManager")
+PathMgr = require("PathManager")
+SceneMgr = require("SceneManager")
+MC = require("MessageCenter")
+
+-------------------------------
+--初始化
+function Init()
+    InitTitle()
+end
+
+--主循环
+function MainLoop()
+    --print("loop")
+end
+
+--退出游戏处理
+function Quit()
+    print("Quit")
+end
+------------------------------
+
+Engine=CS.UnityEngine
+Main=Engine.GameObject.Find("Main"):GetComponent("Main")
+
+function InitTitle()
+    local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
+    ResourceMgr:DestroyObject(go)
+    local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
+
+
+    --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")
+    --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
+    --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
+    --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))
+
+
+    --MC:AddListener("hello", HandleHello)
+    --kv = require("KeyValue"):new("nice to meet you")
+    --MC:SendMessage("hello", kv)
+    --MC:RemoveMessageType("hello")
+    --MC:SendMessage("hello", kv)
+end
+
+function HandleHello(kv)
+    print(kv.Key)
+end
+
+function GetProxy(sourceTable, path)
+    proxy={}
+    mate={
+        __newindex=function(t, key, newValue)
+            local oldValue=sourceTable[key]
+            if ~oldValue then
+                --send Add
+            elseif ~newValue then
+                --send Remove
+            else
+                --send Change
+            end
+            sourceTable[key]=newValue
+        end,
+
+        __len=function()
+            return #sourceTable
+        end
+    }
+
+    setmetatable(proxy, mate)
+    return proxy
+end
+
+--class封装
+function Class(className, super)
+
+    local TheClass = {name = className, super = super}
+
+    if super then
+        local type = type(super)
+        if type ~= "table" and type ~= "function" then
+            print("wrong super type!")
+            return nil;
+        else
+            setmetatable(TheClass, {__index = super})
+        end
+    end
+
+    function TheClass:new(...)
+        local instance = {}
+        for k, v in pairs(TheClass) do
+            instance[k] = v
+        end
+        if instance["super"] ~= nil then
+            if instance["super"]["cotr"] ~= nil then
+                instance["super"]["cotr"](...)
+            end
+        end
+        if instance["cotr"] then
+            instance:cotr(...)
+        end
+        return instance
+    end
+
+    return TheClass
+end

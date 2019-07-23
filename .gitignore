@@ -1,3 +1,5 @@
+*.gitignore
+*.meta
 *.idea
 *.cache
 Library/

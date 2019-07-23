@@ -157,50 +157,28 @@
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
     <Compile Include="Assets\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
     <Compile Include="Assets\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
-<<<<<<< HEAD
+    <None Include="Assets\StreamingAssets\lua\tools\KeyValue.lua.txt" />
+    <None Include="Assets\StreamingAssets\lua\tools\ResourceManager.lua.txt" />
     <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
     <None Include="Assets\XLua\Examples\06_Coroutine\Resources\cs_coroutine.lua.txt" />
+    <None Include="Assets\StreamingAssets\lua\tools\MessageCenter.lua.txt" />
     <None Include="Assets\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
     <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
     <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
     <None Include="Assets\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
-    <None Include="Assets\Resourses\Scripts\Enum.lua.txt" />
+    <None Include="Assets\StreamingAssets\lua\Enum.lua.txt" />
     <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
-    <None Include="Assets\Resourses\Scripts\PlayController.lua.txt" />
+    <None Include="Assets\StreamingAssets\lua\PlayController.lua.txt" />
     <None Include="Assets\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />
-=======
-    <None Include="Assets\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />
-    <None Include="Assets\Scripts\Enum.lua.txt" />
-    <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
-    <None Include="Assets\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
-    <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
-    <None Include="Assets\Scripts\PlayController.lua.txt" />
-    <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
-    <None Include="Assets\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
-    <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
->>>>>>> a49c6656b4858dd58fb4ba1f4a633e65b850cf4a
     <None Include="Assets\XLua\Gen\link.xml" />
-    <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
-    <None Include="Assets\XLua\CHANGELOG.txt" />
-    <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
     <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
-    <None Include="Assets\XLua\Examples\06_Coroutine\Resources\cs_coroutine.lua.txt" />
+    <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
+    <None Include="Assets\StreamingAssets\lua\tools\SceneManager.lua.txt" />
+    <None Include="Assets\StreamingAssets\lua\Main.lua.txt" />
+    <None Include="Assets\XLua\CHANGELOG.txt" />
+    <None Include="Assets\StreamingAssets\lua\tools\PathManager.lua.txt" />
+    <None Include="Assets\XLua\Resources\tdr\tdr.lua.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-<<<<<<< HEAD
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-=======
       <HintPath>/Users/xiejiahong/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
@@ -214,7 +192,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>/Users/xiejiahong/XGAME/Test_2D_2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
->>>>>>> a49c6656b4858dd58fb4ba1f4a633e65b850cf4a
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -421,15 +398,6 @@
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-<<<<<<< HEAD
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/huanghaocheng/Project/XGAME/Test_2D_2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
-=======
       <HintPath>/Users/xiejiahong/XGAME/Test_2D_2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
@@ -437,7 +405,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/xiejiahong/XGAME/Test_2D_2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
->>>>>>> a49c6656b4858dd58fb4ba1f4a633e65b850cf4a
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
