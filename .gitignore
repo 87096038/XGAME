@@ -1,0 +1,8 @@
+*.meta
+*.idea
+*.cache
+Library/
+Packages/
+Logs/
+Temp/
+ProjectSettings/
