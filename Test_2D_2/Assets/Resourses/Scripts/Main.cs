@@ -10,10 +10,11 @@ using UnityEngine.UI;
 //程序入口
 public class Main : MonoBehaviour
 {
-    public GameObject UIRoot; 
+    public GameObject UIRoot;
     public LuaEnv luaEnv;
  
-    private static Main _instance= null;
+    //这段的功能为 使Main.cs在整体中只有一份
+    private static Main _instance = null;
     public static Main Instance
     {
         get
