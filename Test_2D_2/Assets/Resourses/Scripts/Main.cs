@@ -55,32 +55,27 @@ public class Main : MonoBehaviour
     void Start()
     {
         //Debug.Log(Application.streamingAssetsPath);
-
+        //AssetBundleManifest a;
+        //a.GetAllDependencies()
         DontDestroyOnLoad(this.gameObject);
         luaEnv = new LuaEnv();
         luaEnv.AddLoader(InitLoader);
         //Stack a = new Stack();
-        Transform m;
+        //Transform m;
         //m.SetParent(null);
         //m.Rotate();
         //Instantiate()
-        
+        //AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath+"/assetbundle/prefabs/ui/title/bg.ab");
+        //AssetBundleManifest a = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+        //Debug.Log(ab.ToString());
+        //AssetBundle a = AssetBundle.LoadFromFile(Application.streamingAssetsPath+"/StreamingAssets");
+        //print(a);
         luaEnv.DoString("require'Main'");
-        //UnityEngine.Object go = ResourceManager.Load(Application.streamingAssetsPath+ "/assetbundle/prefabs/ui/title/bg.ab", UIRoot.transform, false);
-        //if(go != null)
-        //    Instantiate(go, UIRoot.transform);
-        //Debug.Log("123");
-        //Dictionary<string, int> a;
-        //a.TryGetValue()
-        //StartCoroutine(test());
-        //ResourceManager.Load(Application.streamingAssetsPath + "/assetbundle/sprites/ui/role.ab", UIRoot.transform, false);
+
         luaEnv.Global.Get("Init", out Init);
         luaEnv.Global.Get("MainLoop", out Loop);
         luaEnv.Global.Get("Quit", out Quit);
         Init();
-        //this.gameObject.AddComponent()
-        //SceneManager.() //Resources.Load()
-        //Instantiate()
     }
 
     private void Update()

@@ -1,6 +1,9 @@
 --[[
     场景及UI管理
 --]]
+
+MC = require("MessageCenter")
+
 local SceneManager={}
 
 SceneManagement=CS.UnityEngine.SceneManagement.SceneManager
@@ -21,16 +24,17 @@ end
 
 --加载场景
 function SceneManager:LoadScene(sceneIndex)
-    if sceneStack then
-        sceneStack:Push(sceneIndex)
+    if  self.sceneStack then
+        self.sceneStack:Push(sceneIndex)
+        MC:SendMessage(MessageType.ChangeScene, nil)
         SceneManagement.LoadScene(sceneIndex)
     end
 end
 
 --返回上一场景
 function SceneManager:BackScene()
-    if sceneStack and sceneStack.Count >= 2 then
-        sceneStack:Pop()
+    if  self.sceneStack and sceneStack.Count >= 2 then
+        self.sceneStack:Pop()
         local scene = sceneStack:Peek()
         SceneManagement.LoadScene(scene)
     end
@@ -43,17 +47,17 @@ end
 
 --加载UI
 function SceneManager:LoadUI(ui)
-    if UIStack then
-        UIStack:Push(ui)
+    if  self.UIStack then
+        self.UIStack:Push(ui)
         --加载ui
     end
 end
 
 --返回上级UI
 function SceneManager:BackUI()
-    if UIStack and UIStack.Count >= 1 then
-        UIStack:Pop()
-        local ui = UIStack:Peek()
+    if  self.UIStack and UIStack.Count >= 1 then
+        self.UIStack:Pop()
+        local ui =  self.UIStack:Peek()
         --销毁 ui
     end
 end

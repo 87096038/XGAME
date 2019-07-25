@@ -22,7 +22,6 @@ public static class StaticList
         typeof(Util),
         typeof(MessageDelivery),
         typeof(KeyValue),
-        typeof(Dictionary<string, MessageDelivery>),
         typeof(Stack),
     };
 }

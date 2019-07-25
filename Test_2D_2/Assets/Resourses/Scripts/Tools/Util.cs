@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
-using XLua.Cast;
+using XLua;
 
 public static class Util
 {
@@ -10,14 +8,6 @@ public static class Util
     {
         return (obj == null);
     }
-
-    public static object GetNull(this object obj)
-    {
-        Debug.Log(obj);
-        Debug.Log(null);
-        return null;
-    }
-
 }
 
 public delegate void MessageDelivery(KeyValue kv);

@@ -1,6 +1,17 @@
 --[[
     程序入口
 --]]
+
+
+package.path = package.path .. ';../protobuf/?.lua.txt'
+package.cpath = package.cpath .. ';../protobuf/?.so'
+require("protobuf")
+require 'person_pb'
+
+
+---需要先运行的module
+require("Enum")
+
 ResourceMgr = require("ResourceManager")
 PathMgr = require("PathManager")
 SceneMgr = require("SceneManager")
@@ -27,15 +38,20 @@ Engine=CS.UnityEngine
 Main=Engine.GameObject.Find("Main"):GetComponent("Main")
 
 function InitTitle()
-    local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
-    ResourceMgr:DestroyObject(go)
-    local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
-
+    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
+    --ResourceMgr:DestroyObject(go)
+    --SceneMgr:LoadScene(2)
+    --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
 
     --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")
     --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
     --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
     --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))
+
+    --local kv = require("KeyValue"):new("hello")
+    --print(kv.Key)
+    --local kv2 = require("KeyValue"):new("world")
+    --print(kv2.Key)
 
 
     --MC:AddListener("hello", HandleHello)
@@ -89,11 +105,14 @@ function Class(className, super)
     end
 
     function TheClass:new(...)
+        --local instance = setmetatable( {}, {__index=TheClass})
+        --使用以上代码可以也能实现"假的"实例化，且更省空间，但无法在这里自动调用父类的构造函数
         local instance = {}
         for k, v in pairs(TheClass) do
             instance[k] = v
         end
-        if instance["super"] ~= nil then
+        if  instance["super"] ~= nil then
+            print("yes")
             if instance["super"]["cotr"] ~= nil then
                 instance["super"]["cotr"](...)
             end
