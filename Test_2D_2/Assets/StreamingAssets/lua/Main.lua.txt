@@ -27,6 +27,7 @@ local data = {
         { name = 'bob',   phonenumber = 45645674567 }
     }
 }
+--[[
 local bytes = assert(pb.encode('Person', data))
 print(pb.tohex(bytes))
 local data2 = assert(pb.decode('Person', bytes))
@@ -37,14 +38,16 @@ print(data2.contacts[1].name)
 print(data2.contacts[1].phonenumber)
 print(data2.contacts[2].name)
 print(data2.contacts[2].phonenumber)
-
+--]]
+---以上为测试代码
 ---需要先运行的module
 require("Enum")
+local Timer = require("Timer")
 
-ResourceMgr = require("ResourceManager")
-PathMgr = require("PathManager")
-SceneMgr = require("SceneManager")
-MC = require("MessageCenter")
+local ResourceMgr = require("ResourceManager")
+local PathMgr = require("PathManager")
+local SceneMgr = require("SceneManager")
+local MC = require("MessageCenter")
 
 -------------------------------
 --初始化
@@ -54,7 +57,7 @@ end
 
 --主循环
 function MainLoop()
-    --print("loop")
+    Timer:Update()
 end
 
 --退出游戏处理
@@ -67,15 +70,20 @@ Engine=CS.UnityEngine
 Main=Engine.GameObject.Find("Main"):GetComponent("Main")
 
 function InitTitle()
-    local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
+    require("Character"):new()
+    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
     --ResourceMgr:DestroyObject(go)
-    --SceneMgr:LoadScene(2)
+    --SceneMgr:LoadScene(1)
+
     --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
 
     --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")
     --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
     --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
     --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))
+
+    --local role = require("Character"):new()
+    --role:Move()
 
     --local kv = require("KeyValue"):new("hello")
     --print(kv.Key)
@@ -118,7 +126,8 @@ function GetProxy(sourceTable, path)
     return proxy
 end
 
---class封装
+---class封装
+---实例化时会自动先后调用(如果有)父类和自己的cotr函数
 function Class(className, super)
 
     local TheClass = {name = className, super = super}
@@ -134,20 +143,24 @@ function Class(className, super)
     end
 
     function TheClass:new(...)
-        --local instance = setmetatable( {}, {__index=TheClass})
-        --使用以上代码可以也能实现"假的"实例化，且更省空间，但无法在这里自动调用父类的构造函数
-        local instance = {}
-        for k, v in pairs(TheClass) do
-            instance[k] = v
-        end
-        if  instance["super"] ~= nil then
-            print("yes")
-            if instance["super"]["cotr"] ~= nil then
-                instance["super"]["cotr"](...)
+
+        --使用以下代码能够实现内存意义上的实例化，但浪费空间
+        --local instance = {}
+        --for k, v in pairs(TheClass) do
+        --    instance[k] = v
+        --end
+
+        --使用以下代码能够实现表面上的实例化，不浪费空间，但是在传self时要注意
+        local instance = setmetatable( {}, {__index=TheClass})
+
+        local super = getmetatable(instance)["__index"]["super"]
+        if  super ~= nil then
+            if super["cotr"] ~= nil then
+                super.cotr(instance, ...)
             end
         end
         if instance["cotr"] then
-            instance:cotr(...)
+            instance.cotr(instance, ...)
         end
         return instance
     end

@@ -5,6 +5,7 @@ using UnityEngine;
 using XLua;
 using System.IO;
 using System.Text;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //程序入口
@@ -54,11 +55,12 @@ public class Main : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(UIRoot);
+
         luaEnv = new LuaEnv();
 
         luaEnv.AddLoader(InitLoader);
-        Time.timeScale = 0;
-  
+
         luaEnv.DoString("require'Main'");
         luaEnv.Global.Get("Init", out Init);
         luaEnv.Global.Get("MainLoop", out Loop);
@@ -91,6 +93,8 @@ public class Main : MonoBehaviour
             return Encoding.UTF8.GetBytes(File.ReadAllText(Application.streamingAssetsPath + "/lua/tools/" + path + ".lua.txt"));
         else if (File.Exists(Application.streamingAssetsPath + "/lua/protobuf/" + path + ".lua.txt"))
             return Encoding.UTF8.GetBytes(File.ReadAllText(Application.streamingAssetsPath + "/lua/protobuf/" + path + ".lua.txt"));
+        else if (File.Exists(Application.streamingAssetsPath + "/lua/logic/" + path + ".lua.txt"))
+            return Encoding.UTF8.GetBytes(File.ReadAllText(Application.streamingAssetsPath + "/lua/logic/" + path + ".lua.txt"));
         return null;
     }
 }

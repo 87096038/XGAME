@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 616134188
+CRC: 4044539635
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -9,3 +9,7 @@ AssetBundleManifest:
     Info_1:
       Name: assetbundle/sprite/ui/title/bg.ab
       Dependencies: {}
+    Info_2:
+      Name: assetbundle/prefabs/character/ruby.ab
+      Dependencies:
+        Dependency_0: assetbundle/sprite/ui/title/bg.ab

@@ -1,0 +1,22 @@
+﻿
+local ResourceMgr = require("ResourceManager")
+local Character_base=Class("character_base")
+
+function Character_base:cotr()
+    self.gameobject=ResourceMgr:GetGameObject("assetbundle/prefabs/character/ruby.ab", "ruby")
+end
+
+---from,to: 类型为CharacterBehaviorType枚举
+function Character_base:ChangeBehavior(from, to)
+
+end
+
+function Character_base:Move()
+    print("move")
+end
+
+function Character_base:Dead()
+    ResourceMgr:DestroyObject(self.gameobject)
+end
+
+return Character_base

@@ -123,9 +123,9 @@
      <None Include="Assets\StreamingAssets\lua\person_pb.lua.txt" />
      <None Include="Assets\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\Enum.lua.txt" />
+     <None Include="Assets\StreamingAssets\lua\logic\Character_base.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\protobuf\descriptor.lua.txt" />
      <None Include="Assets\XLua\Resources\xlua\util.lua.txt" />
-     <None Include="Assets\StreamingAssets\lua\PlayController.lua.txt" />
      <None Include="Assets\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\tools\test.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\tools\protoc.lua.txt" />
@@ -135,6 +135,7 @@
      <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\protobuf\listener.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\tools\SceneManager.lua.txt" />
+     <None Include="Assets\StreamingAssets\lua\logic\Character.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\Main.lua.txt" />
      <None Include="Assets\StreamingAssets\lua\protobuf\containers.lua.txt" />
      <None Include="Assets\XLua\CHANGELOG.txt" />
