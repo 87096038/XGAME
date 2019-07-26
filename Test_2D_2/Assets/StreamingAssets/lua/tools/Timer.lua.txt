@@ -1,0 +1,8 @@
+﻿
+local Timer={}
+
+function Timer:Init()
+    
+end
+
+return Timer

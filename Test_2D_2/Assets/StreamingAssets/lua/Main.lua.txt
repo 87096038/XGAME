@@ -2,12 +2,41 @@
     程序入口
 --]]
 
+--package.path = package.path .. ';../protobuf/?.lua.txt'
+--package.cpath = package.cpath .. ';../protobuf/?.so'
 
-package.path = package.path .. ';../protobuf/?.lua.txt'
-package.cpath = package.cpath .. ';../protobuf/?.so'
-require("protobuf")
-require 'person_pb'
+local pb = require 'pb'
+local protoc = require 'protoc'
 
+assert(protoc:load [[
+        message Phone {
+            optional string name        = 1;
+            optional int64  phonenumber = 2;
+        }
+        message Person {
+            optional string name     = 1;
+            optional int32  age      = 2;
+            optional string address  = 3;
+            repeated Phone  contacts = 4;
+        } ]])
+local data = {
+    name = 'ilse',
+    age  = 18,
+    contacts = {
+        { name = 'alice', phonenumber = 12312341234 },
+        { name = 'bob',   phonenumber = 45645674567 }
+    }
+}
+local bytes = assert(pb.encode('Person', data))
+print(pb.tohex(bytes))
+local data2 = assert(pb.decode('Person', bytes))
+print(data2.name)
+print(data2.age)
+print(data2.address)
+print(data2.contacts[1].name)
+print(data2.contacts[1].phonenumber)
+print(data2.contacts[2].name)
+print(data2.contacts[2].phonenumber)
 
 ---需要先运行的module
 require("Enum")
@@ -38,7 +67,7 @@ Engine=CS.UnityEngine
 Main=Engine.GameObject.Find("Main"):GetComponent("Main")
 
 function InitTitle()
-    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
+    local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
     --ResourceMgr:DestroyObject(go)
     --SceneMgr:LoadScene(2)
     --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
@@ -70,9 +99,9 @@ function GetProxy(sourceTable, path)
     mate={
         __newindex=function(t, key, newValue)
             local oldValue=sourceTable[key]
-            if ~oldValue then
+            if not oldValue then
                 --send Add
-            elseif ~newValue then
+            elseif not newValue then
                 --send Remove
             else
                 --send Change

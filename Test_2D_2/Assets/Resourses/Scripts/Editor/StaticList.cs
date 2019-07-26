@@ -23,5 +23,6 @@ public static class StaticList
         typeof(MessageDelivery),
         typeof(KeyValue),
         typeof(Stack),
+        typeof(TextAsset),
     };
 }

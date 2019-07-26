@@ -43,6 +43,7 @@ end
 ---高有几个，宽有几个，最少几个，最多几个，特殊房数组，入口到出口最短几步
 function SceneManager:GenerateMap(height, width, minimumCount, maximumCount, spacialRooms, minimumLenghtFromEnterToExit)
 
+
 end
 
 --加载UI

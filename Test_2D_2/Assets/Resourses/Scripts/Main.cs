@@ -38,8 +38,6 @@ public class Main : MonoBehaviour
         }
     }
 
-    private Button a;
-
     [LuaCallCSharp]
     private Action Init;
     [LuaCallCSharp]
@@ -55,24 +53,13 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(Application.streamingAssetsPath);
-        //AssetBundleManifest a;
-        //a.GetAllDependencies()
         DontDestroyOnLoad(this.gameObject);
         luaEnv = new LuaEnv();
-        luaEnv.AddLoader(InitLoader);
-        //Stack a = new Stack();
-        //Transform m;
-        //m.SetParent(null);
-        //m.Rotate();
-        //Instantiate()
-        //AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath+"/assetbundle/prefabs/ui/title/bg.ab");
-        //AssetBundleManifest a = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-        //Debug.Log(ab.ToString());
-        //AssetBundle a = AssetBundle.LoadFromFile(Application.streamingAssetsPath+"/StreamingAssets");
-        //print(a);
-        luaEnv.DoString("require'Main'");
 
+        luaEnv.AddLoader(InitLoader);
+        Time.timeScale = 0;
+  
+        luaEnv.DoString("require'Main'");
         luaEnv.Global.Get("Init", out Init);
         luaEnv.Global.Get("MainLoop", out Loop);
         luaEnv.Global.Get("Quit", out Quit);
@@ -81,13 +68,13 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
+        print("c#loop");
         if (luaEnv != null)
         {
             luaEnv.Tick();
             Loop();
         }
     }
-
     private void OnDestroy()
     {
         Quit();
@@ -100,8 +87,10 @@ public class Main : MonoBehaviour
     {
         if (File.Exists(Application.streamingAssetsPath + "/lua/" + path + ".lua.txt"))
             return Encoding.UTF8.GetBytes(File.ReadAllText(Application.streamingAssetsPath + "/lua/" + path + ".lua.txt"));
-        if (File.Exists(Application.streamingAssetsPath + "/lua/tools/" + path + ".lua.txt"))
+        else if (File.Exists(Application.streamingAssetsPath + "/lua/tools/" + path + ".lua.txt"))
             return Encoding.UTF8.GetBytes(File.ReadAllText(Application.streamingAssetsPath + "/lua/tools/" + path + ".lua.txt"));
+        else if (File.Exists(Application.streamingAssetsPath + "/lua/protobuf/" + path + ".lua.txt"))
+            return Encoding.UTF8.GetBytes(File.ReadAllText(Application.streamingAssetsPath + "/lua/protobuf/" + path + ".lua.txt"));
         return null;
     }
 }
