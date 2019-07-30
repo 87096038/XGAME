@@ -1,0 +1,39 @@
+﻿local Timer = require("Timer")
+
+local Battle={}
+
+function Battle:SetBattle(character,  initialWeapon)
+
+    self.character = character
+    --- 当前的武器
+    self.currentWeapon = initialWeapon
+    --- 所拥有的所有武器
+    self.Weapons={self.currentWeapon}
+
+    self.heath =  self.character.heath
+    ---用于计算射击CD
+    self.CDTime = 0
+
+    Timer:AddUpdateFuc(self, Battle.UpdateBattle)
+end
+
+function Battle:ChangeWeapon()
+
+end
+
+function Battle:AddWeapon()
+
+end
+
+function Battle:UpdateBattle()
+    self.CDTime = self.CDTime + Timer.deltaTime
+    if UE.Input.GetMouseButton(0) and self.CDTime >=  self.currentWeapon.shootCDTime then
+
+        self.CDTime = 0
+        self.currentWeapon:Shoot()
+    elseif UE.Input.GetMouseButtonDown(1) then
+        self:ChangeWeapon()
+    end
+end
+
+return Battle

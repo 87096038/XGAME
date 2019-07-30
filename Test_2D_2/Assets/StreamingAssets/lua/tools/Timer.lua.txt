@@ -1,4 +1,22 @@
-﻿
+﻿--[[local util = require 'xlua.util'
+local co
+local t_fun = util.cs_generator(function()
+    print("StartCoroutine ")
+    for i = 1, 10 do
+        coroutine.yield(CS.UnityEngine.WaitForSeconds(1))
+        print('Wait for 1 seconds')
+
+        if i == 3 then
+            print("StopCoroutine")
+            print(co)
+            self:StopCoroutine(co)
+        end
+    end
+end)
+print(t_fun)
+co = CS.XLua.Cast.IEnumerator(t_fun)
+self:StartCoroutine(co)
+--]]
 local Timer={}
 
 function Timer:Init()

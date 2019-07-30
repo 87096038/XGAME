@@ -1,26 +1,47 @@
 ﻿local Timer = require("Timer")
-
-local Character=Class("character_base", require("character_base"))
+local ResourceMgr = require("ResourceManager")
+local Character=Class("Character", require("character_base"))
 
 function Character:cotr()
-
-    self.rigidbody2d=self.gameobject:GetComponent("Rigidbody2D")
+    ---gameobject---
+    ---self.gameobject=ResourceMgr:GetGameObject("assetbundle/prefabs/character/ruby.ab", "ruby")
+    self.gameobject = ResourceMgr:GetGameObject("Prefabs/Ruby")
+    self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
+    self.transform = self.gameobject:GetComponent("Transform")
     self.speed = 5
+    self.animatior = self.gameobject:GetComponent("Animator")
+
+    self.Left = UE.Vector3(-1, 1, 1)
+    self.Right = UE.Vector3(1, 1, 1)
+
+    ---state---
+    self.heath = 100
+
 
     Timer:AddUpdateFuc(self, self.update)
 end
 
+
 function Character:update()
 
-    local horizontal = CS.UnityEngine.Input.GetAxisRaw("Horizontal")
-    local vertical = CS.UnityEngine.Input.GetAxisRaw("Vertical")
+    local horizontal = UE.Input.GetAxisRaw("Horizontal")
+    local vertical = UE.Input.GetAxisRaw("Vertical")
 
-    local position = self.rigidbody2d.position
+    if horizontal ~= 0 or vertical ~= 0 then
+        self.animatior:SetFloat("Speed", 0.2)
+        if horizontal > 0 then
+            self.transform.localScale = self.Right
+        elseif horizontal < 0 then
+            self.transform.localScale = self.Left
+        end
+        local position = self.rigidbody2d.position
+        position.x = position.x + self.speed * horizontal * Timer.deltaTime
+        position.y = position.y + self.speed * vertical * Timer.deltaTime
 
-    position.x = position.x + self.speed * horizontal * Timer.deltaTime
-    position.y = position.y + self.speed * vertical * Timer.deltaTime
-
-    self.rigidbody2d:MovePosition(position)
+        self.rigidbody2d:MovePosition(position)
+    else
+        self.animatior:SetFloat("Speed", 0)
+    end
 end
 
 return Character

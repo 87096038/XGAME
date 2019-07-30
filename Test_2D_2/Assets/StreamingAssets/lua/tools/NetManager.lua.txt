@@ -1,0 +1,75 @@
+
+local NetManager = {}
+
+local socket = require("socket")
+local pb = require('pb')
+local protoc = require('protoc')
+
+protoc:loadfile("Assets/StreamingAssets/lua/tools/person.proto")
+
+--local data={
+--    userName="hahaha",
+--    password="123456"
+--}
+--assert(protoc:load [[
+--        message Phone {
+--            optional string name        = 1;
+--            optional int64  phonenumber = 2;
+--        }
+--        message Person {
+--            optional string name     = 1;
+--            optional int32  age      = 2;
+--            optional string address  = 3;
+--            repeated Phone  contacts = 4;
+--        } ]])
+local data = {
+    name = 'ilse',
+    age  = 18,
+    contacts = {
+        { name = 'alice', phonenumber = 12312341234 },
+        { name = 'bob',   phonenumber = 45645674567 }
+    }
+}
+
+local bytes = assert(pb.encode('Person', data))
+print(pb.tohex(bytes))
+local data2 = assert(pb.decode('Person', bytes))
+print(data2.name)
+print(data2.age)
+
+---以上为测试代码
+---
+function NetManager:Init()
+    if not socket then
+        print("load socket module failed.")
+    else
+        print("load socket module successful.")
+    end
+end
+
+---建立连接
+function NetManager:Connect(ip, port)
+    self.client = socket.connect(ip, port)
+    if not self.client then
+        print("connect server failed.")
+    else
+        self.client:settimeout(1)
+    end
+
+end
+
+---发送消息
+function NetManager:SendMessage(message)
+    self.client:send(message)
+end
+
+----接收消息
+function NetManager:ReceiveMessage()
+    if self.client then
+        local recvstr, err = self.client:receive()
+        print("recvstr, err:", recvstr, err)
+    end
+end
+
+NetManager:Init()
+return NetManager

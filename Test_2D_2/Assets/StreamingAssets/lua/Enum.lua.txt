@@ -21,7 +21,10 @@ RoomType={born=1, normal=2, treasure=3, shop=4, boss=5, eggs=6}
 EnemyType={normal_pistol=1, normal_spear=2, normal_shotgun=3, normal_rifle=4}
 
 ---sniper_rifle: 狙击枪    laser_gun: 激光枪
-WeaponType={ormal_pistol=1, normal_rifle=2, normal_shotgun=3, normal_sniper_rifle=4, normal_Laser_gun=5}
+WeaponType={normal_pistol=1, normal_rifle=2, normal_shotgun=3, normal_sniper_rifle=4, normal_Laser_gun=5}
+
+---single: 单发   multiple: 连发
+ShootType={single=1, multiple=2}
 
 ---这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 MessageType={ChangeScene="ChangeScene"}

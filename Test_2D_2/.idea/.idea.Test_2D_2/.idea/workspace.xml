@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8dd2a44d-fdec-41bb-9631-6632218cdd1a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyHitUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyIdleUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyLaunchUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/AnimationClips/Player/RubyRunUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/Ruby.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Animations/Ruby.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/JambiSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/JambiSheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/Materials/Ruby.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/Materials/Ruby.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/MrClockworkSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/MrClockworkSheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/Ruby.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/Ruby.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/RubySheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Characters/RubySheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/Damageable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/Damageable.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/DrainCover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/DrainCover.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorBricksToGrassCorner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorBricksToGrassCorner.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorBricksToGrassSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorBricksToGrassSquare.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorGrassToBricksCorner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorGrassToBricksCorner.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorGrassToBricksSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorGrassToBricksSquare.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorWaterRoundCorners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorWaterRoundCorners.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorWaterSquareCorners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/FloorWaterSquareCorners.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/GrassSmall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/GrassSmall.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/House.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/House.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/LotusFlower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/LotusFlower.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/MetalCube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/MetalCube.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/Mushrooms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/Mushrooms.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TelegraphPost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TelegraphPost.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeBig1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeBig1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeBig2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeBig2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeBig3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeBig3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeForeground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeForeground.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeLittle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeLittle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeShadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Environmnent/TreeShadow.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassCorner_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorBricksToGrassSquare_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksCorner_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorGrassToBricksSquare_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterRoundCorners_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/FloorWaterSquareCorners_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/GamePalette.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/GamePalette.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/New Tile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/New Tile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/Tile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/Tiles/Tile.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/CharacterPortrait.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/CharacterPortrait.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/NPCPortrait.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/NPCPortrait.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIBulletIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIBulletIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIDialogueBox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIDialogueBox.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIHealthBar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIHealthBar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIHealthFrame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/UI/UIHealthFrame.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/CogBullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/CogBullet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/CollectibleAmmo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/CollectibleAmmo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/CollectibleHealth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/CollectibleHealth.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/Materials/CollectibleHealth.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/Materials/CollectibleHealth.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/ParticleSpriteAtlas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/ParticleSpriteAtlas.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/Shadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Art/Sprites/VFX/Shadow.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/2D MUSIC LOOP.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/2D MUSIC LOOP.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Collectable.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Collectable.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Footsteps2a.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Footsteps2a.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Hit for enemy 1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Hit for enemy 1.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Hit for enemy 2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Hit for enemy 2.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Player Hit.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Player Hit.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Quest Complete.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Quest Complete.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Robot Fixed.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Robot Fixed.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Robot Walking_Broken.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Robot Walking_Broken.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Throw Cog.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Audio/Throw Cog.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Ruby.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/bg.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scenes/DemoScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scenes/DemoScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scenes/Title.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/BindUnityFuc.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/BuildInInit.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Collect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Collect.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/StaticList.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/Test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Main.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/PlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/ExtendedMethods.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/Util.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/assetbundle/prefabs/character/ruby.ab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/assetbundle/prefabs/character/ruby.ab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/assetbundle/prefabs/character/ruby.ab.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/assetbundle/prefabs/character/ruby.ab.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Enum.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Enum.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character_base.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character_base.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/Timer.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/Timer.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/person.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/person.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1280">
+              <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
+              <folding>
+                <marker date="1564136357554" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+                <marker date="1564136357554" expanded="true" signature="688:766" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="721:764" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="787:2323" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="825:1052" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="875:920" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="950:1046" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="976:1036" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1087:1157" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1131:1151" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1194:1266" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1240:1260" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1301:1371" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1345:1365" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1408:1480" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1454:1474" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1519:1593" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1567:1587" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1628:1698" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1672:1692" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1735:1807" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1781:1801" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1843:1914" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1888:1908" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1952:2025" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="1999:2019" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="2062:2134" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="2108:2128" ph="{...}" />
+                <marker date="1564136357554" expanded="true" signature="2144:2321" ph="/* public class IEnumerator : Any&lt;System.Collections.IEnumerator&gt; ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+              <folding>
+                <marker date="1564455237288" expanded="false" signature="6:197" ph="..." />
+                <marker date="1564455237288" expanded="true" signature="239:2991" ph="{...}" />
+                <marker date="1564455237288" expanded="false" signature="382:968" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="400:962" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="445:922" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="548:690" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="711:908" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="1156:1229" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="1247:1739" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="1766:1898" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="1825:1892" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="1927:2011" ph="{...}" />
+                <marker date="1564455237288" expanded="true" signature="2051:2989" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <folding>
+                <marker date="1564455017008" expanded="true" signature="6:74" ph="..." />
+                <marker date="1564455017008" expanded="true" signature="114:913" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="194:215" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="271:335" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="390:453" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="508:571" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="623:685" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="737:798" ph="{...}" />
+                <marker date="1564455017008" expanded="true" signature="850:911" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="118" column="10" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="118" selection-end-column="10" />
+              <folding>
+                <marker date="1563873227728" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+                <marker date="1563873227728" expanded="false" signature="680:778" ph="..." />
+                <marker date="1563873227728" expanded="true" signature="798:3627" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="841:1081" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="874:933" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="987:1046" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1104:1145" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1185:1202" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1260:3112" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1309:1330" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1354:1413" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1547:1766" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1696:1745" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1797:1838" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1872:1916" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="1989:2091" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2172:2258" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2321:2466" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2411:2462" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2510:2579" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2633:2683" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2745:2769" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2802:2836" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2863:2956" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2899:2927" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="2982:3017" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3051:3109" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3154:3185" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3247:3625" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3308:3381" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3438:3515" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3582:3622" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="3667:8031" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="7820:7878" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="7930:7984" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="7955:7981" ph="{...}" />
+                <marker date="1563873227728" expanded="true" signature="8003:8029" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collect.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding>
+                <marker date="1563873227668" expanded="false" signature="6:78" ph="..." />
+                <marker date="1563873227668" expanded="true" signature="116:421" ph="{...}" />
+                <marker date="1563873227668" expanded="true" signature="188:209" ph="{...}" />
+                <marker date="1563873227668" expanded="true" signature="267:288" ph="{...}" />
+                <marker date="1563873227668" expanded="true" signature="337:414" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2352">
+              <caret line="147" column="30" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+              <folding>
+                <marker date="1564452016959" expanded="false" signature="6:139" ph="..." />
+                <marker date="1564452016959" expanded="true" signature="171:1059" ph="{...}" />
+                <marker date="1564452016959" expanded="true" signature="270:779" ph="{...}" />
+                <marker date="1564452016959" expanded="true" signature="882:960" ph="{...}" />
+                <marker date="1564452016959" expanded="true" signature="892:954" ph="/* typeof(XLua.Cast.IEnumerator), ... */" />
+                <marker date="1564452016959" expanded="true" signature="1047:1055" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>luaopen</find>
+      <find>luaopen_p</find>
+      <find>AddBuildin</find>
+      <find>loada</find>
+      <find>testobj</find>
+      <find>TestDelegate</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Src/LuaEnv.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine_Runner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/4c/76439e0a/File.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D97623-D556-49FE-AEC4-09BBD2AEC743/e0/55038364/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D97623-D556-49FE-AEC4-09BBD2AEC743/7d/c87e814e/Collision2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Src/LuaDLL.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/BindUnityFuc.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/LuaDLL.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Lua.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/BuildInInit.cs" />
+        <option value="$PROJECT_DIR$/Assets/XLua/Src/LuaDLL.cs" />
+        <option value="$PROJECT_DIR$/Assets/XLua/Src/LuaEnv.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/Test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/Util.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/NetManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/StaticList.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Main.cs" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="71" />
+    <option name="y" value="126" />
+    <option name="width" value="1620" />
+    <option name="height" value="899" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+              <item name="Resources" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+              <item name="Resources" type="1045f7f1:UnityExplorerNode" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+              <item name="Resources" type="1045f7f1:UnityExplorerNode" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Editor" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+              <item name="Resources" type="1045f7f1:UnityExplorerNode" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Tools" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+        <option name="show-project-names" value="true" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8dd2a44d-fdec-41bb-9631-6632218cdd1a" name="Default Changelist" comment="" />
+      <created>1563873390800</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563873390800</updated>
+      <workItem from="1563873392276" duration="6000" />
+      <workItem from="1563874005198" duration="3539000" />
+      <workItem from="1563931842224" duration="13496000" />
+      <workItem from="1564042808593" duration="7000" />
+      <workItem from="1564042819090" duration="14944000" />
+      <workItem from="1564386663302" duration="1624000" />
+      <workItem from="1564395851325" duration="4415000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="38031000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="99" y="109" width="1620" height="899" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26869455" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Performance Profiler" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info anchor="bottom" id="Unity" order="15" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/4c/76439e0a/File.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Gen/SystemCollectionsGenericDictionary2SystemStringMessageDeliveryWrap.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/BindUnityFuc.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="22" />
+          <folding>
+            <marker date="1563873227686" expanded="false" signature="6:30" ph="..." />
+            <marker date="1563873227686" expanded="true" signature="50:2108" ph="{...}" />
+            <marker date="1563873227686" expanded="true" signature="109:2106" ph="{...}" />
+            <marker date="1563873227686" expanded="true" signature="245:265" ph="{...}" />
+            <marker date="1563873227686" expanded="true" signature="331:480" ph="{...}" />
+            <marker date="1563873227686" expanded="true" signature="375:470" ph="{...}" />
+            <marker date="1563873227686" expanded="true" signature="502:2100" ph="{...}" />
+            <marker date="1563873227686" expanded="true" signature="577:951" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Gen/SystemObjectWrap.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/LuaDLL.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Lua.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine_Runner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <marker date="1563873227683" expanded="false" signature="6:104" ph="..." />
+            <marker date="1563873227683" expanded="true" signature="124:516" ph="{...}" />
+            <marker date="1563873227683" expanded="true" signature="176:188" ph="{...}" />
+            <marker date="1563873227683" expanded="true" signature="230:514" ph="{...}" />
+            <marker date="1563873227683" expanded="true" signature="307:508" ph="{...}" />
+            <marker date="1563873227683" expanded="true" signature="333:498" ph="{...}" />
+            <marker date="1563873227683" expanded="true" signature="400:483" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/protoc.lua.txt" />
+    <entry file="file://$USER_HOME$/Downloads/xLua-master2/Assets/XLua/Examples/01_Helloworld/Helloworld.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/LuaDLL.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="182" column="38" selection-start-line="182" selection-start-column="38" selection-end-line="182" selection-end-column="38" />
+          <folding>
+            <marker date="1564105002013" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+            <marker date="1564105002013" expanded="true" signature="695:26433" ph="{...}" />
+            <marker date="1564105002013" expanded="false" signature="709:797" ph="..." />
+            <marker date="1564105002013" expanded="true" signature="1361:26431" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="2454:2521" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="2587:2659" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="2717:2781" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="2840:2905" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="2983:3072" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="4094:4137" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="4775:4816" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6372:6430" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6615:6675" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6865:6931" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7185:7236" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7611:7678" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="8056:8121" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="8621:8857" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10103:10960" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10233:10900" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10601:10851" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10917:10956" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="11919:12726" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="11958:12018" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="12035:12716" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="12984:13760" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13023:13083" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13100:13750" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13825:14033" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13864:13924" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13941:14023" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="14109:14620" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="14179:14585" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="14331:14571" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="15126:15225" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="15488:15632" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="15956:16032" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="22736:22944" ph="/* [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)] ... */" />
+            <marker date="1564105002013" expanded="true" signature="25393:25475" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1600">
+          <caret line="204" column="58" selection-start-line="204" selection-start-column="58" selection-end-line="204" selection-end-column="58" />
+          <folding>
+            <marker date="1563873227687" expanded="false" signature="6:30" ph="..." />
+            <marker date="1563873227687" expanded="true" signature="50:12328" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="93:1025" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="136:182" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="232:278" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="341:443" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="521:586" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="615:666" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="729:800" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="841:883" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="925:945" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="998:1019" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1056:1151" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1099:1145" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1198:1460" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1251:1295" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1324:1377" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1403:1454" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1505:1865" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1537:1656" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1685:1757" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1785:1859" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1898:1911" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="1962:2088" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2007:2082" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2178:2479" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2224:2295" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2329:2374" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2417:2473" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2522:2923" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2592:2638" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2688:2731" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2774:2830" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2861:2917" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="2972:3148" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="3026:3070" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="3100:3142" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="3194:12326" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="3261:11552" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="3562:3622" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="3827:3895" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="10809:10902" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="10937:11050" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="11581:12233" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="11861:11925" ph="{...}" />
+            <marker date="1563873227687" expanded="true" signature="12299:12320" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/BuildInInit.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Collect.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/LuaEnv.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="443" selection-start-line="443" selection-end-line="443" />
+          <folding>
+            <marker date="1564105002013" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+            <marker date="1564105002013" expanded="false" signature="821:932" ph="..." />
+            <marker date="1564105002013" expanded="true" signature="956:24449" ph="{...}" />
+            <marker date="1564105002013" expanded="false" signature="969:1014" ph="..." />
+            <marker date="1564105002013" expanded="true" signature="1053:24447" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="1263:1526" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="1289:1516" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="1350:1473" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="1773:1869" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="1799:1859" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="1946:7095" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="2025:2220" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="3175:3281" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6030:6123" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6380:6473" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6667:6861" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="6745:6843" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7253:7439" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7296:7396" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7471:7562" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7497:7552" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7657:8590" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="7850:8003" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="8257:8375" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="8685:8832" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="8934:9021" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="9118:10140" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="9450:9972" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="9505:9639" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="9707:9872" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10237:10379" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10448:11345" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10699:10801" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="10983:11127" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="11397:11460" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="11601:11714" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="11842:12501" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="12061:12250" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="12545:12585" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="12621:13078" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13149:13386" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13437:14075" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="13655:13793" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="14132:14811" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="14845:14935" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="15049:15167" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="20127:20322" ph="/* loader : CustomLoader�� filepath��������ref���ͣ�������require�Ĳ����������Ҫ֧�ֵ��ԣ���Ҫ�����ʵ·���� ... */" />
+            <marker date="1564105002013" expanded="true" signature="20373:20432" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="20609:20862" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="20677:20806" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="20872:21243" ph="/* The garbage-collector pause controls how long the collector waits before starting a new cycle. ... */" />
+            <marker date="1564105002013" expanded="true" signature="21270:21938" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="21296:21660" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="21676:21928" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="21948:22391" ph="/* The step multiplier controls the relative speed of the collector relative to memory allocation. ... */" />
+            <marker date="1564105002013" expanded="true" signature="22420:23094" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="22446:22814" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="22830:23084" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="23124:23347" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="23377:23597" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="23630:23853" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="23891:24126" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="24153:24441" ph="{...}" />
+            <marker date="1564105002013" expanded="true" signature="24179:24431" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/ExtendedMethods.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/Test.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/StaticList.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/NetManager.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/PlayerController.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/Util.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Main.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1280">
+          <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
+          <folding>
+            <marker date="1564136357554" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+            <marker date="1564136357554" expanded="true" signature="688:766" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="721:764" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="787:2323" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="825:1052" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="875:920" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="950:1046" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="976:1036" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1087:1157" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1131:1151" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1194:1266" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1240:1260" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1301:1371" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1345:1365" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1408:1480" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1454:1474" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1519:1593" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1567:1587" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1628:1698" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1672:1692" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1735:1807" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1781:1801" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1843:1914" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1888:1908" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1952:2025" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="1999:2019" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="2062:2134" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="2108:2128" ph="{...}" />
+            <marker date="1564136357554" expanded="true" signature="2144:2321" ph="/* public class IEnumerator : Any&lt;System.Collections.IEnumerator&gt; ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="147" column="30" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D97623-D556-49FE-AEC4-09BBD2AEC743/7d/c87e814e/Collision2D.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D97623-D556-49FE-AEC4-09BBD2AEC743/e0/55038364/Collider2D.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding>
+            <marker date="1564452016959" expanded="false" signature="6:139" ph="..." />
+            <marker date="1564452016959" expanded="true" signature="171:1059" ph="{...}" />
+            <marker date="1564452016959" expanded="true" signature="270:779" ph="{...}" />
+            <marker date="1564452016959" expanded="true" signature="882:960" ph="{...}" />
+            <marker date="1564452016959" expanded="true" signature="892:954" ph="/* typeof(XLua.Cast.IEnumerator), ... */" />
+            <marker date="1564452016959" expanded="true" signature="1047:1055" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <marker date="1563873227668" expanded="false" signature="6:78" ph="..." />
+            <marker date="1563873227668" expanded="true" signature="116:421" ph="{...}" />
+            <marker date="1563873227668" expanded="true" signature="188:209" ph="{...}" />
+            <marker date="1563873227668" expanded="true" signature="267:288" ph="{...}" />
+            <marker date="1563873227668" expanded="true" signature="337:414" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="118" column="10" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="118" selection-end-column="10" />
+          <folding>
+            <marker date="1563873227728" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+            <marker date="1563873227728" expanded="false" signature="680:778" ph="..." />
+            <marker date="1563873227728" expanded="true" signature="798:3627" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="841:1081" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="874:933" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="987:1046" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1104:1145" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1185:1202" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1260:3112" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1309:1330" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1354:1413" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1547:1766" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1696:1745" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1797:1838" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1872:1916" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="1989:2091" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2172:2258" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2321:2466" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2411:2462" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2510:2579" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2633:2683" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2745:2769" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2802:2836" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2863:2956" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2899:2927" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="2982:3017" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3051:3109" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3154:3185" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3247:3625" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3308:3381" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3438:3515" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3582:3622" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="3667:8031" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="7820:7878" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="7930:7984" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="7955:7981" ph="{...}" />
+            <marker date="1563873227728" expanded="true" signature="8003:8029" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <marker date="1564455017008" expanded="true" signature="6:74" ph="..." />
+            <marker date="1564455017008" expanded="true" signature="114:913" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="194:215" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="271:335" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="390:453" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="508:571" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="623:685" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="737:798" ph="{...}" />
+            <marker date="1564455017008" expanded="true" signature="850:911" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+          <folding>
+            <marker date="1564455237288" expanded="false" signature="6:197" ph="..." />
+            <marker date="1564455237288" expanded="true" signature="239:2991" ph="{...}" />
+            <marker date="1564455237288" expanded="false" signature="382:968" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="400:962" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="445:922" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="548:690" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="711:908" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="1156:1229" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="1247:1739" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="1766:1898" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="1825:1892" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="1927:2011" ph="{...}" />
+            <marker date="1564455237288" expanded="true" signature="2051:2989" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

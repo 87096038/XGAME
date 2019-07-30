@@ -1,12 +1,12 @@
 --[[
     管理资源加载
 --]]
-PathMgr = require("PathManager")
-MC = require("MessageCenter")
+local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
 
 local ResourceManager={}
 
-ResourceManager.IS_RELEASE_MODE = true
+ResourceManager.IS_RELEASE_MODE = false
 
 function ResourceManager:Init()
 
@@ -21,9 +21,9 @@ function ResourceManager:Init()
     ---未使用物体的缓存池 path - table<gameobject>
     self.ObjectPool={}
     ---池中物体所放置的位置(是通过将物体移动到看不到的地方以实现destroy的效果)
-    self.placePoint = CS.UnityEngine.Vector3(5000, 5000, 5000)
+    self.placePoint = UE.Vector3(5000, 5000, 5000)
     ---manifest的路径
-    self.manifestPath = CS.UnityEngine.Application.streamingAssetsPath.."/StreamingAssets"
+    self.manifestPath = UE.Application.streamingAssetsPath.."/StreamingAssets"
     ---初始化manifest
     self.manifest = self:InitManifest()
 
@@ -46,16 +46,16 @@ function ResourceManager:GetGameObject(path, name, parentTransform, position, po
             go = table.remove(self.ObjectPool[CachePath])
             local transf = go:GetComponent("Transform")
             transf:SetParent(parentTransform)
-            transf:Translate(position or CS.UnityEngine.Vector3.zero, positionRelativeTo or CS.UnityEngine.Space.World)
+            transf:Translate(position or UE.Vector3.zero, positionRelativeTo or UE.Space.World)
             if rotation then
-                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or CS.UnityEngine.Space.World)
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)
             end
         end
         print(go)
     end
     ---如果池中没有就新实例化一个
     if not go then
-        asset = self:Load(path, name)
+        local asset = self:Load(path, name)
         go = self:Instantiate(asset, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
     end
     self.GameObjectMap[go] = CachePath
@@ -114,17 +114,17 @@ function ResourceManager:Instantiate(original, parentTransform, position, positi
             print("the parent gameobject is null!")
             return nil
         else
-            go = CS.UnityEngine.Object.Instantiate(original, parentTransform)
+            go = UE.Object.Instantiate(original, parentTransform)
             local transf = go:GetComponent("Transform")
             if position then
-                transf:Translate(position, positionRelativeTo or CS.UnityEngine.Space.World)
+                transf:Translate(position, positionRelativeTo or UE.Space.World)
             end
             if rotation then
-                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or CS.UnityEngine.Space.World)
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)
             end
         end
     else
-        go = CS.UnityEngine.Object.Instantiate(original, position or CS.UnityEngine.Vector3.zero, rotation or CS.UnityEngine.Quaternion.identity)
+        go = UE.Object.Instantiate(original, position or UE.Vector3.zero, rotation or UE.Quaternion.identity)
     end
     return go
 end
@@ -132,14 +132,14 @@ end
 ------------------------------------ 内部使用 ---------------------------------
 ---初始化manifest依赖， 返回manifest
 function ResourceManager:InitManifest()
-    local manifestAB = CS.UnityEngine.AssetBundle.LoadFromFile(self.manifestPath)
+    local manifestAB = UE.AssetBundle.LoadFromFile(self.manifestPath)
     local manifest = manifestAB:LoadAsset("AssetBundleManifest");
     return manifest
 end
 
 ---通过AB包路径 和 要加载的资源名，生成一个唯一的资源路径(这个路径并不实际存在)
 function ResourceManager:GetFullABAssetPath(path, name)
-    pre, suffix = PathMgr:RemoveSuffix(path)
+    local pre, suffix = PathMgr:RemoveSuffix(path)
     return pre.."/"..name..suffix
 end
 
@@ -147,12 +147,12 @@ end
 ---返回: 封装后的AB(包含一个ab包 和一个引用计数)
 function ResourceManager:LoadAssetBundle(path)
 
-    local Path = CS.UnityEngine.Application.streamingAssetsPath.."/"..path
+    local Path = UE.Application.streamingAssetsPath.."/"..path
     local ab = self.AssetBundleCacheMap[path]
     if ab then
         ab.refCount = ab.refCount + 1
     else
-        local cache = CS.UnityEngine.AssetBundle.LoadFromFile(Path)
+        local cache = UE.AssetBundle.LoadFromFile(Path)
         ab = {assetBundle=cache, refCount=1}
         self.AssetBundleCacheMap[path]=ab
     end
@@ -186,7 +186,7 @@ end
 function ResourceManager:LoadResource(path)
     local asset = self.AssetCacheMap[path]
     if not asset then
-        asset = CS.UnityEngine.Resources.Load(path)
+        asset = UE.Resources.Load(path)
         self.AssetCacheMap[path] = asset
     end
     print("LoadResource: "..path)
@@ -195,7 +195,7 @@ end
 
 ---释放AB包
 function ResourceManager:ReleaseAssetBundle(path)
-    local ab = AssetBundleCacheMap[path]
+    local ab = self.AssetBundleCacheMap[path]
     if ab then
         ab.refCount = ab.refCount - 1
         if ab.refCount <= 0 then
@@ -216,7 +216,7 @@ function ResourceManager:ReleaseGameObjectPool()
     for _, t in pairs(self.ObjectPool) do
         for _, go in pairs(t)do
             if go then
-                CS.UnityEngine.GameObject.Destroy(go)
+                UE.GameObject.Destroy(go)
             end
         end
     end

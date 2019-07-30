@@ -5,50 +5,19 @@
 --package.path = package.path .. ';../protobuf/?.lua.txt'
 --package.cpath = package.cpath .. ';../protobuf/?.so'
 
-local pb = require 'pb'
-local protoc = require 'protoc'
+UE = CS.UnityEngine
 
-assert(protoc:load [[
-        message Phone {
-            optional string name        = 1;
-            optional int64  phonenumber = 2;
-        }
-        message Person {
-            optional string name     = 1;
-            optional int32  age      = 2;
-            optional string address  = 3;
-            repeated Phone  contacts = 4;
-        } ]])
-local data = {
-    name = 'ilse',
-    age  = 18,
-    contacts = {
-        { name = 'alice', phonenumber = 12312341234 },
-        { name = 'bob',   phonenumber = 45645674567 }
-    }
-}
---[[
-local bytes = assert(pb.encode('Person', data))
-print(pb.tohex(bytes))
-local data2 = assert(pb.decode('Person', bytes))
-print(data2.name)
-print(data2.age)
-print(data2.address)
-print(data2.contacts[1].name)
-print(data2.contacts[1].phonenumber)
-print(data2.contacts[2].name)
-print(data2.contacts[2].phonenumber)
---]]
----以上为测试代码
 ---需要先运行的module
 require("Enum")
+local net=require("NetManager")
 local Timer = require("Timer")
 
+local Battle = require("Battle")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local SceneMgr = require("SceneManager")
 local MC = require("MessageCenter")
-
+local Camera = require("CameraFollowing")
 -------------------------------
 --初始化
 function Init()
@@ -58,6 +27,7 @@ end
 --主循环
 function MainLoop()
     Timer:Update()
+    --print(UE.Input.mousePosition)
 end
 
 --退出游戏处理
@@ -66,14 +36,22 @@ function Quit()
 end
 ------------------------------
 
-Engine=CS.UnityEngine
-Main=Engine.GameObject.Find("Main"):GetComponent("Main")
+Main=UE.GameObject.Find("Main"):GetComponent("Main")
 
 function InitTitle()
-    require("Character"):new()
+
+    --local title = ResourceMgr:GetGameObject("Prefabs/UI_Title", nil, Main.UIRoot.transform)
+
+    --SceneMgr:LoadScene(1)
+    --local go = UE.GameObject()
+    local character = require("Character"):new()
+    Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+    Battle:SetBattle(character, require("Normal_pistol").new())
+    --net:Connect("127.0.0.1", 10000)
+    --net:SendMessage("hello")
     --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
     --ResourceMgr:DestroyObject(go)
-    --SceneMgr:LoadScene(1)
+    --
 
     --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
 
@@ -150,7 +128,7 @@ function Class(className, super)
         --    instance[k] = v
         --end
 
-        --使用以下代码能够实现表面上的实例化，不浪费空间，但是在传self时要注意
+        --使用以下代码能够实现表面上的实例化，不浪费空间，但是在 传self时要注意
         local instance = setmetatable( {}, {__index=TheClass})
 
         local super = getmetatable(instance)["__index"]["super"]
