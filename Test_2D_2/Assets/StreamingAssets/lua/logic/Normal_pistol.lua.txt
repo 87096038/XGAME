@@ -1,8 +1,11 @@
 ﻿local ResourceMgr = require("ResourceManager")
+local PathMgr = require("PathManager")
 
 local Normal_pistol=Class("Normal_pistol", require("Weapon_base"))
 
 function Normal_pistol:cotr()
+
+    --self.
 
     self.demage = 10
     --- 拥有子弹总数
@@ -20,17 +23,23 @@ function Normal_pistol:cotr()
 end
 
 function Normal_pistol:Shoot()
-    local bullet = ResourceMgr:GetGameObject("Prefabs/Bullet")
+    local bullet = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1)
     local collisionClass = bullet:GetComponent("Collision")
+
+    print(collisionClass.CollisionHandle)
     if collisionClass.CollisionHandle then
         collisionClass.CollisionHandle = collisionClass.CollisionHandle + Normal_pistol.OnCollision
     else
         collisionClass.CollisionHandle = Normal_pistol.OnCollision
     end
+    --bullet:GetComponent("BoxCollider2D").enabled = true
+
 end
 
 function Normal_pistol:OnCollision(type, other)
-    print("damage")
+    if type == "TriggerEnter2D" and other.gameObject.layer == 10 then
+
+    end
 end
 
 return Normal_pistol

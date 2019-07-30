@@ -1,12 +1,11 @@
 --[[
     管理资源加载
 --]]
+
 local PathMgr = require("PathManager")
 local MC = require("MessageCenter")
 
 local ResourceManager={}
-
-ResourceManager.IS_RELEASE_MODE = false
 
 function ResourceManager:Init()
 
@@ -36,7 +35,7 @@ end
 ---name: 若路径为ab包, 所需资源的名称
 function ResourceManager:GetGameObject(path, name, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
     local go, CachePath
-    if ResourceManager.IS_RELEASE_MODE then
+    if IS_RELEASE_MODE then
         CachePath = self:GetFullABAssetPath(path, name)
     else
         CachePath = path
@@ -90,7 +89,7 @@ end
 function ResourceManager:Load(path, name)
 
     local asset
-    if self.IS_RELEASE_MODE then
+    if IS_RELEASE_MODE then
         local ab = self:LoadAssetBundle(path)
         asset = self:LoadAsset(ab, path, name)
     else

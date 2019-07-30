@@ -20,6 +20,9 @@ public static class StaticList
         typeof(Space),
         typeof(Stack),
         typeof(TextAsset),
+        //typeof(string),
+        //typeof(System.Object),
+        //typeof(Action<System.Object, string, System.Object>),
         
         typeof(ExtendedMethods),
         typeof(SceneManager),
