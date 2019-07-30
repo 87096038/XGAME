@@ -57,7 +57,9 @@ public class Main : MonoBehaviour
         DontDestroyOnLoad(UIRoot);
 
         luaEnv = new LuaEnv();
-
+        //GameObject go = new GameObject("123");
+        //Transform a = go.GetComponent<Transform>();
+        //a.Translate(new Vector3(100, 100, 100), Space.World);
         luaEnv.AddLoader(InitLoader);
         //GameObject go = new GameObject("123");
         luaEnv.DoString("require'Main'");
@@ -69,7 +71,6 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
-        print("c#loop");
         if (luaEnv != null)
         {
             luaEnv.Tick();

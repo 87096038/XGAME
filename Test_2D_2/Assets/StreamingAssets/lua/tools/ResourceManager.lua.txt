@@ -34,7 +34,7 @@ end
 ---path: StreamingAssets下或Resources下的路径
 ---name: 若路径为ab包, 所需资源的名称
 function ResourceManager:GetGameObject(path, name, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
-    local go, CachePath
+    local go, CachePath, isNew
     if IS_RELEASE_MODE then
         CachePath = self:GetFullABAssetPath(path, name)
     else
@@ -45,25 +45,34 @@ function ResourceManager:GetGameObject(path, name, parentTransform, position, po
             go = table.remove(self.ObjectPool[CachePath])
             local transf = go:GetComponent("Transform")
             transf:SetParent(parentTransform)
-            transf:Translate(position or UE.Vector3.zero, positionRelativeTo or UE.Space.World)
+
+            if positionRelativeTo == UE.Space.Self then
+                transf.localPosition = position or UE.Vector3.zero
+            else
+                transf.position = position or UE.Vector3.zero
+            end
+
             if rotation then
                 transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)
             end
+            isNew = false
         end
-        print(go)
     end
     ---如果池中没有就新实例化一个
     if not go then
         local asset = self:Load(path, name)
         go = self:Instantiate(asset, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
+        isNew = true
     end
     self.GameObjectMap[go] = CachePath
-    return go
+    return go, isNew
 end
 
 ---回收物体入池
 function ResourceManager:DestroyObject(gameObject)
+
     local path =  self.GameObjectMap[gameObject]
+
     trans =  gameObject:GetComponent("Transform")
     trans:SetParent(nil)
     trans:Translate(self.placePoint)
@@ -115,8 +124,10 @@ function ResourceManager:Instantiate(original, parentTransform, position, positi
         else
             go = UE.Object.Instantiate(original, parentTransform)
             local transf = go:GetComponent("Transform")
-            if position then
-                transf:Translate(position, positionRelativeTo or UE.Space.World)
+            if positionRelativeTo == UE.Space.Self then
+                transf.localPosition = position or UE.Vector3.zero
+            else
+                transf.position = position or UE.Vector3.zero
             end
             if rotation then
                 transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)

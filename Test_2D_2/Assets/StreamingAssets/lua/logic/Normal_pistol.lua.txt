@@ -23,22 +23,20 @@ function Normal_pistol:cotr()
 end
 
 function Normal_pistol:Shoot()
-    local bullet = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1)
-    local collisionClass = bullet:GetComponent("Collision")
-
-    print(collisionClass.CollisionHandle)
-    if collisionClass.CollisionHandle then
-        collisionClass.CollisionHandle = collisionClass.CollisionHandle + Normal_pistol.OnCollision
-    else
-        collisionClass.CollisionHandle = Normal_pistol.OnCollision
+    local bullet, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1)
+    if isNew then
+        local collisionClass = bullet:GetComponent("Collision")
+        if collisionClass.CollisionHandle then
+            collisionClass.CollisionHandle = collisionClass.CollisionHandle + Normal_pistol.OnCollision
+        else
+            collisionClass.CollisionHandle = Normal_pistol.OnCollision
+        end
     end
-    --bullet:GetComponent("BoxCollider2D").enabled = true
-
 end
 
 function Normal_pistol:OnCollision(type, other)
-    if type == "TriggerEnter2D" and other.gameObject.layer == 10 then
-
+    if type == "TriggerEnter2D" and other.gameObject.layer == 9 then
+        ResourceMgr:DestroyObject(self.gameObject)
     end
 end
 
