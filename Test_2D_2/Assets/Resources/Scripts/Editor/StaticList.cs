@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
+using UnityEngine.Networking;
 using XLua;
 using UnityEngine.SceneManagement;
 
@@ -20,9 +22,10 @@ public static class StaticList
         typeof(Space),
         typeof(Stack),
         typeof(TextAsset),
-        //typeof(string),
-        //typeof(System.Object),
-        //typeof(Action<System.Object, string, System.Object>),
+        typeof(Camera),
+        typeof(WaitForSeconds),
+        typeof(WWW),
+        typeof(UnityWebRequest),
         
         typeof(ExtendedMethods),
         typeof(SceneManager),
@@ -37,7 +40,7 @@ public static class StaticList
     public static List<Type> module_cs_call_lua_list = new List<Type>()
     {
         //typeof(XLua.Cast.IEnumerator),
-        //typeof(IEnumerator)
+        //typeof(System.Collections.IEnumerator)
     };
 
     [Hotfix]

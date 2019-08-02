@@ -1,7 +1,7 @@
 ﻿--[[
     用于传输信息
 --]]
-KeyValue = Class("KeyValue")
+local KeyValue = Class("KeyValue")
 
 function KeyValue:cotr(key, value)
     self.Key = key or ""

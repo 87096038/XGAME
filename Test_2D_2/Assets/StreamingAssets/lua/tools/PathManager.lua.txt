@@ -14,7 +14,7 @@ function PathManager:Init()
     else
         self.ResourcePath={
             Bullet_1="Prefabs/Bullet_1",
-            Character_1="Prefabs/Ruby",
+            Character_1="Prefabs/Character",
         }
     end
 

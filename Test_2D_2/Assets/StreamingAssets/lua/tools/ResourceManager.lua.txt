@@ -26,7 +26,7 @@ function ResourceManager:Init()
     ---初始化manifest
     self.manifest = self:InitManifest()
 
-    MC:AddListener(MessageType.ChangeScene, self.OnChangeScene)
+    MC:AddListener(Enum_MessageType.ChangeScene, self.OnChangeScene)
 end
 
 --------------------------------- 常用外部接口 ---------------------------
@@ -199,7 +199,6 @@ function ResourceManager:LoadResource(path)
         asset = UE.Resources.Load(path)
         self.AssetCacheMap[path] = asset
     end
-    print("LoadResource: "..path)
     return asset
 end
 

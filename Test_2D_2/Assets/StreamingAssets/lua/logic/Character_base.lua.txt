@@ -1,8 +1,8 @@
-﻿
+﻿local ResourceMgr = require("ResourceManager")
 local Character_base=Class("character_base")
 
 function Character_base:cotr()
-    self.state=CharacterBehaviorType.idle
+    self.state=Enum_CharacterBehaviorType.idle
 end
 
 ---from,to: 类型为CharacterBehaviorType枚举
@@ -15,7 +15,7 @@ function Character_base:Move()
 end
 
 function Character_base:Dead()
-    self.state = CharacterBehaviorType.dead
+    self.state = Enum_CharacterBehaviorType.dead
     ResourceMgr:DestroyObject(self.gameobject)
 end
 

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using XLua;
 using System.IO;
+using System.Net;
 using System.Text;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -58,10 +60,11 @@ public class Main : MonoBehaviour
 
         luaEnv = new LuaEnv();
         //GameObject go = new GameObject("123");
-        //Transform a = go.GetComponent<Transform>();
-        //a.Translate(new Vector3(100, 100, 100), Space.World);
+        //UnityWebRequest a;
+        
+        //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
+        //Camera.main.ScreenToWorldPoint(Input.mousePosition)
         luaEnv.AddLoader(InitLoader);
-        //GameObject go = new GameObject("123");
         luaEnv.DoString("require'Main'");
         luaEnv.Global.Get("Init", out Init);
         luaEnv.Global.Get("MainLoop", out Loop);
@@ -80,6 +83,9 @@ public class Main : MonoBehaviour
     private void OnDestroy()
     {
         Quit();
+        Init = null;
+        Loop = null;
+        Quit = null;
         if(luaEnv != null)
            luaEnv.Dispose();
     }

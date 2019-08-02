@@ -1,12 +1,14 @@
-﻿local ResourceMgr = require("ResourceManager")
-local PathMgr = require("PathManager")
+﻿
+local Bullet = require("Bullet")
+local Timer = require("Timer")
 
 local Normal_pistol=Class("Normal_pistol", require("Weapon_base"))
 
 function Normal_pistol:cotr()
 
-    --self.
-
+    ---是否被捡起
+    self.isPacked = false
+    ---基础伤害
     self.demage = 10
     --- 拥有子弹总数
     self.totalAmmoACount=100
@@ -19,25 +21,39 @@ function Normal_pistol:cotr()
     --- 装弹时间
     self.reloadTime=1
 
-    self.Type = WeaponType.normal_pistol
+    ---为了计算是否达到冷却时间
+    self.time = 0
+
+    self.weaponType = Enum_WeaponType.normal_pistol
+
+    self.bulletType = Enum_BulletType.light
+
+    self.shootType = Enum_ShootType.single
 end
 
 function Normal_pistol:Shoot()
-    local bullet, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1)
-    if isNew then
-        local collisionClass = bullet:GetComponent("Collision")
-        if collisionClass.CollisionHandle then
-            collisionClass.CollisionHandle = collisionClass.CollisionHandle + Normal_pistol.OnCollision
+    self.time = self.time + Timer.deltaTime
+    if UE.Input.GetMouseButton(0) and self.time >=  self.shootCDTime then
+        if self.currentAmmoACount == 0 then
+            --处理没子弹
         else
-            collisionClass.CollisionHandle = Normal_pistol.OnCollision
+            self.time = 0
+            local bullet = Bullet:new(self.bulletType)
         end
     end
 end
 
-function Normal_pistol:OnCollision(type, other)
-    if type == "TriggerEnter2D" and other.gameObject.layer == 9 then
-        ResourceMgr:DestroyObject(self.gameObject)
+function Normal_pistol:Changing()
+
+end
+
+function Normal_pistol:Use()
+    if self.isPacked then
+        return
     end
+
+    require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new("weapon", self))
+
 end
 
 return Normal_pistol

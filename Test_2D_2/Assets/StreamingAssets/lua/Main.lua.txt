@@ -39,14 +39,18 @@ end
 Main=UE.GameObject.Find("Main"):GetComponent("Main")
 
 function InitTitle()
-
+    --StartCoroutine(net.DownloadflieCoroutine, net, "http://localhost:10001/resources/bg.ab", "bg.ab", 1)
     --local title = ResourceMgr:GetGameObject("Prefabs/UI_Title", nil, Main.UIRoot.transform)
-
+    --net:CheckUpdate()
     --SceneMgr:LoadScene(1)
     --local go = UE.GameObject()
-    local character = require("Character"):new()
-    Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-    Battle:SetBattle(character, require("Normal_pistol").new())
+
+    --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
+    net:StartUpdate(function ()
+        local character = require("Character"):new()
+        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+        Battle:SetBattle(character, require("Normal_pistol").new())
+    end)
     --net:Connect("127.0.0.1", 10000)
     --net:SendMessage("hello")
     --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
@@ -74,11 +78,39 @@ function InitTitle()
     --MC:SendMessage("hello", kv)
     --MC:RemoveMessageType("hello")
     --MC:SendMessage("hello", kv)
+    end
+
+---开始协程
+---func : 想装成协程的function
+---... : 该func的参数(第一个为所属table)
+function StartCoroutine(func, ...)
+    local util = require 'xlua.util'
+    local func = util.cs_generator(func, ...)
+    return Main:StartCoroutine(func)
+end
+---关闭协程
+function StopCoroutine(coroutine)
+    Main:StopCoroutine(coroutine)
 end
 
-function HandleHello(kv)
-    print(kv.Key)
+---拓展string
+function string:split(sep)
+    local sep, fields = sep or "\t", {}
+    local pattern = string.format("([^%s]+)", sep)
+    self:gsub(pattern, function(c) fields[#fields+1] = c end)
+    return fields
 end
+
+function string:findLast(sep)
+     local sr = string.reverse(self)
+     local _, i = string.find(sr, sep)
+    if i then
+        return string.len(self) - i + 1
+    else
+        return nil
+    end
+
+ end
 
 function GetProxy(sourceTable, path)
     proxy={}

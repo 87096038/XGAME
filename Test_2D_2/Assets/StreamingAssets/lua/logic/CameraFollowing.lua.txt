@@ -9,6 +9,9 @@ function CameraFollowing:Init()
     self.targetPosition = UE.Vector3(0, 0, -5)
 
     self.gameobject = require("ResourceManager"):GetGameObject("Prefabs/MainCamera", nil, nil, self.targetPosition)
+
+    self.camera = self.gameobject:GetComponent("Camera")
+
     self.transform = self.gameobject:GetComponent("Transform")
 
     ---相机距目标的高度

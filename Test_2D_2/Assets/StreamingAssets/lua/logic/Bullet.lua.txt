@@ -1,0 +1,47 @@
+﻿
+local ResourceMgr = require("ResourceManager")
+local PathMgr = require("PathManager")
+local Timer = require("Timer")
+
+local Bullet = Class("Bullet")
+
+function Bullet:cotr(bulletType, direction)
+
+    self.gameobject = nil
+    self.type = bulletType
+    self.direction = direction
+    self.speed = 5
+
+    local isNew
+    if self.type == Enum_BulletType.light then
+        self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1)
+        if isNew then
+            local collisionClass = self.gameobject:GetComponent("Collision")
+            if collisionClass.CollisionHandle then
+                collisionClass.CollisionHandle = collisionClass.CollisionHandle + self.OnCollision_light
+            else
+                collisionClass.CollisionHandle = self.OnCollision_light
+            end
+        end
+        Timer:AddUpdateFuc(self, self.UpdateMove_light)
+    elseif self.type == Enum_BulletType.heavy then
+
+    elseif self.type == Enum_BulletType.energy then
+
+    elseif self.type == Enum_BulletType.shell then
+
+    end
+
+end
+
+function Bullet:UpdateMove_light()
+
+end
+
+function Bullet:OnCollision_light(type, other)
+    if type == "TriggerEnter2D" and other.gameObject.layer == 9 then
+        ResourceMgr:DestroyObject(self.gameObject)
+    end
+end
+
+return Bullet
