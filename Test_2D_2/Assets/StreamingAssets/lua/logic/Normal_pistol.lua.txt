@@ -37,8 +37,8 @@ function Normal_pistol:Shoot()
         if self.currentAmmoACount == 0 then
             --处理没子弹
         else
-            self.time = 0
             local bullet = Bullet:new(self.bulletType)
+            self.time = 0
         end
     end
 end
@@ -53,6 +53,10 @@ function Normal_pistol:Use()
     end
 
     require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new("weapon", self))
+
+end
+
+function Normal_pistol:Drop()
 
 end
 

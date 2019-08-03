@@ -61,6 +61,8 @@ public class Main : MonoBehaviour
         luaEnv = new LuaEnv();
         //GameObject go = new GameObject("123");
         //UnityWebRequest a;
+        Transform a;
+        //a.Translate();
         
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
         //Camera.main.ScreenToWorldPoint(Input.mousePosition)

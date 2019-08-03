@@ -3,9 +3,9 @@ local Camera = require("CameraFollowing")
 local MC = require("MessageCenter")
 
 
-local Battle={}
+local Battle=Class("Battle", require("Base"))
 
-function Battle:SetBattle(character,  initialWeapon)
+function Battle:cotr(character,  initialWeapon)
 
     ---实际的角色
     self.character = character
@@ -47,8 +47,8 @@ function Battle:SetBattle(character,  initialWeapon)
     Timer:AddUpdateFuc(self, Battle.UpdateBattle)
 
     -----------------信息注册-------------
-    MC:AddListener(Enum_MessageType.PickUp, self.PickUpHandler)
-    MC:AddListener(Enum_MessageType.GameOver, self.GameOverHandler)
+    self:AddMessageListener(Enum_MessageType.PickUp, self.PickUpHandler)
+    self:AddMessageListener(Enum_MessageType.GameOver, self.GameOverHandler)
 
 end
 
@@ -67,7 +67,7 @@ end
 
 function Battle:AddWeapon(weapon)
     if #self.Weapons >= self.maxWeaponCount then
-        self.DropWeapon()
+        self:DropWeapon()
     end
 
 end
@@ -84,7 +84,7 @@ function Battle:UpdateBattle()
     ---武器跟随玩家
     self.weaponObj.transform.position = self.character.gameobject.transform.position
 
-    ---武器跟随物体旋转
+    ---武器跟随鼠标旋转
     self.mousePosition_screen = UE.Input.mousePosition
     self.mousePosition_screen.z = -Camera.gameobject.transform.position.z
     self.mousePosition_world = Camera.camera:ScreenToWorldPoint(self.mousePosition_screen)
@@ -126,12 +126,7 @@ function Battle:PickUpHandler(kv)
 end
 
 function Battle:GameOverHandler(kv)
-
-    ---do something
-
-    ---移除所有监听
-    MC:RemoveListener(Enum_MessageType.PickUp, self.PickUpHandler)
-    MC:RemoveListener(Enum_MessageType.GameOver, self.GameOverHandler)
+    self:Destroy()
 end
 
 return Battle

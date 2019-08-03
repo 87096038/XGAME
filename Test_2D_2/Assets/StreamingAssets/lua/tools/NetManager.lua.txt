@@ -90,6 +90,11 @@ function NetManager:Init()
 end
 
 ---------------------------TCP--------------------------
+
+function NetManager:StartConnect()
+    self:Connect()
+end
+
 ---建立连接
 function NetManager:Connect(ip, port)
     if IS_ONLINE_MODE then
@@ -238,18 +243,6 @@ function NetManager:RefreshVersion()
         print("RefreshVersion -- Error: Connot write local version file!")
         localFile:close()
         return false
-    end
-end
-
---- 还没用
-function NetManager:GetResourcesMd5(dir)
-    if not CS.System.IO.Directory.Exists(dir) then
-        return nil
-    end
-    local md5s = ""
-    local folder = CS.System.IO.DirectoryInfo(dir)
-    for _, v in ipairs(folder:GetFiles()) do
-
     end
 end
 

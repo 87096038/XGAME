@@ -18,6 +18,19 @@ function PathManager:Init()
         }
     end
 
+    ---自动切换名字
+    if IS_RELEASE_MODE then
+        self.NamePath={
+            --Bullet_1="Bullet_1",
+            --Character_1="Character_1",
+        }
+    else
+        self.NamePath={
+            Bullet_1=nil,
+            Character_1=nil,
+        }
+    end
+
 end
 
 ---获取文件名

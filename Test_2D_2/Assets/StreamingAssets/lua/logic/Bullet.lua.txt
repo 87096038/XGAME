@@ -3,18 +3,18 @@ local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local Timer = require("Timer")
 
-local Bullet = Class("Bullet")
+local Bullet = Class("Bullet", require("Base"))
 
-function Bullet:cotr(bulletType, direction)
+function Bullet:cotr(bulletType, rotation)
 
     self.gameobject = nil
     self.type = bulletType
-    self.direction = direction
+    self.rotation = rotation or UE.Quaternion.identity
     self.speed = 5
 
     local isNew
     if self.type == Enum_BulletType.light then
-        self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1)
+        self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1)
         if isNew then
             local collisionClass = self.gameobject:GetComponent("Collision")
             if collisionClass.CollisionHandle then
@@ -32,10 +32,11 @@ function Bullet:cotr(bulletType, direction)
 
     end
 
+    self.gameobject.rotation = self.rotation
 end
 
 function Bullet:UpdateMove_light()
-
+    self.gameobject.transform:Translate(Timer.deltaTime * UE.Vector3.right *self.speed, UE.Space.Self)
 end
 
 function Bullet:OnCollision_light(type, other)

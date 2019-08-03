@@ -7,78 +7,7 @@
 
 UE = CS.UnityEngine
 
----需要先运行的module
-require("Enum")
-local net=require("NetManager")
-local Timer = require("Timer")
-
-local Battle = require("Battle")
-local ResourceMgr = require("ResourceManager")
-local PathMgr = require("PathManager")
-local SceneMgr = require("SceneManager")
-local MC = require("MessageCenter")
-local Camera = require("CameraFollowing")
--------------------------------
---初始化
-function Init()
-    InitTitle()
-end
-
---主循环
-function MainLoop()
-    Timer:Update()
-    --print(UE.Input.mousePosition)
-end
-
---退出游戏处理
-function Quit()
-    print("Quit")
-end
-------------------------------
-
 Main=UE.GameObject.Find("Main"):GetComponent("Main")
-
-function InitTitle()
-    --StartCoroutine(net.DownloadflieCoroutine, net, "http://localhost:10001/resources/bg.ab", "bg.ab", 1)
-    --local title = ResourceMgr:GetGameObject("Prefabs/UI_Title", nil, Main.UIRoot.transform)
-    --net:CheckUpdate()
-    --SceneMgr:LoadScene(1)
-    --local go = UE.GameObject()
-
-    --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
-    net:StartUpdate(function ()
-        local character = require("Character"):new()
-        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-        Battle:SetBattle(character, require("Normal_pistol").new())
-    end)
-    --net:Connect("127.0.0.1", 10000)
-    --net:SendMessage("hello")
-    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
-    --ResourceMgr:DestroyObject(go)
-    --
-
-    --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
-
-    --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")
-    --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
-    --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
-    --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))
-
-    --local role = require("Character"):new()
-    --role:Move()
-
-    --local kv = require("KeyValue"):new("hello")
-    --print(kv.Key)
-    --local kv2 = require("KeyValue"):new("world")
-    --print(kv2.Key)
-
-
-    --MC:AddListener("hello", HandleHello)
-    --kv = require("KeyValue"):new("nice to meet you")
-    --MC:SendMessage("hello", kv)
-    --MC:RemoveMessageType("hello")
-    --MC:SendMessage("hello", kv)
-    end
 
 ---开始协程
 ---func : 想装成协程的function
@@ -102,15 +31,15 @@ function string:split(sep)
 end
 
 function string:findLast(sep)
-     local sr = string.reverse(self)
-     local _, i = string.find(sr, sep)
+    local sr = string.reverse(self)
+    local _, i = string.find(sr, sep)
     if i then
         return string.len(self) - i + 1
     else
         return nil
     end
 
- end
+end
 
 function GetProxy(sourceTable, path)
     proxy={}
@@ -160,10 +89,10 @@ function Class(className, super)
         --    instance[k] = v
         --end
 
-        --使用以下代码能够实现表面上的实例化，不浪费空间，但是在 传self时要注意
+        --使用以下代码能够实现表面上的实例化，不浪费空间，但是在传self时要注意
         local instance = setmetatable( {}, {__index=TheClass})
 
-        local super = getmetatable(instance)["__index"]["super"]
+        local super = instance["super"]
         if  super ~= nil then
             if super["cotr"] ~= nil then
                 super.cotr(instance, ...)
@@ -176,4 +105,76 @@ function Class(className, super)
     end
 
     return TheClass
+end
+
+
+---需要先运行的module
+require("Enum")
+---
+local net=require("NetManager")
+local Timer = require("Timer")
+
+local Battle = require("Battle")
+local ResourceMgr = require("ResourceManager")
+local PathMgr = require("PathManager")
+local SceneMgr = require("SceneManager")
+local MC = require("MessageCenter")
+local Camera = require("CameraFollowing")
+-------------------------------
+--初始化
+function Init()
+    InitTitle()
+end
+
+--主循环
+function MainLoop()
+    Timer:Update()
+    --print(UE.Input.mousePosition)
+end
+
+--退出游戏处理
+function Quit()
+    print("Quit")
+end
+------------------------------
+function InitTitle()
+
+    --local title = ResourceMgr:GetGameObject("Prefabs/UI_Title", nil, Main.UIRoot.transform)
+    --net:CheckUpdate()
+    --SceneMgr:LoadScene(1)
+    --local go = UE.GameObject()
+
+    --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
+    --net:StartUpdate(function ()
+        local character = require("Character"):new()
+        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+        Battle:new(character, require("Normal_pistol"):new())
+    --end)
+    --net:Connect("127.0.0.1", 10000)
+    --net:SendMessage("hello")
+    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
+    --ResourceMgr:DestroyObject(go)
+    --
+
+    --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
+
+    --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")
+    --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
+    --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
+    --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))
+
+    --local role = require("Character"):new()
+    --role:Move()
+
+    --local kv = require("KeyValue"):new("hello")
+    --print(kv.Key)
+    --local kv2 = require("KeyValue"):new("world")
+    --print(kv2.Key)
+
+
+    --MC:AddListener("hello", HandleHello)
+    --kv = require("KeyValue"):new("nice to meet you")
+    --MC:SendMessage("hello", kv)
+    --MC:RemoveMessageType("hello")
+    --MC:SendMessage("hello", kv)
 end

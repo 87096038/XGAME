@@ -7,7 +7,7 @@ local Character=Class("Character", require("character_base"))
 function Character:cotr()
     ---gameobject---
     ---self.gameobject=ResourceMgr:GetGameObject("assetbundle/prefabs/character/ruby.ab", "ruby")
-    self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1).transform:Find("Role")
+    self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1).transform:Find("Role")
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
     self.speed = 5
