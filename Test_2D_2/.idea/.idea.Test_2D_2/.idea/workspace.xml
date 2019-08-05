@@ -2,14 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dd2a44d-fdec-41bb-9631-6632218cdd1a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Ruby.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Ruby.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/RestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/RestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Normal_pistol.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Normal_pistol.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Enum.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Enum.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Test.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/Test.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Base.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Base.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Battle.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Battle.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Bullet.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Bullet.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/CameraFollowing.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/CameraFollowing.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character_base.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Character_base.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/GlobalAbilityScale.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/GlobalAbilityScale.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/GlobalData.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/GlobalData.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Normal_pistol.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Normal_pistol.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Weapon_base.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/Weapon_base.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/person.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/person.proto.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/person_pb.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/person_pb.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/containers.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/containers.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/decoder.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/decoder.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/descriptor.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/descriptor.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/encoder.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/encoder.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/listener.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/listener.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/pb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/pb.so.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/protobuf.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/protobuf.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/text_format.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/text_format.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/type_checkers.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/type_checkers.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/wire_format.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protobuf/wire_format.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protocol.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protocol/Protocol.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/protocol/Protocol.proto.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/KeyValue.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/KeyValue.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/MessageCenter.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/MessageCenter.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/NetManager.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/NetManager.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/RoomNode.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/RoomNode.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/SceneManager.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/SceneManager.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/Server.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/Server.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/Timer.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/Timer.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/person.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/person.proto.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/protoc.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/protoc.lua.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/test.lua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/test.lua.txt.meta" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,48 +114,76 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$USER_HOME$/Downloads/xlua-test/Assets/Scripts/UpdateController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/Test.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="128">
+              <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
               <folding>
-                <marker date="1564455457476" expanded="false" signature="6:197" ph="..." />
-                <marker date="1564455457476" expanded="true" signature="239:2880" ph="{...}" />
-                <marker date="1564455457476" expanded="false" signature="382:968" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="400:962" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="445:922" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="548:690" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="711:908" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="1129:1202" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="1220:1628" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="1655:1787" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="1714:1781" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="1816:1900" ph="{...}" />
-                <marker date="1564455457476" expanded="true" signature="1940:2878" ph="{...}" />
+                <marker date="1564105002003" expanded="false" signature="6:54" ph="..." />
+                <marker date="1564105002003" expanded="true" signature="81:1953" ph="{...}" />
+                <marker date="1564105002003" expanded="true" signature="157:405" ph="{...}" />
+                <marker date="1564105002003" expanded="false" signature="491:1951" ph="{...}" />
+                <marker date="1564105002003" expanded="true" signature="506:727" ph="/* 配置表目录 ... */" />
+                <marker date="1564105002003" expanded="true" signature="817:1053" ph="/* string shellRootPath = projectPath  + &quot;/Tools/Shell&quot;; ... */" />
+                <marker date="1564105002003" expanded="true" signature="1415:1945" ph="/* shell.sh里面内容很简单。##!/bin/bash  echo $1 &gt;&gt; $2 ... */" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="112" column="110" selection-start-line="112" selection-start-column="110" selection-end-line="112" selection-end-column="110" />
+              <folding>
+                <marker date="1564976029669" expanded="true" signature="6:245" ph="..." />
+                <marker date="1564976029669" expanded="true" signature="287:3451" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="430:1016" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="448:1010" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="493:970" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="596:738" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="759:956" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="1177:1250" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="1268:2026" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="1394:1488" ph="/* GameObject go = new GameObject(&quot;123&quot;); ... */" />
+                <marker date="1564976029669" expanded="true" signature="1596:1785" ph="/* System.IO.Directory.CreateDirectory(@&quot;/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/r ... */" />
+                <marker date="1564976029669" expanded="true" signature="2058:2260" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="2292:2399" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="2326:2393" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="2428:2575" ph="{...}" />
+                <marker date="1564976029669" expanded="true" signature="2615:3449" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+            <state relative-caret-position="112">
+              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
               <folding>
-                <marker date="1564474704274" expanded="true" signature="6:44" ph="..." />
-                <marker date="1564474704274" expanded="true" signature="84:1142" ph="{...}" />
-                <marker date="1564474704274" expanded="true" signature="224:334" ph="{...}" />
-                <marker date="1564474704274" expanded="true" signature="389:498" ph="{...}" />
-                <marker date="1564474704274" expanded="true" signature="553:662" ph="{...}" />
-                <marker date="1564474704274" expanded="true" signature="714:822" ph="{...}" />
-                <marker date="1564474704274" expanded="true" signature="874:981" ph="{...}" />
-                <marker date="1564474704274" expanded="true" signature="1033:1140" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="6:44" ph="..." />
+                <marker date="1564558688430" expanded="true" signature="84:1142" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="224:334" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="389:498" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="553:662" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="714:822" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="874:981" ph="{...}" />
+                <marker date="1564558688430" expanded="true" signature="1033:1140" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -103,54 +211,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="118" column="10" selection-start-line="115" selection-start-column="43" selection-end-line="118" selection-end-column="10" />
-              <folding>
-                <marker date="1563873227728" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
-                <marker date="1563873227728" expanded="false" signature="680:778" ph="..." />
-                <marker date="1563873227728" expanded="true" signature="798:3627" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="841:1081" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="874:933" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="987:1046" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1104:1145" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1185:1202" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1260:3112" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1309:1330" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1354:1413" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1547:1766" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1696:1745" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1797:1838" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1872:1916" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="1989:2091" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2172:2258" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2321:2466" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2411:2462" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2510:2579" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2633:2683" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2745:2769" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2802:2836" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2863:2956" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2899:2927" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="2982:3017" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3051:3109" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3154:3185" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3247:3625" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3308:3381" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3438:3515" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3582:3622" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="3667:8031" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="7820:7878" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="7930:7984" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="7955:7981" ph="{...}" />
-                <marker date="1563873227728" expanded="true" signature="8003:8029" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collect.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="32">
@@ -167,32 +227,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="196" column="2" lean-forward="true" selection-start-line="196" selection-start-column="2" selection-end-line="196" selection-end-column="2" />
+            <state relative-caret-position="418">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+              <folding>
+                <marker date="1564633022176" expanded="true" signature="6:187" ph="..." />
+                <marker date="1564633022176" expanded="true" signature="219:1236" ph="{...}" />
+                <marker date="1564633022176" expanded="true" signature="318:937" ph="{...}" />
+                <marker date="1564633022176" expanded="true" signature="1040:1137" ph="{...}" />
+                <marker date="1564633022176" expanded="true" signature="1050:1131" ph="/* typeof(XLua.Cast.IEnumerator), ... */" />
+                <marker date="1564633022176" expanded="true" signature="1224:1232" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine_Runner.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state relative-caret-position="352">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding>
-                <marker date="1564473459413" expanded="false" signature="6:139" ph="..." />
-                <marker date="1564473459413" expanded="true" signature="171:1182" ph="{...}" />
-                <marker date="1564473459413" expanded="true" signature="270:902" ph="{...}" />
-                <marker date="1564473459413" expanded="true" signature="572:686" ph="/* typeof(string), ... */" />
-                <marker date="1564473459413" expanded="true" signature="1005:1083" ph="{...}" />
-                <marker date="1564473459413" expanded="true" signature="1015:1077" ph="/* typeof(XLua.Cast.IEnumerator), ... */" />
-                <marker date="1564473459413" expanded="true" signature="1170:1178" ph="{...}" />
+                <marker date="1564539949734" expanded="false" signature="6:104" ph="..." />
+                <marker date="1564539949734" expanded="true" signature="124:516" ph="{...}" />
+                <marker date="1564539949734" expanded="true" signature="176:188" ph="{...}" />
+                <marker date="1564539949734" expanded="true" signature="230:514" ph="{...}" />
+                <marker date="1564539949734" expanded="true" signature="307:508" ph="{...}" />
+                <marker date="1564539949734" expanded="true" signature="333:498" ph="{...}" />
+                <marker date="1564539949734" expanded="true" signature="400:483" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -208,6 +271,9 @@
       <find>loada</find>
       <find>testobj</find>
       <find>TestDelegate</find>
+      <find>Host</find>
+      <find>downloadFiles</find>
+      <find>Md5String</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -222,11 +288,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/BuildInInit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/XLua/Tutorial/LuaCallCSharp/LuaCallCs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/MessageBox.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/xlua-test/Assets/Scripts/UpdateController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D97623-D556-49FE-AEC4-09BBD2AEC743/e0/55038364/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/XLua/Examples/08_Hotfix/HotfixTest2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D97623-D556-49FE-AEC4-09BBD2AEC743/7d/c87e814e/Collision2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/Test.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Tools/ExtendedMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/XLua/Src/LuaDLL.cs" root0="FORCE_HIGHLIGHTING" />
@@ -243,20 +312,22 @@
         <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/Test.cs" />
         <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/Util.cs" />
         <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/NetManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Editor/StaticList.cs" />
         <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Resourses/Scripts/Main.cs" />
         <option value="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt" />
-        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" />
-        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" />
+        <option value="$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine_Runner.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" />
+        <option value="$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs" />
+        <option value="$USER_HOME$/Downloads/xlua-test/Assets/Scripts/UpdateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="169" />
-    <option name="y" value="87" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="26" />
+    <option name="y" value="80" />
     <option name="width" value="1620" />
     <option name="height" value="899" />
   </component>
@@ -363,12 +434,12 @@
       <workItem from="1564042808593" duration="7000" />
       <workItem from="1564042819090" duration="14944000" />
       <workItem from="1564386663302" duration="1624000" />
-      <workItem from="1564395851325" duration="8116000" />
+      <workItem from="1564395851325" duration="31623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41732000" />
+    <option name="totallyTimeSpent" value="65239000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -380,7 +451,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="169" y="87" width="1620" height="899" extended-state="1" />
+    <frame x="26" y="80" width="1620" height="899" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26869455" />
@@ -455,22 +526,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/XLua/Gen/SystemObjectWrap.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/LuaDLL.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Lua.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine_Runner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <marker date="1563873227683" expanded="false" signature="6:104" ph="..." />
-            <marker date="1563873227683" expanded="true" signature="124:516" ph="{...}" />
-            <marker date="1563873227683" expanded="true" signature="176:188" ph="{...}" />
-            <marker date="1563873227683" expanded="true" signature="230:514" ph="{...}" />
-            <marker date="1563873227683" expanded="true" signature="307:508" ph="{...}" />
-            <marker date="1563873227683" expanded="true" signature="333:498" ph="{...}" />
-            <marker date="1563873227683" expanded="true" signature="400:483" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/protoc.lua.txt" />
     <entry file="file://$USER_HOME$/Downloads/xLua-master2/Assets/XLua/Examples/01_Helloworld/Helloworld.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/LuaDLL.cs">
@@ -658,44 +713,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/PlayerController.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Tools/Util.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Resourses/Scripts/Main.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
-          <folding>
-            <marker date="1564136357554" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
-            <marker date="1564136357554" expanded="true" signature="688:766" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="721:764" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="787:2323" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="825:1052" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="875:920" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="950:1046" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="976:1036" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1087:1157" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1131:1151" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1194:1266" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1240:1260" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1301:1371" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1345:1365" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1408:1480" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1454:1474" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1519:1593" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1567:1587" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1628:1698" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1672:1692" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1735:1807" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1781:1801" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1843:1914" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1888:1908" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1952:2025" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="1999:2019" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="2062:2134" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="2108:2128" ph="{...}" />
-            <marker date="1564136357554" expanded="true" signature="2144:2321" ph="/* public class IEnumerator : Any&lt;System.Collections.IEnumerator&gt; ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -781,8 +798,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="196" column="2" lean-forward="true" selection-start-line="196" selection-start-column="2" selection-end-line="196" selection-end-column="2" />
+        <state relative-caret-position="859">
+          <caret line="226" column="2" selection-start-line="226" selection-start-column="2" selection-end-line="226" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -800,57 +817,171 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/06_Coroutine/Coroutine_Runner.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state relative-caret-position="352">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding>
-            <marker date="1564473459413" expanded="false" signature="6:139" ph="..." />
-            <marker date="1564473459413" expanded="true" signature="171:1182" ph="{...}" />
-            <marker date="1564473459413" expanded="true" signature="270:902" ph="{...}" />
-            <marker date="1564473459413" expanded="true" signature="572:686" ph="/* typeof(string), ... */" />
-            <marker date="1564473459413" expanded="true" signature="1005:1083" ph="{...}" />
-            <marker date="1564473459413" expanded="true" signature="1015:1077" ph="/* typeof(XLua.Cast.IEnumerator), ... */" />
-            <marker date="1564473459413" expanded="true" signature="1170:1178" ph="{...}" />
+            <marker date="1564539949734" expanded="false" signature="6:104" ph="..." />
+            <marker date="1564539949734" expanded="true" signature="124:516" ph="{...}" />
+            <marker date="1564539949734" expanded="true" signature="176:188" ph="{...}" />
+            <marker date="1564539949734" expanded="true" signature="230:514" ph="{...}" />
+            <marker date="1564539949734" expanded="true" signature="307:508" ph="{...}" />
+            <marker date="1564539949734" expanded="true" signature="333:498" ph="{...}" />
+            <marker date="1564539949734" expanded="true" signature="400:483" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="418">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
           <folding>
-            <marker date="1564455457476" expanded="false" signature="6:197" ph="..." />
-            <marker date="1564455457476" expanded="true" signature="239:2880" ph="{...}" />
-            <marker date="1564455457476" expanded="false" signature="382:968" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="400:962" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="445:922" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="548:690" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="711:908" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="1129:1202" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="1220:1628" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="1655:1787" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="1714:1781" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="1816:1900" ph="{...}" />
-            <marker date="1564455457476" expanded="true" signature="1940:2878" ph="{...}" />
+            <marker date="1564633022176" expanded="true" signature="6:187" ph="..." />
+            <marker date="1564633022176" expanded="true" signature="219:1236" ph="{...}" />
+            <marker date="1564633022176" expanded="true" signature="318:937" ph="{...}" />
+            <marker date="1564633022176" expanded="true" signature="1040:1137" ph="{...}" />
+            <marker date="1564633022176" expanded="true" signature="1050:1131" ph="/* typeof(XLua.Cast.IEnumerator), ... */" />
+            <marker date="1564633022176" expanded="true" signature="1224:1232" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/07_AsyncTest/MessageBox.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+          <folding>
+            <marker date="1563873227684" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+            <marker date="1563873227684" expanded="false" signature="680:800" ph="..." />
+            <marker date="1563873227684" expanded="true" signature="820:4253" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="866:4011" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="969:2127" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="1098:1424" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="1704:1938" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="1745:1815" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="2232:4005" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="2367:2706" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="3086:3272" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="3329:3485" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="3370:3444" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="3541:3698" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="3582:3657" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="4053:4251" ph="{...}" />
+            <marker date="1563873227684" expanded="true" signature="4154:4244" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/RawObject.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
+          <caret line="108" column="4" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="4" />
+          <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+          <caret line="111" column="4" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
+          <folding>
+            <marker date="1564644843379" expanded="true" signature="0:672" ph="/* Tencent is pleased to support the open source community by making xLua available. ... */" />
+            <marker date="1564644843379" expanded="true" signature="688:766" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="721:764" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="787:2311" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="825:1052" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="875:920" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="950:1046" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="976:1036" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1087:1157" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1131:1151" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1194:1266" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1240:1260" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1301:1371" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1345:1365" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1408:1480" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1454:1474" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1519:1593" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1567:1587" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1628:1698" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1672:1692" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1735:1807" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1781:1801" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1843:1914" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1888:1908" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1952:2025" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="1999:2019" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="2062:2134" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="2108:2128" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="2206:2309" ph="{...}" />
+            <marker date="1564644843379" expanded="true" signature="2283:2303" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Editor/Test.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding>
+            <marker date="1564105002003" expanded="false" signature="6:54" ph="..." />
+            <marker date="1564105002003" expanded="true" signature="81:1953" ph="{...}" />
+            <marker date="1564105002003" expanded="true" signature="157:405" ph="{...}" />
+            <marker date="1564105002003" expanded="false" signature="491:1951" ph="{...}" />
+            <marker date="1564105002003" expanded="true" signature="506:727" ph="/* 配置表目录 ... */" />
+            <marker date="1564105002003" expanded="true" signature="817:1053" ph="/* string shellRootPath = projectPath  + &quot;/Tools/Shell&quot;; ... */" />
+            <marker date="1564105002003" expanded="true" signature="1415:1945" ph="/* shell.sh里面内容很简单。##!/bin/bash  echo $1 &gt;&gt; $2 ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/xlua-test/Assets/Scripts/UpdateController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="112">
+          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
           <folding>
-            <marker date="1564474704274" expanded="true" signature="6:44" ph="..." />
-            <marker date="1564474704274" expanded="true" signature="84:1142" ph="{...}" />
-            <marker date="1564474704274" expanded="true" signature="224:334" ph="{...}" />
-            <marker date="1564474704274" expanded="true" signature="389:498" ph="{...}" />
-            <marker date="1564474704274" expanded="true" signature="553:662" ph="{...}" />
-            <marker date="1564474704274" expanded="true" signature="714:822" ph="{...}" />
-            <marker date="1564474704274" expanded="true" signature="874:981" ph="{...}" />
-            <marker date="1564474704274" expanded="true" signature="1033:1140" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="6:44" ph="..." />
+            <marker date="1564558688430" expanded="true" signature="84:1142" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="224:334" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="389:498" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="553:662" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="714:822" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="874:981" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="1033:1140" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="112" column="110" selection-start-line="112" selection-start-column="110" selection-end-line="112" selection-end-column="110" />
+          <folding>
+            <marker date="1564976029669" expanded="true" signature="6:245" ph="..." />
+            <marker date="1564976029669" expanded="true" signature="287:3451" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="430:1016" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="448:1010" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="493:970" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="596:738" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="759:956" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="1177:1250" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="1268:2026" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="1394:1488" ph="/* GameObject go = new GameObject(&quot;123&quot;); ... */" />
+            <marker date="1564976029669" expanded="true" signature="1596:1785" ph="/* System.IO.Directory.CreateDirectory(@&quot;/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/r ... */" />
+            <marker date="1564976029669" expanded="true" signature="2058:2260" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="2292:2399" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="2326:2393" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="2428:2575" ph="{...}" />
+            <marker date="1564976029669" expanded="true" signature="2615:3449" ph="{...}" />
           </folding>
         </state>
       </provider>

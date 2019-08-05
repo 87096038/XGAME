@@ -1,0 +1,279 @@
+--[[
+    管理资源加载
+--]]
+
+local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
+
+local ResourceManager={}
+
+function ResourceManager:Init()
+
+    ---AB包缓存 path - 封装后的ab包
+    self.AssetBundleCacheMap={}
+    ---AB包依赖缓存
+    self.AssetBundleIndependenceMap={}
+    ---Asset缓存 path - asset
+    self.AssetCacheMap={}
+    ---在用的物体的缓存 gameobject - path (此顺序是为了方便回收时快速在ObjectPool找到相应table)
+    self.GameObjectMap={}
+    ---未使用物体的缓存池 path - table<gameobject>
+    self.ObjectPool={}
+    ---池中物体所放置的位置(是通过将物体移动到看不到的地方以实现destroy的效果)
+    self.placePoint = UE.Vector3(5000, 5000, 5000)
+    ---manifest的路径
+    self.manifestPath = UE.Application.streamingAssetsPath.."/StreamingAssets"
+    ---初始化manifest
+    self.manifest = self:InitManifest()
+
+    ---因为这些监听会持续到游戏关闭，所以没有remove
+    MC:AddListener(Enum_MessageType.ChangeScene, self.OnChangeScene)
+    MC:AddListener(Enum_MessageType.LateChangeScene , self.OnLateChangeScene)
+end
+
+--------------------------------- 常用外部接口 ---------------------------
+---获取实例化的物体
+---path: StreamingAssets下或Resources下的路径
+---name: 若路径为ab包, 所需资源的名称
+function ResourceManager:GetGameObject(path, name, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
+    local go, CachePath, isNew
+    if IS_RELEASE_MODE then
+        CachePath = self:GetFullABAssetPath(path, name)
+    else
+        CachePath = path
+    end
+    if self.ObjectPool[CachePath] ~= nil then
+        if #self.ObjectPool[CachePath] > 0 then
+            go = table.remove(self.ObjectPool[CachePath])
+            local transf = go:GetComponent("Transform")
+            transf:SetParent(parentTransform)
+
+            if positionRelativeTo == UE.Space.Self then
+                transf.localPosition = position or UE.Vector3.zero
+            else
+                transf.position = position or UE.Vector3.zero
+            end
+
+            if rotation then
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)
+            end
+            isNew = false
+        end
+    end
+    ---如果池中没有就新实例化一个
+    if not go then
+        local asset = self:Load(path, name)
+        go = self:Instantiate(asset, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
+        isNew = true
+    end
+    self.GameObjectMap[go] = CachePath
+    return go, isNew
+end
+
+---回收物体入池
+function ResourceManager:DestroyObject(gameObject, isTruly)
+
+    if isTruly then
+        UE.GameObject.Destroy(gameObject)
+    else
+        local path =  self.GameObjectMap[gameObject]
+
+        local trans =  gameObject:GetComponent("Transform")
+        trans:SetParent(nil)
+        trans:Translate(self.placePoint)
+        if self.ObjectPool[path] == nil then
+            self.ObjectPool[path] = {gameObject}
+        else
+            table.insert(self.ObjectPool[path], gameObject)
+        end
+        self.GameObjectMap[gameObject] = nil
+    end
+
+end
+
+
+---------------------------------- 不常用外部接口 -----------------------------
+
+---Load，返回Asset(name: 如果是AB包则为其资源的名称)
+function ResourceManager:Load(path, name)
+
+    local asset
+    if IS_RELEASE_MODE then
+        local ab = self:LoadAssetBundle(path)
+        asset = self:LoadAsset(ab, path, name)
+    else
+        asset = self:LoadResource(path)
+    end
+    return asset
+end
+
+function ResourceManager:LoadAsyn(path, name, callback)
+
+end
+
+---实例化
+function ResourceManager:Instantiate(original, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
+    --[[
+    在Instantiate中，是先setParent再setPosition的，因此在有parentTransform的情况下传position也是set的世界坐标
+    --]]
+    if not original then
+        print("the original is nil!")
+        return nil
+    end
+    local go
+    if parentTransform then
+        if(CS.Util.IsNull(parentTransform.gameObject))then
+            print("the parent gameobject is null!")
+            return nil
+        else
+            go = UE.Object.Instantiate(original, parentTransform)
+            local transf = go:GetComponent("Transform")
+            if positionRelativeTo == UE.Space.Self then
+                transf.localPosition = position or UE.Vector3.zero
+            else
+                transf.position = position or UE.Vector3.zero
+            end
+            if rotation then
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)
+            end
+        end
+    else
+        go = UE.Object.Instantiate(original, position or UE.Vector3.zero, rotation or UE.Quaternion.identity)
+    end
+    return go
+end
+
+---更改池的位置
+function ResourceManager:SetPlacePoint(x, y, z)
+    self.placePoint.x = x or self.placePoint.x
+    self.placePoint.y = y or self.placePoint.y
+    self.placePoint.z = z or self.placePoint.z
+end
+
+------------------------------------ 内部使用 ---------------------------------
+---初始化manifest依赖， 返回manifest
+function ResourceManager:InitManifest()
+    local manifestAB = UE.AssetBundle.LoadFromFile(self.manifestPath)
+    local manifest = manifestAB:LoadAsset("AssetBundleManifest");
+    return manifest
+end
+
+---通过AB包路径 和 要加载的资源名，生成一个唯一的资源路径(这个路径并不实际存在)
+function ResourceManager:GetFullABAssetPath(path, name)
+    local pre, suffix = PathMgr:RemoveSuffix(path)
+    return pre.."/"..name..suffix
+end
+
+---path: AB包的路径(StreamingAssets下)
+---返回: 封装后的AB(包含一个ab包 和一个引用计数)
+function ResourceManager:LoadAssetBundle(path)
+
+    local Path = UE.Application.streamingAssetsPath.."/"..path
+    local ab = self.AssetBundleCacheMap[path]
+    if ab then
+        ab.refCount = ab.refCount + 1
+    else
+        local cache = UE.AssetBundle.LoadFromFile(Path)
+        ab = {assetBundle=cache, refCount=1}
+        self.AssetBundleCacheMap[path]=ab
+    end
+
+    return ab
+end
+
+function ResourceManager:LoadAssetBundleAsyn(path, callback)
+    local Path = UE.Application.streamingAssetsPath.."/"..path
+    local ab = self.AssetBundleCacheMap[path]
+    if ab then
+        ab.refCount = ab.refCount + 1
+    else
+        local request = UE.AssetBundle.LoadFromFileAsync(path)
+    end
+end
+
+---ab: AB包 AB包的路径 name:资源名
+---返回: 相应Asset
+function ResourceManager:LoadAsset(ab, path, name)
+    local Path = self:GetFullABAssetPath(path, name)
+    local asset = self.AssetCacheMap[Path]
+    if not asset then
+        asset = ab.assetBundle:LoadAsset(name)
+        self.AssetCacheMap[Path] = asset
+        local dependences = self.AssetBundleIndependenceMap[Path]
+        if not dependences then
+            dependences = self.manifest:GetAllDependencies(path)
+            self.AssetBundleIndependenceMap[Path] = dependences
+        end
+        for i=0, dependences.Length-1, 1 do
+            self:LoadAssetBundle(dependences[i])
+        end
+    end
+    print("LoadAsset: "..Path)
+    return asset
+end
+
+---path: Resources下的路径
+---返回: 相应Asset
+function ResourceManager:LoadResource(path)
+    local asset = self.AssetCacheMap[path]
+    if not asset then
+        asset = UE.Resources.Load(path)
+        self.AssetCacheMap[path] = asset
+    end
+    return asset
+end
+
+---释放AB包
+function ResourceManager:ReleaseAssetBundle(path)
+    local ab = self.AssetBundleCacheMap[path]
+    if ab then
+        ab.refCount = ab.refCount - 1
+        if ab.refCount <= 0 then
+            ab.assetBundle:Unload(false)
+            self.assetBundleCacheMap[path] = nil
+        end
+        local dependences = self.AssetBundleIndependenceMap[path]
+        for _, v in ipairs(dependences) do
+            self:ReleaseAssetBundle(v)
+        end
+    end
+end
+
+---释放Asset
+function ResourceManager:ReleaseAsset(path)
+    if self.AssetCacheMap[path] then
+        UE.Object.Destroy(self.AssetCacheMap[path])
+    end
+end
+
+---释放所有Asset
+function ResourceManager:ReleaseAsset()
+    self.AssetCacheMap = {}
+    ---UE.Resources.UnloadUnusedAssets()
+end
+
+---释放物品池
+function ResourceManager:ReleaseGameObjectPool()
+    for _, t in pairs(self.ObjectPool) do
+        for _, go in pairs(t)do
+            if go then
+                UE.GameObject.Destroy(go)
+            end
+        end
+    end
+    self.ObjectPool={}
+end
+
+---消息回调
+function ResourceManager:OnChangeScene(kv)
+    self.ObjectPool={}
+end
+
+function ResourceManager:OnLateChangeScene()
+    self.AssetCacheMap = {}
+    UE.Resources.UnloadUnusedAssets()
+end
+
+ResourceManager:Init()
+
+return ResourceManager

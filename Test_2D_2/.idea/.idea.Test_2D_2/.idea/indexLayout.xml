@@ -19,6 +19,7 @@
       <Path>ShellCmd</Path>
       <Path>Temp</Path>
       <Path>Tools</Path>
+      <Path>Users</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
