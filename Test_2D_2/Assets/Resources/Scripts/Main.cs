@@ -6,6 +6,7 @@ using XLua;
 using System.IO;
 using System.Net;
 using System.Text;
+using UnityEditor.VersionControl;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +16,8 @@ public class Main : MonoBehaviour
 {
     public GameObject UIRoot;
     public LuaEnv luaEnv;
- 
+
+    private UnityEngine.Object asset;
     //单例
     private static Main _instance = null;
     public static Main Instance
@@ -61,8 +63,13 @@ public class Main : MonoBehaviour
         luaEnv = new LuaEnv();
         //GameObject go = new GameObject("123");
         //UnityWebRequest a;
+        Transform a;
+        //Quaternion b = Quaternion.identity;
+
+        //a.Rotate(b.eulerAngles);
+        //a.LoadAsset();
         //a.Translate();
-        StartCoroutine(a(Application.streamingAssetsPath+ "/assetbundle/prefabs/ui/title/bg.ab"));
+        //StartCoroutine(a(Application.streamingAssetsPath+ "/assetbundle/prefabs/ui/title/bg.ab"));
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
         //Camera.main.ScreenToWorldPoint(Input.mousePosition)
         luaEnv.AddLoader(InitLoader);

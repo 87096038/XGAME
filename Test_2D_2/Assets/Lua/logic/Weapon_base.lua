@@ -2,6 +2,7 @@
 local Weapon_base=Class("Weapon_base", require("Base"))
 
 function Weapon_base:cotr()
+    self.super:cotr()
     --- 拥有子弹总数
     self.totalAmmoACount=0
     --- 一弹夹子弹数量

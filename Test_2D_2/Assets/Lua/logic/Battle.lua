@@ -5,12 +5,16 @@ local MC = require("MessageCenter")
 
 local Battle=Class("Battle", require("Base"))
 
+--- 一定要有个初始武器
 function Battle:cotr(character,  initialWeapon)
-
+    self.super:cotr()
     ---实际的角色
     self.character = character
     ---实际的武器物体
-    self.weaponObj = character.gameobject.transform.parent:Find("Weapon")
+    self.weaponObj = initialWeapon.gameobject
+
+    initialWeapon.isPacked = true
+    self.weaponObj.transform:SetParent(self.character.transform.parent)
 --------------------------武器-------------------------
     --- 最大可持有武器数
     self.maxWeaponCount = 2

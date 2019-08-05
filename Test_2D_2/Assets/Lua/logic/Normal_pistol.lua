@@ -1,10 +1,14 @@
 ﻿
+local ResourceMgr = require("ResourceManager")
+local PathMgr = require("PathManager")
 local Bullet = require("Bullet")
 local Timer = require("Timer")
 
 local Normal_pistol=Class("Normal_pistol", require("Weapon_base"))
 
 function Normal_pistol:cotr()
+    self.super:cotr()
+    self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Normal_Rifle, PathMgr.NamePath.Normal_Rifle)
 
     ---是否被捡起
     self.isPacked = false
@@ -17,7 +21,7 @@ function Normal_pistol:cotr()
     --- 当前子弹数量
     self.currentAmmoACount=10
     --- 射击冷却时间
-    self.shootCDTime =0.5
+    self.shootCDTime =1
     --- 装弹时间
     self.reloadTime=1
 
@@ -33,11 +37,11 @@ end
 
 function Normal_pistol:Shoot()
     self.time = self.time + Timer.deltaTime
-    if UE.Input.GetMouseButton(0) and self.time >=  self.shootCDTime then
+    if UE.Input.GetMouseButtonDown(0) and self.time >=  self.shootCDTime then
         if self.currentAmmoACount == 0 then
             --处理没子弹
         else
-            local bullet = Bullet:new(self.bulletType)
+            local bullet = Bullet:new(self.bulletType, self.gameobject.transform.rotation)
             self.time = 0
         end
     end

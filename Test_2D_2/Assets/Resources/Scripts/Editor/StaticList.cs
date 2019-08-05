@@ -26,7 +26,7 @@ public static class StaticList
         typeof(WaitForSeconds),
         typeof(WWW),
         typeof(UnityWebRequest),
-        
+
         typeof(ExtendedMethods),
         typeof(SceneManager),
         typeof(Util),

@@ -92,12 +92,6 @@ function Class(className, super)
         --使用以下代码能够实现表面上的实例化，不浪费空间，但是在传self时要注意
         local instance = setmetatable( {}, {__index=TheClass})
 
-        local super = instance["super"]
-        if  super ~= nil then
-            if super["cotr"] ~= nil then
-                super.cotr(instance, ...)
-            end
-        end
         if instance["cotr"] then
             instance.cotr(instance, ...)
         end
@@ -129,7 +123,7 @@ end
 --主循环
 function MainLoop()
     Timer:Update()
-    --print(UE.Input.mousePosition)
+    --print("from loop"..asset)
 end
 
 --退出游戏处理
@@ -146,10 +140,15 @@ function InitTitle()
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
     --net:StartUpdate(function ()
-        --local character = require("Character"):new()
-        --Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-        --Battle:new(character, require("Normal_pistol"):new())
+        local character = require("Character"):new()
+        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+        Battle:new(character, require("Normal_pistol"):new())
     --end)
+
+    --local go = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1)
+    --go.transform.rotation =  UE.Quaternion.Euler(20, 20, 20)
+    --local go1 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1)
+    --go1.transform.rotation =  go.transform.rotation
 
     --net:Connect("127.0.0.1", 10000)
     --net:SendMessage("hello")
@@ -158,8 +157,10 @@ function InitTitle()
     --
 
     --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
-
-    --go = ResourceMgr:Load(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab")
+    --IS_RELEASE_MODE = true
+    --StartCoroutine(ResourceMgr.GetGameObjectAsync, ResourceMgr, PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1)
+    --ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg",  Main.UIRoot.transform)
+    --ResourceMgr:Instantiate(go)
     --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
     --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
     --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))

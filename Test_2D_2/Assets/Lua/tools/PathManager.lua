@@ -15,6 +15,7 @@ function PathManager:Init()
         self.ResourcePath={
             Bullet_1="Prefabs/Bullet_1",
             Character_1="Prefabs/Character",
+            Normal_Rifle="Prefabs/Normal_Rifle",
         }
     end
 
@@ -28,6 +29,7 @@ function PathManager:Init()
         self.NamePath={
             Bullet_1=nil,
             Character_1=nil,
+            Normal_Rifle=nil,
         }
     end
 

@@ -31,9 +31,8 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 3, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 2, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "GetMessageCenterDictionary", _m_GetMessageCenterDictionary_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadManifestAsset", _m_LoadManifestAsset_xlua_st_);
             
 			
             
@@ -79,48 +78,6 @@ namespace XLua.CSObjectWrap
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_LoadManifestAsset_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 1&& (LuaAPI.lua_isnil(L, 1) || LuaAPI.lua_type(L, 1) == LuaTypes.LUA_TSTRING)) 
-                {
-                    string _path = LuaAPI.lua_tostring(L, 1);
-                    
-                        UnityEngine.AssetBundleManifest gen_ret = ExtendedMethods.LoadManifestAsset( _path );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 1&& translator.Assignable<UnityEngine.AssetBundle>(L, 1)) 
-                {
-                    UnityEngine.AssetBundle _ab = (UnityEngine.AssetBundle)translator.GetObject(L, 1, typeof(UnityEngine.AssetBundle));
-                    
-                        UnityEngine.AssetBundleManifest gen_ret = ExtendedMethods.LoadManifestAsset( _ab );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to ExtendedMethods.LoadManifestAsset!");
             
         }
         

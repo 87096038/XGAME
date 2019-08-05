@@ -6,10 +6,9 @@ local Timer = require("Timer")
 local Bullet = Class("Bullet", require("Base"))
 
 function Bullet:cotr(bulletType, rotation)
-
+    self.super:cotr()
     self.gameobject = nil
     self.type = bulletType
-    self.rotation = rotation or UE.Quaternion.identity
     self.speed = 5
 
     local isNew
@@ -32,11 +31,17 @@ function Bullet:cotr(bulletType, rotation)
 
     end
 
-    self.gameobject.rotation = self.rotation
+    self.rotation = rotation or UE.Quaternion.identity
+
+    self.gameobject.transform.rotation = self.rotation
 end
 
 function Bullet:UpdateMove_light()
-    self.gameobject.transform:Translate(Timer.deltaTime * UE.Vector3.right *self.speed, UE.Space.Self)
+    if self.rotation.z > 0 or self.rotation.z < 90  then
+      self.gameobject.transform:Translate(Timer.deltaTime * UE.Vector3.right *self.speed, UE.Space.Self)
+    else
+        self.gameobject.transform:Translate(Timer.deltaTime * UE.Vector3.left *self.speed, UE.Space.Self)
+    end
 end
 
 function Bullet:OnCollision_light(type, other)

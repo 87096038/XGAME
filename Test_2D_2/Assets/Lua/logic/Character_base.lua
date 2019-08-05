@@ -2,6 +2,7 @@
 local Character_base=Class("character_base", require("Base"))
 
 function Character_base:cotr()
+    self.super:cotr()
     self.state=Enum_CharacterBehaviorType.idle
 end
 

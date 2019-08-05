@@ -70,6 +70,46 @@ function ResourceManager:GetGameObject(path, name, parentTransform, position, po
     return go, isNew
 end
 
+function ResourceManager:GetGameObjectAsync(path, name, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo, callback)
+    local go, CachePath, isNew
+    if IS_RELEASE_MODE then
+        CachePath = self:GetFullABAssetPath(path, name)
+    else
+        CachePath = path
+    end
+    if self.ObjectPool[CachePath] ~= nil then
+        if #self.ObjectPool[CachePath] > 0 then
+            go = table.remove(self.ObjectPool[CachePath])
+            local transf = go:GetComponent("Transform")
+            transf:SetParent(parentTransform)
+
+            if positionRelativeTo == UE.Space.Self then
+                transf.localPosition = position or UE.Vector3.zero
+            else
+                transf.position = position or UE.Vector3.zero
+            end
+
+            if rotation then
+                transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)
+            end
+            isNew = false
+        end
+    end
+    ---如果池中没有就新实例化一个
+    if not go then
+        isNew = true
+        coroutine.yield(self:LoadAsync(path, name, function (asset)
+            local go = self:Instantiate(asset, parentTransform, position, positionRelativeTo, rotation, rotationRelativeTo)
+            if go then
+                self.GameObjectMap[go] = CachePath
+            end
+            if callback and go then
+                callback(go, true)
+            end
+        end))
+    end
+end
+
 ---回收物体入池
 function ResourceManager:DestroyObject(gameObject, isTruly)
 
@@ -91,7 +131,6 @@ function ResourceManager:DestroyObject(gameObject, isTruly)
 
 end
 
-
 ---------------------------------- 不常用外部接口 -----------------------------
 
 ---Load，返回Asset(name: 如果是AB包则为其资源的名称)
@@ -107,8 +146,15 @@ function ResourceManager:Load(path, name)
     return asset
 end
 
-function ResourceManager:LoadAsyn(path, name, callback)
-
+function ResourceManager:LoadAsync(path, name, callback)
+    local asset
+    if IS_RELEASE_MODE then
+        self:LoadAssetBundleAsync(path, function (ab)
+            coroutine.yield(self:LoadAssetAsync(ab, path, name, callback))
+        end)
+    else
+        coroutine.yield(self:LoadResourceAsync(path, callback))
+    end
 end
 
 ---实例化
@@ -181,13 +227,23 @@ function ResourceManager:LoadAssetBundle(path)
     return ab
 end
 
-function ResourceManager:LoadAssetBundleAsyn(path, callback)
+function ResourceManager:LoadAssetBundleAsync(path, callback)
     local Path = UE.Application.streamingAssetsPath.."/"..path
     local ab = self.AssetBundleCacheMap[path]
     if ab then
         ab.refCount = ab.refCount + 1
     else
-        local request = UE.AssetBundle.LoadFromFileAsync(path)
+        local request = UE.AssetBundle.LoadFromFileAsync(Path)
+        coroutine.yield(request)
+        if request.assetBundle then
+            ab = {assetBundle=request.assetBundle, refCount=1}
+            self.AssetBundleCacheMap[path]=ab
+        else
+            print("LoadAssetBundleAsync Error: connot request the assetbundle!")
+        end
+    end
+    if callback and ab then
+        callback(ab)
     end
 end
 
@@ -197,8 +253,6 @@ function ResourceManager:LoadAsset(ab, path, name)
     local Path = self:GetFullABAssetPath(path, name)
     local asset = self.AssetCacheMap[Path]
     if not asset then
-        asset = ab.assetBundle:LoadAsset(name)
-        self.AssetCacheMap[Path] = asset
         local dependences = self.AssetBundleIndependenceMap[Path]
         if not dependences then
             dependences = self.manifest:GetAllDependencies(path)
@@ -207,9 +261,37 @@ function ResourceManager:LoadAsset(ab, path, name)
         for i=0, dependences.Length-1, 1 do
             self:LoadAssetBundle(dependences[i])
         end
+        asset = ab.assetBundle:LoadAsset(name)
+        self.AssetCacheMap[Path] = asset
     end
-    print("LoadAsset: "..Path)
     return asset
+end
+
+function ResourceManager:LoadAssetAsync(ab, path, name, callback)
+    local Path = self:GetFullABAssetPath(path, name)
+    local asset = self.AssetCacheMap[Path]
+    if not asset then
+        local dependences = self.AssetBundleIndependenceMap[Path]
+        if not dependences then
+            dependences = self.manifest:GetAllDependencies(path)
+            self.AssetBundleIndependenceMap[Path] = dependences
+        end
+        print(dependences.Length)
+        for i=0, dependences.Length-1, 1 do
+            coroutine.yield(self:LoadAssetBundleAsync(dependences[i]))
+        end
+        local request = ab.assetBundle:LoadAssetAsync(name)
+        coroutine.yield(request)
+        if request.asset then
+            asset = request.asset
+            self.AssetCacheMap[Path] = asset
+        else
+            print("LoadAssetAsync Error: connot request the asset!")
+        end
+    end
+    if callback and asset then
+        callback(asset)
+    end
 end
 
 ---path: Resources下的路径
@@ -221,6 +303,23 @@ function ResourceManager:LoadResource(path)
         self.AssetCacheMap[path] = asset
     end
     return asset
+end
+
+function ResourceManager:LoadResourceAsync(path, callback)
+    local asset = self.AssetCacheMap[path]
+    if not asset then
+        local request = UE.Resources.LoadAsync(path)
+        coroutine.yield(request)
+        if request.asset then
+            asset = request.asset
+            self.AssetCacheMap[path] = asset
+        else
+            print("LoadResourceAsync Error: connot request the asset!")
+        end
+    end
+    if callback and asset then
+        callback(asset)
+    end
 end
 
 ---释放AB包
@@ -267,10 +366,11 @@ end
 ---消息回调
 function ResourceManager:OnChangeScene(kv)
     self.ObjectPool={}
+    self.AssetCacheMap = {}
 end
 
 function ResourceManager:OnLateChangeScene()
-    self.AssetCacheMap = {}
+    collectgarbage("collect")
     UE.Resources.UnloadUnusedAssets()
 end
 

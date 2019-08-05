@@ -36,13 +36,14 @@ function Timer:Update()
     end
 end
 
---- 一个table只准有一个函数加入
+--- 一个table只准有一个update
 function Timer:AddUpdateFuc(table, fuc)
     if type(fuc) ~= "function" or type(table) ~= "table"then
         return
     end
+
     for t, v in pairs(self.UpdateFucs) do
-        if v == fuc then
+        if t == table and v == fuc then
             return
         end
     end

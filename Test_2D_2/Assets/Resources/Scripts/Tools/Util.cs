@@ -4,7 +4,7 @@ using XLua;
 
 public static class Util
 {
-    public static bool IsNull(this Object obj)
+    public static bool IsNull(Object obj)
     {
         return (obj == null);
     }

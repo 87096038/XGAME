@@ -2,11 +2,12 @@
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 
-local Character=Class("Character", require("character_base"))
+local character_base = require("character_base")
+local Character=Class("Character", character_base)
 
 function Character:cotr()
     ---gameobject---
-    ---self.gameobject=ResourceMgr:GetGameObject("assetbundle/prefabs/character/ruby.ab", "ruby")
+    self.super:cotr()
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1).transform:Find("Role")
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
