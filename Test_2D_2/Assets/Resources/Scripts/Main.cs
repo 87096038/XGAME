@@ -6,6 +6,7 @@ using XLua;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading;
 using UnityEditor.VersionControl;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -69,7 +70,6 @@ public class Main : MonoBehaviour
         //a.Rotate(b.eulerAngles);
         //a.LoadAsset();
         //a.Translate();
-        //StartCoroutine(a(Application.streamingAssetsPath+ "/assetbundle/prefabs/ui/title/bg.ab"));
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
         //Camera.main.ScreenToWorldPoint(Input.mousePosition)
         luaEnv.AddLoader(InitLoader);
@@ -80,15 +80,6 @@ public class Main : MonoBehaviour
         Init();
     }
 
-    IEnumerator a(string path)
-    {
-        AssetBundleCreateRequest r = AssetBundle.LoadFromFileAsync(path);
-        yield return r;
-        Instantiate(r.assetBundle.LoadAsset<GameObject>("bg"));
-        yield return null;
-
-    }
-    
 
     private void Update()
     {

@@ -5,15 +5,18 @@ local Timer = require("Timer")
 
 local Bullet = Class("Bullet", require("Base"))
 
-function Bullet:cotr(bulletType, rotation)
+function Bullet:cotr(bulletType, dirction, position, rotation)
     self.super:cotr()
     self.gameobject = nil
     self.type = bulletType
+    self.dirction = dirction
     self.speed = 5
+    self.isBounce = false
+    self.explosionEffect = nil
 
     local isNew
     if self.type == Enum_BulletType.light then
-        self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1)
+        self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1, nil, position)
         if isNew then
             local collisionClass = self.gameobject:GetComponent("Collision")
             if collisionClass.CollisionHandle then
@@ -37,17 +40,29 @@ function Bullet:cotr(bulletType, rotation)
 end
 
 function Bullet:UpdateMove_light()
-    if self.rotation.z > 0 or self.rotation.z < 90  then
-      self.gameobject.transform:Translate(Timer.deltaTime * UE.Vector3.right *self.speed, UE.Space.Self)
-    else
-        self.gameobject.transform:Translate(Timer.deltaTime * UE.Vector3.left *self.speed, UE.Space.Self)
-    end
+    print(self.dirction)
+    self.gameobject.transform:Translate(Timer.deltaTime * self.dirction *self.speed, UE.Space.World)
 end
 
 function Bullet:OnCollision_light(type, other)
-    if type == "TriggerEnter2D" and other.gameObject.layer == 9 then
-        ResourceMgr:DestroyObject(self.gameObject)
+    if type == "TriggerEnter2D" then
+        local layer = other.gameObject.layer
+        if layer == 9 or layer == 10 then
+            ResourceMgr:DestroyObject(self.gameObject)
+        elseif layer == 5 then
+            if self.isBounce then
+                ResourceMgr:DestroyObject(self.gameObject)
+            end
+        end
     end
+end
+
+function Bullet:Destroy()
+    self.super:Destroy()
+    if self.explosionEffect then
+
+    end
+    ResourceMgr:DestroyObject(self.gameObject)
 end
 
 return Bullet

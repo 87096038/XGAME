@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
 using XLua;
@@ -26,7 +27,8 @@ public static class StaticList
         typeof(WaitForSeconds),
         typeof(WWW),
         typeof(UnityWebRequest),
-
+        //typeof(Thread),
+        
         typeof(ExtendedMethods),
         typeof(SceneManager),
         typeof(Util),

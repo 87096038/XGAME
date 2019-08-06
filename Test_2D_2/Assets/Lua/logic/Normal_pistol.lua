@@ -10,21 +10,13 @@ function Normal_pistol:cotr()
     self.super:cotr()
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Normal_Rifle, PathMgr.NamePath.Normal_Rifle)
 
-    ---是否被捡起
-    self.isPacked = false
-    ---基础伤害
-    self.demage = 10
-    --- 拥有子弹总数
-    self.totalAmmoACount=100
-    --- 一弹夹子弹数量
-    self.clipsAmmoCount=10
-    --- 当前子弹数量
-    self.currentAmmoACount=10
+
+    ---子弹出口位置距枪的位置的长度的倍率
+    self.bulletStartDistance = 1.2
+    ---枪口朝向
+    self.dirction = UE.Vector3(0, 0, 1)
     --- 射击冷却时间
     self.shootCDTime =1
-    --- 装弹时间
-    self.reloadTime=1
-
     ---为了计算是否达到冷却时间
     self.time = 0
 
@@ -35,14 +27,27 @@ function Normal_pistol:cotr()
     self.shootType = Enum_ShootType.single
 end
 
-function Normal_pistol:Shoot()
+function Normal_pistol:UpdateShoot()
     self.time = self.time + Timer.deltaTime
-    if UE.Input.GetMouseButtonDown(0) and self.time >=  self.shootCDTime then
-        if self.currentAmmoACount == 0 then
-            --处理没子弹
-        else
-            local bullet = Bullet:new(self.bulletType, self.gameobject.transform.rotation)
-            self.time = 0
+    if self.shootType == Enum_ShootType.single then
+        if UE.Input.GetMouseButtonDown(0) and self.time >=  self.shootCDTime then
+            if self.currentAmmoACount == 0 then
+                --处理没子弹
+            else
+                local dir = self.dirction.normalized
+                local bullet = Bullet:new(self.bulletType, dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation)
+                self.time = 0
+            end
+        end
+    elseif self.shootType == Enum_ShootType.multiple then
+        if UE.Input.GetMouseButton(0) and self.time >=  self.shootCDTime then
+            if self.currentAmmoACount == 0 then
+                --处理没子弹
+            else
+                local dir = self.dirction.normalized
+                local bullet = Bullet:new(self.bulletType, dir, (self.gameobject.transform.position+dir)*self.bulletStartDistance,self.gameobject.transform.rotation)
+                self.time = 0
+            end
         end
     end
 end

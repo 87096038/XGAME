@@ -50,6 +50,16 @@ function MessageCenter:SendMessage(messageType, kv)
     end
 end
 
+--[[
+本来想的是清除失效的handle，后面想起table[key]=nil那就是没了，好像不需要这个函数
+function MessageCenter:Refresh()
+    for k, v in pairs(self.ListenerMap) do
+        if not v then
+            self.ListenerMap[k] = nil
+        end
+    end
+end
+--]]
 MessageCenter:Init()
 
 return MessageCenter

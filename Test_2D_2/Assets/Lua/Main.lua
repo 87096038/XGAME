@@ -9,6 +9,11 @@ UE = CS.UnityEngine
 
 Main=UE.GameObject.Find("Main"):GetComponent("Main")
 
+--[[
+    因为Lua本身的协程是基于多线程，所以以为这里也是，就写了这个函数调用Unity的协程
+    谁料xlua的协程是在当前线程运行的？？？？
+    要用可以直接coroutine.wrap或者coroutine.start
+--]]
 ---开始协程
 ---func : 想装成协程的function
 ---... : 该func的参数(第一个为所属table)

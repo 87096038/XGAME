@@ -57,7 +57,7 @@ function Battle:cotr(character,  initialWeapon)
 end
 
 function Battle:ChangeWeapon(index)
-    if index == self.currentWeaponIndex then
+    if index == self.currentWeaponIndex or index > self.maxWeaponCount then
         return
     end
     index = index % self.maxWeaponCount
@@ -94,7 +94,7 @@ function Battle:UpdateBattle()
     self.mousePosition_world = Camera.camera:ScreenToWorldPoint(self.mousePosition_screen)
     local vector = self.mousePosition_world-self.weaponObj.transform.position
     local angle =  UE.Vector3.Angle(vector, UE.Vector3.right)
-
+    self.currentWeapon.dirction = vector
     if vector.x > 0 then
         self.weaponObj.transform.localScale = self.Right
         if vector.y > 0 then
@@ -117,7 +117,7 @@ function Battle:UpdateBattle()
     elseif UE.Input.GetKey(UE.KeyCode.E) and self.useableThing then
         self.useableThing:Use()
     else
-        self.currentWeapon:Shoot()
+        self.currentWeapon:UpdateShoot()
     end
 end
 
