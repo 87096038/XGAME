@@ -1,10 +1,10 @@
 --[[
     管理TCP，UDP, HTTP连接
+    为全局table主要是为方便C#端获取
 --]]
 
-local NetManager = {}
+NetManager = {}
 
-local socket = require("socket")
 local pb = require('pb')
 local protoc = require('protoc')
 
@@ -35,6 +35,7 @@ local data={
 --}
 
 --local bytes = pb.encode('User', data)
+--print(bytes)
 --print(pb.tohex(bytes))
 --local data2 = pb.decode('User', bytes)
 --print(data2.userName)
@@ -51,26 +52,10 @@ end
 --]]
 function NetManager:Init()
 
-    self.currentVersion = ""
-    self.serverVersion = ""
-
-    ---是否开启热更
-    self.isHotUpdates = true
-
     ----------------------TCP--------------------
     self.TCPServer = {IP="127.0.0.1", Port = 10000}
     self.TCPTimeout = 4
 
-    if IS_ONLINE_MODE then
-        if not socket then
-            print("load socket module failed.")
-        else
-            print("load socket module successful.")
-        end
-        self:CheckUpdate()
-    else
-        self.MessageReceiveMap={}
-    end
     ----------------------HTTP-------------------
     self.HTTPServer = {IP="http://localhost", Port = 10001}
     self.HTTPTimeout = 4
@@ -87,41 +72,42 @@ function NetManager:Init()
     --- 当前更新的文件index
     self.currentFileIndex = 1
 
+    --- 用于版本对比
+    self.currentVersion = ""
+    self.serverVersion = ""
+    ------------------------------------------------
+    if IS_ONLINE_MODE then
+        self:CheckUpdate()
+    else
+        self.MessageReceiveMap={}
+    end
 end
 
 ---------------------------TCP--------------------------
-
-function NetManager:StartConnect()
-    self:Connect()
-end
-
----建立连接
-function NetManager:Connect(ip, port)
+---        TCP的实现在c#... 不得已而为之
+function NetManager:Start()
     if IS_ONLINE_MODE then
-        self.client = socket.connect(ip, port)
-        if not self.client then
+        if not CS.NetManager.Instance:Connect(self.TCPServer.IP, self.TCPServer.Port) then
             print("connect server failed.")
-        else
-            self.client:settimeout(1)
         end
     end
 end
 
 ---发送消息
-function NetManager:TCPSendMessage(message)
+function NetManager:TCPSendMessage(type, message)
     if IS_ONLINE_MODE then
-        self.client:send(message)
+        local bytes = pb.encode(Enum_NetMessageType[type], message)
+        CS.NetManager.Instance:Send(type, bytes)
     else
 
     end
 end
 
-----接收消息
-function NetManager:TCPReceiveMessage()
-    if self.client then
-        local recvstr, err = self.client:receive()
-        print("recvstr, err:", recvstr, err)
-    end
+
+---接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
+function NetManager.TCPReceiveMessage(type, data)
+    local data2 = pb.decode(Enum_NetMessageType[type], data)
+    print(data2.response)
 end
 ---------------------------HTTP----------------------------
 --- 检查更新

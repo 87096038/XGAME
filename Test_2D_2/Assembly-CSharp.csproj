@@ -87,7 +87,9 @@
     <Compile Include="Assets\XLua\Gen\EnumWrap.cs" />
     <Compile Include="Assets\XLua\Gen\ExtendedMethodsWrap.cs" />
     <Compile Include="Assets\XLua\Gen\KeyValueWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\NetManagerWrap.cs" />
     <Compile Include="Assets\XLua\Gen\PackUnpack.cs" />
+    <Compile Include="Assets\XLua\Gen\SystemByteWrap.cs" />
     <Compile Include="Assets\XLua\Gen\SystemCollectionsGenericList1SystemInt32Wrap.cs" />
     <Compile Include="Assets\XLua\Gen\SystemCollectionsIEnumeratorBridge.cs" />
     <Compile Include="Assets\XLua\Gen\SystemCollectionsStackWrap.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Assets\XLua\Gen\UnityEngineTextAssetWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngineTimeWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngineTransformWrap.cs" />
+    <Compile Include="Assets\XLua\Gen\UnityEngineUIImageWrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngineVector2Wrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngineVector3Wrap.cs" />
     <Compile Include="Assets\XLua\Gen\UnityEngineVector4Wrap.cs" />

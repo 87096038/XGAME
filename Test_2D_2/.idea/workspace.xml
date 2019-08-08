@@ -2,27 +2,295 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c113c6c-1279-49aa-ae60-1b16f00e610f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/Ruby.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/Ruby.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/2D MUSIC LOOP.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/2D MUSIC LOOP.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Collectable.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Collectable.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Footsteps2a.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Footsteps2a.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 1.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 2.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Player Hit.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Player Hit.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Quest Complete.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Quest Complete.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Fixed.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Fixed.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Walking_Broken.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Walking_Broken.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Throw Cog.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/Throw Cog.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/Enum.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/Enum.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Lua/Main.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/Main.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Battle.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Battle.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Character.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Character.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Character_base.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Character_base.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/Timer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/Timer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/MainCamera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/MainCamera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UI_HotUpdate.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UI_HotUpdate.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/ExtendedMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/ExtendedMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/NetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/NetManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/Util.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/ExtendedMethodsWrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/ExtendedMethodsWrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/UnityEngineObjectWrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/UnityEngineObjectWrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/JambiSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/JambiSheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Materials/Ruby.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Materials/Ruby.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/MrClockworkSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/MrClockworkSheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Ruby.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Ruby.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/RubySheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/RubySheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Damageable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Damageable.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/DrainCover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/DrainCover.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassCorner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassCorner.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassSquare.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksCorner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksCorner.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksSquare.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterRoundCorners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterRoundCorners.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterSquareCorners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterSquareCorners.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/GrassSmall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/GrassSmall.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/House.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/House.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/LotusFlower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/LotusFlower.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/MetalCube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/MetalCube.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Mushrooms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Mushrooms.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TelegraphPost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TelegraphPost.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeForeground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeForeground.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeLittle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeLittle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeShadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeShadow.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/GamePalette.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/GamePalette.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/New Tile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/New Tile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/Tile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/Tile.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/CharacterPortrait.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/CharacterPortrait.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/NPCPortrait.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/NPCPortrait.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIBulletIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIBulletIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIDialogueBox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIDialogueBox.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthBar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthBar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthFrame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthFrame.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CogBullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CogBullet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleAmmo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleAmmo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleHealth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleHealth.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Materials/CollectibleHealth.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Materials/CollectibleHealth.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/ParticleSpriteAtlas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/ParticleSpriteAtlas.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Shadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Shadow.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_blue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_orange.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_purple.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_red.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/DelegatesGensBridge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/DelegatesGensBridge.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/UtilWrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/UtilWrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/XLuaGenAutoRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/XLuaGenAutoRegister.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,65 +302,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Lua/Main.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="144" column="8" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="43" column="89" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua.meta">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Character.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Battle.lua">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="443">
-              <caret line="98" column="43" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Lua/Enum.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="46" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-              <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+              <caret line="187" column="6" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
+              <folding>
+                <element signature="e#551#723#0" />
+                <element signature="e#757#923#0" />
+                <element signature="e#964#1444#0" />
+                <element signature="e#1524#2273#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +320,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/Timer.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+            <state relative-caret-position="622">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
+              <folding>
+                <element signature="e#782#1023#0" />
+                <element signature="e#1063#1266#0" />
+                <element signature="e#1331#1639#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Character.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Lua/Test.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/AudioManager.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="61">
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="64" />
+              <folding>
+                <element signature="e#1288#1799#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,8 +364,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+            <state relative-caret-position="257">
+              <caret line="20" column="53" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Lua/Enum.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -118,18 +382,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1041">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+            <state relative-caret-position="295">
+              <caret line="98" column="56" selection-start-line="98" selection-start-column="56" selection-end-line="98" selection-end-column="56" />
               <folding>
-                <element signature="e#3057#3163#0" />
-                <element signature="e#3209#5677#0" />
-                <element signature="e#5734#5971#0" />
-                <element signature="e#6085#7629#0" />
-                <element signature="e#7680#8169#0" />
-                <element signature="e#8223#8349#0" />
-                <element signature="e#8414#8975#0" />
-                <element signature="e#9028#9135#0" />
+                <element signature="e#3123#3229#0" />
+                <element signature="e#3275#5743#0" />
+                <element signature="e#5800#6037#0" />
+                <element signature="e#6151#7695#0" />
+                <element signature="e#7746#8235#0" />
+                <element signature="e#8289#8415#0" />
+                <element signature="e#8480#9041#0" />
+                <element signature="e#9094#9201#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -171,17 +453,22 @@
         <option value="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/PathManager.lua.txt" />
         <option value="$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/ResourceManager.lua.txt" />
         <option value="$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt" />
-        <option value="$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua" />
         <option value="$PROJECT_DIR$/Assets/Lua/logic/Character.lua" />
-        <option value="$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua" />
         <option value="$PROJECT_DIR$/Assets/Lua/logic/Character_base.lua" />
-        <option value="$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua" />
-        <option value="$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua" />
-        <option value="$PROJECT_DIR$/Assets/Lua/Main.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/tools/MessageCenter.lua" />
         <option value="$PROJECT_DIR$/Assets/Lua/logic/Battle.lua" />
-        <option value="$PROJECT_DIR$/Assets/Lua/tools/Timer.lua" />
-        <option value="$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua" />
         <option value="$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/logic/Normal_Sniper_Rifle.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/Enum.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto" />
+        <option value="$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/tools/AudioManager.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/tools/Timer.lua" />
+        <option value="$PROJECT_DIR$/Assets/Lua/Main.lua" />
       </list>
     </option>
   </component>
@@ -189,10 +476,10 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="73" />
-    <option name="y" value="145" />
+    <option name="x" value="137" />
+    <option name="y" value="82" />
     <option name="width" value="1400" />
-    <option name="height" value="915" />
+    <option name="height" value="914" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -231,6 +518,13 @@
               <item name="Test_2D_2" type="462c0819:PsiDirectoryNode" />
               <item name="Assets" type="462c0819:PsiDirectoryNode" />
               <item name="Lua" type="462c0819:PsiDirectoryNode" />
+              <item name="protocol" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Test_2D_2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Test_2D_2" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="Lua" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -262,10 +556,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102148000" />
+    <option name="totallyTimeSpent" value="142156000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="145" width="1400" height="915" extended-state="0" />
+    <frame x="137" y="82" width="1400" height="914" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
@@ -301,37 +595,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/logic/GlobalAbilityScale.lua.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/person.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/person_pb.lua.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/protoc.lua.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="69" column="67" selection-start-line="69" selection-start-column="67" selection-end-line="69" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/Main.lua.txt.meta">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/StreamingAssets/lua/tools/SceneManager.lua.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -391,13 +654,6 @@
             <element signature="e#1141#1314#0" />
             <element signature="e#1370#1561#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/EmmyLua/lib/EmmyLua-1.2.10-IDEA182.jar!/std/Lua53/os.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="54" column="12" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -556,16 +812,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Base.lua.meta">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Base.lua">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Character_base.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -579,120 +825,168 @@
     <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/protoc.lua">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/MessageCenter.lua">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/KeyValue.lua">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
-          <folding>
-            <element signature="e#155#923#0" />
-            <element signature="e#1202#2302#0" />
-            <element signature="e#2449#3680#0" />
-            <element signature="e#3788#4278#0" />
-            <element signature="e#4437#4650#0" />
-            <element signature="e#3299#3577#0" />
-            <element signature="e#3629#4640#0" />
-            <element signature="e#6115#6257#0" />
-            <element signature="e#4799#4956#0" />
-            <element signature="e#5061#5147#0" />
-            <element signature="e#6942#7625#0" />
-            <element signature="e#7347#7936#0" />
-            <element signature="e#8028#8611#0" />
-            <element signature="e#8681#9533#0" />
-            <element signature="e#8127#8299#0" />
-            <element signature="e#8362#8791#0" />
-            <element signature="e#8854#9257#0" />
-            <element signature="e#10808#10906#0" />
-            <element signature="e#10963#11033#0" />
-            <element signature="e#11095#11294#0" />
-            <element signature="e#11349#11401#0" />
-            <element signature="e#11450#11519#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1041">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="e#3057#3163#0" />
-            <element signature="e#3209#5677#0" />
-            <element signature="e#5734#5971#0" />
-            <element signature="e#6085#7629#0" />
-            <element signature="e#7680#8169#0" />
-            <element signature="e#8223#8349#0" />
-            <element signature="e#8414#8975#0" />
-            <element signature="e#9028#9135#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/Enum.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="46" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Character.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/Main.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="144" column="8" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/Timer.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua.meta">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Base.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/MessageCenter.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#162#666#0" />
+            <element signature="e#730#1083#0" />
+            <element signature="e#1141#1314#0" />
+            <element signature="e#1370#1561#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Battle.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="98" column="43" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="43" />
+        <state relative-caret-position="-268">
+          <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua.meta">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Normal_Sniper_Rifle.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="43" column="89" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="89" />
+        <state relative-caret-position="469">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Bullet.lua">
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+        <state relative-caret-position="195">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/logic/Character.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/Test.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/Enum.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="98" column="56" selection-start-line="98" selection-start-column="56" selection-end-line="98" selection-end-column="56" />
+          <folding>
+            <element signature="e#3123#3229#0" />
+            <element signature="e#3275#5743#0" />
+            <element signature="e#5800#6037#0" />
+            <element signature="e#6151#7695#0" />
+            <element signature="e#7746#8235#0" />
+            <element signature="e#8289#8415#0" />
+            <element signature="e#8480#9041#0" />
+            <element signature="e#9094#9201#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="20" column="53" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/EmmyLua/lib/EmmyLua-1.2.10-IDEA182.jar!/std/Lua53/os.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/Timer.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#782#1023#0" />
+            <element signature="e#1063#1266#0" />
+            <element signature="e#1331#1639#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/tools/AudioManager.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="64" />
+          <folding>
+            <element signature="e#1288#1799#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Lua/Main.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="187" column="6" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
+          <folding>
+            <element signature="e#551#723#0" />
+            <element signature="e#757#923#0" />
+            <element signature="e#964#1444#0" />
+            <element signature="e#1524#2273#0" />
+          </folding>
         </state>
       </provider>
     </entry>

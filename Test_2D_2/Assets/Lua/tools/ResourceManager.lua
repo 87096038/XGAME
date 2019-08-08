@@ -48,10 +48,10 @@ function ResourceManager:GetGameObject(path, name, parentTransform, position, po
             local transf = go:GetComponent("Transform")
             transf:SetParent(parentTransform)
 
-            if positionRelativeTo == UE.Space.Self then
-                transf.localPosition = position or UE.Vector3.zero
-            else
+            if positionRelativeTo == UE.Space.World then
                 transf.position = position or UE.Vector3.zero
+            else
+                transf.localPosition = position or UE.Vector3.zero
             end
 
             if rotation then
@@ -174,10 +174,10 @@ function ResourceManager:Instantiate(original, parentTransform, position, positi
         else
             go = UE.Object.Instantiate(original, parentTransform)
             local transf = go:GetComponent("Transform")
-            if positionRelativeTo == UE.Space.Self then
-                transf.localPosition = position or UE.Vector3.zero
-            else
+            if positionRelativeTo == UE.Space.World then
                 transf.position = position or UE.Vector3.zero
+            else
+                transf.localPosition = position or UE.Vector3.zero
             end
             if rotation then
                 transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)

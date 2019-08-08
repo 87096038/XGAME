@@ -11,7 +11,8 @@ message Person {
 message Message{
     required int32 type     =1;
 }
-message User{
+message Login{
     required string userName    =1;
     required string password    =2;
+    required bool response      =3
 }

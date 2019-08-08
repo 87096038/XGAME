@@ -3,6 +3,7 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_Test_2D_2.-526081543.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -95,7 +96,9 @@
             <e p="ExtendedMethodsWrap.cs" t="Include" />
             <e p="KeyValueWrap.cs" t="Include" />
             <e p="link.xml" t="Include" />
+            <e p="NetManagerWrap.cs" t="Include" />
             <e p="PackUnpack.cs" t="Include" />
+            <e p="SystemByteWrap.cs" t="Include" />
             <e p="SystemCollectionsGenericList1SystemInt32Wrap.cs" t="Include" />
             <e p="SystemCollectionsIEnumeratorBridge.cs" t="Include" />
             <e p="SystemCollectionsStackWrap.cs" t="Include" />
@@ -133,6 +136,7 @@
             <e p="UnityEngineTextAssetWrap.cs" t="Include" />
             <e p="UnityEngineTimeWrap.cs" t="Include" />
             <e p="UnityEngineTransformWrap.cs" t="Include" />
+            <e p="UnityEngineUIImageWrap.cs" t="Include" />
             <e p="UnityEngineVector2Wrap.cs" t="Include" />
             <e p="UnityEngineVector3Wrap.cs" t="Include" />
             <e p="UnityEngineVector4Wrap.cs" t="Include" />

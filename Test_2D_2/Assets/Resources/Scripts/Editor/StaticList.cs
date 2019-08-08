@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
 using XLua;
@@ -27,7 +25,8 @@ public static class StaticList
         typeof(WaitForSeconds),
         typeof(WWW),
         typeof(UnityWebRequest),
-        //typeof(Thread),
+        typeof(byte),
+        typeof(UnityEngine.UI.Image),
         
         typeof(ExtendedMethods),
         typeof(SceneManager),
@@ -35,12 +34,12 @@ public static class StaticList
         typeof(MessageDelivery),
         typeof(KeyValue),
         typeof(Collision),
-        //typeof(IEnumerator)
     };
     
     [CSharpCallLua]
     public static List<Type> module_cs_call_lua_list = new List<Type>()
     {
+        typeof(NetManager.Receive),
         //typeof(XLua.Cast.IEnumerator),
         //typeof(System.Collections.IEnumerator)
     };

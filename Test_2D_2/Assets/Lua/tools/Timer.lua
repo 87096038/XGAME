@@ -62,5 +62,20 @@ function Timer:RemoveUpdateFuc(fuc)
     end
 end
 
+function Timer:InvokeCoroutine(func, time, repeatCount)
+    StartCoroutine(function()
+        if time then
+            local tick = UE.WaitForSeconds(time)
+            repeatCount = repeatCount or 1
+            for count=1, repeatCount, 1 do
+                coroutine.yield(tick)
+                func()
+            end
+        else
+            func()
+        end
+    end)
+end
+
 Timer:Init()
 return Timer

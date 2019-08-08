@@ -22,6 +22,9 @@ namespace XLua.CSObjectWrap
         static void wrapInit0(LuaEnv luaenv, ObjectTranslator translator)
         {
         
+            translator.DelayWrapLoader(typeof(NetManager), NetManagerWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(object), SystemObjectWrap.__Register);
         
         
@@ -171,18 +174,24 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(UnityEngine.Space), UnityEngineSpaceWrap.__Register);
         
-        
-            translator.DelayWrapLoader(typeof(System.Collections.Stack), SystemCollectionsStackWrap.__Register);
-        
         }
         
         static void wrapInit1(LuaEnv luaenv, ObjectTranslator translator)
         {
         
+            translator.DelayWrapLoader(typeof(System.Collections.Stack), SystemCollectionsStackWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(UnityEngine.Camera), UnityEngineCameraWrap.__Register);
         
         
             translator.DelayWrapLoader(typeof(UnityEngine.Networking.UnityWebRequest), UnityEngineNetworkingUnityWebRequestWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(byte), SystemByteWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(UnityEngine.UI.Image), UnityEngineUIImageWrap.__Register);
         
         
             translator.DelayWrapLoader(typeof(ExtendedMethods), ExtendedMethodsWrap.__Register);

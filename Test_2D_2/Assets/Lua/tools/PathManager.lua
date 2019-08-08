@@ -17,6 +17,9 @@ function PathManager:Init()
             Character_1="Prefabs/Character",
             Normal_Rifle="Prefabs/Normal_Rifle",
             Normal_Sniper_Rifle="Prefabs/Normal_Sniper_Rifle",
+            Audio_Title_BGM="Audio/Audio_Title_BGM",
+            UI_Begin_Imgs="Prefabs/UI/Begin/BeginImgs",
+            UI_HotUpdate="Prefabs/UI/Begin/UI_HotUpdate",
         }
     end
 
@@ -28,10 +31,15 @@ function PathManager:Init()
         }
     else
         self.NamePath={
+            --[[
             Bullet_1=nil,
             Character_1=nil,
             Normal_Rifle=nil,
             Normal_Sniper_Rifle=nil,
+            Audio_Title_BGM=nil,
+            UI_Begin_Imgs=nil,
+            UI_HotUpdate=nil,
+            -]]
         }
     end
 

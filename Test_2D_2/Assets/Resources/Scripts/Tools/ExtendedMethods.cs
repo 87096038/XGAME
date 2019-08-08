@@ -10,5 +10,4 @@ public static class ExtendedMethods
     {
         return new Dictionary<string, MessageDelivery>();
     }
-    
 }

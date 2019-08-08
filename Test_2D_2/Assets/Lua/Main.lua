@@ -10,13 +10,13 @@ UE = CS.UnityEngine
 Main=UE.GameObject.Find("Main"):GetComponent("Main")
 
 --[[
-    因为Lua本身的协程是基于多线程，所以以为这里也是，就写了这个函数调用Unity的协程
+    因为Lua本身的协程是基于多线程，所以我以为这里也是，就写了这个函数调用Unity的协程
     谁料xlua的协程是在当前线程运行的？？？？
     要用可以直接coroutine.wrap或者coroutine.start
 --]]
 ---开始协程
 ---func : 想装成协程的function
----... : 该func的参数(第一个为所属table)
+---... : 该func的参数(如果有self, 第一个参数为self)
 function StartCoroutine(func, ...)
     local util = require 'xlua.util'
     local func = util.cs_generator(func, ...)
@@ -106,6 +106,46 @@ function Class(className, super)
     return TheClass
 end
 
+---step: 0~1之间，每次变化的透明度多少，推荐0.02
+---keepTime: 每张图的展示时间(s)
+---imgsIntervalTime: 每张图的间隔时间
+local function BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime)
+    print(parentTransform)
+    if parentTransform then
+        local stepTmp = step or 0.02
+        local currentImg
+        local color = UE.Color()
+        local child
+        local keep = UE.WaitForSeconds(keepTime or 2)
+        local interval =  UE.WaitForSeconds(0.01)
+        local imgsInterval = UE.WaitForSeconds(imgsIntervalTime or 0.5)
+
+        for i=0, parentTransform.childCount-1, 1 do
+            stepTmp = step or 2
+            child =  parentTransform:GetChild(i).gameObject
+            child:SetActive(true)
+            currentImg = child:GetComponent(typeof(UE.UI.Image))
+            color = currentImg.color
+            color.a = 0.005
+
+            while color.a>0 do
+                color.a = color.a + stepTmp
+                currentImg.color = color
+                print(currentImg.color.a.." : "..color.a)
+                coroutine.yield(interval)
+                if (color.a >= 1) then
+                    coroutine.yield(keep)
+                    stepTmp = -stepTmp;
+                end
+            end
+            child:SetActive(false);
+            coroutine.yield(imgsInterval)
+        end
+    end
+end
+
+
+
 
 ---需要先运行的module
 require("Enum")
@@ -119,6 +159,7 @@ local PathMgr = require("PathManager")
 local SceneMgr = require("SceneManager")
 local MC = require("MessageCenter")
 local Camera = require("CameraFollowing")
+local AudioMgr = require("AudioManager")
 -------------------------------
 --初始化
 function Init()
@@ -143,45 +184,24 @@ function InitTitle()
     --SceneMgr:LoadScene(1)
     --local go = UE.GameObject()
 
+    --ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_HotUpdate, PathMgr.NamePath.UI_HotUpdate, Main.UIRoot.transform)
+    --local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
+
+    --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
+    --IS_ONLINE_MODE = true
+    --net:Start()
+    --local login = {userName="1", password="5", response=false}
+    --net:TCPSendMessage(1, login)
+
+    --StartCoroutine(BeginImgFade, beginImgs.transform)
+
+    --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
+
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
     --net:StartUpdate(function ()
-        local character = require("Character"):new()
-        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-        Battle:new(character, require("Normal_pistol"):new())
+        --local character = require("Character"):new()
+        --Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+        --Battle:new(character, require("Normal_pistol"):new())
     --end)
-
-    --local go = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1)
-    --go.transform.rotation =  UE.Quaternion.Euler(20, 20, 20)
-    --local go1 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1)
-    --go1.transform.rotation =  go.transform.rotation
-
-    --net:Connect("127.0.0.1", 10000)
-    --net:SendMessage("hello")
-    --local go = ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg", Main.UIRoot.transform)
-    --ResourceMgr:DestroyObject(go)
-    --
-
-    --local newGo =  ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg")
-    --IS_RELEASE_MODE = true
-    --StartCoroutine(ResourceMgr.GetGameObjectAsync, ResourceMgr, PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1)
-    --ResourceMgr:GetGameObject("assetbundle/prefabs/ui/title/bg.ab", "bg",  Main.UIRoot.transform)
-    --ResourceMgr:Instantiate(go)
-    --go=CS.Main.LoadPrefabs("Prefabs/UI/Title/BG",Main.UIRoot.transform)
-    --ResourceMgr:Instantiate(go, Main.UIRoot.transform)
-    --print(PathMgr:GetName(Engine.Application.streamingAssetsPath.."/assetbundle/prefabs/ui/title/bg.ab"))
-
-    --local role = require("Character"):new()
-    --role:Move()
-
-    --local kv = require("KeyValue"):new("hello")
-    --print(kv.Key)
-    --local kv2 = require("KeyValue"):new("world")
-    --print(kv2.Key)
-
-
-    --MC:AddListener("hello", HandleHello)
-    --kv = require("KeyValue"):new("nice to meet you")
-    --MC:SendMessage("hello", kv)
-    --MC:RemoveMessageType("hello")
-    --MC:SendMessage("hello", kv)
 end
+

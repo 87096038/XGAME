@@ -31,8 +31,10 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 2, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 4, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "IsNull", _m_IsNull_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "Int32ToBytes", _m_Int32ToBytes_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "BytesToInt32", _m_BytesToInt32_xlua_st_);
             
 			
             
@@ -70,6 +72,56 @@ namespace XLua.CSObjectWrap
                     
                         bool gen_ret = Util.IsNull( _obj );
                         LuaAPI.lua_pushboolean(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_Int32ToBytes_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    int _i = LuaAPI.xlua_tointeger(L, 1);
+                    
+                        byte[] gen_ret = Util.Int32ToBytes( _i );
+                        LuaAPI.lua_pushstring(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_BytesToInt32_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    byte[] _bytes = LuaAPI.lua_tobytes(L, 1);
+                    
+                        int gen_ret = Util.BytesToInt32( _bytes );
+                        LuaAPI.xlua_pushinteger(L, gen_ret);
                     
                     
                     
