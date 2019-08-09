@@ -20,6 +20,17 @@ function PathManager:Init()
             Audio_Title_BGM="Audio/Audio_Title_BGM",
             UI_Begin_Imgs="Prefabs/UI/Begin/BeginImgs",
             UI_HotUpdate="Prefabs/UI/Begin/UI_HotUpdate",
+            Tile_Base = "Sprite/Tiles/FloorBricksToGrassCorner_0",
+            Room01 = "Prefabs/Rooms/Room01",
+            Room02 = "Prefabs/Rooms/Room02",
+            Room03 = "Prefabs/Rooms/Room03",
+            Room04 = "Prefabs/Rooms/Room04",
+            Room05 = "Prefabs/Rooms/Room05",
+            Room06 = "Prefabs/Rooms/Room06",
+            Room07 = "Prefabs/Rooms/Room07",
+            Room08 = "Prefabs/Rooms/Room08",
+            Road = "Prefabs/Rooms/Road",
+            GridRoot = "Prefabs/Rooms/GridRoot",
         }
     end
 

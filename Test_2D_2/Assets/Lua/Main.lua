@@ -196,5 +196,7 @@ function InitTitle()
         Battle:new(character, require("Normal_pistol"):new())
         character:Start()
     --end)
+
+    SceneMgr:GenerateBattleMap(1,3,1,1)
 end
 
