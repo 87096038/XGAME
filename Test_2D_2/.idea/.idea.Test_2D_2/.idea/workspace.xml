@@ -5,295 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dd2a44d-fdec-41bb-9631-6632218cdd1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test_2D_2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitDown.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitDown.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitLeft.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitLeft.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitRight.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitRight.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitUp.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyHitUp.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleDown.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleDown.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleLeft.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleLeft.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleRight.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleRight.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleUp.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyIdleUp.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchDown.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchDown.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchLeft.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchLeft.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchRight.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchRight.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchUp.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyLaunchUp.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunDown.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunDown.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunLeft.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunLeft.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunRight.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunRight.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunUp.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/AnimationClips/Player/RubyRunUp.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/Ruby.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Charactor/Ruby.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/2D MUSIC LOOP.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/2D MUSIC LOOP.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Collectable.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Collectable.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Footsteps2a.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Footsteps2a.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Hit for enemy 2.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Player Hit.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Player Hit.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Quest Complete.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Quest Complete.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Fixed.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Fixed.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Walking_Broken.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Robot Walking_Broken.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Throw Cog.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Throw Cog.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/Enum.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/Enum.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Lua/Main.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/Main.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/protocol/Protocol.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/NetManager.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/PathManager.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/ResourceManager.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/tools/Timer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/tools/Timer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UI_HotUpdate.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UI_HotUpdate.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Battle.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Battle.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Character.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Character.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Normal_pistol.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Lua/logic/Weapon_base.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Character.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Normal_Rifle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Normal_Rifle.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/ExtendedMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/ExtendedMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/NetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/NetManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/Util.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/JambiSheet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/JambiSheet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Materials/Ruby.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Materials/Ruby.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/MrClockworkSheet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/MrClockworkSheet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Ruby.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/Ruby.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/RubySheet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Characters/RubySheet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Damageable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Damageable.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/DrainCover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/DrainCover.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassCorner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassCorner.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassSquare.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorBricksToGrassSquare.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksCorner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksCorner.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksSquare.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorGrassToBricksSquare.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterRoundCorners.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterRoundCorners.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterSquareCorners.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/FloorWaterSquareCorners.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/GrassSmall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/GrassSmall.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/House.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/House.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/LotusFlower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/LotusFlower.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/MetalCube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/MetalCube.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Mushrooms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/Mushrooms.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TelegraphPost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TelegraphPost.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeBig3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeForeground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeForeground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeLittle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeLittle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeShadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Environmnent/TreeShadow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassCorner_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorBricksToGrassSquare_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksCorner_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorGrassToBricksSquare_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterRoundCorners_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/FloorWaterSquareCorners_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/GamePalette.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/GamePalette.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/New Tile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/New Tile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/Tile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Tiles/Tile.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/CharacterPortrait.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/CharacterPortrait.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/NPCPortrait.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/NPCPortrait.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIBulletIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIBulletIcon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIDialogueBox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIDialogueBox.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthBar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthBar.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthFrame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/UI/UIHealthFrame.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CogBullet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CogBullet.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleAmmo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleAmmo.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleHealth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/CollectibleHealth.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Materials/CollectibleHealth.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Materials/CollectibleHealth.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/ParticleSpriteAtlas.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/ParticleSpriteAtlas.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/VFX/Shadow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_orange.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Weapon/Atlases/PNG/Atlas_red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/DelegatesGensBridge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/DelegatesGensBridge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/UtilWrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/UtilWrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XLua/Gen/XLuaGenAutoRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XLua/Gen/XLuaGenAutoRegister.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -320,28 +40,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+            <state relative-caret-position="463">
+              <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
               <folding>
-                <marker date="1565259784332" expanded="true" signature="6:158" ph="..." />
-                <marker date="1565259784332" expanded="true" signature="200:4765" ph="{...}" />
-                <marker date="1565259784332" expanded="false" signature="380:966" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="398:960" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="443:920" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="546:688" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="709:906" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="1127:1200" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="1218:2487" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="1344:1898" ph="/* GameObject go = new GameObject(&quot;123&quot;); ... */" />
-                <marker date="1565259784332" expanded="true" signature="2142:2481" ph="/* AudioSource asr = gameObject.GetComponent(typeof(AudioSource)) as AudioSource; ... */" />
-                <marker date="1565259784332" expanded="true" signature="2569:3595" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="2910:3589" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="3189:3519" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="3390:3505" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="3622:3729" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="3656:3723" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="3758:3905" ph="{...}" />
-                <marker date="1565259784332" expanded="true" signature="3945:4763" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="6:158" ph="..." />
+                <marker date="1565323125775" expanded="true" signature="200:4549" ph="{...}" />
+                <marker date="1565323125775" expanded="false" signature="380:966" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="398:960" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="443:920" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="546:688" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="709:906" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="1127:1200" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="1218:2479" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="1344:1890" ph="/* GameObject go = new GameObject(&quot;123&quot;); ... */" />
+                <marker date="1565323125775" expanded="true" signature="2134:2473" ph="/* AudioSource asr = gameObject.GetComponent(typeof(AudioSource)) as AudioSource; ... */" />
+                <marker date="1565323125775" expanded="true" signature="2561:3587" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="2902:3581" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="3181:3511" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="3382:3497" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="3614:3721" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="3648:3715" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="3750:3897" ph="{...}" />
+                <marker date="1565323125775" expanded="false" signature="3937:4075" ph="{...}" />
+                <marker date="1565323125775" expanded="false" signature="4142:4547" ph="{...}" />
+                <marker date="1565323125775" expanded="true" signature="4391:4520" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -432,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+            <state relative-caret-position="11">
+              <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
               <folding>
                 <marker date="1564558688430" expanded="true" signature="6:44" ph="..." />
                 <marker date="1564558688430" expanded="true" signature="84:1142" ph="{...}" />
@@ -545,14 +267,14 @@
         <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/ClientNet.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/Util.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Tools/NetManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Editor/StaticList.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-407" />
-    <option name="y" value="66" />
+    <option name="x" value="-51" />
+    <option name="y" value="96" />
     <option name="width" value="1620" />
     <option name="height" value="899" />
   </component>
@@ -708,12 +430,12 @@
       <workItem from="1565147347485" duration="6176000" />
       <workItem from="1565172366202" duration="53000" />
       <workItem from="1565172424627" duration="9045000" />
-      <workItem from="1565243008774" duration="9109000" />
+      <workItem from="1565243008774" duration="12509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102329000" />
+    <option name="totallyTimeSpent" value="105729000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,8 +447,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-407" y="66" width="1620" height="899" extended-state="0" />
-    <editor active="true" />
+    <frame x="-51" y="96" width="1620" height="899" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28453737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1482,23 +1203,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/BuildInInit.cs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding>
-            <marker date="1564558688430" expanded="true" signature="6:44" ph="..." />
-            <marker date="1564558688430" expanded="true" signature="84:1142" ph="{...}" />
-            <marker date="1564558688430" expanded="true" signature="224:334" ph="{...}" />
-            <marker date="1564558688430" expanded="true" signature="389:498" ph="{...}" />
-            <marker date="1564558688430" expanded="true" signature="553:662" ph="{...}" />
-            <marker date="1564558688430" expanded="true" signature="714:822" ph="{...}" />
-            <marker date="1564558688430" expanded="true" signature="874:981" ph="{...}" />
-            <marker date="1564558688430" expanded="true" signature="1033:1140" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/XLua/Examples/04_LuaObjectOrented/InvokeLua.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1561,35 +1265,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/XLua/Src/StaticLuaCallbacks.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
+        <state relative-caret-position="-288">
           <caret line="628" selection-start-line="628" selection-end-line="628" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Collision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <marker date="1564558688430" expanded="true" signature="6:44" ph="..." />
+            <marker date="1564558688430" expanded="true" signature="84:1142" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="224:334" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="389:498" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="553:662" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="714:822" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="874:981" ph="{...}" />
+            <marker date="1564558688430" expanded="true" signature="1033:1140" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Main.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+        <state relative-caret-position="463">
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
           <folding>
-            <marker date="1565259784332" expanded="true" signature="6:158" ph="..." />
-            <marker date="1565259784332" expanded="true" signature="200:4765" ph="{...}" />
-            <marker date="1565259784332" expanded="false" signature="380:966" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="398:960" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="443:920" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="546:688" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="709:906" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="1127:1200" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="1218:2487" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="1344:1898" ph="/* GameObject go = new GameObject(&quot;123&quot;); ... */" />
-            <marker date="1565259784332" expanded="true" signature="2142:2481" ph="/* AudioSource asr = gameObject.GetComponent(typeof(AudioSource)) as AudioSource; ... */" />
-            <marker date="1565259784332" expanded="true" signature="2569:3595" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="2910:3589" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="3189:3519" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="3390:3505" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="3622:3729" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="3656:3723" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="3758:3905" ph="{...}" />
-            <marker date="1565259784332" expanded="true" signature="3945:4763" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="6:158" ph="..." />
+            <marker date="1565323125775" expanded="true" signature="200:4549" ph="{...}" />
+            <marker date="1565323125775" expanded="false" signature="380:966" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="398:960" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="443:920" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="546:688" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="709:906" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="1127:1200" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="1218:2479" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="1344:1890" ph="/* GameObject go = new GameObject(&quot;123&quot;); ... */" />
+            <marker date="1565323125775" expanded="true" signature="2134:2473" ph="/* AudioSource asr = gameObject.GetComponent(typeof(AudioSource)) as AudioSource; ... */" />
+            <marker date="1565323125775" expanded="true" signature="2561:3587" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="2902:3581" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="3181:3511" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="3382:3497" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="3614:3721" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="3648:3715" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="3750:3897" ph="{...}" />
+            <marker date="1565323125775" expanded="false" signature="3937:4075" ph="{...}" />
+            <marker date="1565323125775" expanded="false" signature="4142:4547" ph="{...}" />
+            <marker date="1565323125775" expanded="true" signature="4391:4520" ph="{...}" />
           </folding>
         </state>
       </provider>

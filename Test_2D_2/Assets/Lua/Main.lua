@@ -121,17 +121,15 @@ local function BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime)
         local imgsInterval = UE.WaitForSeconds(imgsIntervalTime or 0.5)
 
         for i=0, parentTransform.childCount-1, 1 do
-            stepTmp = step or 2
+            stepTmp = step or 0.02
             child =  parentTransform:GetChild(i).gameObject
             child:SetActive(true)
             currentImg = child:GetComponent(typeof(UE.UI.Image))
             color = currentImg.color
             color.a = 0.005
-
             while color.a>0 do
                 color.a = color.a + stepTmp
                 currentImg.color = color
-                print(currentImg.color.a.." : "..color.a)
                 coroutine.yield(interval)
                 if (color.a >= 1) then
                     coroutine.yield(keep)
@@ -179,13 +177,9 @@ end
 ------------------------------
 function InitTitle()
 
-    --local title = ResourceMgr:GetGameObject("Prefabs/UI_Title", nil, Main.UIRoot.transform)
-    --net:CheckUpdate()
-    --SceneMgr:LoadScene(1)
-    --local go = UE.GameObject()
-
     --ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_HotUpdate, PathMgr.NamePath.UI_HotUpdate, Main.UIRoot.transform)
     --local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
+    --StartCoroutine(BeginImgFade, beginImgs.transform)
 
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
     --IS_ONLINE_MODE = true
@@ -193,15 +187,14 @@ function InitTitle()
     --local login = {userName="1", password="5", response=false}
     --net:TCPSendMessage(1, login)
 
-    --StartCoroutine(BeginImgFade, beginImgs.transform)
-
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
     --net:StartUpdate(function ()
-        --local character = require("Character"):new()
-        --Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-        --Battle:new(character, require("Normal_pistol"):new())
+        local character = require("Character"):new()
+        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+        Battle:new(character, require("Normal_pistol"):new())
+        character:Start()
     --end)
 end
 

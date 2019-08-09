@@ -8,7 +8,16 @@ local Character=Class("Character", character_base)
 function Character:cotr()
     ---gameobject---
     self.super:cotr()
-    self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1).transform:Find("Role")
+    local isNew
+    self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1).transform:Find("Role")
+    self.collsion = self.gameobject:GetComponent(typeof(CS.Collision))
+    if isNew then
+        if self.collsion.CollisionHandle then
+            self.collsion.CollisionHandle = self.collsion.CollisionHandle + self.OnCollision
+        else
+            self.collsion.CollisionHandle = self.OnCollision
+        end
+    end
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
     self.speed = 5
@@ -20,10 +29,11 @@ function Character:cotr()
     ---state---
     self.heath = 100
 
-
-    Timer:AddUpdateFuc(self, self.update)
 end
 
+function Character:Start()
+    Timer:AddUpdateFuc(self, self.update)
+end
 
 function Character:update()
 
@@ -45,6 +55,10 @@ function Character:update()
     else
         self.animatior:SetFloat("Speed", 0)
     end
+end
+
+function Character:OnCollision(type, other)
+
 end
 
 return Character

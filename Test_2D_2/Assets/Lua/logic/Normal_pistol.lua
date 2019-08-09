@@ -27,6 +27,10 @@ function Normal_pistol:cotr()
     self.shootType = Enum_ShootType.single
 end
 
+function Normal_pistol:UpdateIdle()
+
+end
+
 function Normal_pistol:UpdateShoot()
     self.time = self.time + Timer.deltaTime
     if self.shootType == Enum_ShootType.single then
@@ -52,7 +56,7 @@ function Normal_pistol:UpdateShoot()
     end
 end
 
-function Normal_pistol:Changing()
+function Normal_pistol:Reload()
 
 end
 
@@ -60,9 +64,8 @@ function Normal_pistol:Use()
     if self.isPacked then
         return
     end
-
     require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new("weapon", self))
-
+    self.isPacked = true
 end
 
 function Normal_pistol:Drop()

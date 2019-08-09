@@ -63,7 +63,7 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-        
+
         //a.Rotate(b.eulerAngles);
         //a.LoadAsset();
         //a.Translate();
@@ -133,14 +133,21 @@ public class Main : MonoBehaviour
 
     byte[] InitLoader(ref string path)
     {
-        if (File.Exists(Application.dataPath + "/lua/" + path + ".lua"))
-            return Encoding.UTF8.GetBytes(File.ReadAllText(Application.dataPath + "/lua/" + path + ".lua"));
-        else if (File.Exists(Application.dataPath + "/lua/tools/" + path + ".lua"))
-            return Encoding.UTF8.GetBytes(File.ReadAllText(Application.dataPath + "/lua/tools/" + path + ".lua"));
-        else if (File.Exists(Application.dataPath + "/lua/protobuf/" + path + ".lua"))
-            return Encoding.UTF8.GetBytes(File.ReadAllText(Application.dataPath + "/lua/protobuf/" + path + ".lua"));
-        else if (File.Exists(Application.dataPath + "/lua/logic/" + path + ".lua"))
-            return Encoding.UTF8.GetBytes(File.ReadAllText(Application.dataPath + "/lua/logic/" + path + ".lua"));
-        return null;
+        DirectoryInfo TheFolder=new DirectoryInfo(Application.dataPath+ "/lua");
+        return GetLuaBytes(TheFolder, path);
+    }
+
+    private byte[] GetLuaBytes(DirectoryInfo folder, string path)
+    {
+        byte[] data = null;
+        if(File.Exists(folder + "/" + path + ".lua"))
+            return Encoding.UTF8.GetBytes(File.ReadAllText(folder + "/" + path + ".lua"));
+        foreach (DirectoryInfo NextFolder in folder.GetDirectories())
+        {
+            data = GetLuaBytes(NextFolder, path);
+            if (data != null)
+                return data;
+        }
+        return data;
     }
 }

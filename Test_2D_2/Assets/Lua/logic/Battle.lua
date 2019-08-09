@@ -73,7 +73,11 @@ function Battle:AddWeapon(weapon)
     if #self.Weapons >= self.maxWeaponCount then
         self:DropWeapon()
     end
-
+    self.currentWeapon = weapon
+    self.Weapons[self.currentWeaponIndex] = weapon
+    self.weaponObj = weapon.gameobject
+    weapon.isPacked = true
+    self.weaponObj.transform:SetParent(self.character.transform.parent)
 end
 
 function Battle:DropWeapon()
@@ -81,6 +85,8 @@ function Battle:DropWeapon()
     if #self.Weapons <= 1 then
         return
     end
+    self.weaponObj.transform:SetParent()
+    self.currentWeapon.isPacked = false
 end
 
 function Battle:UpdateBattle()
