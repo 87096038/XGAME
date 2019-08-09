@@ -1,0 +1,91 @@
+--[[
+    场景及UI管理
+--]]
+
+local ResourceMgr = require("ResourceManager")
+local PathMgr = require("PathManager")
+local RoomMgr = require("RoomManager")
+local Room = require("Room")
+
+local MC = require("MessageCenter")
+
+local SceneManager={}
+
+SceneManager.SceneBuildIndex = {beginScene = 0,titleScene = 1, restroomScene = 2, battleScene = 3, middleScene = 4}
+SceneManager.loadAsyncLevel = {}
+
+local SceneMgr=UE.SceneManagement.SceneManager
+
+function SceneManager:Init()
+    --self.previousScene = nil     -- 前一个场景
+    --[[
+        当前场景（实质上使当前活动的场景，由于在本项目中应该不会出现多个场景同时出现的情况,
+        所以默认GetActiveScene()返回的是当前正在运行的的场景）
+    ]]--
+    --self.currentScene = SceneMgr.GetActiveScene()
+
+    self.previousSceneBuildIndex = nil
+    self.currentSceneBuildIndex = SceneMgr.GetActiveScene().buildIndex
+
+    self.loadingUI = nil
+
+end
+
+--加载新场景
+function SceneManager:LoadScene(sceneBuildIndex)
+    if sceneBuildIndex < 0 or sceneBuildIndex >= SceneMgr.sceneCount then
+        print("Scene does not exist.")
+        return
+    end
+
+    self.previousSceneBuildIndex = self.currentSceneBuildIndex
+    self.currentSceneBuildIndex = sceneBuildIndex
+
+    --MC:SendMessage(MessageType.ChangeScene, nil)
+
+    SceneMgr:LoadScene(self.SceneBuildIndex.middleScene)
+
+    SceneMgr:LoadSceneAsync(sceneBuildIndex)
+
+
+end
+
+--返回上一场景，不过这在元气骑士内不存在所以其实用不到？
+function SceneManager:LoadPreviousScene()
+    if self.previousSceneBuildIndex == nil then
+        SceneMgr:LoadScene(self.previousSceneBuildIndex)
+    else
+        print("The previous scene does not exist.")
+    end
+end
+
+-- 生成战斗场景
+function SceneManager:GenerateBattleMap(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoomCnt)
+    RoomMgr:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoomCnt)
+end
+
+-- 战斗结算
+function SceneManager:BattleFinish()
+
+end
+
+--加载UI
+function SceneManager:LoadUI(ui)
+    if UIStack then
+        UIStack:Push(ui)
+        --加载ui
+    end
+end
+
+--返回上级UI
+function SceneManager:BackUI()
+    if UIStack and UIStack.Count >= 1 then
+        UIStack:Pop()
+        local ui = UIStack:Peek()
+        --销毁 ui
+    end
+end
+
+SceneManager:Init()
+
+return SceneManager
