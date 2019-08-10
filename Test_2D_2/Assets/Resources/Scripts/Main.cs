@@ -6,14 +6,15 @@ using XLua;
 using System.IO;
 using System.Net;
 using System.Text;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //程序入口
 public class Main : MonoBehaviour
 {
     public GameObject UIRoot;
     public LuaEnv luaEnv;
-
-    private UnityEngine.Object asset;
+    
     //单例
     private static Main _instance = null;
     public static Main Instance
@@ -64,6 +65,7 @@ public class Main : MonoBehaviour
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
 
+        //a.GetComponentInChildren()
         //a.Rotate(b.eulerAngles);
         //a.LoadAsset();
         //a.Translate();
@@ -76,41 +78,6 @@ public class Main : MonoBehaviour
         luaEnv.Global.Get("Quit", out Quit);
         Init();
         //AudioSource asr = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
-        //UnityEngine.UI.Image img = UIRoot.transform.Find("BeginImgs").GetChild(0).GetComponent<UnityEngine.UI.Image>();
-        //img.color = new Color(15, 12, 11, 0.5f);
-        //StartCoroutine(BeginImgFade(UIRoot.transform.Find("BeginImgs"), 0.02f, 2));
-    }
-
-    private IEnumerator BeginImgFade(Transform parent, float step, int keepTime)
-    {
-        float stepTmp = step;
-        int childCount = parent.childCount;
-        UnityEngine.UI.Image currentImg;
-        Color color = new Color(0, 0, 0, 1);
-        WaitForSeconds keep = new WaitForSeconds(keepTime);
-        WaitForSeconds interval = new WaitForSeconds(0.01f);
-        
-        for (int i = 0; i < childCount; i++)
-        {
-            parent.GetChild(i).gameObject.SetActive(true);
-            stepTmp = step;
-            currentImg = parent.GetChild(i).GetComponent<UnityEngine.UI.Image>();
-            color = currentImg.color;
-            color.a = 0.005f;
-            while (color.a > 0)
-            {
-                Debug.Log(color.a);
-                color.a += stepTmp;
-                currentImg.color = color;
-                yield return interval;
-                if (color.a >= 1)
-                {
-                    yield return keep;
-                    stepTmp = -stepTmp;
-                }
-            }
-            parent.GetChild(i).gameObject.SetActive(false);
-        }
     }
 
     private void Update()

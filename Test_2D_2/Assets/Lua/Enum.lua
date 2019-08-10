@@ -32,9 +32,12 @@ Enum_BulletType={light=1, heavy=2, energy=3, shell=4}
 --- single: 单发   multiple: 连发
 Enum_ShootType={single=1, multiple=2}
 
+--- 物体种类
+Enum_ItemType={weapon="weapon", }
+
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
-
+                  ApproachItem="ApproachItem", LeaveItem="LeaveItem",
 }
 
 --- 网络消息类型
@@ -51,3 +54,6 @@ Enum_CharacterPowerSourceType={equipment_body=1, item_1=2, item_2=3, outer_passi
 --- 增益和减益
 ---ice_slow: 冰缓  poisoning: 中毒
 Enum_BuffAndDebuffType={ice_slow=1, poisoning=2}
+
+--- 场景索引(依照unity里各场景的Index)
+Enum_Scenes={Begin=0, Title=1, Rest=2, Battle=3, Loading=4}

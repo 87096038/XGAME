@@ -1,22 +1,5 @@
-﻿--[[local util = require 'xlua.util'
-local co
-local t_fun = util.cs_generator(function()
-    print("StartCoroutine ")
-    for i = 1, 10 do
-        coroutine.yield(CS.UnityEngine.WaitForSeconds(1))
-        print('Wait for 1 seconds')
-
-        if i == 3 then
-            print("StopCoroutine")
-            print(co)
-            self:StopCoroutine(co)
-        end
-    end
-end)
-print(t_fun)
-co = CS.XLua.Cast.IEnumerator(t_fun)
-self:StartCoroutine(co)
---]]
+﻿
+local MC = require("MessageCenter")
 local Timer={}
 
 function Timer:Init()
@@ -24,6 +7,7 @@ function Timer:Init()
     self.deltaTime=0
     self.UpdateFucs={}
 
+    MC:AddListener(Enum_MessageType.ChangeScene, handler(self, self.ChangeSceneHandler))
 end
 
 function Timer:Update()
@@ -62,6 +46,10 @@ function Timer:RemoveUpdateFuc(fuc)
     end
 end
 
+function Timer:RemoveAll()
+    self.UpdateFucs = {}
+end
+
 function Timer:InvokeCoroutine(func, time, repeatCount)
     StartCoroutine(function()
         if time then
@@ -75,6 +63,11 @@ function Timer:InvokeCoroutine(func, time, repeatCount)
             func()
         end
     end)
+end
+
+----------消息回调---------
+function Timer:ChangeSceneHandler()
+    self:RemoveAll()
 end
 
 Timer:Init()

@@ -71,6 +71,8 @@ function NetManager:Init()
     self.completeUpdateFiles = 0
     --- 当前更新的文件index
     self.currentFileIndex = 1
+    --- 是否更新成功
+    self.isUpdateSuccess = false
 
     --- 用于版本对比
     self.currentVersion = ""
@@ -121,46 +123,48 @@ function NetManager:StartUpdateCoroutine()
     if localFile then
         self.currentVersion = localFile:read()
         localFile:close()
-    else
-        print("CheckUpdate -- Error: Connot find local version file!")
-        coroutine.yield(nil)
-    end
-    local webRequestVersion = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/version.txt")
-    webRequestVersion.timeout = self.HTTPTimeout
-    coroutine.yield(webRequestVersion:SendWebRequest())
-    if webRequestVersion.isNetworkError or webRequestVersion.isHttpError then
-        print("CheckUpdate -- "..webRequestVersion.error)
-    else
-        self.serverVersion = webRequestVersion.downloadHandler.text
-        if self.currentVersion==self.serverVersion then
-            print("No need to update")
-            print("------------End check update-----------")
+        local webRequestVersion = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/version.txt")
+        webRequestVersion.timeout = self.HTTPTimeout
+        coroutine.yield(webRequestVersion:SendWebRequest())
+        if webRequestVersion.isNetworkError or webRequestVersion.isHttpError then
+            print("CheckUpdate -- "..webRequestVersion.error)
             if self.UpdateCompleteAction then
-                self.UpdateCompleteAction()
+                self.UpdateCompleteAction(self.isUpdateSuccess)
             end
         else
-            print("Your version: "..self.currentVersion.." Server version: "..self.serverVersion)
-            local webRequestDownloadList = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion..".txt")
-            local webRequestFileMd5 = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion.."md5.txt")
-            webRequestDownloadList.timeout = self.HTTPTimeout
-            webRequestFileMd5.timeout = self.HTTPTimeout
-            coroutine.yield(webRequestFileMd5:SendWebRequest())
-            if webRequestFileMd5.isNetworkError or webRequestFileMd5.isHttpError then
-                print("UpdateFileMd5 -- "..webRequestFileMd5.error)
-                coroutine.yield(nil)
+            self.serverVersion = webRequestVersion.downloadHandler.text
+            if self.currentVersion==self.serverVersion then
+                print("No need to update")
+                print("------------End check update-----------")
+                self.isUpdateSuccess = true
+                if self.UpdateCompleteAction then
+                    self.UpdateCompleteAction(self.isUpdateSuccess)
+                end
             else
-                self.md5 = string.split(webRequestFileMd5.downloadHandler.text, '\n')
-            end
-            coroutine.yield(webRequestDownloadList:SendWebRequest())
-            if webRequestDownloadList.isNetworkError or webRequestDownloadList.isHttpError then
-                print("UpdateDownloadList -- "..webRequestDownloadList.error)
-            else
-                local list = string.split(webRequestDownloadList.downloadHandler.text, '\n')
-                print("-----------End check update----------")
-                print("Need to download "..#list.." files")
-                self:DownloadFlies(list)
+                print("Your version: "..self.currentVersion.." Server version: "..self.serverVersion)
+                local webRequestDownloadList = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion..".txt")
+                local webRequestFileMd5 = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion.."md5.txt")
+                webRequestDownloadList.timeout = self.HTTPTimeout
+                webRequestFileMd5.timeout = self.HTTPTimeout
+                coroutine.yield(webRequestFileMd5:SendWebRequest())
+                if webRequestFileMd5.isNetworkError or webRequestFileMd5.isHttpError then
+                    print("UpdateFileMd5 -- "..webRequestFileMd5.error)
+                else
+                    self.md5 = string.split(webRequestFileMd5.downloadHandler.text, '\n')
+                    coroutine.yield(webRequestDownloadList:SendWebRequest())
+                    if webRequestDownloadList.isNetworkError or webRequestDownloadList.isHttpError then
+                        print("UpdateDownloadList -- "..webRequestDownloadList.error)
+                    else
+                        local list = string.split(webRequestDownloadList.downloadHandler.text, '\n')
+                        print("-----------End check update----------")
+                        print("Need to download "..#list.." files")
+                        self:DownloadFlies(list)
+                    end
+                end
             end
         end
+    else
+        print("CheckUpdate -- Error: Connot find local version file!")
     end
 end
 
@@ -204,11 +208,14 @@ function NetManager:DownloadFliesCoroutine(url, filename, totalCount)
     if self.currentFileIndex == totalCount then
         print("-----------End Download------------")
         if self.completeUpdateFiles == totalCount then
-            if self:RefreshVersion() and self.UpdateCompleteAction then
-                self:UpdateCompleteAction()
+            if self:RefreshVersion() then
+                self.isUpdateSuccess = true
             end
         else
             print("Error in Downloading, please retry.")
+        end
+        if self.UpdateCompleteAction then
+            self.UpdateCompleteAction(self.isUpdateSuccess)
         end
     end
     self.currentFileIndex = self.currentFileIndex + 1

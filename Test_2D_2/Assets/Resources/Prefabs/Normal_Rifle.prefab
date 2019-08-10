@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4342027558184851451}
   - component: {fileID: 4342027558184851448}
   - component: {fileID: 1902308070579722023}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4342027559305514859}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Normal_Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

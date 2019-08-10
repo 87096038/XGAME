@@ -33,7 +33,7 @@ end
 
 --加载新场景
 function SceneManager:LoadScene(sceneBuildIndex)
-    if sceneBuildIndex < 0 or sceneBuildIndex >= SceneMgr.sceneCount then
+    if sceneBuildIndex < 0 or sceneBuildIndex >= SceneMgr.sceneCountInBuildSettings then
         print("Scene does not exist.")
         return
     end
@@ -41,11 +41,11 @@ function SceneManager:LoadScene(sceneBuildIndex)
     self.previousSceneBuildIndex = self.currentSceneBuildIndex
     self.currentSceneBuildIndex = sceneBuildIndex
 
-    --MC:SendMessage(MessageType.ChangeScene, nil)
+    MC:SendMessage(Enum_MessageType.ChangeScene, nil)
 
-    SceneMgr:LoadScene(self.SceneBuildIndex.middleScene)
+    --SceneMgr.LoadScene(self.SceneBuildIndex.middleScene)
 
-    SceneMgr:LoadSceneAsync(sceneBuildIndex)
+    SceneMgr.LoadSceneAsync(sceneBuildIndex)
 
 
 end

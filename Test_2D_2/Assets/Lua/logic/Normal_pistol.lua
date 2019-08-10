@@ -9,6 +9,7 @@ local Normal_pistol=Class("Normal_pistol", require("Weapon_base"))
 function Normal_pistol:cotr()
     self.super:cotr()
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Normal_Rifle, PathMgr.NamePath.Normal_Rifle)
+    self.collsion =  self.gameobject:GetComponentInChildren(typeof(UE.BoxCollider2D))
 
 
     ---子弹出口位置距枪的位置的长度的倍率
@@ -64,12 +65,16 @@ function Normal_pistol:Use()
     if self.isPacked then
         return
     end
-    require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new("weapon", self))
+    self.collsion.enabled = false
+    print(self)
+    require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new(Enum_ItemType.weapon, self))
     self.isPacked = true
+
 end
 
 function Normal_pistol:Drop()
-
+    self.isPacked = true
+    self.collsion.enabled = true
 end
 
 return Normal_pistol

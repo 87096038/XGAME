@@ -8,22 +8,29 @@ local Battle=Class("Battle", require("Base"))
 --- 一定要有个初始武器
 function Battle:cotr(character,  initialWeapon)
     self.super:cotr()
+
+    -----------------信息注册-------------
+    self:AddMessageListener(Enum_MessageType.PickUp, handler(self, self.PickUpHandler))
+    self:AddMessageListener(Enum_MessageType.ApproachItem, handler(self, self.ApproachItemHandler))
+    self:AddMessageListener(Enum_MessageType.LeaveItem, handler(self, self.LeaveItemHandler))
+    self:AddMessageListener(Enum_MessageType.GameOver, handler(self, self.GameOverHandler))
+
     ---实际的角色
     self.character = character
     ---实际的武器物体
     self.weaponObj = initialWeapon.gameobject
 
-    initialWeapon.isPacked = true
-    self.weaponObj.transform:SetParent(self.character.transform.parent)
 --------------------------武器-------------------------
     --- 最大可持有武器数
     self.maxWeaponCount = 2
     --- 当前的武器索引
     self.currentWeaponIndex = 1
     ---当前的武器
-    self.currentWeapon = initialWeapon
+    self.currentWeapon = nil
     --- 所拥有的所有武器
-    self.Weapons={initialWeapon}
+    self.Weapons={}
+
+    initialWeapon:Use()
 --------------------------物品-------------------------
     ---最大可持有物品数
     self.maxItemCount = 2
@@ -50,14 +57,11 @@ function Battle:cotr(character,  initialWeapon)
 
     Timer:AddUpdateFuc(self, Battle.UpdateBattle)
 
-    -----------------信息注册-------------
-    self:AddMessageListener(Enum_MessageType.PickUp, self.PickUpHandler)
-    self:AddMessageListener(Enum_MessageType.GameOver, self.GameOverHandler)
 
 end
 
 function Battle:ChangeWeapon(index)
-    if index == self.currentWeaponIndex or index > self.maxWeaponCount then
+    if index == self.currentWeaponIndex or index > self.maxWeaponCount or #self.Weapons == 1 then
         return
     end
     index = index % self.maxWeaponCount
@@ -65,6 +69,7 @@ function Battle:ChangeWeapon(index)
         index = self.maxWeaponCount
     end
     self.currentWeapon = self.Weapons[index]
+    self.currentWeaponIndex = index
     --weapon
 
 end
@@ -76,7 +81,6 @@ function Battle:AddWeapon(weapon)
     self.currentWeapon = weapon
     self.Weapons[self.currentWeaponIndex] = weapon
     self.weaponObj = weapon.gameobject
-    weapon.isPacked = true
     self.weaponObj.transform:SetParent(self.character.transform.parent)
 end
 
@@ -85,8 +89,9 @@ function Battle:DropWeapon()
     if #self.Weapons <= 1 then
         return
     end
-    self.weaponObj.transform:SetParent()
-    self.currentWeapon.isPacked = false
+    self.weaponObj.transform:SetParent(nil)
+    self.currentWeapon:Drop()
+    self:ChangeWeapon(self.currentWeaponIndex+1)
 end
 
 function Battle:UpdateBattle()
@@ -120,7 +125,8 @@ function Battle:UpdateBattle()
     ---响应事件
     if UE.Input.GetMouseButtonDown(1) then
         self:ChangeWeapon(self.currentWeaponIndex+1)
-    elseif UE.Input.GetKey(UE.KeyCode.E) and self.useableThing then
+    elseif UE.Input.GetKeyDown(UE.KeyCode.E) and self.useableThing then
+        print(self.useableThing)
         self.useableThing:Use()
     else
         self.currentWeapon:UpdateShoot()
@@ -128,11 +134,23 @@ function Battle:UpdateBattle()
 end
 
 ----------------------回调函数--------------------
-
+--- 回调函数使用 .
 function Battle:PickUpHandler(kv)
-    if kv.Key == "weapon" then
+    if kv.Key == Enum_ItemType.weapon then
         self:AddWeapon(kv.Value)
     end
+end
+
+function Battle:ApproachItemHandler(kv)
+    if kv.Key == Enum_ItemType.weapon then
+        print(kv.Value)
+        print("approach~")
+        self.useableThing = kv.Value
+    end
+end
+
+function Battle:LeaveItemHandler(kv)
+    self.useableThing = nil
 end
 
 function Battle:GameOverHandler(kv)

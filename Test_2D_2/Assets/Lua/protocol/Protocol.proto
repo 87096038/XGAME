@@ -14,5 +14,18 @@ message Message{
 message Login{
     required string userName    =1;
     required string password    =2;
-    required bool response      =3
+    required bool response      =3;
+}
+message OpenTreasureBox{
+    required int32 level        =1;
+    required int32 quality      =2;
+    required int32 type         =3;
+}
+message OpenTreasureBoxResponse{
+    required int32 itemCount    =1;
+    repeated Item  items        =2;
+}
+message Item{
+    required int32 itemType     =1;
+    optional int32 specificType =2;
 }

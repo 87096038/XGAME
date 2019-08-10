@@ -106,47 +106,13 @@ function Class(className, super)
     return TheClass
 end
 
----step: 0~1之间，每次变化的透明度多少，推荐0.02
----keepTime: 每张图的展示时间(s)
----imgsIntervalTime: 每张图的间隔时间
-local function BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime)
-    print(parentTransform)
-    if parentTransform then
-        local stepTmp = step or 0.02
-        local currentImg
-        local color = UE.Color()
-        local child
-        local keep = UE.WaitForSeconds(keepTime or 2)
-        local interval =  UE.WaitForSeconds(0.01)
-        local imgsInterval = UE.WaitForSeconds(imgsIntervalTime or 0.5)
-
-        for i=0, parentTransform.childCount-1, 1 do
-            stepTmp = step or 0.02
-            child =  parentTransform:GetChild(i).gameObject
-            child:SetActive(true)
-            currentImg = child:GetComponent(typeof(UE.UI.Image))
-            color = currentImg.color
-            color.a = 0.005
-            while color.a>0 do
-                color.a = color.a + stepTmp
-                currentImg.color = color
-                coroutine.yield(interval)
-                if (color.a >= 1) then
-                    coroutine.yield(keep)
-                    stepTmp = -stepTmp;
-                end
-            end
-            child:SetActive(false);
-            coroutine.yield(imgsInterval)
-        end
-    end
-end
 
 
 
 
----需要先运行的module
+---需要先初始化的module
 require("Enum")
+local MC = require("MessageCenter")
 ---
 local net=require("NetManager")
 local Timer = require("Timer")
@@ -154,10 +120,10 @@ local Timer = require("Timer")
 local Battle = require("Battle")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
---local SceneMgr = require("SceneManager")
-local MC = require("MessageCenter")
+local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
 local AudioMgr = require("AudioManager")
+local BeginScene = require("Begin")
 -------------------------------
 --初始化
 function Init()
@@ -177,26 +143,16 @@ end
 ------------------------------
 function InitTitle()
 
-    --ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_HotUpdate, PathMgr.NamePath.UI_HotUpdate, Main.UIRoot.transform)
-    --local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
-    --StartCoroutine(BeginImgFade, beginImgs.transform)
-
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
     --IS_ONLINE_MODE = true
     --net:Start()
     --local login = {userName="1", password="5", response=false}
     --net:TCPSendMessage(1, login)
-
+    BeginScene:InitScene()
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
-    --net:StartUpdate(function ()
-        local character = require("Character"):new()
-        Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-        Battle:new(character, require("Normal_pistol"):new())
-        character:Start()
-    --end)
 
-    SceneMgr:GenerateBattleMap(1,3,1,1)
+    --SceneMgr:GenerateBattleMap(1,3,1,1)
 end
 

@@ -1,6 +1,7 @@
 ﻿local Timer = require("Timer")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
 
 local character_base = require("character_base")
 local Character=Class("Character", character_base)
@@ -8,8 +9,8 @@ local Character=Class("Character", character_base)
 function Character:cotr()
     ---gameobject---
     self.super:cotr()
-    local isNew
-    self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1).transform:Find("Role")
+    local mainRole, isNew =  ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1)
+    self.gameobject = mainRole.transform:Find("Role")
     self.collsion = self.gameobject:GetComponent(typeof(CS.Collision))
     if isNew then
         if self.collsion.CollisionHandle then
@@ -58,7 +59,16 @@ function Character:update()
 end
 
 function Character:OnCollision(type, other)
-
+    if type == "TriggerEnter2D" then
+        --- 武器的layer
+        if other.gameObject.layer ==  12 then
+            MC:SendMessage(Enum_MessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
+        end
+    elseif type == "thenTriggerExit2D" then
+        if other.gameObject.layer ==  12 then
+            MC:SendMessage(Enum_MessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
+        end
+    end
 end
 
 return Character

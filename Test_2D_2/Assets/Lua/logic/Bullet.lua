@@ -9,7 +9,7 @@ function Bullet:cotr(bulletType, dirction, position, rotation)
     self.super:cotr()
     self.gameobject = nil
     self.type = bulletType
-    self.dirction = dirction
+    self.dirction = UE.Vector3(dirction.x, dirction.y, dirction.z)
     self.speed = 5
     self.isBounce = false
     self.explosionEffect = nil
@@ -34,19 +34,17 @@ function Bullet:cotr(bulletType, dirction, position, rotation)
 
     end
 
-    self.rotation = rotation or UE.Quaternion.identity
-
-    self.gameobject.transform.rotation = self.rotation
+    self.gameobject.transform.rotation = rotation or UE.Quaternion.identity
 end
 
 function Bullet:UpdateMove_light()
-    print(self.dirction)
     self.gameobject.transform:Translate(Timer.deltaTime * self.dirction *self.speed, UE.Space.World)
 end
 
 function Bullet:OnCollision_light(type, other)
     if type == "TriggerEnter2D" then
         local layer = other.gameObject.layer
+        --- 敌人和主角的layer
         if layer == 9 or layer == 10 then
             ResourceMgr:DestroyObject(self.gameObject)
         elseif layer == 5 then
