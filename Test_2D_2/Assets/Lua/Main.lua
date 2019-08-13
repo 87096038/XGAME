@@ -107,7 +107,6 @@ function Class(className, super)
 end
 
 
-
 IS_RELEASE_MODE = true
 IS_ONLINE_MODE = false
 
@@ -119,11 +118,11 @@ local PathMgr = require("PathManager")
 local net=require("NetManager")
 local Timer = require("Timer")
 
-local Battle = require("Battle")
-local ResourceMgr = require("ResourceManager")
-local SceneMgr = require("SceneManager")
+--local Battle = require("Battle")
+--local ResourceMgr = require("ResourceManager")
+--local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
-local AudioMgr = require("AudioManager")
+--local AudioMgr = require("AudioManager")
 local BeginScene = require("Begin")
 -------------------------------
 --初始化
@@ -144,6 +143,7 @@ end
 ------------------------------
 function InitTitle()
 
+    net.isUseMD5 = false
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
     --IS_ONLINE_MODE = true
     --net:Start()

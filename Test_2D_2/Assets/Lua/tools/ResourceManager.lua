@@ -135,8 +135,6 @@ end
 
 ---Load，返回Asset(name: 如果是AB包则为其资源的名称)
 function ResourceManager:Load(path, name)
-print(path)
-print(name)
     local asset
     if IS_RELEASE_MODE then
         local ab = self:LoadAssetBundle(path)

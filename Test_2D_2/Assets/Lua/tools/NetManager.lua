@@ -62,7 +62,9 @@ function NetManager:Init()
     --- 服务器资源根目录
     self.requestUrl = self.HTTPServer.IP..":"..self.HTTPServer.Port
     --- 本地资源根目录
-    self.localResourcePath = UE.Application.persistentDataPath.."/resources"
+    self.localResourcePath = UE.Application.dataPath
+    --- 是否使用MD5
+    self.isUseMD5 = true
     --- 要更新的文件的md5码(hex)
     self.md5 = {}
     --- 进度动作
@@ -152,24 +154,27 @@ function NetManager:StartUpdateCoroutine()
                 end
             else
                 print("Your version: "..self.currentVersion.." Server version: "..self.serverVersion)
-                local webRequestDownloadList = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion..".txt")
-                local webRequestFileMd5 = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion.."md5.txt")
-                webRequestDownloadList.timeout = self.HTTPTimeout
-                webRequestFileMd5.timeout = self.HTTPTimeout
-                coroutine.yield(webRequestFileMd5:SendWebRequest())
-                if webRequestFileMd5.isNetworkError or webRequestFileMd5.isHttpError then
-                    print("UpdateFileMd5 -- "..webRequestFileMd5.error)
-                else
-                    self.md5 = string.split(webRequestFileMd5.downloadHandler.text, '\n')
-                    coroutine.yield(webRequestDownloadList:SendWebRequest())
-                    if webRequestDownloadList.isNetworkError or webRequestDownloadList.isHttpError then
-                        print("UpdateDownloadList -- "..webRequestDownloadList.error)
+                if  self.isUseMD5 then
+                    local webRequestFileMd5 = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion.."md5.txt")
+                    webRequestDownloadList.timeout = self.HTTPTimeout
+                    webRequestFileMd5.timeout = self.HTTPTimeout
+                    coroutine.yield(webRequestFileMd5:SendWebRequest())
+                    if webRequestFileMd5.isNetworkError or webRequestFileMd5.isHttpError then
+                        print("UpdateFileMd5 -- "..webRequestFileMd5.error)
                     else
-                        local list = string.split(webRequestDownloadList.downloadHandler.text, '\n')
-                        print("-----------End check update----------")
-                        print("Need to download "..#list.." files")
-                        self:DownloadFlies(list)
+                        self.md5 = string.split(webRequestFileMd5.downloadHandler.text, '\n')
                     end
+                end
+                local webRequestDownloadList = UE.Networking.UnityWebRequest.Get(self.requestUrl.."/need-to-update-files/"..self.currentVersion..".txt")
+                webRequestDownloadList.timeout = self.HTTPTimeout
+                coroutine.yield(webRequestDownloadList:SendWebRequest())
+                if webRequestDownloadList.isNetworkError or webRequestDownloadList.isHttpError then
+                    print("UpdateDownloadList -- "..webRequestDownloadList.error)
+                else
+                    local list = string.split(webRequestDownloadList.downloadHandler.text, '\n')
+                    print("-----------End check update----------")
+                    print("Need to download "..#list.." files")
+                    self:DownloadFlies(list)
                 end
             end
         end
@@ -198,7 +203,7 @@ function NetManager:DownloadFliesCoroutine(url, filename, totalCount)
     if webRequest.isNetworkError or webRequest.isHttpError then
         print("Download "..url.." -- "..webRequest.error)
     else
-        if self.md5[self.currentFileIndex] == pb.tohex(self:GetMD5String(webRequest.downloadHandler.data)) then
+        if  (not self.isUseMD5) or self.md5[self.currentFileIndex] == pb.tohex(self:GetMD5String(webRequest.downloadHandler.data)) then
             print("Downloading "..self.currentFileIndex.." file\n")
             -- 写入或覆盖本地资源
             self:createDirIfNeed(filename)

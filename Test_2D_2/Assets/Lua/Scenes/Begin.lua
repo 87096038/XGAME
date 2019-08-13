@@ -31,16 +31,35 @@ function Begin:HotUpdateStart()
         end
         if increaseCount then
             self.hotUpdateProcessSlider.value = self.hotUpdateProcessSlider.value + increaseCount
-            self.hotUpdateStateText.text = "更新中...("..self.hotUpdateProcessSlider.value.."/"..totalCount..")"
+            self.hotUpdateStateText.text = "更新中...("..self.hotUpdateProcessSlider.value.."/"..self.hotUpdateProcessSlider.maxValue..")"
         end
     end ,function (isSuccess)
         if isSuccess then
+            self.hotUpdateStateText.text = "加载中...."
+            self:ReLoad()
             self.hotUpdateStateText.text = "点击进入游戏"
             Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
         else
             self.hotUpdateStateText.text = "更新失败，请重新打开游戏"
         end
     end)
+end
+
+function Begin:ReLoad()
+    package.loaded["Enum"] = nil
+    require("Enum")
+    package.loaded["MessageCenter"] = nil
+    require("MessageCenter")
+    package.loaded["PathManager"] = nil
+    require("PathManager")
+    package.loaded["NetManager"] = nil
+    require("NetManager")
+    package.loaded["Timer"] = nil
+    require("Timer")
+    package.loaded["Begin"] = nil
+    require("Begin")
+    package.loaded["CameraFollowing"] = nil
+    require("CameraFollowing")
 end
 
 function Begin:WaitForClickUpdate()
