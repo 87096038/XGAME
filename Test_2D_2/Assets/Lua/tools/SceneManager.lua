@@ -56,8 +56,13 @@ function SceneManager:LoadScene(sceneBuildIndex)
         ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)
     end
 
-    SceneMgr.LoadScene(sceneBuildIndex)
-    require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
+    --SceneMgr.LoadScene(sceneBuildIndex,UE.SceneManagement.LoadSceneMode.Additive)
+    --SceneMgr.LoadScene(sceneBuildIndex)
+    --require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
+
+    SceneMgr.LoadScene(Enum_Scenes.Loading)
+
+
 end
 
 --返回上一场景，不过这在元气骑士内不存在所以其实用不到？

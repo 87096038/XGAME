@@ -123,8 +123,8 @@ local PathMgr = require("PathManager")
 local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
 local AudioMgr = require("AudioManager")
-local BeginScene = require("Begin")
-local TitleScene = require("Title")
+--local BeginScene = require("Begin")
+--local TitleScene = require("Title")
 -------------------------------
 --初始化
 function Init()
@@ -154,8 +154,7 @@ function InitTitle()
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
 
-    --SceneMgr:GenerateBattleMap(1,3,1,1)
+    SceneMgr:GenerateBattleMap(1,3,1,1)
 
-    TitleScene:InitScene()
 end
 

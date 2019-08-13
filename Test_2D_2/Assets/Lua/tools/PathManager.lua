@@ -32,6 +32,7 @@ function PathManager:Init()
             Room08 = "Prefabs/Rooms/Room08",
             Road = "Prefabs/Rooms/Road",
             GridRoot = "Prefabs/Rooms/GridRoot",
+            Room_Rest = "Prefabs/Rooms/Room_Rest",
         }
     end
 
