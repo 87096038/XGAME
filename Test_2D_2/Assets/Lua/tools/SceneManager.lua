@@ -6,7 +6,6 @@ local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local RoomMgr = require("RoomManager")
 local Room = require("Room")
-
 local MC = require("MessageCenter")
 
 local SceneManager={}
@@ -27,6 +26,11 @@ function SceneManager:Init()
     self.previousSceneBuildIndex = nil
     self.currentSceneBuildIndex = SceneMgr.GetActiveScene().buildIndex
 
+    self.gold = 0
+    self.item = {}
+    self.weapon = {}
+    self.treasure = {}
+
     self.loadingUI = nil
 
 end
@@ -45,18 +49,29 @@ function SceneManager:LoadScene(sceneBuildIndex)
 
     --SceneMgr.LoadScene(self.SceneBuildIndex.middleScene)
 
-    SceneMgr.LoadSceneAsync(sceneBuildIndex)
 
+    UE.Object.DontDestroyOnLoad(UE.Camera.main)
+
+    for i = Main.UIRoot.transform.childCount-1,0,-1 do
+        --print("destroy",Main.UIRoot.transform:GetChild(i).gameObject)
+        ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)
+    end
+
+    SceneMgr.LoadScene(sceneBuildIndex)
 
 end
 
 --返回上一场景，不过这在元气骑士内不存在所以其实用不到？
 function SceneManager:LoadPreviousScene()
     if self.previousSceneBuildIndex == nil then
-        SceneMgr:LoadScene(self.previousSceneBuildIndex)
+        SceneMgr.LoadScene(self.previousSceneBuildIndex)
     else
         print("The previous scene does not exist.")
     end
+end
+
+function SceneManager:StartGame()
+
 end
 
 -- 生成战斗场景
@@ -71,19 +86,11 @@ end
 
 --加载UI
 function SceneManager:LoadUI(ui)
-    if UIStack then
-        UIStack:Push(ui)
-        --加载ui
-    end
 end
 
 --返回上级UI
 function SceneManager:BackUI()
-    if UIStack and UIStack.Count >= 1 then
-        UIStack:Pop()
-        local ui = UIStack:Peek()
-        --销毁 ui
-    end
+
 end
 
 SceneManager:Init()
