@@ -38,14 +38,14 @@ function RoomManager:Init()
     --self.roadWidth = 5
     --self.roomLength = 17
     --self.roomWidth = 17
-
-    -- 将房间放入缓存池
-    self:pushRoomsIntoTable()
 end
 
 --生成地图，随机生成房间及连接通路
 --关卡、怪物房数量、商店房数量、宝箱房数量
 function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoomCnt)
+
+    -- 将房间放入缓存池
+    self:pushRoomsIntoTable()
 
     --local startRoomCnt = 1
     --local bossRoomCnt = 1
@@ -393,14 +393,14 @@ end
 function RoomManager:pushRoomsIntoTable()
     -- tileMapPath,doorTileBasePath,level,type,length,width
     -- 啊看着好难受
-    table.insert(self.roomTable[1][Room.RoomType.start],Room:new(PathMgr.ResourcePath.Room01, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.start, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.boss],Room:new(PathMgr.ResourcePath.Room02, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.boss, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room03, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room04, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room05, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room06, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.shop],Room:new(PathMgr.ResourcePath.Room07, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.shop, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.treasure],Room:new(PathMgr.ResourcePath.Room08, PathMgr.ResourcePath.Tile_Base, 1, Room.RoomType.treasure, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.start],Room:new(PathMgr.ResourcePath.Room01, PathMgr.NamePath.Room01, 1, Room.RoomType.start, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.boss],Room:new(PathMgr.ResourcePath.Room02, PathMgr.NamePath.Room02, 1, Room.RoomType.boss, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room03, PathMgr.NamePath.Room03, 1, Room.RoomType.monster, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room04, PathMgr.NamePath.Room04, 1, Room.RoomType.monster, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room05, PathMgr.NamePath.Room05, 1, Room.RoomType.monster, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room06, PathMgr.NamePath.Room06, 1, Room.RoomType.monster, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.shop],Room:new(PathMgr.ResourcePath.Room07, PathMgr.NamePath.Room07, 1, Room.RoomType.shop, 21, 21))
+    table.insert(self.roomTable[1][Room.RoomType.treasure],Room:new(PathMgr.ResourcePath.Room08, PathMgr.NamePath.Room08, 1, Room.RoomType.treasure, 21, 21))
 end
 
 RoomManager:Init()
