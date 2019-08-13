@@ -124,6 +124,7 @@ local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
 local AudioMgr = require("AudioManager")
 local BeginScene = require("Begin")
+local TitleScene = require("Title")
 -------------------------------
 --初始化
 function Init()
@@ -148,11 +149,13 @@ function InitTitle()
     --net:Start()
     --local login = {userName="1", password="5", response=false}
     --net:TCPSendMessage(1, login)
-    BeginScene:InitScene()
+    --BeginScene:InitScene()
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
 
     --SceneMgr:GenerateBattleMap(1,3,1,1)
+
+    TitleScene:InitScene()
 end
 

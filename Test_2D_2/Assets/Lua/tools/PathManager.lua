@@ -20,6 +20,7 @@ function PathManager:Init()
             Audio_Title_BGM="Audio/Audio_Title_BGM",
             UI_Begin_Imgs="Prefabs/UI/Begin/BeginImgs",
             UI_HotUpdate="Prefabs/UI/Begin/UI_HotUpdate",
+            UI_Title = "Prefabs/UI/Title/UI_Title",
             Tile_Base = "Sprite/Tiles/FloorBricksToGrassCorner_0",
             Room01 = "Prefabs/Rooms/Room01",
             Room02 = "Prefabs/Rooms/Room02",
