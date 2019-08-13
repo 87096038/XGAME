@@ -48,9 +48,6 @@ function SceneManager:LoadScene(sceneBuildIndex)
 
     --SceneMgr.LoadScene(self.SceneBuildIndex.middleScene)
 
-
-    UE.Object.DontDestroyOnLoad(UE.Camera.main)
-
     for i = Main.UIRoot.transform.childCount-1,0,-1 do
         --print("destroy",Main.UIRoot.transform:GetChild(i).gameObject)
         ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)

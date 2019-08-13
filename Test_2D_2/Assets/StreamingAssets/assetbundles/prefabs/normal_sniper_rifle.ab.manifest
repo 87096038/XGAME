@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 3765308396
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d71a1364a981dec04061a6ea3da5eb47
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 52b90fe34acdbe892c80e1ff630fee3e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Normal_Sniper_Rifle.prefab
+Dependencies: []

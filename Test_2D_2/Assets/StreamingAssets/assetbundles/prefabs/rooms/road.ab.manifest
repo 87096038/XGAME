@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 707607489
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bc2d680bd5425aa0e93a57ac6c9f189d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 93bed9a3d8fe02757dfbbeda3ecf669e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 483693784
+  Script: {instanceID: 0}
+- Class: 1839735485
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Rooms/Road.prefab
+Dependencies: []

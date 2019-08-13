@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     public GameObject UIRoot;
+    public GameObject EventSystem;
     public LuaEnv luaEnv;
     
     //单例
@@ -56,6 +57,7 @@ public class Main : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(UIRoot);
+        DontDestroyOnLoad(EventSystem);
 
         luaEnv = new LuaEnv();
         //GameObject go = new GameObject("123");
@@ -64,7 +66,8 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-
+        Slider a;
+        RectTransform b;
         //a.GetComponentInChildren()
         //a.Rotate(b.eulerAngles);
         //a.LoadAsset();

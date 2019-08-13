@@ -1,2 +1,0 @@
-print("你好 —— 来自服务器的招呼!, 等一会儿再创建GameObject。")
-require "createObj/gb.lua.txt"

@@ -66,7 +66,6 @@ function Normal_pistol:Use()
         return
     end
     self.collsion.enabled = false
-    print(self)
     require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new(Enum_ItemType.weapon, self))
     self.isPacked = true
 

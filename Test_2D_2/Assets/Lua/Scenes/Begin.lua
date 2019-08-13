@@ -20,17 +20,26 @@ function Begin:HotUpdateStart()
     self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
     self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))
     self.hotUpdateStateText.text = "正在拉取更新..."
-    Net:StartUpdate(function (isSuccess)
-        --if isSuccess then
-            self.hotUpdateStateText.text = "更新完成, 点击进入游戏"
+
+    Net:StartUpdate(function (increaseCount, totalCount)
+        if totalCount then
+            local Process = self.hotUpdatePnl.transform:Find("Process")
+            Process.gameObject:SetActive(true)
+            self.hotUpdateProcessSlider = Process:GetComponent(typeof(UE.UI.Slider))
+            self.hotUpdateProcessSlider.maxValue = totalCount
+            self.hotUpdateStateText.text = "更新中...(0/"..totalCount..")"
+        end
+        if increaseCount then
+            self.hotUpdateProcessSlider.value = self.hotUpdateProcessSlider.value + increaseCount
+            self.hotUpdateStateText.text = "更新中...("..self.hotUpdateProcessSlider.value.."/"..totalCount..")"
+        end
+    end ,function (isSuccess)
+        if isSuccess then
+            self.hotUpdateStateText.text = "点击进入游戏"
             Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
-            --local character = require("Character"):new()
-            --Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
-            --Battle:new(character, require("Normal_pistol"):new())
-            --character:Start()
-        --else
-        --    self.hotUpdateStateText.text = "更新失败，请重新打开游戏"
-        --end
+        else
+            self.hotUpdateStateText.text = "更新失败，请重新打开游戏"
+        end
     end)
 end
 

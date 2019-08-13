@@ -14,9 +14,6 @@ end
 return Enum
 --]]
 
-IS_RELEASE_MODE = false
-IS_ONLINE_MODE = false
-
 --- eggs: 彩蛋
 Enum_RoomType={born=1, normal=2, treasure=3, shop=4, boss=5, eggs=6}
 
@@ -33,15 +30,15 @@ Enum_BulletType={light=1, heavy=2, energy=3, shell=4}
 Enum_ShootType={single=1, multiple=2}
 
 --- 物体种类
-Enum_ItemType={weapon="weapon", }
+Enum_ItemType={weapon="weapon",item="item" }
 
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
-                  ApproachItem="ApproachItem", LeaveItem="LeaveItem",
+                  UserInfo="UserInfo", ApproachItem="ApproachItem", LeaveItem="LeaveItem",
 }
 
 --- 网络消息类型
-Enum_NetMessageType={[1] = Enum_MessageType.Login, }
+Enum_NetMessageType={[1] = Enum_MessageType.Login, [2] = Enum_MessageType.UserInfo, }
 
 --- 角色行为类型
 --- sprint: 冲刺   use: 使用东西
