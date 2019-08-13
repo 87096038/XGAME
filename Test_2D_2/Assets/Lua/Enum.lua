@@ -57,3 +57,4 @@ Enum_BuffAndDebuffType={ice_slow=1, poisoning=2}
 
 --- 场景索引(依照unity里各场景的Index)
 Enum_Scenes={Begin=0, Title=1, Rest=2, Battle=3, Loading=4}
+Enum_SceneName = {"Begin", "Title", "Rest", "Battle", "Loading"}
