@@ -45,7 +45,7 @@ end
 
 function Begin:WaitForClickUpdate()
     if UE.Input.GetMouseButtonUp(0) then
-        require("Title"):InitScene()
+        require("SceneManager"):LoadScene(Enum_Scenes.Title)
     end
 end
 

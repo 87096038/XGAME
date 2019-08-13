@@ -9,8 +9,7 @@ local SceneMgr = require("SceneManager")
 local Title = {}
 
 function Title:InitScene()
-    require("SceneManager"):LoadScene(Enum_Scenes.Title)
-    self.BuildIndex = SceneMgr.SceneBuildIndex.titleScene
+
     self.UI_Title = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Title, PathMgr.NamePath.UI_Title, Main.UIRoot.transform)
     self.Button_Start = self.UI_Title.transform:Find("Start")
     self.Button_Setting = self.UI_Title.transform:Find("Setting")
