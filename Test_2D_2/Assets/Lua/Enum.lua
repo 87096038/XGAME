@@ -14,9 +14,6 @@ end
 return Enum
 --]]
 
-IS_RELEASE_MODE = false
-IS_ONLINE_MODE = false
-
 --- eggs: 彩蛋
 Enum_RoomType={born=1, normal=2, treasure=3, shop=4, boss=5, eggs=6}
 

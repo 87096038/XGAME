@@ -1,6 +1,6 @@
 ﻿local Timer = require("Timer")
 local CameraFollowing={}
-
+local PathMgr = require("PathManager")
 function CameraFollowing:Init()
 
     ---要跟随的物体的transform
@@ -8,7 +8,8 @@ function CameraFollowing:Init()
     ---相机要去的postion
     self.targetPosition = UE.Vector3(0, 0, -5)
 
-    self.gameobject = require("ResourceManager"):GetGameObject("Prefabs/MainCamera", nil, nil, self.targetPosition)
+    self.gameobject = require("ResourceManager"):GetGameObject(PathMgr.ResourcePath.Camera_Main, PathMgr.NamePath.Camera_Main, nil, self.targetPosition)
+    UE.GameObject.DontDestroyOnLoad(self.gameobject)
 
     self.camera = self.gameobject:GetComponent("Camera")
 

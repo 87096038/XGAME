@@ -9,8 +9,9 @@ local SceneMgr = require("SceneManager")
 local Title = {}
 
 function Title:InitScene()
+    require("SceneManager"):LoadScene(Enum_Scenes.Title)
     self.BuildIndex = SceneMgr.SceneBuildIndex.titleScene
-    self.UI_Title = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Title, PathMgr.NamePath.UI_Title,Main.UIRoot.transform)
+    self.UI_Title = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Title, PathMgr.NamePath.UI_Title, Main.UIRoot.transform)
     self.Button_Start = self.UI_Title.transform:Find("Start")
     self.Button_Setting = self.UI_Title.transform:Find("Setting")
     self.Button_Exit = self.UI_Title.transform:Find("Exit")
@@ -23,7 +24,8 @@ end
 
 function Title:StartOnClick()
     --ResourceMgr:DestroyObject(self.UI_Title, true)
-    SceneMgr:LoadScene(SceneMgr.SceneBuildIndex.titleScene)
+    print("12321")
+    --SceneMgr:LoadScene(SceneMgr.SceneBuildIndex.titleScene)
 end
 
 function Title:SettingOnClick()

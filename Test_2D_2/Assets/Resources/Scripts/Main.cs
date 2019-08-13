@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     public GameObject UIRoot;
+    public GameObject EventSystem;
     public LuaEnv luaEnv;
     
     //单例
@@ -56,6 +57,7 @@ public class Main : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(UIRoot);
+        DontDestroyOnLoad(EventSystem);
 
         luaEnv = new LuaEnv();
         //GameObject go = new GameObject("123");
