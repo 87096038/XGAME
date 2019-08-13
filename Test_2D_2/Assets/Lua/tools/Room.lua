@@ -10,7 +10,7 @@ Room.RoomType = {start = 1, boss = 2, monster = 3,
 Room.RoomTypeCnt = 7
 Room.Direction = {up = 1, down = 2, left = 3, right = 4}
 
-function Room:cotr(tileMapPath,doorTileBasePath,level,type,length,width)
+function Room:cotr(tileMapPath,tileMapName,level,type,length,width)
 
     -- 这几个属性在构造的时候必须要有
     self.level = level
@@ -19,8 +19,7 @@ function Room:cotr(tileMapPath,doorTileBasePath,level,type,length,width)
     self.width = width or 0
 
     --
-    self.tileMap = ResourceMgr:Load(tileMapPath)
-    self.doorTileBase = ResourceMgr:Load(doorTileBasePath)
+    self.tileMap = ResourceMgr:Load(tileMapPath,tileMapName)
 
     -- 这几个属性在生成地图的时候才赋予，位置相对于tilemap
     --self.id = nil

@@ -10,7 +10,6 @@ local MC = require("MessageCenter")
 
 local SceneManager={}
 
-SceneManager.SceneBuildIndex = {beginScene = 0,titleScene = 1, restroomScene = 2, battleScene = 3, middleScene = 4}
 SceneManager.loadAsyncLevel = {}
 
 local SceneMgr=UE.SceneManagement.SceneManager
@@ -55,7 +54,7 @@ function SceneManager:LoadScene(sceneBuildIndex)
     end
 
     SceneMgr.LoadScene(sceneBuildIndex)
-
+    require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
 end
 
 --返回上一场景，不过这在元气骑士内不存在所以其实用不到？
@@ -68,7 +67,7 @@ function SceneManager:LoadPreviousScene()
 end
 
 function SceneManager:StartGame()
-
+    require("Title"):InitScene()
 end
 
 -- 生成战斗场景
