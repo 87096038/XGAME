@@ -142,16 +142,20 @@ function Quit()
 end
 ------------------------------
 function InitTitle()
+    --local character = require("Character"):new()
+    --Camera:BeginFollow(character.gameobject:GetComponent("Transform"))
+    --Battle:new(character, require("Normal_pistol"):new())
+    --character:Start()
+
+    --IS_ONLINE_MODE = true
+    --BeginScene:InitScene()
 
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
-    --IS_ONLINE_MODE = true
-    --net:Start()
-    --local login = {userName="1", password="5", response=false}
-    --net:TCPSendMessage(1, login)
-    BeginScene:InitScene()
+    IS_ONLINE_MODE = true
+    net:Start()
+    local login = {userName="1", password="5", response=false}
+    net:TCPSendMessage(1, login)
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
-
-    --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
 
     --SceneMgr:GenerateBattleMap(1,3,1,1)
 end

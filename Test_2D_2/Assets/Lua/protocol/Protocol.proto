@@ -1,3 +1,36 @@
+ enum RoleType
+{
+    Adventurer_1 = 1;
+
+}
+enum ClothesType
+{
+    NormalClothes=1; LightArmour=2; MiddleArmour=3; HeavyArmour=4; CXKVest=5; PRClothes=6; GrandmasVest=7; MomsLongJohns=8;
+}
+
+enum WeaponType
+{
+    NormalPistol=1; NormalRifle=2; NormalShotgun=3; NormalSniperRifle=4; NormalLaserGun=5; NormalGrenade=6;
+}
+
+enum ShootType
+{
+    single=1; multiple=2;
+}
+
+enum ItemType
+{
+    AmysBow=1; Van=2; PangsSkateboardShoes=3;
+}
+enum BulletType
+{
+    Light=1; Heavy=2; Energy=3; Shell=4;
+}
+
+enum SpecialEffectsType
+{
+    ResistPoisoning=1; ResistFire=2; ResistFrozen=3; ResistIceSlow=4; CostToResurrect=10;
+}
 message Phone {
     optional string name        = 1;
     optional int64  phonenumber = 2;
@@ -11,11 +44,113 @@ message Person {
 message Message{
     required int32 type     =1;
 }
+
+
 message Login{
     required string userName    =1;
     required string password    =2;
     required bool response      =3;
 }
+message Role{
+     required RoleType type     =1;
+     required string name       =2;
+ }
+ message Skin{
+     required RoleType type     =1;
+     required int32 index    =2;
+ }
+message Item
+{
+    required int32 ID                       =1;
+    required int32 preID                    =2;
+    required int32 cost                     =3;
+    required ItemType type                  =4;
+    required string name                    =5;
+    required string info                    =6;
+    required float heathChange              =7;
+    required float armorChange              =8;
+    required float speedChange              =9;
+    required float lightBulletDamageChange  =10;
+    required float heavyBulletDamageChange  =11;
+    required float energyBulletDamageChange =12;
+    required float shellBulletDamageChange  =13;
+    required float lightBulletSpeedChange   =14;
+    required float heavyBulletSpeedChange   =15;
+    required float energyBulletSpeedChange  =16;
+    required float shellBulletSpeedChange   =17;
+    repeated int32 specialEffect            =18;
+}
+
+message Weapon
+{
+    required int32 ID                   =1;
+    required int32 preID                =2;
+    required int32 cost                 =3;
+    required string name                =4;
+    required string info                =5;
+    required WeaponType type            =6;
+    required BulletType bulletType      =7;
+    required ShootType shootType        =8;
+    required int32 basicDamage          =9;
+    required float basicCD              =10;
+    required float basicSpeed           =11;
+    required int32 basicClipsAmmoCount  =12;
+    required float basicReloadTime      =13;
+    optional string otherInfo           =14;
+}
+
+message Clothes
+{
+    required int32 ID               =1;
+    required int32 preID            =2;
+    required int32 cost             =3;
+    required string name            =4;
+    required string info            =5;
+    required ClothesType type       =6;
+    required float AamorChange      =7;
+    required float speedChange      =8;
+    repeated int32 specialEffect    =9;
+}
+
+message PassiveSkill
+{
+    required int32 ID                       =1;
+    required int32 preID                    =2;
+    required int32 cost                     =3;
+    required float heathChange              =4;
+    required float armorChange              =5;
+    required float speedChange              =6;
+    required float lightBulletDamageChange  =7;
+    required float heavyBulletDamageChange  =8;
+    required float energyBulletDamageChange =9;
+    required float shellBulletDamageChange  =10;
+    required float lightBulletSpeedChange   =11;
+    required float heavyBulletSpeedChange   =12;
+    required float energyBulletSpeedChange  =13;
+    required float shellBulletSpeedChange   =14;
+}
+message BattleInfo{
+     repeated PassiveSkill UnlockedPassiveSkills    =1;
+     repeated PassiveSkill LockedPassiveSkills      =2;
+     repeated Weapon UnlockedWeapons                =3;
+     repeated Weapon LockedWeapons                  =4;
+     repeated Clothes UnlockedClothes               =5;
+     repeated Clothes LockedClothes                 =6;
+     repeated Item UnlockedItems                    =7;
+     repeated Item LockedItems                      =8;
+}
+message UserInfo{
+    required int32 UID              =1;
+    required string userName        =2;
+    required string password        =3;
+    required int32 diamondCount     =4;
+    required int32 soulShardCount   =5;
+    repeated Role roles             =6;
+    repeated Skin skins             =7;
+    required BattleInfo info        =8;
+}
+
+
 message OpenTreasureBox{
     required int32 level        =1;
     required int32 quality      =2;
@@ -25,7 +160,4 @@ message OpenTreasureBoxResponse{
     required int32 itemCount    =1;
     repeated Item  items        =2;
 }
-message Item{
-    required int32 itemType     =1;
-    optional int32 specificType =2;
-}
+

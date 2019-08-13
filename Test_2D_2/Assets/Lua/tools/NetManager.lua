@@ -1,7 +1,8 @@
 --[[
     管理TCP，UDP, HTTP连接
-    为全局table主要是为方便C#端获取
+    设为全局table主要是为方便C#端获取
 --]]
+local MC = require("MessageCenter")
 
 NetManager = {}
 
@@ -43,7 +44,7 @@ local data={
 
 ---以上为测试代码
 --[[
-本来想用lua的os.execute，谁料os.execute为nil ？？？所以本lua代码用的是CS.System.IO.Directory
+本来想用lua的os.execute写文件夹相关，谁料os.execute为nil ？？？所以本lua代码用的是CS.System.IO.Directory
 if not self:FileExists(Path) then
     local str = "sudo mkdir -p "..Path
     print(str)
@@ -55,7 +56,6 @@ function NetManager:Init()
     ----------------------TCP--------------------
     self.TCPServer = {IP="127.0.0.1", Port = 10000}
     self.TCPTimeout = 4
-
     ----------------------HTTP-------------------
     self.HTTPServer = {IP="http://localhost", Port = 10001}
     self.HTTPTimeout = 4
@@ -65,6 +65,8 @@ function NetManager:Init()
     self.localResourcePath = UE.Application.persistentDataPath.."/resources"
     --- 要更新的文件的md5码(hex)
     self.md5 = {}
+    --- 进度动作
+    self.ProcessAction = nil
     --- 更新完成后的动作
     self.UpdateCompleteAction = nil
     --- 更新好了的文件数
@@ -77,11 +79,10 @@ function NetManager:Init()
     --- 用于版本对比
     self.currentVersion = ""
     self.serverVersion = ""
-    ------------------------------------------------
-    if IS_ONLINE_MODE then
-        self:CheckUpdate()
-    else
+    -----------------离线-------------------------------
+    if not IS_ONLINE_MODE then
         self.MessageReceiveMap={}
+        self.UserInfo={}
     end
 end
 
@@ -101,21 +102,30 @@ function NetManager:TCPSendMessage(type, message)
         local bytes = pb.encode(Enum_NetMessageType[type], message)
         CS.NetManager.Instance:Send(type, bytes)
     else
-
+        --self.TCPReceiveMessage(type, self.MessageReceiveMap[message])
     end
 end
 
 
 ---接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
-function NetManager.TCPReceiveMessage(type, data)
-    local data2 = pb.decode(Enum_NetMessageType[type], data)
-    print(data2.response)
+function NetManager.TCPReceiveMessage(_type, data)
+    if IS_ONLINE_MODE then
+        local data2 = pb.decode(Enum_NetMessageType[_type], data)
+        MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data2))
+    else
+        MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data))
+    end
 end
 ---------------------------HTTP----------------------------
 --- 检查更新
-function NetManager:StartUpdate(UpdateCompleteAction)
-    self.UpdateCompleteAction = UpdateCompleteAction
-    StartCoroutine(self.StartUpdateCoroutine, self)
+function NetManager:StartUpdate(ProcessAction, UpdateCompleteAction)
+    if IS_ONLINE_MODE then
+        self.ProcessAction = ProcessAction
+        self.UpdateCompleteAction = UpdateCompleteAction
+        StartCoroutine(self.StartUpdateCoroutine, self)
+    else
+        UpdateCompleteAction(true)
+    end
 end
 function NetManager:StartUpdateCoroutine()
     print("---------Begin check update---------")
@@ -172,11 +182,14 @@ end
 function NetManager:DownloadFlies(fileUrls)
     print("-----------Begin Download------------")
     local totalCount = #fileUrls
-    for _, v in ipairs(fileUrls) do
-        StartCoroutine(self.DownloadFliesCoroutine, self, self.requestUrl.."/resources/"..v, v, totalCount)
+    if self.ProcessAction then
+        self.ProcessAction(nil, totalCount)
+    end
+    for i = 1, totalCount, 1 do
+        StartCoroutine(self.DownloadFliesCoroutine, self, self.requestUrl.."/resources/"..fileUrls[i], fileUrls[i], totalCount)
     end
 end
---- count: 当前文件index    totalCount: 文件总数
+--- totalCount: 文件总数
 function NetManager:DownloadFliesCoroutine(url, filename, totalCount)
 
     local webRequest = UE.Networking.UnityWebRequest.Get(url)
@@ -193,12 +206,15 @@ function NetManager:DownloadFliesCoroutine(url, filename, totalCount)
             if file then
                 if file:write(webRequest.downloadHandler.data) then
                     self.completeUpdateFiles = self.completeUpdateFiles+1
+                    if self.ProcessAction then
+                        self.ProcessAction(1)
+                    end
                 else
                     print("Writting Error!")
                 end
                 file:close()
             else
-                print("Error to write file "..self.completeUpdateFiles)
+                print("Error to write file "..self.currentFileIndex)
             end
         else
             print("Download "..self.currentFileIndex.." file failed")
