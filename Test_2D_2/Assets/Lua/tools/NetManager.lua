@@ -90,10 +90,13 @@ end
 
 ---------------------------TCP--------------------------
 ---        TCP的实现在c#... 不得已而为之
-function NetManager:Start()
+function NetManager:TCPConnect()
     if IS_ONLINE_MODE then
-        if not CS.NetManager.Instance:Connect(self.TCPServer.IP, self.TCPServer.Port) then
+        if CS.NetManager.Instance:Connect(self.TCPServer.IP, self.TCPServer.Port) then
+            return true
+        else
             print("connect server failed.")
+            return false
         end
     end
 end

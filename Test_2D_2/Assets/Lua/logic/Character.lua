@@ -1,4 +1,6 @@
-﻿local Timer = require("Timer")
+﻿local GlobalData = require("GlobalData")
+local GlobalAbility = require("GlobalAbilityScale")
+local Timer = require("Timer")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local MC = require("MessageCenter")
@@ -7,11 +9,16 @@ local character_base = require("character_base")
 local Character=Class("Character", character_base)
 
 function Character:cotr()
+
+    self.Left = UE.Vector3(-1, 1, 1)
+    self.Right = UE.Vector3(1, 1, 1)
+
     ---gameobject---
     self.super:cotr()
     local mainRole, isNew =  ResourceMgr:GetGameObject(PathMgr.ResourcePath.Character_1, PathMgr.NamePath.Character_1)
-    self.gameobject = mainRole.transform:Find("Role")
-    self.collsion = self.gameobject:GetComponent(typeof(CS.Collision))
+    self.gameobject = mainRole.transform:Find("Role").gameObject
+    -------绑定碰撞------
+    self.collsion = self.gameobject:AddComponent(typeof(CS.Collision))
     if isNew then
         if self.collsion.CollisionHandle then
             self.collsion.CollisionHandle = self.collsion.CollisionHandle + self.OnCollision
@@ -19,25 +26,36 @@ function Character:cotr()
             self.collsion.CollisionHandle = self.OnCollision
         end
     end
+    -----设置成员变量------
+    self.speed = (GlobalData.characterSpeed + GlobalAbility.roleSpeedChange)*GlobalAbility.roleSpeedScale
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
-    self.speed = 5
     self.animatior = self.gameobject:GetComponent("Animator")
 
-    self.Left = UE.Vector3(-1, 1, 1)
-    self.Right = UE.Vector3(1, 1, 1)
+    -------状态数据-----
+    self.maxHeath = 100
+    self.currentHeath = 100
+    self.maxArmor = 1
+    self.currentArmor = 1
 
-    ---state---
-    self.heath = 100
+    self.speedChange = 0
+    self.speedScale = 1
+    --self.Skill_1 =
 
 end
 
 function Character:Start()
-    Timer:AddUpdateFuc(self, self.update)
+    Timer:AddUpdateFuc(self, self.Update)
 end
 
-function Character:update()
+--- 加入update的函数
+function Character:Update()
+    self:Move()
 
+end
+
+--- 被Character.Update调用
+function Character:Move()
     local horizontal = UE.Input.GetAxisRaw("Horizontal")
     local vertical = UE.Input.GetAxisRaw("Vertical")
 
@@ -58,13 +76,18 @@ function Character:update()
     end
 end
 
+--- isPersent: 是否为百分比   isJustMax: 是否只是最大值更改
+function Character:ChangeHeath(count, isPersent, isJustMax)
+
+end
+
 function Character:OnCollision(type, other)
-    if type == "TriggerEnter2D" then
+    if type == Enum_CollisionType.TriggerEnter2D then
         --- 武器的layer
         if other.gameObject.layer ==  12 then
             MC:SendMessage(Enum_MessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
         end
-    elseif type == "thenTriggerExit2D" then
+    elseif type == Enum_CollisionType.TriggerExit2D then
         if other.gameObject.layer ==  12 then
             MC:SendMessage(Enum_MessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
         end

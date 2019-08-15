@@ -66,8 +66,10 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-        Slider a;
-        RectTransform b;
+        InputField a;
+
+        //a.Find()
+        //a.SetActive();
         //a.GetComponentInChildren()
         //a.Rotate(b.eulerAngles);
         //a.LoadAsset();

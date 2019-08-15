@@ -3,5 +3,5 @@ guid: 9ec3cdf12f4924fe1a10a023054d5782
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: assetbundles/prefabs/maincamera.ab
-  assetBundleVariant: 
+  assetBundleName: assetbundles/prefabs/maincamera
+  assetBundleVariant: ab

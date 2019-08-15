@@ -47,8 +47,8 @@ function string:findLast(sep)
 end
 
 function GetProxy(sourceTable, path)
-    proxy={}
-    mate={
+    local proxy={}
+    local mate={
         __newindex=function(t, key, newValue)
             local oldValue=sourceTable[key]
             if not oldValue then
@@ -107,15 +107,15 @@ function Class(className, super)
 end
 
 
-IS_RELEASE_MODE = true
-IS_ONLINE_MODE = false
+IS_RELEASE_MODE = false
+IS_ONLINE_MODE = true
 
 ---需要先初始化的module
 require("Enum")
 local MC = require("MessageCenter")
 local PathMgr = require("PathManager")
 ---
-local net=require("NetManager")
+--local net=require("NetManager")
 local Timer = require("Timer")
 
 --local Battle = require("Battle")
@@ -123,7 +123,7 @@ local Timer = require("Timer")
 --local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
-local BeginScene = require("Begin")
+local BeginScene = require("BeginScene")
 -------------------------------
 --初始化
 function Init()
@@ -143,19 +143,9 @@ end
 ------------------------------
 function InitTitle()
 
-    net.isUseMD5 = false
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
-    --IS_ONLINE_MODE = true
-    --net:Start()
-    --local login = {userName="1", password="5", response=false}
-    --net:TCPSendMessage(1, login)
-
-
     BeginScene:InitScene()
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
-
-    --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
-
     --SceneMgr:GenerateBattleMap(1,3,1,1)
 
 end

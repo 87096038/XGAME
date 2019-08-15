@@ -1,5 +1,5 @@
 ﻿local ResourceMgr = require("ResourceManager")
-local Character_base=Class("character_base", require("Base"))
+local Character_base=Class("Character_base", require("Base"))
 
 function Character_base:cotr()
     self.super:cotr()

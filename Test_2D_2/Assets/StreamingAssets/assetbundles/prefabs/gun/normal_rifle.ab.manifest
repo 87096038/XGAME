@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 3845755674
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6c915d3c43ec1bf285394cb6cfe4978a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3cd6abdc5e3f084d32a462d83183d5cc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Gun/Normal_Rifle.prefab
+Dependencies: []

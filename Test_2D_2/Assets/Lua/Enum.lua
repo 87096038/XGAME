@@ -30,14 +30,18 @@ Enum_BulletType={light=1, heavy=2, energy=3, shell=4}
 Enum_ShootType={single=1, multiple=2}
 
 --- 物体种类
-Enum_ItemType={weapon="weapon",item="item" }
+Enum_ItemType={weapon="weapon",item="item", bullet="bullet", gold="gold", diamond="diamond", soul_shard = "soul_shard" }
+
+--- NPC种类
+Enum_NPCType={draw_card="drawCard"}
 
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
-                  UserInfo="UserInfo", ApproachItem="ApproachItem", LeaveItem="LeaveItem",
+                  UserInfo="UserInfo", ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC",
+                  RefreshData="RefreshData",
 }
 
---- 网络消息类型
+--- 网络消息类型 格式为:index - Enum_MessageType
 Enum_NetMessageType={[1] = Enum_MessageType.Login, [2] = Enum_MessageType.UserInfo, }
 
 --- 角色行为类型
@@ -52,6 +56,10 @@ Enum_CharacterPowerSourceType={equipment_body=1, item_1=2, item_2=3, outer_passi
 ---ice_slow: 冰缓  poisoning: 中毒
 Enum_BuffAndDebuffType={ice_slow=1, poisoning=2}
 
+---碰撞类型
+Enum_CollisionType={CollisionEnter2D="CollisionEnter2D", CollisionStay2D="CollisionStay2D", CollisionExit2D="CollisionExit2D",
+                    TriggerEnter2D="TriggerEnter2D", TriggerStay2D="TriggerStay2D", TriggerExit2D="TriggerExit2D"}
+
 --- 场景索引(依照unity里各场景的Index)
 Enum_Scenes={Begin=0, Title=1, Rest=2, Battle=3, Loading=4}
-Enum_SceneName = {"Begin", "Title", "Rest", "Battle", "Loading"}
+Enum_SceneName = {"BeginScene", "TitleScene", "RestScene", "BattleScene", "LoadingScene"}

@@ -3,5 +3,5 @@ guid: ae329ee1e0bf04469af55db33424d5e0
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: assetbundles/prefabs/ui/title/ui_decoration.ab
-  assetBundleVariant: 
+  assetBundleName: assetbundles/prefabs/ui/title/ui_decoration
+  assetBundleVariant: ab
