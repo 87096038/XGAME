@@ -6,16 +6,12 @@ local PathMgr = require("PathManager")
 local ResourceMgr = require("ResourceManager")
 local SceneMgr = require("SceneManager")
 
-local Rest = {}
+local Battle = {}
 
-function Rest:InitScene()
-    --print("switch to Rest Scene")
+function Battle:InitScene()
 
-
+    self.mapLevel = nil
+    self.weaponPool = {}
 end
 
-function Rest.OnLoadComplate()
-
-end
-
-return Rest
+return Battle

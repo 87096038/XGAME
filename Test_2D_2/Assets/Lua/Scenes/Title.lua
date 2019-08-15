@@ -21,10 +21,13 @@ function Title:InitScene()
 
 end
 
+function Title:LoadResource()
+
+end
+
 function Title:StartOnClick()
     --ResourceMgr:DestroyObject(self.UI_Title, true)
-    print("12321")
-    --SceneMgr:LoadScene(SceneMgr.SceneBuildIndex.titleScene)
+    SceneMgr:LoadScene(Enum_Scenes.Rest)
 end
 
 function Title:SettingOnClick()

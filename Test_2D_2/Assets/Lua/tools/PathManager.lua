@@ -17,6 +17,8 @@ function PathManager:Init()
             UI_Begin_Imgs="assetbundles/prefabs/ui/begin/beginimgs.ab",
             UI_HotUpdate="assetbundles/prefabs/ui/begin/ui_hotupdate.ab",
             UI_Title = "assetbundles/prefabs/ui/title/ui_title.ab",
+            UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
+            UI_MessageBox = "assetbundles/prefabs/ui/ui_messagebox",
             --------Tiles----------
             Tile_Base = "assetbundles/sprite/tiles/floorbrickstograsscorner_0.ab",
             Room01 = "assetbundles/prefabs/rooms/room01.ab",
@@ -43,6 +45,8 @@ function PathManager:Init()
             UI_Begin_Imgs="Prefabs/UI/Begin/BeginImgs",
             UI_HotUpdate="Prefabs/UI/Begin/UI_HotUpdate",
             UI_Title = "Prefabs/UI/Title/UI_Title",
+            UI_Loading = "Prefabs/UI/Loading/UI_Loading",
+            UI_MessageBox = "Prefabs/UI/UI_MessageBox",
             --------Tiles----------
             Tile_Base = "Sprite/Tiles/FloorBricksToGrassCorner_0",
             Room01 = "Prefabs/Rooms/Room01",
@@ -72,6 +76,7 @@ function PathManager:Init()
             UI_Begin_Imgs="beginimgs",
             UI_HotUpdate="ui_hotupdate",
             UI_Title = "ui_title",
+            UI_Loading = "ui_loading",
             --------Tiles----------
             Tile_Base = "floorbrickstograsscorner_0",
             Room01 = "room01",
