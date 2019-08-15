@@ -248,74 +248,90 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
     local roadTileMap = self.road:GetComponent(typeof(UE.Tilemaps.Tilemap))
     local tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
 
-    local px_1 = room1.positionX * self.roomDistance + dx
-    local py_1 = room1.positionY * self.roomDistance + (room1.width-1)/2 + dy
+    if dx == 0 then
+        local px_1 = room1.positionX * self.roomDistance + dx
+        local py_1 = room1.positionY * self.roomDistance + (room1.width-1)/2 + dy
 
-    local px_2 = room2.positionX * self.roomDistance - dx
-    local py_2 = room2.positionY * self.roomDistance - (room2.width-1)/2 - dy
+        local px_2 = room2.positionX * self.roomDistance - dx
+        local py_2 = room2.positionY * self.roomDistance - (room2.width-1)/2 - dy
 
-    for i = px_1 - 2, px_1 + 2 do
-        for j = py_1,py_2 do
-            local p = UE.Vector3Int(i,j,0)
-            roadTileMap:SetTile(p,tileBase)
+        for i = px_1 - 2, px_1 + 2 do
+            for j = py_1, py_2, dy do
+                local p = UE.Vector3Int(i,j,0)
+                roadTileMap:SetTile(p,tileBase)
+            end
+        end
+    else
+        local px_1 = room1.positionX * self.roomDistance - (room1.length-1)/2 - 1
+        local py_1 = room1.positionY * self.roomDistance
+
+        local px_2 = room2.positionX * self.roomDistance + (room2.length-1)/2 + 1
+        local py_2 = room2.positionY * self.roomDistance
+
+        for i = px_1, px_2, dx do
+            for j = py_1-2,py_1+2 do
+                local p = UE.Vector3Int(i,j,0)
+                roadTileMap:SetTile(p,tileBase)
+            end
         end
     end
+
 
     -- 这段代码重复有点多，到时得改善
-    if (dx == 0 and dy == 1) then
-        local p1X = room1.positionX * self.roomDistance
-        local p1Y = room1.positionY * self.roomDistance + (room1.width-1)/2 + 1
-        --local p1 = UE.Vector3Int(p1X,p1Y,0)
-
-        local p2X = room2.positionX * self.roomDistance
-        local p2Y = room2.positionY * self.roomDistance - (room1.width-1)/2 - 1
-        --local p2 = UE.Vector3Int(p2X,p2Y,0)
-
-        for i = p1X-2,p1X+2 do
-            for j = p1Y,p2Y do
-                local p = UE.Vector3Int(i,j,0)
-                roadTileMap:SetTile(p,tileBase)
-            end
-        end
-    elseif (dx == 0 and dy == -1) then
-        local p1X = room1.positionX * self.roomDistance
-        local p1Y = room1.positionY * self.roomDistance - (room1.width-1)/2 - 1
-
-        local p2X = room2.positionX * self.roomDistance
-        local p2Y = room2.positionY * self.roomDistance + (room1.width-1)/2 + 1
-
-        for i = p1X-2,p1X+2 do
-            for j = p2Y,p1Y do
-                local p = UE.Vector3Int(i,j,0)
-                roadTileMap:SetTile(p,tileBase)
-            end
-        end
-    elseif (dx == -1 and dy == 0) then
-        local p1X = room1.positionX * self.roomDistance - (room1.length-1)/2 - 1
-        local p1Y = room1.positionY * self.roomDistance
-
-        local p2X = room2.positionX * self.roomDistance + (room1.length-1)/2 + 1
-        local p2Y = room2.positionY * self.roomDistance
-
-        for i = p2X,p1X do
-            for j = p1Y-2,p1Y+2 do
-                local p = UE.Vector3Int(i,j,0)
-                roadTileMap:SetTile(p,tileBase)
-            end
-        end
-    elseif (dx == 1 and dy == 0) then
-        local p1X = room1.positionX * self.roomDistance + (room1.length-1)/2 + 1
-        local p1Y = room1.positionY * self.roomDistance
-
-        local p2X = room2.positionX * self.roomDistance - (room1.length-1)/2 - 1
-        local p2Y = room2.positionY * self.roomDistance
-        for i = p1X,p2X do
-            for j = p1Y-2,p1Y+2 do
-                local p = UE.Vector3Int(i,j,0)
-                roadTileMap:SetTile(p,tileBase)
-            end
-        end
-    end
+    --if (dx == 0 and dy == 1) then
+    --    local p1X = room1.positionX * self.roomDistance
+    --    local p1Y = room1.positionY * self.roomDistance + (room1.width-1)/2 + 1
+    --    --local p1 = UE.Vector3Int(p1X,p1Y,0)
+    --
+    --    local p2X = room2.positionX * self.roomDistance
+    --    local p2Y = room2.positionY * self.roomDistance - (room1.width-1)/2 - 1
+    --    --local p2 = UE.Vector3Int(p2X,p2Y,0)
+    --
+    --    for i = p1X-2,p1X+2 do
+    --        for j = p1Y,p2Y do
+    --            local p = UE.Vector3Int(i,j,0)
+    --            roadTileMap:SetTile(p,tileBase)
+    --        end
+    --    end
+    --elseif (dx == 0 and dy == -1) then
+    --    local p1X = room1.positionX * self.roomDistance
+    --    local p1Y = room1.positionY * self.roomDistance - (room1.width-1)/2 - 1
+    --
+    --    local p2X = room2.positionX * self.roomDistance
+    --    local p2Y = room2.positionY * self.roomDistance + (room1.width-1)/2 + 1
+    --
+    --    for i = p1X-2,p1X+2 do
+    --        for j = p2Y,p1Y do
+    --            local p = UE.Vector3Int(i,j,0)
+    --            roadTileMap:SetTile(p,tileBase)
+    --        end
+    --    end
+    --elseif (dx == -1 and dy == 0) then
+    --    local p1X = room1.positionX * self.roomDistance - (room1.length-1)/2 - 1
+    --    local p1Y = room1.positionY * self.roomDistance
+    --
+    --    local p2X = room2.positionX * self.roomDistance + (room1.length-1)/2 + 1
+    --    local p2Y = room2.positionY * self.roomDistance
+    --
+    --    for i = p2X,p1X do
+    --        for j = p1Y-2,p1Y+2 do
+    --            local p = UE.Vector3Int(i,j,0)
+    --            roadTileMap:SetTile(p,tileBase)
+    --        end
+    --    end
+    --elseif (dx == 1 and dy == 0) then
+    --    local p1X = room1.positionX * self.roomDistance + (room1.length-1)/2 + 1
+    --    local p1Y = room1.positionY * self.roomDistance
+    --
+    --    local p2X = room2.positionX * self.roomDistance - (room1.length-1)/2 - 1
+    --    local p2Y = room2.positionY * self.roomDistance
+    --    for i = p1X,p2X do
+    --        for j = p1Y-2,p1Y+2 do
+    --            local p = UE.Vector3Int(i,j,0)
+    --            roadTileMap:SetTile(p,tileBase)
+    --        end
+    --    end
+    --end
 end
 
 function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)

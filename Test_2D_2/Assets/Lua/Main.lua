@@ -120,10 +120,10 @@ local Timer = require("Timer")
 
 --local Battle = require("Battle")
 --local ResourceMgr = require("ResourceManager")
---local SceneMgr = require("SceneManager")
+local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
-local BeginScene = require("Begin")
+--local BeginScene = require("Begin")
 -------------------------------
 --初始化
 function Init()
@@ -143,7 +143,7 @@ end
 ------------------------------
 function InitTitle()
 
-    net.isUseMD5 = false
+    --net.isUseMD5 = false
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
     --IS_ONLINE_MODE = true
     --net:Start()
@@ -151,12 +151,12 @@ function InitTitle()
     --net:TCPSendMessage(1, login)
 
 
-    BeginScene:InitScene()
+    --BeginScene:InitScene()
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
 
-    --SceneMgr:GenerateBattleMap(1,3,1,1)
+    SceneMgr:GenerateBattleMap(1,3,1,1)
 
 end
 
