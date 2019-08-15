@@ -53,7 +53,7 @@ function SceneManager:LoadScene(sceneBuildIndex)
         ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)
     end
 
-    --异步加载
+     --异步加载
     local util = require 'xlua.util'
     local LoadSceneAsync_Fun = util.cs_generator(function()
         self.UI_Loading = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Loading, PathMgr.NamePath.UI_Loading, Main.UIRoot.transform)

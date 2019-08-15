@@ -47,13 +47,6 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
     -- 将房间放入缓存池
     self:pushRoomsIntoTable()
 
-    --local startRoomCnt = 1
-    --local bossRoomCnt = 1
-    --local mRoomCnt = monsterRoomCnt
-    --local sRoomCnt = shopRoomCnt
-    --local tRoomCnt = treasureRoomCnt
-    --local roomCnt = startRoomCnt+bossRoomCnt+monsterRoomCnt+shopRoomCnt+treasureRoomCnt
-
     -- 时间种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
 
@@ -184,15 +177,6 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
     end
     q = nil
 
-    -- 测试随机地图用
-    --for i = -self.roomMapSize,self.roomMapSize do
-    --    for j = -self.roomMapSize,self.roomMapSize do
-    --        if self.roomMap[i][j] ~= nil then
-    --            print(self.roomMap[i][j].positionX,self.roomMap[i][j].positionY,self.roomMap[i][j].type)
-    --        end
-    --    end
-    --end
-
     -- 实例化所有房间（和道路）
     self:InstantiateRooms()
 end
@@ -264,6 +248,19 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
     local roadTileMap = self.road:GetComponent(typeof(UE.Tilemaps.Tilemap))
     local tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
 
+    local px_1 = room1.positionX * self.roomDistance + dx
+    local py_1 = room1.positionY * self.roomDistance + (room1.width-1)/2 + dy
+
+    local px_2 = room2.positionX * self.roomDistance - dx
+    local py_2 = room2.positionY * self.roomDistance - (room2.width-1)/2 - dy
+
+    for i = px_1 - 2, px_1 + 2 do
+        for j = py_1,py_2 do
+            local p = UE.Vector3Int(i,j,0)
+            roadTileMap:SetTile(p,tileBase)
+        end
+    end
+
     -- 这段代码重复有点多，到时得改善
     if (dx == 0 and dy == 1) then
         local p1X = room1.positionX * self.roomDistance
@@ -319,28 +316,6 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
             end
         end
     end
-
-
-    -- p1-4对应room1上下左右中点
-    -- 上边的点
-    --local p1X = room1.positionX * self.roomDistance
-    --local p1Y = room1.positionY * self.roomDistance + (room1.width-1)/2 + 1
-    --local p1 = UE.Vector3Int(p1X,p1Y,0)
-
-    -- 下边的点
-    --local p2X = room1.positionX * self.roomDistance
-    --local p2Y = room1.positionY * self.roomDistance - (room1.width-1)/2 - 1
-    --local p2 = UE.Vector3Int(p2X,p2Y,0)
-
-    -- 左边的点
-    --local p3X = room1.positionX * self.roomDistance - (room1.length-1)/2 - 1
-    --local p3Y = room1.positionY * self.roomDistance
-    --local p3 = UE.Vector3Int(p3X,p3Y,0)
-
-    -- 右边的点
-    --local p4X = room1.positionX * self.roomDistance + (room1.length-1)/2 + 1
-    --local p4Y = room1.positionY * self.roomDistance
-    --local p4 = UE.Vector3Int(p4X,p4Y,0)
 end
 
 function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)
@@ -383,9 +358,6 @@ function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)
     end
 end
 
---function SceneManager:pushRoomIntoTable(Path,roomLevel,roomType,roomLength,roomWidth)
---
---end
 
 -- 该函数用于将所有的场景先放入table中
 -- 但应该会很占内存？
