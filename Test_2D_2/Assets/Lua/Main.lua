@@ -154,7 +154,7 @@ function InitTitle()
 
     --CS.System.IO.Directory.CreateDirectory([[Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123]])
 
-    SceneMgr:GenerateBattleMap(1,3,1,1)
+    --SceneMgr:StartGame()
 
 end
 
