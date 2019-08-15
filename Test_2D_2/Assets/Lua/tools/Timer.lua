@@ -21,17 +21,17 @@ function Timer:Update()
 end
 
 --- 一个table只准有一个update
-function Timer:AddUpdateFuc(table, fuc)
-    if type(fuc) ~= "function" or type(table) ~= "table"then
+function Timer:AddUpdateFuc(table, func)
+    if type(func) ~= "function" or type(table) ~= "table"then
         return
     end
 
     for t, v in pairs(self.UpdateFucs) do
-        if t == table and v == fuc then
+        if t == table and v == func then
             return
         end
     end
-    self.UpdateFucs[table]  = fuc
+    self.UpdateFucs[table]  = func
 end
 
 function Timer:RemoveUpdateFuc(fuc)

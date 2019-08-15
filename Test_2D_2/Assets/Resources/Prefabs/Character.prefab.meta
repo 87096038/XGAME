@@ -3,5 +3,5 @@ guid: 809bbd89c09014ec4a799a8d43fec1fe
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: assetbundles/prefabs/character.ab
-  assetBundleVariant: 
+  assetBundleName: assetbundles/prefabs/character
+  assetBundleVariant: ab

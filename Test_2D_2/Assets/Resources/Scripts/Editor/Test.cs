@@ -23,9 +23,10 @@ public class Test : Editor
             string pattern = @"\.((\w)+)$";
             if (Regex.Match(ABPath, pattern).ToString() != ".meta")
             {
-                string result = Regex.Replace(ABPath, pattern, ".ab");
+                string result = Regex.Replace(ABPath, pattern, "");
                 AssetImporter ai = AssetImporter.GetAtPath(assetPath);
                 ai.assetBundleName = result;
+                ai.assetBundleVariant = "ab";
             }
         }
         foreach (var _dir in dir.GetDirectories())
@@ -50,9 +51,10 @@ public class Test : Editor
     [MenuItem("资源工具/AB打包", priority = 40)]
     public static void Build()
     {
-        string path = Application.streamingAssetsPath;// + "/assetbundles";
+        string path = Application.streamingAssetsPath;
         DirectoryInfo dir = new DirectoryInfo (path);
         DelFiles(dir);
+        
         AssetDatabase.Refresh();
         BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, BuildAssetBundleOptions.None, BuildTarget.StandaloneOSX);
     }

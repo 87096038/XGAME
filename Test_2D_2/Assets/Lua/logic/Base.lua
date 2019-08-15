@@ -2,11 +2,13 @@
     所有class的基类
 --]]
 local MC = require("MessageCenter")
+local Timer = require("Timer")
 
 local Base = Class("Base")
 
 function Base:cotr()
     self.MessageListenerMap={}
+    self.updateFunc = nil
 end
 
 --[[
@@ -32,9 +34,15 @@ function Base:DestroyAllMessageListener()
     self.MessageListenerMap = {}
 end
 
+function Base:SetUpdateFunc(func)
+    self.updateFunc = func
+    Timer:AddUpdateFuc(self, func)
+end
+
 ------------销毁实例时必须调用该函数-----------
 function Base:Destroy()
     self:DestroyAllMessageListener()
+    Timer:RemoveUpdateFuc(self.func)
 end
 
 return Base

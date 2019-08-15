@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 3297643316
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5ccf1027c502b326dfadca264eaf3fdf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8fd3ac82b731fb1b2f583240e7196bac
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/NPC/NPC_1.prefab
+Dependencies: []

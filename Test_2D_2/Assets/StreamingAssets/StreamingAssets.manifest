@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3595806525
+CRC: 744060769
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -12,65 +12,68 @@ AssetBundleManifest:
       Name: assetbundles/prefabs/maincamera.ab
       Dependencies: {}
     Info_3:
-      Name: assetbundles/prefabs/normal_rifle.ab
-      Dependencies: {}
-    Info_4:
-      Name: assetbundles/prefabs/normal_sniper_rifle.ab
-      Dependencies: {}
-    Info_5:
       Name: assetbundles/prefabs/bg.ab
       Dependencies: {}
-    Info_6:
+    Info_4:
       Name: assetbundles/prefabs/rooms/gridroot.ab
       Dependencies: {}
-    Info_7:
+    Info_5:
       Name: assetbundles/prefabs/rooms/road.ab
       Dependencies: {}
-    Info_8:
+    Info_6:
       Name: assetbundles/prefabs/rooms/room01.ab
       Dependencies: {}
-    Info_9:
+    Info_7:
       Name: assetbundles/prefabs/rooms/room02.ab
       Dependencies: {}
-    Info_10:
+    Info_8:
       Name: assetbundles/prefabs/rooms/room03.ab
       Dependencies: {}
-    Info_11:
+    Info_9:
       Name: assetbundles/prefabs/rooms/room04.ab
       Dependencies: {}
-    Info_12:
+    Info_10:
       Name: assetbundles/prefabs/rooms/room05.ab
       Dependencies: {}
-    Info_13:
+    Info_11:
       Name: assetbundles/prefabs/rooms/room06.ab
       Dependencies: {}
-    Info_14:
+    Info_12:
       Name: assetbundles/prefabs/rooms/room07.ab
       Dependencies: {}
-    Info_15:
+    Info_13:
       Name: assetbundles/prefabs/rooms/room08.ab
       Dependencies: {}
-    Info_16:
+    Info_14:
       Name: assetbundles/prefabs/ui/battle/bulletstate.ab
       Dependencies: {}
-    Info_17:
+    Info_15:
       Name: assetbundles/prefabs/ui/battle/characterstate.ab
       Dependencies: {}
-    Info_18:
+    Info_16:
       Name: assetbundles/prefabs/ui/battle/gold.ab
       Dependencies: {}
-    Info_19:
+    Info_17:
       Name: assetbundles/prefabs/ui/battle/weaponstate.ab
       Dependencies: {}
-    Info_20:
+    Info_18:
       Name: assetbundles/prefabs/ui/begin/beginimgs.ab
       Dependencies: {}
-    Info_21:
+    Info_19:
       Name: assetbundles/prefabs/ui/begin/ui_hotupdate.ab
       Dependencies: {}
-    Info_22:
+    Info_20:
       Name: assetbundles/prefabs/ui/title/ui_decoration.ab
       Dependencies: {}
-    Info_23:
+    Info_21:
       Name: assetbundles/prefabs/ui/title/ui_title.ab
+      Dependencies: {}
+    Info_22:
+      Name: assetbundles/prefabs/gun/normal_rifle.ab
+      Dependencies: {}
+    Info_23:
+      Name: assetbundles/prefabs/gun/normal_sniper_rifle.ab
+      Dependencies: {}
+    Info_24:
+      Name: assetbundles/prefabs/npc/npc_1.ab
       Dependencies: {}
