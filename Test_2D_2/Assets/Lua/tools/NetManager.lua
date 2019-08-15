@@ -115,8 +115,11 @@ end
 ---接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
 function NetManager.TCPReceiveMessage(_type, data)
     if IS_ONLINE_MODE then
+        print(_type)
         local data2 = pb.decode(Enum_NetMessageType[_type], data)
+        print(data)
         MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data2))
+        print(data2)
     else
         MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data))
     end

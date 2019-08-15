@@ -114,16 +114,22 @@ end
 
 -- 获取消息框
 function SceneManager:GetMessageBox(message,callback)
-    self.UI_MessageBox = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_MessageBox, PathMgr.NamePath.UI_MessageBox, Main.UIRoot.transform)
+    local isNew
+    self.UI_MessageBox, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_MessageBox, PathMgr.NamePath.UI_MessageBox, Main.UIRoot.transform)
     self.Button_Yes = self.UI_MessageBox.transform:Find("Button_Yes"):GetComponent(typeof(UE.UI.Button))
     self.Button_No = self.UI_MessageBox.transform:Find("Button_No"):GetComponent(typeof(UE.UI.Button))
     self.Text_Message = self.UI_MessageBox.transform:Find("Text_Message"):GetComponent(typeof(UE.UI.Text))
     self.Text_Message.text = message
+    if not isNew then
+        self.Button_Yes.onClick:RemoveAllListeners()
+    end
+     self.Button_Yes.onClick:AddListener(function ()
+         if callback then
+             callback()
+         end
 
-    self.Button_Yes.onClick:AddListener(function ()
-        callback()
-        ResourceMgr:DestroyObject(self.UI_MessageBox)
-    end)
+         ResourceMgr:DestroyObject(self.UI_MessageBox)
+     end)
 
     self.Button_No.onClick:AddListener(function()
         ResourceMgr:DestroyObject(self.UI_MessageBox)

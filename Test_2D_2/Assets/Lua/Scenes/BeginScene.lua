@@ -108,11 +108,11 @@ function Begin:Login()
             return
         end
         if password.text == "" then
-            SceneMgr:GetMessageBox("请输入用户名")
+            SceneMgr:GetMessageBox("请输入密码")
             return
         end
         self.login:SetActive(false)
-        local login = {userName=userName, password=password, response=false}
+        local login = {userName=userName.text, password=password.text, response=false}
         Net:TCPSendMessage(1 , login)
     end);
 end
@@ -125,6 +125,7 @@ end
 
 ---------消息响应函数---------
 function Begin:OnLogin(kv)
+    print("onlogin")
     if kv.Value then
         if kv.Value.response then
             self.hotUpdateStateText.text = "点击进入游戏"

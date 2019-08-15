@@ -14,6 +14,8 @@ function PathManager:Init()
             Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
             Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
             -----UI-----
+            UI_MessageBox="assetbundles/prefabs/ui/ui_messagebox.ab",
+
             UI_Begin_Imgs="assetbundles/prefabs/ui/begin/beginimgs.ab",
             UI_HotUpdate="assetbundles/prefabs/ui/begin/ui_hotupdate.ab",
 
@@ -28,6 +30,7 @@ function PathManager:Init()
             UI_CharacterStateInBattle = "assetbundles/prefabs/ui/battle/ui_characterstate.ab",
             UI_WeaponState = "assetbundles/prefabs/ui/battle/ui_weaponstate.ab",
             UI_BulletState = "assetbundles/prefabs/ui/battle/ui_bulletstate.ab",
+            UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
             --------Tiles----------
             Tile_Base = "assetbundles/sprite/tiles/floorbrickstograsscorner_0.ab",
             Room01 = "assetbundles/prefabs/rooms/room01.ab",
@@ -53,6 +56,8 @@ function PathManager:Init()
             Normal_Sniper_Rifle="Prefabs/Gun/Normal_Sniper_Rifle",
             Audio_Title_BGM="Audio/Audio_Title_BGM",
             -----UI-----
+            UI_MessageBox="Prefabs/UI/UI_MessageBox",
+
             UI_Begin_Imgs="Prefabs/UI/Begin/BeginImgs",
             UI_HotUpdate="Prefabs/UI/Begin/UI_HotUpdate",
             UI_LoginPnl="Prefabs/UI/Begin/UI_LoginPnl";
@@ -68,6 +73,8 @@ function PathManager:Init()
             UI_CharacterStateInBattle = "Prefabs/UI/Battle/UI_CharacterState",
             UI_WeaponState = "Prefabs/UI/Battle/UI_WeaponState",
             UI_BulletState = "Prefabs/UI/Battle/UI_BulletState",
+
+            UI_Loading = "Prefabs/UI/Loading/UI_Loading",
             --------Tiles----------
             Tile_Base = "Sprite/Tiles/FloorBricksToGrassCorner_0",
             Room01 = "Prefabs/Rooms/Room01",
@@ -96,6 +103,8 @@ function PathManager:Init()
             Normal_Sniper_Rifle="normal_sniper_rifle",
             Audio_Title_BGM="audio_title_bgm",
             -----UI-----
+            UI_MessageBox="ui_messagebox",
+
             UI_Begin_Imgs="beginimgs",
             UI_HotUpdate="ui_hotupdate",
 
@@ -110,6 +119,8 @@ function PathManager:Init()
             UI_CharacterStateInBattle = "ui_characterstate",
             UI_WeaponState = "ui_weaponstate",
             UI_BulletState = "ui_bulletstate",
+
+            UI_Loading = "ui_loading",
             --------Tiles----------
             Tile_Base = "floorbrickstograsscorner_0",
             Room01 = "room01",

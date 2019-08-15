@@ -66,7 +66,7 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-        InputField a;
+        Button a;
 
         //a.Find()
         //a.SetActive();
