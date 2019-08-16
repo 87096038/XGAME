@@ -130,9 +130,8 @@ end
 
 --- 每帧查询消息
 function NetManager:UpdateSendQueue()
-    if #self.MessageQueue~= 0 then
+    if next(self.MessageQueue) then
         for i=1, #self.MessageQueue do
-            print(self.MessageQueue[i].type)
             MC:SendMessage(self.MessageQueue[i].type, kv:new(nil, self.MessageQueue[i].data))
             table.remove(self.MessageQueue, i)
         end

@@ -119,6 +119,7 @@ end
 
 function BeginScene:WaitForClickUpdate()
     if UE.Input.GetMouseButtonUp(0) then
+        Timer:RemoveUpdateFuc(self.WaitForClickUpdate)
         require("SceneManager"):LoadScene(Enum_Scenes.Title)
     end
 end
@@ -131,7 +132,6 @@ function BeginScene:OnLogin(kv)
             MC:RemoveListener(Enum_MessageType.Login, handler(self, self.OnLogin))
             Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
         else
-            print("321")
             SceneMgr:GetMessageBox("用户名或密码错误，请重新登陆。")
             self:Login()
         end

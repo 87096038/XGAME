@@ -6,14 +6,16 @@ local MC= require("MessageCenter")
 local NPC_DrawCard = {}
 
 function NPC_DrawCard:Init()
-    self.position = CS.Vector3(0, 20, 0)
+    self.position = UE.Vector3(0, 10, 0)
     self.type = Enum_NPCType.draw_card
     self.gameobject = nil
-    self.drawCardPnl = nil
+    self.drawCardDlg = nil
 end
 
 function NPC_DrawCard:Generate()
-    self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.NPC_DrawCard, PathMgr.NamePath.NPC_DrawCard, nil, self.position)
+    local isNew
+    self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.NPC_DrawCard, PathMgr.NamePath.NPC_DrawCard, nil, self.position)
+    self.drawCardDlg = require("DrawCardDlg"):new()
     -------绑定碰撞------
     self.collsion = self.gameobject:AddComponent(typeof(CS.Collision))
     if isNew then
@@ -29,16 +31,23 @@ function NPC_DrawCard:OnCollision(type, other)
     if type == Enum_CollisionType.TriggerEnter2D then
         --- 主角的Layer
         if other.gameObject.layer == 9 then
-            MC:SendMessage(Enum_MessageType.ApproachNPC, require("KeyValue"):new(self.type, self))
-            print("可以交互了")
+            MC:SendMessage(Enum_MessageType.ApproachNPC, require("KeyValue"):new(NPC_DrawCard.type, NPC_DrawCard))
+        end
+    end
+    if type == Enum_CollisionType.TriggerExit2D then
+        if other.gameObject.layer == 9 then
+            if NPC_DrawCard.drawCardDlg then
+                NPC_DrawCard.drawCardDlg:Hide()
+            end
+            MC:SendMessage(Enum_MessageType.LeaveNPC, require("KeyValue"):new(NPC_DrawCard.type, NPC_DrawCard))
         end
     end
 end
 
 --- 这个函数叫Use是为了在Battle统一使用
 function NPC_DrawCard:Use()
-    if not self.drawCardPnl then
-        ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_DrawCardPnl, PathMgr.NamePath.UI_DrawCardPnl, Main.UIRoot.transform)
+    if self.drawCardDlg then
+        self.drawCardDlg:Show()
     end
 end
 

@@ -12,6 +12,10 @@ public class Test : Editor
         string path = Application.dataPath + "/Resources/Prefabs";
         DirectoryInfo dir = new DirectoryInfo (path);
         SetName(dir);
+        
+        string path1 = Application.dataPath + "/Resources/Animations";
+        DirectoryInfo dir1 = new DirectoryInfo (path1);
+        SetName(dir1);
     }
     public static void SetName(DirectoryInfo dir)
     {
@@ -25,8 +29,11 @@ public class Test : Editor
             {
                 string result = Regex.Replace(ABPath, pattern, "");
                 AssetImporter ai = AssetImporter.GetAtPath(assetPath);
-                ai.assetBundleName = result;
-                ai.assetBundleVariant = "ab";
+                if (ai != null)
+                {
+                    ai.assetBundleName = result;
+                    ai.assetBundleVariant = "ab";
+                }
             }
         }
         foreach (var _dir in dir.GetDirectories())
@@ -54,7 +61,7 @@ public class Test : Editor
         string path = Application.streamingAssetsPath;
         DirectoryInfo dir = new DirectoryInfo (path);
         DelFiles(dir);
-        
+
         AssetDatabase.Refresh();
         BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, BuildAssetBundleOptions.None, BuildTarget.StandaloneOSX);
     }

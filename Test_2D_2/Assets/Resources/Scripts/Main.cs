@@ -67,8 +67,8 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-        RectTransform a;
-        
+        Animator a;
+
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
         //Camera.main.ScreenToWorldPoint(Input.mousePosition)
         luaEnv.AddLoader(InitLoader);
