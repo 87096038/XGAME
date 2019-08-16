@@ -4,8 +4,8 @@
 local KeyValue = Class("KeyValue")
 
 function KeyValue:cotr(key, value)
-    self.Key = key or ""
-    self.Value = value or CS.null
+    self.Key = key
+    self.Value = value
 end
 
 function KeyValue:Update(key, value)

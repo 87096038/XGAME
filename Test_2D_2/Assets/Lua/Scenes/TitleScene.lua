@@ -6,9 +6,9 @@ local PathMgr = require("PathManager")
 local ResourceMgr = require("ResourceManager")
 local SceneMgr = require("SceneManager")
 
-local Title = {}
+local TitleScene = {}
 
-function Title:InitScene()
+function TitleScene:InitScene()
 
     self.UI_Title = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Title, PathMgr.NamePath.UI_Title, Main.UIRoot.transform)
     self.UI_Decoration = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Decoration, PathMgr.NamePath.UI_Decoration, Main.UIRoot.transform)
@@ -22,20 +22,19 @@ function Title:InitScene()
 
 end
 
-function Title:LoadResource()
+function TitleScene:LoadResource()
 
 end
 
-function Title:StartOnClick()
+function TitleScene:StartOnClick()
     --ResourceMgr:DestroyObject(self.UI_Title, true)
     SceneMgr:LoadScene(Enum_Scenes.Rest)
 end
 
-function Title:SettingOnClick()
-    require("SceneManager"):LoadScene(Enum_Scenes.Rest)
+function TitleScene:SettingOnClick()
 end
 
-function Title:ExitOnClick()
+function TitleScene:ExitOnClick()
     -- 要打包后才能生效？
     UE.Application.Quit()
 end
@@ -44,4 +43,4 @@ end
 --    print("hello")
 --end
 
-return Title
+return TitleScene

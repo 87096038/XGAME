@@ -6,6 +6,7 @@ using XLua;
 using System.IO;
 using System.Net;
 using System.Text;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -66,14 +67,8 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-        Button a;
-
-        //a.Find()
-        //a.SetActive();
-        //a.GetComponentInChildren()
-        //a.Rotate(b.eulerAngles);
-        //a.LoadAsset();
-        //a.Translate();
+        RectTransform a;
+        
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
         //Camera.main.ScreenToWorldPoint(Input.mousePosition)
         luaEnv.AddLoader(InitLoader);

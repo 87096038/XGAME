@@ -67,7 +67,7 @@ end
 
 ----------消息回调---------
 function Timer:ChangeSceneHandler()
-    self:RemoveAll()
+    --self:RemoveAll()
 end
 
 Timer:Init()

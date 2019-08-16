@@ -12,7 +12,7 @@ function Base:cotr()
 end
 
 --[[
-    封装事件监听，是为了方便在使用时，可以只管add不管remove(实际上在Destroy时统一remove)
+    封装事件监听和AddUpdate，是为了方便在使用时，可以只管add不管remove(实际上在Destroy时统一remove)
 --]]
 -----------------事件监听-----------------
 function Base:AddMessageListener(messageType, handler)

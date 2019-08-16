@@ -9,9 +9,9 @@ local Net=require("NetManager")
 local SceneMgr = require("SceneManager")
 local MC = require("MessageCenter")
 
-local Begin = {}
+local BeginScene = {}
 
-function Begin:InitScene()
+function BeginScene:InitScene()
 
     --local character = require("Character"):new()
     --require("CameraFollowing"):BeginFollow(character.gameobject.transform)
@@ -32,7 +32,7 @@ function Begin:InitScene()
     end
 end
 
-function Begin:HotUpdateStart()
+function BeginScene:HotUpdateStart()
     Net.isUseMD5 = false
     self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
     self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))
@@ -67,30 +67,30 @@ function Begin:HotUpdateStart()
     end)
 end
 
-function Begin:ReLoadModule()
+function BeginScene:ReLoadModule()
     --for k, v in pairs(package.loaded) do
     --    if v then
     --        package.loaded[k] = nil
     --        require(k)
     --    end
     --end
-    package.loaded["Enum"] = nil
-    require("Enum")
-    package.loaded["MessageCenter"] = nil
-    require("MessageCenter")
+    --package.loaded["Enum"] = nil
+    --require("Enum")
+    --package.loaded["MessageCenter"] = nil
+    --require("MessageCenter")
     package.loaded["PathManager"] = nil
     require("PathManager")
-    package.loaded["NetManager"] = nil
-    require("NetManager")
-    package.loaded["Timer"] = nil
-    require("Timer")
+    --package.loaded["NetManager"] = nil
+    --require("NetManager")
+    --package.loaded["Timer"] = nil
+    --require("Timer")
     package.loaded["BeginScene"] = nil
     require("BeginScene")
-    package.loaded["CameraFollowing"] = nil
-    require("CameraFollowing")
+    --package.loaded["CameraFollowing"] = nil
+    --require("CameraFollowing")
 end
 
-function Begin:Login()
+function BeginScene:Login()
     self.hotUpdateStateText.text = "登陆中...."
     if not self.login then
         self.login = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_LoginPnl, PathMgr.NamePath.UI_LoginPnl, Main.UIRoot.transform)
@@ -117,21 +117,21 @@ function Begin:Login()
     end);
 end
 
-function Begin:WaitForClickUpdate()
+function BeginScene:WaitForClickUpdate()
     if UE.Input.GetMouseButtonUp(0) then
         require("SceneManager"):LoadScene(Enum_Scenes.Title)
     end
 end
 
 ---------消息响应函数---------
-function Begin:OnLogin(kv)
-    print("onlogin")
+function BeginScene:OnLogin(kv)
     if kv.Value then
         if kv.Value.response then
             self.hotUpdateStateText.text = "点击进入游戏"
             MC:RemoveListener(Enum_MessageType.Login, handler(self, self.OnLogin))
             Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
         else
+            print("321")
             SceneMgr:GetMessageBox("用户名或密码错误，请重新登陆。")
             self:Login()
         end
@@ -141,7 +141,7 @@ end
 ---step: 0~1之间，每次变化的透明度多少，推荐0.02
 ---keepTime: 每张图的展示时间(s)
 ---imgsIntervalTime: 每张图的间隔时间
-function Begin:BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime, completeAction)
+function BeginScene:BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime, completeAction)
     print(parentTransform)
     if parentTransform then
         local stepTmp = step or 0.02
@@ -177,4 +177,4 @@ function Begin:BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime, c
     end
 end
 
-return Begin
+return BeginScene

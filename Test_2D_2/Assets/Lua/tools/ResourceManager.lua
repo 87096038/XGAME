@@ -172,11 +172,13 @@ function ResourceManager:Instantiate(original, parentTransform, position, positi
             return nil
         else
             go = UE.Object.Instantiate(original, parentTransform)
-            local transf = go:GetComponent("Transform")
-            if positionRelativeTo == UE.Space.World then
-                transf.position = position or UE.Vector3.zero
-            else
-                transf.localPosition = position or UE.Vector3.zero
+            if position then
+                local transf = go:GetComponent("Transform")
+                if positionRelativeTo == UE.Space.World then
+                    transf.position = position or UE.Vector3.zero
+                else
+                    transf.localPosition = position or UE.Vector3.zero
+                end
             end
             if rotation then
                 transf:Rotate(rotation.eulerAngles, rotationRelativeTo or UE.Space.World)

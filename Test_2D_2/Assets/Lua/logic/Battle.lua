@@ -105,41 +105,45 @@ end
 
 function Battle:UpdateBattle()
 
-    ---武器跟随玩家
-    self.weaponObj.transform.position = self.character.gameobject.transform.position
+    if self.weaponObj then
+        ---武器跟随玩家
+        self.weaponObj.transform.position = self.character.gameobject.transform.position
 
-    ---武器跟随鼠标旋转
-    self.mousePosition_screen = UE.Input.mousePosition
-    self.mousePosition_screen.z = -Camera.gameobject.transform.position.z
-    self.mousePosition_world = Camera.camera:ScreenToWorldPoint(self.mousePosition_screen)
-    local vector = self.mousePosition_world-self.weaponObj.transform.position
-    local angle =  UE.Vector3.Angle(vector, UE.Vector3.right)
-    self.currentWeapon.dirction = vector
-    if vector.x > 0 then
-        self.weaponObj.transform.localScale = self.Right
-        if vector.y > 0 then
-            self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, angle)
+        ---武器跟随鼠标旋转
+        self.mousePosition_screen = UE.Input.mousePosition
+        self.mousePosition_screen.z = -Camera.gameobject.transform.position.z
+        self.mousePosition_world = Camera.camera:ScreenToWorldPoint(self.mousePosition_screen)
+        local vector = self.mousePosition_world-self.weaponObj.transform.position
+        local angle =  UE.Vector3.Angle(vector, UE.Vector3.right)
+        self.currentWeapon.dirction = vector
+        if vector.x > 0 then
+            self.weaponObj.transform.localScale = self.Right
+            if vector.y > 0 then
+                self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, angle)
+            else
+                self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, -angle)
+            end
         else
-            self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, -angle)
-        end
-    else
-        self.weaponObj.transform.localScale = self.Left
-        if vector.y > 0 then
-            self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, angle-180)
-        else
-            self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, -angle-180)
+            self.weaponObj.transform.localScale = self.Left
+            if vector.y > 0 then
+                self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, angle-180)
+            else
+                self.weaponObj.transform.rotation = UE.Quaternion.Euler(0, 0, -angle-180)
+            end
         end
     end
 
     ---响应事件
-    if UE.Input.GetMouseButtonDown(1) then
+    if UE.Input.GetMouseButtonDown(1) and self.currentWeapon then
         self:ChangeWeapon(self.currentWeaponIndex+1)
     elseif UE.Input.GetKeyDown(UE.KeyCode.E) and self.useableThing then
         if self.useableThing.Use then
             self.useableThing:Use()
         end
     else
-        self.currentWeapon:UpdateShoot()
+        if self.currentWeapon then
+            self.currentWeapon:UpdateShoot()
+        end
     end
 end
 

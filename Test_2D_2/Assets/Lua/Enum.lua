@@ -37,12 +37,12 @@ Enum_NPCType={draw_card="drawCard"}
 
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
-                  UserInfo="UserInfo", ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC",
+                  UserInfo="UserInfo",DrawSkin="DrawSkin", RefreshSkin="RefreshSkin", ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC",
                   RefreshData="RefreshData",
 }
 
 --- 网络消息类型 格式为:index - Enum_MessageType
-Enum_NetMessageType={[1] = Enum_MessageType.Login, [2] = Enum_MessageType.UserInfo, }
+Enum_NetMessageType={[1] = Enum_MessageType.Login, [2] = Enum_MessageType.UserInfo,[3] = Enum_MessageType.DrawSkin, [4] = Enum_MessageType.RefreshSkin}
 
 --- 角色行为类型
 --- sprint: 冲刺   use: 使用东西
