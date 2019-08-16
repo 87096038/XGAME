@@ -120,10 +120,10 @@ local Timer = require("Timer")
 
 --local Battle = require("Battle")
 --local ResourceMgr = require("ResourceManager")
---local SceneMgr = require("SceneManager")
+local SceneMgr = require("SceneManager")
 local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
-local BeginScene = require("BeginScene")
+--local BeginScene = require("BeginScene")
 -------------------------------
 --初始化
 function Init()
@@ -144,9 +144,11 @@ end
 function InitTitle()
 
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
-    BeginScene:InitScene()
+    --BeginScene:InitScene()
     --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
-    --SceneMgr:GenerateBattleMap(1,3,1,1)
+    SceneMgr:GenerateBattleMap(1,3,1,1)
+
+
 
 end
 
