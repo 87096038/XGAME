@@ -1,9 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
 using XLua;
+
+[LuaCallCSharp]
+public class Message
+{
+    public byte type;
+    public byte[] data;
+}
 
 [LuaCallCSharp]
 public class NetManager
@@ -18,7 +26,9 @@ public class NetManager
             return instance;
         }
     }
-    
+
+    public static Queue<Message> MessageQueue;
+
 
     public delegate void Receive(byte type, byte[] data);
     
@@ -30,10 +40,9 @@ public class NetManager
     private byte[] buffer;
     private int receiveTimeout = 10;
 
-
     private NetManager()
     {
-
+        MessageQueue = new Queue<Message>();
         reci = Main.Instance.luaEnv.Global.GetInPath<Receive>("NetManager.TCPReceiveMessage"); 
         buffer = new byte[MAX_BUFFER_LENGTH];
         client = new TcpClient();
@@ -112,9 +121,14 @@ public class NetManager
     }
 
 
-    private void OnTCPReceived(byte type, byte[] data)
+    private void OnTCPReceived(byte _type, byte[] _data)
     {
-        reci(type, data);
+        //var message = new Message();
+        //message.type = _type;
+        //message.data = _data;
+        //MessageQueue.Enqueue(message);
+        reci(_type, _data);
+        //MessageQueue.()
     }
     
     private void SendDataEnd(IAsyncResult ar)  

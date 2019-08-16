@@ -151,6 +151,16 @@ message UserInfo{
 }
 
 
+message DrawSkin{
+    required int32 type         =1;
+    required Skin skin          =2;
+}
+
+message RefreshSkin{
+    required string info        =1;
+    repeated Skin ownSkin       =2;
+}
+
 message OpenTreasureBox{
     required int32 level        =1;
     required int32 quality      =2;

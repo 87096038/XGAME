@@ -2,7 +2,9 @@
     管理TCP，UDP, HTTP连接
     设为全局table主要是为方便C#端获取
 --]]
+
 local MC = require("MessageCenter")
+local kv = require("KeyValue")
 
 NetManager = {}
 
@@ -11,10 +13,10 @@ local protoc = require('protoc')
 
 protoc:loadfile("Assets/lua/protocol/Protocol.proto")
 
-local data={
-    userName="hahaha",
-    password="123456"
-}
+--local data={
+--    userName="hahaha",
+--    password="123456"
+--}
 --assert(protoc:load [[
 --        message Phone {
 --            optional string name        = 1;
@@ -56,6 +58,9 @@ function NetManager:Init()
     ----------------------TCP--------------------
     self.TCPServer = {IP="127.0.0.1", Port = 10000}
     self.TCPTimeout = 4
+    --- 消息队列 index={type, data}
+    self.MessageQueue = {}
+    require("Timer"):AddUpdateFuc(self, self.UpdateSendQueue)
     ----------------------HTTP-------------------
     self.HTTPServer = {IP="http://localhost", Port = 10001}
     self.HTTPTimeout = 4
@@ -115,13 +120,22 @@ end
 ---接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
 function NetManager.TCPReceiveMessage(_type, data)
     if IS_ONLINE_MODE then
-        print(_type)
         local data2 = pb.decode(Enum_NetMessageType[_type], data)
-        print(data)
-        MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data2))
-        print(data2)
+        table.insert(NetManager.MessageQueue, {type = Enum_NetMessageType[_type], data = data2})
     else
         MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data))
+    end
+end
+
+
+--- 每帧查询消息
+function NetManager:UpdateSendQueue()
+    if #self.MessageQueue~= 0 then
+        for i=1, #self.MessageQueue do
+            print(self.MessageQueue[i].type)
+            MC:SendMessage(self.MessageQueue[i].type, kv:new(nil, self.MessageQueue[i].data))
+            table.remove(self.MessageQueue, i)
+        end
     end
 end
 ---------------------------HTTP----------------------------

@@ -1,15 +1,15 @@
 
 --[[
-    负责Title场景的初始化
+    负责Rest场景的初始化
 --]]
 local PathMgr = require("PathManager")
 local ResourceMgr = require("ResourceManager")
 local SceneMgr = require("SceneManager")
 local Battle = require("Battle")
 
-local Rest = {}
+local RestScene = {}
 
-function Rest:InitScene()
+function RestScene:InitScene()
     print("switch to Rest Scene")
     local character = require("Character"):new()
     require("CameraFollowing"):BeginFollow(character.gameobject.transform)
@@ -21,9 +21,19 @@ function Rest:InitScene()
     character:Start()
 end
 
-function Rest:InitUI()
-    local UI_Skin_btn = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Skin_btn, PathMgr.NamePath.UI_Skin_btn, Main.UIRoot.transform)
-    local UI_CurrencyInfo = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_CurrencyInfo, PathMgr.NamePath.UI_CurrencyInfo, Main.UIRoot.transform)
+function RestScene:InitUI()
+    local Skin_btn = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Skin_btn, PathMgr.NamePath.UI_Skin_btn, Main.UIRoot.transform):GetComponent(typeof(UE.UI.Button))
+    local SkinSelectDlg = require("SkinSelectDlg"):new()
+    local CurrencyInfo = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_CurrencyInfo, PathMgr.NamePath.UI_CurrencyInfo, Main.UIRoot.transform)
+    if Skin_btn then
+        Skin_btn.onClick:AddListener(function ()
+            if SkinSelectDlg.isActive then
+                SkinSelectDlg:Hide()
+            else
+                SkinSelectDlg:Show()
+            end
+            end)
+    end
 end
 
-return Rest
+return RestScene
