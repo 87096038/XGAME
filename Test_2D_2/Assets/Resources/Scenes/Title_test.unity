@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIRoot: {fileID: 1702999302}
-  EventSystem: {fileID: 0}
+  EventSystem: {fileID: 1500881296}
 --- !u!4 &651438112
 Transform:
   m_ObjectHideFlags: 0
