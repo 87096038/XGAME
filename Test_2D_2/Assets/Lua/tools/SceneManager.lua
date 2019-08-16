@@ -49,7 +49,6 @@ function SceneManager:LoadScene(sceneBuildIndex)
     MC:SendMessage(Enum_MessageType.ChangeScene, nil)
 
     for i = Main.UIRoot.transform.childCount-1,0,-1 do
-        print("destroy",Main.UIRoot.transform:GetChild(i).gameObject)
         ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)
     end
 
@@ -67,7 +66,6 @@ function SceneManager:LoadScene(sceneBuildIndex)
         local async = SceneMgr.LoadSceneAsync(sceneBuildIndex)
         print(sceneBuildIndex)
         while not async.isDone do
-            print(async.progress)
             if async.progress <= 0.85 then
                 self.Slider.value = async.progress
             else
@@ -79,16 +77,37 @@ function SceneManager:LoadScene(sceneBuildIndex)
         end
         -- 执行初始Scenes脚本的初始化，删除loading UI
 
-
+        MC:SendMessage(Enum_MessageType.LateChangeScene, nil)
         -- 由于加载过快再这里加了个等待0.7s，以后根据具体情况可修改
-        coroutine.yield(UE.WaitForSeconds(2.7))
+        coroutine.yield(UE.WaitForSeconds(0.7))
         require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
         ResourceMgr:DestroyObject(self.UI_Loading,true)
+
     end)
 
     local LoadSceneAsync = CS.XLua.Cast.IEnumerator(LoadSceneAsync_Fun)
     Main:StartCoroutine(LoadSceneAsync)
 
+end
+
+function SceneManager:LoadScene1(sceneBuildIndex)
+    if sceneBuildIndex < 0 or sceneBuildIndex >= SceneMgr.sceneCountInBuildSettings then
+        print("Scene does not exist.")
+        return
+    end
+
+    self.previousSceneBuildIndex = self.currentSceneBuildIndex
+    self.currentSceneBuildIndex = sceneBuildIndex
+    for i = Main.UIRoot.transform.childCount-1,0,-1 do
+        print("destroy",Main.UIRoot.transform:GetChild(i).gameObject)
+        ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)
+    end
+    StartCoroutine(function ()
+        --coroutine.yield(SceneMgr.UnloadSceneAsync(sceneBuildIndex-1))
+        coroutine.yield(SceneMgr.LoadSceneAsync(sceneBuildIndex))
+        print("123")
+        require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
+    end)
 end
 
 --返回上一场景，不过这在元气骑士内不存在所以其实用不到？

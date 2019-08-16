@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3687090271
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9d3ae3c2b64693c1f88e8374c22ffaa7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Animations/Charactor/Ruby/AnimationClips/Player/RubyHitUp.anim
+Dependencies: []

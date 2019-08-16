@@ -1,6 +1,6 @@
  enum RoleType
 {
-    Adventurer_1 = 1;
+    Adventurer_1=1;
 
 }
 enum ClothesType

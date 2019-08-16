@@ -9,7 +9,7 @@ local character_base = require("character_base")
 local Character=Class("Character", character_base)
 
 function Character:cotr()
-
+    self.super:cotr()
     self.Left = UE.Vector3(-1, 1, 1)
     self.Right = UE.Vector3(1, 1, 1)
 
@@ -27,6 +27,9 @@ function Character:cotr()
         end
     end
     -----设置成员变量------
+    self.roleType = Enum_RoleType.Adventurer_1
+    self.skinIndex = 1
+
     self.speed = (GlobalData.characterSpeed + GlobalAbility.roleSpeedChange)*GlobalAbility.roleSpeedScale
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
@@ -41,6 +44,9 @@ function Character:cotr()
     self.speedChange = 0
     self.speedScale = 1
     --self.Skill_1 =
+    ---------监听注册--------
+    self:AddMessageListener(Enum_MessageType.ChangeSkin, handler(self, self.OnChangeSkin))
+    self:AddMessageListener(Enum_MessageType.ChangeScene, handler(self, self.OnChangeScene))
 
 end
 
@@ -92,6 +98,29 @@ function Character:OnCollision(type, other)
             MC:SendMessage(Enum_MessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
         end
     end
+end
+
+function Character:Destroy()
+    self.super:Destroy()
+end
+
+------------消息回调----------
+function Character:OnChangeSkin(kv)
+    print(kv.Value)
+    if kv.Key == self.roleType then
+        if kv.Value ~= self.skinIndex then
+            if kv.Value == 1 then
+                self.animatior.runtimeAnimatorController = ResourceMgr:Load(PathMgr.ResourcePath.Animation_Role_1_Skin_1, PathMgr.NamePath.Animation_Role_1_Skin_1)
+            elseif kv.Value == 2 then
+                self.animatior.runtimeAnimatorController = ResourceMgr:Load(PathMgr.ResourcePath.Animation_Role_1_Skin_2, PathMgr.NamePath.Animation_Role_1_Skin_2)
+            end
+            self.skinIndex = kv.Value
+        end
+    end
+end
+
+function Character:OnChangeScene()
+    self:Destroy()
 end
 
 return Character

@@ -8,16 +8,19 @@ function PathManager:Init()
     ---自动切换路径
     if IS_RELEASE_MODE then
         self.ResourcePath={
+            ---------------------------Prefabs-------------------------------------
             Bullet_1="assetbundles/prefabs/bullet_1.ab",
             Character_1="assetbundles/prefabs/character.ab",
             Normal_Rifle="assetbundles/prefabs/gun/normal_rifle.ab",
             Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
             Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
+            Portal = "assetbundles/prefabs/portal.ab",
             -----UI-----
             UI_MessageBox="assetbundles/prefabs/ui/ui_messagebox.ab",
 
             UI_Begin_Imgs="assetbundles/prefabs/ui/begin/beginimgs.ab",
             UI_HotUpdate="assetbundles/prefabs/ui/begin/ui_hotupdate.ab",
+            UI_LoginPnl="assetbundles/prefabs/ui/begin/ui_loginpnl.ab";
 
             UI_Title = "assetbundles/prefabs/ui/title/ui_title.ab",
             UI_Decoration = "assetbundles/prefabs/ui/title/ui_decoration.ab",
@@ -26,6 +29,7 @@ function PathManager:Init()
             UI_CurrencyInfo = "assetbundles/prefabs/ui/rest/ui_currencyinfo.ab",
             UI_DrawCardPnl = "assetbundles/prefabs/ui/rest/ui_drawcardpnl.ab",
             UI_Skin_btn  = "assetbundles/prefabs/ui/rest/ui_skin_btn.ab",
+            UI_SkinItem = "assetbundles/prefabs/ui/rest/ui_skinitem.ab",
 
             UI_CharacterStateInBattle = "assetbundles/prefabs/ui/battle/ui_characterstate.ab",
             UI_WeaponState = "assetbundles/prefabs/ui/battle/ui_weaponstate.ab",
@@ -46,15 +50,20 @@ function PathManager:Init()
             ----------NPCs----------
             NPC_DrawCard="assetbundles/prefabs/npc/npc_1.ab",
 
-            Camera_Main = "assetbundles/prefabs/maincamera.ab"
+            Camera_Main = "assetbundles/prefabs/maincamera.ab",
+            -------------------------------Assets---------------------------------------
+            Animation_Role_1_Skin_1="assetbundles/animations/charactor/ruby/ruby.ab",
+            Animation_Role_1_Skin_2="assetbundles/animations/charactor/mrclock/mrclock.ab",
         }
     else
         self.ResourcePath={
+            ---------------------------Prefabs-------------------------------------
             Bullet_1="Prefabs/Bullet_1",
             Character_1="Prefabs/Character",
             Normal_Rifle="Prefabs/Gun/Normal_Rifle",
             Normal_Sniper_Rifle="Prefabs/Gun/Normal_Sniper_Rifle",
             Audio_Title_BGM="Audio/Audio_Title_BGM",
+            Portal = "Prefabs/Portal",
             -----UI-----
             UI_MessageBox="Prefabs/UI/UI_MessageBox",
 
@@ -69,6 +78,7 @@ function PathManager:Init()
             UI_CurrencyInfo = "Prefabs/UI/Rest/UI_CurrencyInfo",
             UI_DrawCardPnl = "Prefabs/UI/Rest/UI_DrawCardPnl",
             UI_Skin_btn  = "Prefabs/UI/Rest/UI_Skin_btn",
+            UI_SkinItem = "Prefabs/UI/Rest/UI_SkinItem",
 
             UI_CharacterStateInBattle = "Prefabs/UI/Battle/UI_CharacterState",
             UI_WeaponState = "Prefabs/UI/Battle/UI_WeaponState",
@@ -90,7 +100,10 @@ function PathManager:Init()
             ----------NPCs----------
             NPC_DrawCard="Prefabs/NPC/NPC_1",
 
-            Camera_Main = "Prefabs/MainCamera"
+            Camera_Main = "Prefabs/MainCamera",
+            -------------------------------Assets---------------------------------------
+            Animation_Role_1_Skin_1="Animations/Charactor/Ruby/Ruby",
+            Animation_Role_1_Skin_2="Animations/Charactor/MrClock/MrClock",
         }
     end
 
@@ -102,11 +115,14 @@ function PathManager:Init()
             Normal_Rifle="normal_rifle",
             Normal_Sniper_Rifle="normal_sniper_rifle",
             Audio_Title_BGM="audio_title_bgm",
+            Portal = "portal",
+
             -----UI-----
             UI_MessageBox="ui_messagebox",
 
             UI_Begin_Imgs="beginimgs",
             UI_HotUpdate="ui_hotupdate",
+            UI_LoginPnl="ui_loginpnl";
 
             UI_Title = "ui_title",
             UI_Decoration="ui_decoration",
@@ -115,6 +131,7 @@ function PathManager:Init()
             UI_CurrencyInfo = "ui_currencyinfo",
             UI_DrawCardPnl = "ui_drawcardpnl",
             UI_Skin_btn  = "ui_skin_btn",
+            UI_SkinItem = "ui_skinitem",
 
             UI_CharacterStateInBattle = "ui_characterstate",
             UI_WeaponState = "ui_weaponstate",
@@ -136,7 +153,10 @@ function PathManager:Init()
             ----------NPCs----------
             NPC_DrawCard="npc_1",
 
-            Camera_Main = "maincamera"
+            Camera_Main = "maincamera",
+            -------------------------------Assets---------------------------------------
+            Animation_Role_1_Skin_1="ruby",
+            Animation_Role_1_Skin_2="mrclock",
         }
     else
         self.NamePath={

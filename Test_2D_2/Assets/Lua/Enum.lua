@@ -32,13 +32,15 @@ Enum_ShootType={single=1, multiple=2}
 --- 物体种类
 Enum_ItemType={weapon="weapon",item="item", bullet="bullet", gold="gold", diamond="diamond", soul_shard = "soul_shard" }
 
+Enum_RoleType={Adventurer_1="Adventurer_1"}
+
 --- NPC种类
 Enum_NPCType={draw_card="drawCard"}
 
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
                   UserInfo="UserInfo",DrawSkin="DrawSkin", RefreshSkin="RefreshSkin", ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC",
-                  RefreshData="RefreshData",
+                  RefreshData="RefreshData", ChangeSkin="ChangeSkin",
 }
 
 --- 网络消息类型 格式为:index - Enum_MessageType

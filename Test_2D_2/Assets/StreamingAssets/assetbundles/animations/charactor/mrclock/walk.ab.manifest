@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 4011349551
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 38408b5ab25d8953dd48fc44c9d655cf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Animations/Charactor/MrClock/Walk.anim
+Dependencies: []

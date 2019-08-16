@@ -3,7 +3,7 @@ local Character_base=Class("Character_base", require("Base"))
 
 function Character_base:cotr()
     self.super:cotr()
-    self.state=Enum_CharacterBehaviorType.idle
+    --self.state=Enum_CharacterBehaviorType.idle
 end
 
 ---from,to: 类型为CharacterBehaviorType枚举
@@ -18,6 +18,9 @@ end
 function Character_base:Dead()
     self.state = Enum_CharacterBehaviorType.dead
     ResourceMgr:DestroyObject(self.gameobject)
+end
+function Character_base:Destroy()
+    self.super:Destroy()
 end
 
 return Character_base
