@@ -6,7 +6,7 @@ local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local Net = require("NetManager")
 local MC = require("MessageCenter")
-local NetMessageSender = require("NetMessageSender")
+local NetHelper = require("NetHelper")
 
 local SkinSelectDlg = Class("SkinSelectDlg", require("Base"))
 
@@ -36,7 +36,7 @@ function SkinSelectDlg:cotr()
     end
     ---------消息注册----------
     self:AddMessageListener(Enum_MessageType.RefreshSkin, handler(self, self.OnRefreshSkin))
-    NetMessageSender:SendRefreshSkin("require")
+    NetHelper:SendRefreshSkin("require")
 end
 
 function SkinSelectDlg:Show()

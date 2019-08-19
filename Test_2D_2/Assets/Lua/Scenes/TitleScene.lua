@@ -11,6 +11,7 @@ local TitleScene = {}
 function TitleScene:InitScene()
 
     self.UI_Title = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Title, PathMgr.NamePath.UI_Title, Main.UIRoot.transform)
+    self.UI_Decoration = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Decoration, PathMgr.NamePath.UI_Decoration, Main.UIRoot.transform)
     self.Button_Start = self.UI_Title.transform:Find("Start")
     self.Button_Setting = self.UI_Title.transform:Find("Setting")
     self.Button_Exit = self.UI_Title.transform:Find("Exit")

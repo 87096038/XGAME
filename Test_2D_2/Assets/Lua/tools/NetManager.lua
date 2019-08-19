@@ -1,7 +1,7 @@
 --[[
     管理TCP，UDP, HTTP连接
-    仅提供基础接口, 如要发送TCP消息，最好使用NetMessageSender
     设为全局table主要是为方便C#端获取
+    仅提供基础接口, 若非必要, 请不要直接调用此table, 而是用NetHelper
 --]]
 
 local MC = require("MessageCenter")
@@ -106,7 +106,7 @@ function NetManager:TCPConnect()
     end
 end
 
---- 发送消息(若非必要, 请不要直接调用此接口, 而是用NetMessageSender)
+--- 发送消息
 ---这里的Type对应枚举 Enum_NetMessageType 的key
 function NetManager:TCPSendMessage(type, message)
     if IS_ONLINE_MODE then

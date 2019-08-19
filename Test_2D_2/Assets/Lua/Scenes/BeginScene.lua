@@ -5,10 +5,9 @@
 local PathMgr = require("PathManager")
 local ResourceMgr = require("ResourceManager")
 local Timer = require("Timer")
-local Net=require("NetManager")
 local SceneMgr = require("SceneManager")
 local MC = require("MessageCenter")
-local NetMessageSender = require("NetMessageSender")
+local NetHelper = require("NetHelper")
 
 local BeginScene = {}
 
@@ -34,18 +33,18 @@ function BeginScene:InitScene()
 end
 
 function BeginScene:HotUpdateStart()
-    Net.isUseMD5 = false
+    NetHelper:SetMD5(false)
     self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
     self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))
     self.hotUpdateStateText.text = "正在连接服务器"
-    if not Net:TCPConnect() then
+    if not NetHelper:TCPConnect() then
         self.hotUpdateStateText.text = "连接服务器失败，请重新打开游戏"
         return
     end
 
     self.hotUpdateStateText.text = "正在拉取更新..."
 
-    Net:StartHotUpdate(function (increaseCount, totalCount)
+    NetHelper:StartHotUpdate(function (increaseCount, totalCount)
         if totalCount then
             local Process = self.hotUpdatePnl.transform:Find("Process")
             Process.gameObject:SetActive(true)
@@ -114,7 +113,7 @@ function BeginScene:Login()
             return
         end
         self.login:SetActive(false)
-        NetMessageSender:SendLogin(userName.text, userName.text)
+        NetHelper:SendLogin(userName.text, userName.text)
     end);
 end
 

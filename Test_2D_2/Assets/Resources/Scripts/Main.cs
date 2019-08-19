@@ -72,7 +72,7 @@ public class Main : MonoBehaviour
         //go.transform.SetParent(UIRoot.transform);
         //var img = go.AddComponent<Image>();
         ////Sprite m = Sprite.Create(a, Rect.zero, Vector2.zero);
-        
+        Transform a;
         //img.sprite = a;
         //img.sprite = null;
         //Debug.Log(a.GetType());

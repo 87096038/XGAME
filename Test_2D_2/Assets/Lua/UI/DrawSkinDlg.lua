@@ -7,7 +7,7 @@ local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local Net = require("NetManager")
 local MC = require("MessageCenter")
-local NetMessageSender = require("NetMessageSender")
+local NetHelper = require("NetHelper")
 
 local DrawSkinDlg = Class("DrawSkinDlg", require("Base"))
 
@@ -37,7 +37,7 @@ end
 function DrawSkinDlg:DrawSkin()
     self.Draw_btn.interactable = false
     self.waiPnlObj:SetActive(true)
-    NetMessageSender:SendDrawSkin(Enum_DrawCountType.single)
+    NetHelper:SendDrawSkin(Enum_DrawCountType.single)
 
 end
 
@@ -73,9 +73,9 @@ function DrawSkinDlg:OnDrawSkin(kv)
             skinIcon:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤2"
         end
         ---刷新Skin
-        NetMessageSender:SendRefreshSkin("require")
+        NetHelper:SendRefreshSkin("require")
         ---刷新货币
-        NetMessageSender:SendRefreshCurrency("require")
+        NetHelper:SendRefreshCurrency("require")
     end
     self.Draw_btn.interactable = true
 end

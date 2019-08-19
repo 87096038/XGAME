@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 2501447114
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 23cafd7eaf35e9f1cf7665a1622634a4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/Sprite/FromWeb/\u673A\u7532.png"
+Dependencies: []
