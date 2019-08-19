@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4107191651
+CRC: 3713425809
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d1bb9b4200bd9d2f76cbc47696947c31
+    Hash: 85d234973906d5c9565d16f5294db113
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c89c5e5160ea0ee91573247ad821d4aa
+    Hash: 579b7c4cc951d8e0a9b44dcd97e63faa
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -14,8 +14,6 @@ ClassTypes:
 - Class: 4
   Script: {instanceID: 0}
 - Class: 21
-  Script: {instanceID: 0}
-- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -35,3 +33,4 @@ Assets:
 - Assets/Resources/Prefabs/Character.prefab
 Dependencies:
 - /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/charactor/ruby/ruby.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/rubysheet.ab

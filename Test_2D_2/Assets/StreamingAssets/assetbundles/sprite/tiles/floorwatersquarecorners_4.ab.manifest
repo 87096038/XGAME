@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1152862083
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8e355ddea239224f2388bf3134ae8c14
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8b966998ba4bcd566667450c20eb742e
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/Tiles/FloorWaterSquareCorners_4.asset
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/environmnent/floorwatersquarecorners.ab

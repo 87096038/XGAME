@@ -1,20 +1,19 @@
 ManifestFileVersion: 0
-CRC: 1954536965
+CRC: 4108860417
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d3e76855712cf2b8b62c21be72170c6d
+    Hash: 7b605a18f3372b6cab60a42da259f150
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+    Hash: 25f4086c7b856bc267ee41cfe02c02df
 HashAppended: 0
 ClassTypes:
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Animations/Charactor/Ruby/AnimationClips/Player/RubyIdleLeft.anim
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/rubysheet.ab

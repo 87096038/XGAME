@@ -32,19 +32,25 @@ Enum_ShootType={single=1, multiple=2}
 --- 物体种类
 Enum_ItemType={weapon="weapon",item="item", bullet="bullet", gold="gold", diamond="diamond", soul_shard = "soul_shard" }
 
+--- 角色种类
 Enum_RoleType={Adventurer_1="Adventurer_1"}
 
 --- NPC种类
-Enum_NPCType={draw_card="drawCard"}
+Enum_NPCType={draw_skin="drawSkin", sell_passive_skill = "sell_passive_skill",}
+
+--- 抽奖种类(数量)
+Enum_DrawCountType = { single=1, ten=2, }
 
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
                   UserInfo="UserInfo",DrawSkin="DrawSkin", RefreshSkin="RefreshSkin", ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC",
-                  RefreshData="RefreshData", ChangeSkin="ChangeSkin",
+                  RefreshData="RefreshData", ChangeSkin="ChangeSkin",RefreshCurrency="RefreshCurrency",
 }
 
 --- 网络消息类型 格式为:index - Enum_MessageType
-Enum_NetMessageType={[1] = Enum_MessageType.Login, [2] = Enum_MessageType.UserInfo,[3] = Enum_MessageType.DrawSkin, [4] = Enum_MessageType.RefreshSkin}
+Enum_NetMessageType={[1] = Enum_MessageType.Login, [2] = Enum_MessageType.UserInfo,[3] = Enum_MessageType.DrawSkin, [4] = Enum_MessageType.RefreshSkin,
+                        [5] = Enum_MessageType.RefreshCurrency,
+}
 
 --- 角色行为类型
 --- sprint: 冲刺   use: 使用东西

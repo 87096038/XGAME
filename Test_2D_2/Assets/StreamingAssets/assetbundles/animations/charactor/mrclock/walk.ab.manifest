@@ -1,20 +1,19 @@
 ManifestFileVersion: 0
-CRC: 4011349551
+CRC: 431993695
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 38408b5ab25d8953dd48fc44c9d655cf
+    Hash: ce6f927720ff9dd485f08f680c09edd8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+    Hash: 25f4086c7b856bc267ee41cfe02c02df
 HashAppended: 0
 ClassTypes:
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Animations/Charactor/MrClock/Walk.anim
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/mrclockworksheet.ab

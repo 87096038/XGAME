@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 806854629
+CRC: 1725452305
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ca1e17f9f76e341713b8682d79dac197
+    Hash: 341540a1db0f8f115dc265be60d84db4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f82e9abf8b338befc855693830e870df
+    Hash: 32658e0d127833938672d7169d6adf18
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,14 +15,10 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-- Class: 115
-  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 - Class: 483693784
@@ -31,4 +27,8 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Prefabs/Rooms/Room08.prefab
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/tiles/floorbrickstograsssquare_2.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/tiles/floorgrasstobrickssquare_4.ab
