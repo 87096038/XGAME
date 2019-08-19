@@ -7,7 +7,7 @@ function LightBullet:cotr(dirction, position, rotation)
     self.super:cotr()
     self.gameobject = nil
     self.dirction = UE.Vector3(dirction.x, dirction.y, dirction.z)
-    self.speed = 5
+    self.speed = 8
 
     local isNew
     self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1, nil, position)
@@ -32,7 +32,7 @@ end
 function LightBullet:OnCollision_light(type, other)
     if type == Enum_CollisionType.TriggerEnter2D then
         local layer = other.gameObject.layer
-        --- 敌人和主角的layer
+        --- 主角和敌人的layer
         if layer == 9 or layer == 10 then
             self:Destroy()
         elseif layer == 5 then

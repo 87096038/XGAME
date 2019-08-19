@@ -2,18 +2,15 @@
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local Timer = require("Timer")
-local WeaponData = require("WeaponData")
 
 local Normal_pistol=Class("Normal_pistol", require("Weapon_base"))
 
-local weaponData = WeaponData[Enum_WeaponType.normal_pistol]
+local weaponData = require("WeaponData").Weapons[Enum_WeaponType.normal_pistol]
 
 function Normal_pistol:cotr()
     self.super:cotr()
     ---------初始化属性-----------
     ---获取初始数据
-
-
     self.weaponType = weaponData.weaponType
     self.bulletType = weaponData.bulletType
     self.shootType = weaponData.shootType

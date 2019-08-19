@@ -41,8 +41,12 @@ end
 
 ------------销毁实例时必须调用该函数-----------
 function Base:Destroy()
+    print(self)
+    print("basedestroy")
     self:DestroyAllMessageListener()
-    Timer:RemoveUpdateFuc(self.func)
+    if self.updateFunc then
+        Timer:RemoveUpdateFuc(self.updateFunc)
+    end
 end
 
 return Base
