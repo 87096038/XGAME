@@ -10,9 +10,6 @@ local Battle=Class("Battle", require("Base"))
 function Battle:cotr(character, initialWeapon)
     self.super:cotr()
 
-    --- 设置战场
-    require("GlobalData").currentBattle = self
-
     -----------------信息注册-------------
     self:AddMessageListener(Enum_MessageType.PickUp, handler(self, self.PickUpHandler))
     self:AddMessageListener(Enum_MessageType.ApproachItem, handler(self, self.ApproachItemHandler))
@@ -29,7 +26,7 @@ function Battle:cotr(character, initialWeapon)
         self.weaponObj = initialWeapon.gameobject
     end
 
---------------------------武器-------------------------
+    --------------------------武器-------------------------
     --- 最大可持有武器数
     self.maxWeaponCount = 2
     --- 当前的武器索引
@@ -38,7 +35,14 @@ function Battle:cotr(character, initialWeapon)
     self.currentWeapon = nil
     --- 所拥有的所有武器
     self.Weapons={}
---------------------------物品-------------------------
+
+    --------------------------子弹-------------------------
+    self.BulletsCount={}
+    self.BulletsCount[Enum_BulletType.light] = 0
+    self.BulletsCount[Enum_BulletType.heavy] = 0
+    self.BulletsCount[Enum_BulletType.energy] = 0
+    self.BulletsCount[Enum_BulletType.shell] = 0
+    --------------------------物品-------------------------
     ---最大可持有物品数
     self.maxItemCount = 2
     ---当前选中的物品索引(为有主动技能的物品留拓展)
@@ -51,6 +55,8 @@ function Battle:cotr(character, initialWeapon)
         self:AddWeapon(initialWeapon)
     end
 
+    --- 金币数目
+    self.goldCount = 0
     ---目前聚焦的可使用物体(包括NPC)
     self.useableThing = nil
     ---生命值
@@ -66,7 +72,8 @@ function Battle:cotr(character, initialWeapon)
 
     Timer:AddUpdateFuc(self, Battle.UpdateBattle)
 
-
+    --- 设置战场
+    require("BattleData").currentBattle = self
 end
 
 --- 更换武器
@@ -140,7 +147,6 @@ function Battle:UpdateBattle()
     if UE.Input.GetMouseButtonDown(1) and self.currentWeapon then
         self:ChangeWeapon(self.currentWeaponIndex+1)
     elseif UE.Input.GetKeyDown(UE.KeyCode.E) and self.useableThing then
-        print(self.useableThing.Use)
         if self.useableThing.Use then
             self.useableThing:Use()
         end
@@ -153,6 +159,7 @@ end
 
 function Battle:Destroy()
     self.super:Destroy()
+    require("BattleData").currentBattle = nil
 end
 ----------------------回调函数--------------------
 function Battle:PickUpHandler(kv)
@@ -182,7 +189,7 @@ function Battle:LeaveItemHandler(kv)
 end
 
 function Battle:GameOverHandler(kv)
-    self:Destroy()
+    --self:Destroy()
 end
 function Battle:OnChangeScene()
     self:Destroy()

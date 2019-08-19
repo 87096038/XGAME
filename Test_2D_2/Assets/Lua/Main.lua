@@ -110,7 +110,7 @@ function Class(className, super)
 end
 
 IS_RELEASE_MODE = false
-IS_ONLINE_MODE = false
+IS_ONLINE_MODE = true
 
 ---需要先初始化的module
 require("Enum")
@@ -126,13 +126,14 @@ local Timer = require("Timer")
 local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
 local BeginScene = require("BeginScene")
---local TitleScene = require("TitleScene")
-local BattleScene = require("BattleScene")
 -------------------------------
-
 --初始化
 function Init()
-    InitTitle()
+    --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
+    BeginScene:InitScene()
+    --require("RestScene"):InitScene()
+    --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
+    --SceneMgr:GenerateBattleMap(1,3,1,1)
 end
 
 --主循环
@@ -146,13 +147,4 @@ function Quit()
     print("Quit")
 end
 ------------------------------
-function InitTitle()
-
-    --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
-    BattleScene:InitScene()
-    --require("RestScene"):InitScene()
-    --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
-    --SceneMgr:GenerateBattleMap(1,3,1,1)
-
-end
 

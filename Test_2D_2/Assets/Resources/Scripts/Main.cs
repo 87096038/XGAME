@@ -67,8 +67,15 @@ public class Main : MonoBehaviour
         //Quaternion b = Quaternion.identity;
         //gameObject.AddComponent<AudioSource>();
         //gameObject.GetComponent(typeof(AudioSource));
-        Animator a;
-
+        //Sprite a = Resources.Load("Sprite/Characters/Ruby", typeof(Sprite)) as Sprite;
+        //var go = new GameObject();
+        //go.transform.SetParent(UIRoot.transform);
+        //var img = go.AddComponent<Image>();
+        ////Sprite m = Sprite.Create(a, Rect.zero, Vector2.zero);
+        
+        //img.sprite = a;
+        //img.sprite = null;
+        //Debug.Log(a.GetType());
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
         //Camera.main.ScreenToWorldPoint(Input.mousePosition)
         luaEnv.AddLoader(InitLoader);
@@ -88,14 +95,17 @@ public class Main : MonoBehaviour
             Loop();
         }
     }
+
+    private void OnDisable()
+    {
+        if(luaEnv != null)
+            luaEnv.Dispose();
+    }
+
     private void OnDestroy()
     {
         Quit();
-        Init = null;
-        Loop = null;
-        Quit = null;
-        if(luaEnv != null)
-           luaEnv.Dispose();
+
     }
 
     byte[] InitLoader(ref string path)

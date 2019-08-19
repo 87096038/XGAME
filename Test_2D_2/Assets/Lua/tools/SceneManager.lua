@@ -78,10 +78,9 @@ function SceneManager:LoadScene(sceneBuildIndex)
         -- 执行初始Scenes脚本的初始化，删除loading UI
 
         MC:SendMessage(Enum_MessageType.LateChangeScene, nil)
-        require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
         -- 由于加载过快再这里加了个等待0.7s，以后根据具体情况可修改
-        coroutine.yield(UE.WaitForSeconds(0.7))
-
+        --coroutine.yield(UE.WaitForSeconds(0.7))
+        require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
         ResourceMgr:DestroyObject(self.UI_Loading,true)
 
     end)

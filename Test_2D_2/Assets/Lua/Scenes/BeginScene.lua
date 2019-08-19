@@ -8,6 +8,7 @@ local Timer = require("Timer")
 local Net=require("NetManager")
 local SceneMgr = require("SceneManager")
 local MC = require("MessageCenter")
+local NetMessageSender = require("NetMessageSender")
 
 local BeginScene = {}
 
@@ -44,7 +45,7 @@ function BeginScene:HotUpdateStart()
 
     self.hotUpdateStateText.text = "正在拉取更新..."
 
-    Net:StartUpdate(function (increaseCount, totalCount)
+    Net:StartHotUpdate(function (increaseCount, totalCount)
         if totalCount then
             local Process = self.hotUpdatePnl.transform:Find("Process")
             Process.gameObject:SetActive(true)
@@ -67,6 +68,7 @@ function BeginScene:HotUpdateStart()
     end)
 end
 
+--- 热更后刷新模块
 function BeginScene:ReLoadModule()
     --for k, v in pairs(package.loaded) do
     --    if v then
@@ -112,8 +114,7 @@ function BeginScene:Login()
             return
         end
         self.login:SetActive(false)
-        local login = {userName=userName.text, password=password.text, response=false}
-        Net:TCPSendMessage(1 , login)
+        NetMessageSender:SendLogin(userName.text, userName.text)
     end);
 end
 
@@ -142,7 +143,6 @@ end
 ---keepTime: 每张图的展示时间(s)
 ---imgsIntervalTime: 每张图的间隔时间
 function BeginScene:BeginImgFade(parentTransform, step, keepTime, imgsIntervalTime, completeAction)
-    print(parentTransform)
     if parentTransform then
         local stepTmp = step or 0.02
         local currentImg

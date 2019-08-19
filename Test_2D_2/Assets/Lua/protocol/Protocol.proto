@@ -56,8 +56,8 @@ message Role{
      required string name       =2;
  }
  message Skin{
-     required RoleType type     =1;
-     required int32 index    =2;
+     required RoleType roleType     =1;
+     required int32 index           =2;
  }
 message Item
 {
@@ -149,16 +149,26 @@ message UserInfo{
     repeated Skin skins             =7;
     required BattleInfo info        =8;
 }
-
+enum DrawCountType
+{
+    single=1;
+    ten=2;
+}
 
 message DrawSkin{
-    required int32 type         =1;
+    required DrawCountType type =1;
     required Skin skin          =2;
+    required int32 response     =3;
 }
 
 message RefreshSkin{
     required string info        =1;
     repeated Skin ownSkin       =2;
+}
+message RefreshCurrency{
+    required string info        =1;
+    required int32 diamond      =2;
+    required int32 soulShard    =3;
 }
 
 message OpenTreasureBox{

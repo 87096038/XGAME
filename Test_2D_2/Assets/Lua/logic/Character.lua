@@ -1,5 +1,8 @@
 ﻿local GlobalData = require("GlobalData")
 local GlobalAbility = require("GlobalAbilityScale")
+local RoleData = require("RoleData")
+local SkinData = require("SkinData")
+
 local Timer = require("Timer")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
@@ -27,10 +30,10 @@ function Character:cotr()
         end
     end
     -----设置成员变量------
-    self.roleType = Enum_RoleType.Adventurer_1
-    self.skinIndex = 1
+    self.currentRole = RoleData.Roles[Enum_RoleType.Adventurer_1]
+    self.currentSkin = SkinData.Skins[Enum_RoleType.Adventurer_1][1]
 
-    self.speed = (GlobalData.characterSpeed + GlobalAbility.roleSpeedChange)*GlobalAbility.roleSpeedScale
+    self.speed = self.currentRole.basicSpeed--(GlobalData.characterSpeed + GlobalAbility.roleSpeedChange)*GlobalAbility.roleSpeedScale
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
     self.animatior = self.gameobject:GetComponent("Animator")
@@ -106,17 +109,16 @@ end
 
 ------------消息回调----------
 function Character:OnChangeSkin(kv)
-    print(kv.Value)
-    if kv.Key == self.roleType then
-        if kv.Value ~= self.skinIndex then
-            if kv.Value == 1 then
-                self.animatior.runtimeAnimatorController = ResourceMgr:Load(PathMgr.ResourcePath.Animation_Role_1_Skin_1, PathMgr.NamePath.Animation_Role_1_Skin_1)
-            elseif kv.Value == 2 then
-                self.animatior.runtimeAnimatorController = ResourceMgr:Load(PathMgr.ResourcePath.Animation_Role_1_Skin_2, PathMgr.NamePath.Animation_Role_1_Skin_2)
-            end
-            self.skinIndex = kv.Value
+    if kv.Key == self.currentRole.roleType then
+        if kv.Value ~= self.currentSkin.index then
+            self.currentSkin = SkinData.Skins[kv.Key][kv.Value]
+            self.animatior.runtimeAnimatorController = ResourceMgr:Load(self.currentSkin.animationResourcePath, self.currentSkin.animationResourceName)
         end
     end
+end
+
+function Character:OnChangeRole(kv)
+    --记得换角色时也要换速度
 end
 
 function Character:OnChangeScene()

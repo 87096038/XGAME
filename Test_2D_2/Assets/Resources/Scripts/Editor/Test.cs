@@ -16,6 +16,10 @@ public class Test : Editor
         string path1 = Application.dataPath + "/Resources/Animations";
         DirectoryInfo dir1 = new DirectoryInfo (path1);
         SetName(dir1);
+        
+        string path2 = Application.dataPath + "/Resources/Sprite";
+        DirectoryInfo dir2 = new DirectoryInfo (path2);
+        SetName(dir2);
     }
     public static void SetName(DirectoryInfo dir)
     {

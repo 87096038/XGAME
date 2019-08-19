@@ -1,20 +1,19 @@
 ManifestFileVersion: 0
-CRC: 1030986818
+CRC: 3769611452
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 33dbc1b36ccfc778a9122f2a629c6607
+    Hash: f28af56acb10117557aeb1d31af1b264
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+    Hash: 25f4086c7b856bc267ee41cfe02c02df
 HashAppended: 0
 ClassTypes:
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Animations/Charactor/Ruby/AnimationClips/Player/RubyLaunchLeft.anim
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/rubysheet.ab

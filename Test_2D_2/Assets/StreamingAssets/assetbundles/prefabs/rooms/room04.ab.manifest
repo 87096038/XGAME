@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1208964904
+CRC: 3409624464
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 88f6d3c851c3bcd3fe1541c0575be1a2
+    Hash: 0552d62d2c18d0447d694d9f7f7fa197
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f82e9abf8b338befc855693830e870df
+    Hash: 32658e0d127833938672d7169d6adf18
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,14 +15,10 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-- Class: 115
-  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 - Class: 483693784
@@ -31,4 +27,6 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Prefabs/Rooms/Room04.prefab
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/tiles/floorbrickstograsscorner_7.ab
