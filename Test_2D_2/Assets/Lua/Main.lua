@@ -110,7 +110,7 @@ function Class(className, super)
 end
 
 IS_RELEASE_MODE = false
-IS_ONLINE_MODE = false
+IS_ONLINE_MODE = true
 
 ---需要先初始化的module
 require("Enum")
@@ -126,9 +126,7 @@ local Timer = require("Timer")
 local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
 local BeginScene = require("BeginScene")
---local TitleScene = require("TitleScene")
 -------------------------------
-
 --初始化
 function Init()
     InitTitle()
