@@ -22,6 +22,7 @@ end
 
 function CameraFollowing:BeginFollow(targetTansform)
     self.targetTansform = targetTansform
+    self.gameobject.transform.position = targetTansform.position
     Timer:AddUpdateFuc(self, self.UpdateFollow)
 end
 
