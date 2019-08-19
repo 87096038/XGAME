@@ -3,7 +3,7 @@ guid: 94d1f28a5aa0ed94b8d3bd15086f4b63
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -84,5 +84,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/sprite/ui/uihealthframe
+  assetBundleVariant: ab

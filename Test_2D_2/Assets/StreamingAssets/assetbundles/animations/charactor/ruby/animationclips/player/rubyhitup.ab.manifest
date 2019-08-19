@@ -1,20 +1,19 @@
 ManifestFileVersion: 0
-CRC: 3687090271
+CRC: 3115045831
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9d3ae3c2b64693c1f88e8374c22ffaa7
+    Hash: 50126e9ebf3a886b4782f5200759078d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+    Hash: 25f4086c7b856bc267ee41cfe02c02df
 HashAppended: 0
 ClassTypes:
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Animations/Charactor/Ruby/AnimationClips/Player/RubyHitUp.anim
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/rubysheet.ab

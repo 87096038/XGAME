@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 392998261
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7a07420cd5a4e61f8d58c1472402a052
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fe397485c3cec1106b49e9ff95e8f8a2
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/Characters/Materials/Ruby.mat
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/ruby.ab

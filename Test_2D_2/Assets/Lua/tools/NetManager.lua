@@ -1,15 +1,15 @@
 --[[
     管理TCP，UDP, HTTP连接
+    仅提供基础接口, 如要发送TCP消息，最好使用NetMessageSender
     设为全局table主要是为方便C#端获取
 --]]
 
 local MC = require("MessageCenter")
-local kv = require("KeyValue")
-
-NetManager = {}
-
+local KV = require("KeyValue")
 local pb = require('pb')
 local protoc = require('protoc')
+
+NetManager = {}
 
 protoc:loadfile("Assets/lua/protocol/Protocol.proto")
 
@@ -106,7 +106,8 @@ function NetManager:TCPConnect()
     end
 end
 
----发送消息
+--- 发送消息(若非必要, 请不要直接调用此接口, 而是用NetMessageSender)
+---这里的Type对应枚举 Enum_NetMessageType 的key
 function NetManager:TCPSendMessage(type, message)
     if IS_ONLINE_MODE then
         local bytes = pb.encode(Enum_NetMessageType[type], message)
@@ -117,38 +118,38 @@ function NetManager:TCPSendMessage(type, message)
 end
 
 
----接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
+--- 接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
 function NetManager.TCPReceiveMessage(_type, data)
     if IS_ONLINE_MODE then
         local data2 = pb.decode(Enum_NetMessageType[_type], data)
         table.insert(NetManager.MessageQueue, {type = Enum_NetMessageType[_type], data = data2})
     else
-        MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data))
+        --MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data))
     end
 end
 
 
---- 每帧查询消息
+--- 每帧查询消息，若有就按顺序广播
 function NetManager:UpdateSendQueue()
     if next(self.MessageQueue) then
         for i=1, #self.MessageQueue do
-            MC:SendMessage(self.MessageQueue[i].type, kv:new(nil, self.MessageQueue[i].data))
-            table.remove(self.MessageQueue, i)
+            MC:SendMessage(self.MessageQueue[1].type, KV:new(nil, self.MessageQueue[1].data))
+            table.remove(self.MessageQueue, 1)
         end
     end
 end
 ---------------------------HTTP----------------------------
 --- 检查更新
-function NetManager:StartUpdate(ProcessAction, UpdateCompleteAction)
+function NetManager:StartHotUpdate(ProcessAction, UpdateCompleteAction)
     if IS_ONLINE_MODE then
         self.ProcessAction = ProcessAction
         self.UpdateCompleteAction = UpdateCompleteAction
-        StartCoroutine(self.StartUpdateCoroutine, self)
+        StartCoroutine(self.StartHotUpdateCoroutine, self)
     else
         UpdateCompleteAction(true)
     end
 end
-function NetManager:StartUpdateCoroutine()
+function NetManager:StartHotUpdateCoroutine()
     print("---------Begin check update---------")
     local localFile = io.open(self.localResourcePath.."/version.txt", "r")
     if localFile then

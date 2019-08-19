@@ -50,7 +50,15 @@ public class NetManager
 
     public bool Connect(string IP, int port)
     {
-        client.Connect(IPAddress.Parse(IP), port);
+        try
+        {
+            client.Connect(IPAddress.Parse(IP), port);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+
         if (client.Connected)
         {
             client.ReceiveTimeout = receiveTimeout;

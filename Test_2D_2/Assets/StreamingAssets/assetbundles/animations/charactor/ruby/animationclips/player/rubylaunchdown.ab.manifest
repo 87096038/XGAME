@@ -1,20 +1,19 @@
 ManifestFileVersion: 0
-CRC: 2973015091
+CRC: 3086662232
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0c709f69ceaa44aba7ac49e67317eed9
+    Hash: c7977250e6429fa8b10d2f25f6731bda
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+    Hash: 25f4086c7b856bc267ee41cfe02c02df
 HashAppended: 0
 ClassTypes:
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Animations/Charactor/Ruby/AnimationClips/Player/RubyLaunchDown.anim
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/rubysheet.ab

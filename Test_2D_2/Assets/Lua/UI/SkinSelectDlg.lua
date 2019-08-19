@@ -6,6 +6,7 @@ local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local Net = require("NetManager")
 local MC = require("MessageCenter")
+local NetMessageSender = require("NetMessageSender")
 
 local SkinSelectDlg = Class("SkinSelectDlg", require("Base"))
 
@@ -15,31 +16,27 @@ function SkinSelectDlg:cotr()
     self.contentObj = self.gameobject:GetComponentInChildren(typeof(UE.UI.HorizontalLayoutGroup)).gameObject
     self.isActive = false
 
+    ----------Role---------
+    local Role_1 = {}
+
     ----------Skin---------
-    local Skin_1 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
-    Skin_1:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤1"
-    Skin_1:GetComponent(typeof(UE.UI.Button)).interactable = false
-    local Skin_2 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
-    Skin_2:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤2"
-    Skin_2:GetComponent(typeof(UE.UI.Button)).interactable = false
-    local Skin_3 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
-    Skin_3:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤3"
-    Skin_3:GetComponent(typeof(UE.UI.Button)).interactable = false
-    local Skin_4 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
-    Skin_4:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤4"
-    Skin_4:GetComponent(typeof(UE.UI.Button)).interactable = false
-    local Skin_5 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
-    Skin_5:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤5"
-    Skin_5:GetComponent(typeof(UE.UI.Button)).interactable = false
-    local Skin_6 = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
-    Skin_6:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤6"
-    Skin_6:GetComponent(typeof(UE.UI.Button)).interactable = false
     self.ownSkin={}
-    self.Role_1_AllSkin={Skin_1, Skin_2}
+    self.Role_1_AllSkin={}
+
+    for k, v in ipairs(require("SkinData").Skins[Enum_RoleType.Adventurer_1])do
+        local skin = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
+        local skinImg = skin:GetComponent(typeof(UE.UI.Image))
+        if v.spritePath then
+            skinImg:GetComponent(typeof(UE.UI.Image)).sprite = ResourceMgr:Load(v.spritePath, v.spriteName, typeof(UE.Sprite))
+        else
+            skinImg:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤"
+        end
+        skin:GetComponent(typeof(UE.UI.Button)).interactable = false
+        table.insert(self.Role_1_AllSkin, skin)
+    end
     ---------消息注册----------
     self:AddMessageListener(Enum_MessageType.RefreshSkin, handler(self, self.OnRefreshSkin))
-    local data={info = "require"}
-    Net:TCPSendMessage(4, data)
+    NetMessageSender:SendRefreshSkin("require")
 end
 
 function SkinSelectDlg:Show()
@@ -48,7 +45,7 @@ function SkinSelectDlg:Show()
 end
 
 function SkinSelectDlg:Hide()
-    self.gameobject:GetComponentInChildren(typeof(UE.UI.HorizontalLayoutGroup)):GetComponent(typeof(UE.RectTransform)).anchoredPosition = CS.Vector2.zero
+    self.contentObj:GetComponent(typeof(UE.RectTransform)).anchoredPosition = CS.Vector2.zero
     self.gameobject:SetActive(false)
     self.isActive = false
 end
@@ -62,7 +59,7 @@ function SkinSelectDlg:OnRefreshSkin(kv)
         local btn = self.Role_1_AllSkin[v.index]:GetComponent(typeof(UE.UI.Button))
         btn.onClick:RemoveAllListeners()
         btn.onClick:AddListener(function ()
-            MC:SendMessage(Enum_MessageType.ChangeSkin,require("KeyValue"):new(v.type, v.index))
+            MC:SendMessage(Enum_MessageType.ChangeSkin,require("KeyValue"):new(v.roleType, v.index))
         end)
         btn.interactable = true
     end
@@ -70,7 +67,6 @@ end
 
 function SkinSelectDlg:Destroy()
     self.super:Destroy()
-
 end
 
 return SkinSelectDlg

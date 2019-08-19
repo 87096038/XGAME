@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3189296392
+CRC: 1005480012
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eaaa5dd03b9b6b6cebf6fd48cab81bba
+    Hash: 2ca68b3c1bebb2ce21501cc58b5884ac
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 368d9d0642622d1eca580829d907b20a
+    Hash: 87f83e77d0e1769f7c61e9be630c7848
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -14,8 +14,6 @@ ClassTypes:
 - Class: 4
   Script: {instanceID: 0}
 - Class: 21
-  Script: {instanceID: 0}
-- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -33,3 +31,4 @@ Assets:
 - Assets/Resources/Prefabs/NPC/NPC_1.prefab
 Dependencies:
 - /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/npc/npc_1.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/jambisheet.ab

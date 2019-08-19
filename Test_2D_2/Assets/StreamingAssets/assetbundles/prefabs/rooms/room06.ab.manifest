@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3968717080
+CRC: 2650926304
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aeccf5317c8e2e2ac074157d415b64a2
+    Hash: cc6997deddc933ecb635c854a275573d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f82e9abf8b338befc855693830e870df
+    Hash: 32658e0d127833938672d7169d6adf18
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,14 +15,10 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-- Class: 115
-  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 - Class: 483693784
@@ -31,4 +27,6 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Prefabs/Rooms/Room06.prefab
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/tiles/floorbrickstograsssquare_6.ab

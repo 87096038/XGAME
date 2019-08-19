@@ -30,6 +30,7 @@ function PathManager:Init()
             UI_DrawCardPnl = "assetbundles/prefabs/ui/rest/ui_drawcardpnl.ab",
             UI_Skin_btn  = "assetbundles/prefabs/ui/rest/ui_skin_btn.ab",
             UI_SkinItem = "assetbundles/prefabs/ui/rest/ui_skinitem.ab",
+            UI_IconItem = "assetbundles/prefabs/ui/rest/ui_iconitem.ab",
 
             UI_CharacterStateInBattle = "assetbundles/prefabs/ui/battle/ui_characterstate.ab",
             UI_WeaponState = "assetbundles/prefabs/ui/battle/ui_weaponstate.ab",
@@ -48,12 +49,16 @@ function PathManager:Init()
             Road = "assetbundles/prefabs/rooms/road.ab",
             GridRoot = "assetbundles/prefabs/rooms/gridroot.ab",
             ----------NPCs----------
-            NPC_DrawCard="assetbundles/prefabs/npc/npc_1.ab",
+            NPC_DrawSkin="assetbundles/prefabs/npc/npc_1.ab",
 
             Camera_Main = "assetbundles/prefabs/maincamera.ab",
             -------------------------------Assets---------------------------------------
+            -----------Animation---------
             Animation_Role_1_Skin_1="assetbundles/animations/charactor/ruby/ruby.ab",
             Animation_Role_1_Skin_2="assetbundles/animations/charactor/mrclock/mrclock.ab",
+            ----------Sprite-------------
+            Sprite_Role_1_Skin_1="assetbundles/sprite/characters/ruby.ab",
+            Sprite_Role_1_Skin_2="assetbundles/sprite/characters/mrclock.ab",
         }
     else
         self.ResourcePath={
@@ -79,6 +84,7 @@ function PathManager:Init()
             UI_DrawCardPnl = "Prefabs/UI/Rest/UI_DrawCardPnl",
             UI_Skin_btn  = "Prefabs/UI/Rest/UI_Skin_btn",
             UI_SkinItem = "Prefabs/UI/Rest/UI_SkinItem",
+            UI_IconItem = "Prefabs/UI/Rest/UI_IconItem",
 
             UI_CharacterStateInBattle = "Prefabs/UI/Battle/UI_CharacterState",
             UI_WeaponState = "Prefabs/UI/Battle/UI_WeaponState",
@@ -98,18 +104,23 @@ function PathManager:Init()
             Road = "Prefabs/Rooms/Road",
             GridRoot = "Prefabs/Rooms/GridRoot",
             ----------NPCs----------
-            NPC_DrawCard="Prefabs/NPC/NPC_1",
+            NPC_DrawSkin="Prefabs/NPC/NPC_1",
 
             Camera_Main = "Prefabs/MainCamera",
             -------------------------------Assets---------------------------------------
+            -----------Animation---------
             Animation_Role_1_Skin_1="Animations/Charactor/Ruby/Ruby",
             Animation_Role_1_Skin_2="Animations/Charactor/MrClock/MrClock",
+            ----------Sprite-------------
+            Sprite_Role_1_Skin_1="Sprite/Characters/Ruby",
+            Sprite_Role_1_Skin_2="Sprite/Characters/MrClock",
         }
     end
 
     ---自动切换名字
     if IS_RELEASE_MODE then
         self.NamePath={
+            ---------------------------Prefabs-------------------------------------
             Bullet_1="bullet_1",
             Character_1="character",
             Normal_Rifle="normal_rifle",
@@ -132,6 +143,7 @@ function PathManager:Init()
             UI_DrawCardPnl = "ui_drawcardpnl",
             UI_Skin_btn  = "ui_skin_btn",
             UI_SkinItem = "ui_skinitem",
+            UI_IconItem = "ui_iconitem",
 
             UI_CharacterStateInBattle = "ui_characterstate",
             UI_WeaponState = "ui_weaponstate",
@@ -151,12 +163,16 @@ function PathManager:Init()
             Road = "road",
             GridRoot = "gridroot",
             ----------NPCs----------
-            NPC_DrawCard="npc_1",
+            NPC_DrawSkin="npc_1",
 
             Camera_Main = "maincamera",
             -------------------------------Assets---------------------------------------
+            -----------Animation---------
             Animation_Role_1_Skin_1="ruby",
             Animation_Role_1_Skin_2="mrclock",
+            ----------Sprite-------------
+            Sprite_Role_1_Skin_1="ruby",
+            Sprite_Role_1_Skin_2="mrclock",
         }
     else
         self.NamePath={

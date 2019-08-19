@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3845755674
+CRC: 4216027768
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c915d3c43ec1bf285394cb6cfe4978a
+    Hash: 967831290a039a77a7feb58840c5ae32
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3cd6abdc5e3f084d32a462d83183d5cc
+    Hash: 060adad4ebb0cda02c02dc3bb7ed3e53
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -14,8 +14,6 @@ ClassTypes:
 - Class: 4
   Script: {instanceID: 0}
 - Class: 21
-  Script: {instanceID: 0}
-- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -27,4 +25,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Prefabs/Gun/Normal_Rifle.prefab
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/weapon/atlases/png/atlas_blue.ab

@@ -134,13 +134,13 @@ end
 ---------------------------------- 不常用外部接口 -----------------------------
 
 ---Load，返回Asset(name: 如果是AB包则为其资源的名称)
-function ResourceManager:Load(path, name)
+function ResourceManager:Load(path, name, type)
     local asset
     if IS_RELEASE_MODE then
         local ab = self:LoadAssetBundle(path)
-        asset = self:LoadAsset(ab, path, name)
+        asset = self:LoadAsset(ab, path, name, type)
     else
-        asset = self:LoadResource(path)
+        asset = self:LoadResource(path, type)
     end
     return asset
 end
@@ -250,7 +250,7 @@ end
 
 ---ab: AB包 AB包的路径 name:资源名
 ---返回: 相应Asset
-function ResourceManager:LoadAsset(ab, path, name)
+function ResourceManager:LoadAsset(ab, path, name, type)
     local Path = self:GetFullABAssetPath(path, name)
     local asset = self.AssetCacheMap[Path]
     if not asset then
@@ -262,7 +262,11 @@ function ResourceManager:LoadAsset(ab, path, name)
         for i=0, dependences.Length-1, 1 do
             self:LoadAssetBundle(dependences[i])
         end
-        asset = ab.assetBundle:LoadAsset(name)
+        if type then
+            asset = ab.assetBundle:LoadAsset(name, type)
+        else
+            asset = ab.assetBundle:LoadAsset(name)
+        end
         self.AssetCacheMap[Path] = asset
     end
     return asset
@@ -277,7 +281,6 @@ function ResourceManager:LoadAssetAsync(ab, path, name, callback)
             dependences = self.manifest:GetAllDependencies(path)
             self.AssetBundleIndependenceMap[Path] = dependences
         end
-        print(dependences.Length)
         for i=0, dependences.Length-1, 1 do
             coroutine.yield(self:LoadAssetBundleAsync(dependences[i]))
         end
@@ -297,10 +300,14 @@ end
 
 ---path: Resources下的路径
 ---返回: 相应Asset
-function ResourceManager:LoadResource(path)
+function ResourceManager:LoadResource(path, type)
     local asset = self.AssetCacheMap[path]
     if not asset then
-        asset = UE.Resources.Load(path)
+        if type then
+            asset = UE.Resources.Load(path, type)
+        else
+            asset = UE.Resources.Load(path)
+        end
         self.AssetCacheMap[path] = asset
     end
     return asset
