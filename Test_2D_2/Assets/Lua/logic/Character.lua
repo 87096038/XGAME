@@ -54,7 +54,7 @@ function Character:cotr()
 end
 
 function Character:Start()
-    Timer:AddUpdateFuc(self, self.Update)
+    self:SetUpdateFunc(self.Update)
 end
 
 --- 加入update的函数
@@ -103,9 +103,6 @@ function Character:OnCollision(type, other)
     end
 end
 
-function Character:Destroy()
-    self.super:Destroy()
-end
 
 ------------消息回调----------
 function Character:OnChangeSkin(kv)

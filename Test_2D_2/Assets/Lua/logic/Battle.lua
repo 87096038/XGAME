@@ -70,7 +70,7 @@ function Battle:cotr(character, initialWeapon)
     self.Left = UE.Vector3(-1, 1, 1)
     self.Right = UE.Vector3(1, 1, 1)
 
-    Timer:AddUpdateFuc(self, Battle.UpdateBattle)
+    self:SetUpdateFunc(Battle.UpdateBattle)
 
     --- 设置战场
     require("BattleData").currentBattle = self
@@ -156,11 +156,6 @@ function Battle:UpdateBattle()
         end
     end
 end
-
-function Battle:Destroy()
-    self.super:Destroy()
-    require("BattleData").currentBattle = nil
-end
 ----------------------回调函数--------------------
 function Battle:PickUpHandler(kv)
     if kv.Key == Enum_ItemType.weapon then
@@ -193,5 +188,6 @@ function Battle:GameOverHandler(kv)
 end
 function Battle:OnChangeScene()
     self:Destroy()
+    require("BattleData").currentBattle = nil
 end
 return Battle

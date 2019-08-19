@@ -110,7 +110,7 @@ function Class(className, super)
 end
 
 IS_RELEASE_MODE = false
-IS_ONLINE_MODE = true
+IS_ONLINE_MODE = false
 
 ---需要先初始化的module
 require("Enum")

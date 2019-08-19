@@ -19,8 +19,5 @@ function Character_base:Dead()
     self.state = Enum_CharacterBehaviorType.dead
     ResourceMgr:DestroyObject(self.gameobject)
 end
-function Character_base:Destroy()
-    self.super:Destroy()
-end
 
 return Character_base
