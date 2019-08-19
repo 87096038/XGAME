@@ -124,7 +124,9 @@ local Timer = require("Timer")
 local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
 local BeginScene = require("BeginScene")
+--local TitleScene = require("TitleScene")
 -------------------------------
+
 --初始化
 function Init()
     --Timer:InvokeCoroutine(function () print("123") end, 2, 5)
