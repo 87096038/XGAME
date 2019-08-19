@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 2825800009
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2b5ba75b0eba76990f2b92e2b8bc309a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 872f54559b8772c38fa07b8b8c2fb6ec
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Animations/Charactor/Ruby/AnimationClips/Player/RubyLaunchUp.anim
+Dependencies: []

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 744060769
+CRC: 188411496
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -7,7 +7,8 @@ AssetBundleManifest:
       Dependencies: {}
     Info_1:
       Name: assetbundles/prefabs/character.ab
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: assetbundles/animations/charactor/ruby/ruby.ab
     Info_2:
       Name: assetbundles/prefabs/maincamera.ab
       Dependencies: {}
@@ -45,35 +46,148 @@ AssetBundleManifest:
       Name: assetbundles/prefabs/rooms/room08.ab
       Dependencies: {}
     Info_14:
-      Name: assetbundles/prefabs/ui/battle/bulletstate.ab
-      Dependencies: {}
-    Info_15:
-      Name: assetbundles/prefabs/ui/battle/characterstate.ab
-      Dependencies: {}
-    Info_16:
-      Name: assetbundles/prefabs/ui/battle/gold.ab
-      Dependencies: {}
-    Info_17:
-      Name: assetbundles/prefabs/ui/battle/weaponstate.ab
-      Dependencies: {}
-    Info_18:
       Name: assetbundles/prefabs/ui/begin/beginimgs.ab
       Dependencies: {}
-    Info_19:
+    Info_15:
       Name: assetbundles/prefabs/ui/begin/ui_hotupdate.ab
       Dependencies: {}
-    Info_20:
+    Info_16:
       Name: assetbundles/prefabs/ui/title/ui_decoration.ab
       Dependencies: {}
-    Info_21:
+    Info_17:
       Name: assetbundles/prefabs/ui/title/ui_title.ab
       Dependencies: {}
-    Info_22:
+    Info_18:
       Name: assetbundles/prefabs/gun/normal_rifle.ab
       Dependencies: {}
-    Info_23:
+    Info_19:
       Name: assetbundles/prefabs/gun/normal_sniper_rifle.ab
       Dependencies: {}
-    Info_24:
+    Info_20:
       Name: assetbundles/prefabs/npc/npc_1.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/npc/npc_1.ab
+    Info_21:
+      Name: assetbundles/prefabs/rooms/room_rest.ab
+      Dependencies: {}
+    Info_22:
+      Name: assetbundles/prefabs/ui/ui_messagebox.ab
+      Dependencies: {}
+    Info_23:
+      Name: assetbundles/prefabs/ui/battle/ui_bulletstate.ab
+      Dependencies: {}
+    Info_24:
+      Name: assetbundles/prefabs/ui/battle/ui_characterstate.ab
+      Dependencies: {}
+    Info_25:
+      Name: assetbundles/prefabs/ui/battle/ui_gold.ab
+      Dependencies: {}
+    Info_26:
+      Name: assetbundles/prefabs/ui/battle/ui_weaponstate.ab
+      Dependencies: {}
+    Info_27:
+      Name: assetbundles/prefabs/ui/begin/ui_loginpnl.ab
+      Dependencies: {}
+    Info_28:
+      Name: assetbundles/prefabs/ui/loading/ui_loading.ab
+      Dependencies: {}
+    Info_29:
+      Name: assetbundles/prefabs/ui/rest/ui_currencyinfo.ab
+      Dependencies: {}
+    Info_30:
+      Name: assetbundles/prefabs/ui/rest/ui_drawcardpnl.ab
+      Dependencies: {}
+    Info_31:
+      Name: assetbundles/prefabs/ui/rest/ui_skinitem.ab
+      Dependencies: {}
+    Info_32:
+      Name: assetbundles/prefabs/ui/rest/ui_skinselectpnl.ab
+      Dependencies: {}
+    Info_33:
+      Name: assetbundles/prefabs/ui/rest/ui_skin_btn.ab
+      Dependencies: {}
+    Info_34:
+      Name: assetbundles/animations/charactor/mrclock/idle.ab
+      Dependencies: {}
+    Info_35:
+      Name: assetbundles/animations/charactor/mrclock/mrclock.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/charactor/mrclock/idle.ab
+        Dependency_1: assetbundles/animations/charactor/mrclock/walk.ab
+    Info_36:
+      Name: assetbundles/animations/charactor/mrclock/walk.ab
+      Dependencies: {}
+    Info_37:
+      Name: assetbundles/animations/charactor/ruby/ruby.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitdown.ab
+        Dependency_1: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitleft.ab
+        Dependency_2: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitright.ab
+        Dependency_3: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitup.ab
+        Dependency_4: assetbundles/animations/charactor/ruby/animationclips/player/rubyidledown.ab
+        Dependency_5: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleleft.ab
+        Dependency_6: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleright.ab
+        Dependency_7: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleup.ab
+        Dependency_8: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchdown.ab
+        Dependency_9: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchleft.ab
+        Dependency_10: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchright.ab
+        Dependency_11: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchup.ab
+        Dependency_12: assetbundles/animations/charactor/ruby/animationclips/player/rubyrundown.ab
+        Dependency_13: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunleft.ab
+        Dependency_14: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunright.ab
+        Dependency_15: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunup.ab
+    Info_38:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitdown.ab
+      Dependencies: {}
+    Info_39:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitleft.ab
+      Dependencies: {}
+    Info_40:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitright.ab
+      Dependencies: {}
+    Info_41:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitup.ab
+      Dependencies: {}
+    Info_42:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidledown.ab
+      Dependencies: {}
+    Info_43:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleleft.ab
+      Dependencies: {}
+    Info_44:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleright.ab
+      Dependencies: {}
+    Info_45:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleup.ab
+      Dependencies: {}
+    Info_46:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchdown.ab
+      Dependencies: {}
+    Info_47:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchleft.ab
+      Dependencies: {}
+    Info_48:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchright.ab
+      Dependencies: {}
+    Info_49:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchup.ab
+      Dependencies: {}
+    Info_50:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrundown.ab
+      Dependencies: {}
+    Info_51:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunleft.ab
+      Dependencies: {}
+    Info_52:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunright.ab
+      Dependencies: {}
+    Info_53:
+      Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunup.ab
+      Dependencies: {}
+    Info_54:
+      Name: assetbundles/animations/npc/npc_1.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/npc/animationclips/npc_1_idle.ab
+    Info_55:
+      Name: assetbundles/animations/npc/animationclips/npc_1_idle.ab
       Dependencies: {}

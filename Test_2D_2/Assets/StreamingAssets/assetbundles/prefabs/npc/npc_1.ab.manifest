@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3297643316
+CRC: 3189296392
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5ccf1027c502b326dfadca264eaf3fdf
+    Hash: eaaa5dd03b9b6b6cebf6fd48cab81bba
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8fd3ac82b731fb1b2f583240e7196bac
+    Hash: 368d9d0642622d1eca580829d907b20a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,8 +21,6 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 61
   Script: {instanceID: 0}
-- Class: 74
-  Script: {instanceID: 0}
 - Class: 91
   Script: {instanceID: 0}
 - Class: 95
@@ -33,4 +31,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Prefabs/NPC/NPC_1.prefab
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/npc/npc_1.ab

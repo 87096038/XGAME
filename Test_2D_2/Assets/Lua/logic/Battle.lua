@@ -20,6 +20,7 @@ function Battle:cotr(character, initialWeapon)
     self:AddMessageListener(Enum_MessageType.GameOver, handler(self, self.GameOverHandler))
     self:AddMessageListener(Enum_MessageType.ApproachNPC, handler(self, self.ApproachNPCHandler))
     self:AddMessageListener(Enum_MessageType.LeaveNPC, handler(self, self.LeaveNPCHandler))
+    self:AddMessageListener(Enum_MessageType.ChangeScene, handler(self, self.OnChangeScene))
 
     ---实际的角色
     self.character = character
@@ -46,7 +47,9 @@ function Battle:cotr(character, initialWeapon)
     self.currentItem = nil
     ---所拥有的物品
     self.Items={}
-
+    if initialWeapon then
+        self:AddWeapon(initialWeapon)
+    end
 
     ---目前聚焦的可使用物体(包括NPC)
     self.useableThing = nil
@@ -137,6 +140,7 @@ function Battle:UpdateBattle()
     if UE.Input.GetMouseButtonDown(1) and self.currentWeapon then
         self:ChangeWeapon(self.currentWeaponIndex+1)
     elseif UE.Input.GetKeyDown(UE.KeyCode.E) and self.useableThing then
+        print(self.useableThing.Use)
         if self.useableThing.Use then
             self.useableThing:Use()
         end
@@ -147,6 +151,9 @@ function Battle:UpdateBattle()
     end
 end
 
+function Battle:Destroy()
+    self.super:Destroy()
+end
 ----------------------回调函数--------------------
 function Battle:PickUpHandler(kv)
     if kv.Key == Enum_ItemType.weapon then
@@ -177,5 +184,7 @@ end
 function Battle:GameOverHandler(kv)
     self:Destroy()
 end
-
+function Battle:OnChangeScene()
+    self:Destroy()
+end
 return Battle

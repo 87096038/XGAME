@@ -5,9 +5,12 @@
 --package.path = package.path .. ';../protobuf/?.lua.txt'
 --package.cpath = package.cpath .. ';../protobuf/?.so'
 
+
 UE = CS.UnityEngine
 
 Main=UE.GameObject.Find("Main"):GetComponent("Main")
+
+
 
 --[[
     因为Lua本身的协程是基于多线程，所以我以为这里也是，就写了这个函数调用Unity的协程

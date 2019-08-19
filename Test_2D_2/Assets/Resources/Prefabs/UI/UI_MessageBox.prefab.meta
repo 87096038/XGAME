@@ -3,5 +3,5 @@ guid: 5de62a117184f439cbbb7f19941d96fe
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/prefabs/ui/ui_messagebox
+  assetBundleVariant: ab
