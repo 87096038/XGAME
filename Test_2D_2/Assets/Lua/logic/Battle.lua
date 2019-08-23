@@ -11,13 +11,13 @@ function Battle:cotr(character, initialWeapon)
     self.super:cotr()
 
     -----------------信息注册-------------
-    self:AddMessageListener(Enum_MessageType.PickUp, handler(self, self.PickUpHandler))
-    self:AddMessageListener(Enum_MessageType.ApproachItem, handler(self, self.ApproachItemHandler))
-    self:AddMessageListener(Enum_MessageType.LeaveItem, handler(self, self.LeaveItemHandler))
-    self:AddMessageListener(Enum_MessageType.GameOver, handler(self, self.GameOverHandler))
-    self:AddMessageListener(Enum_MessageType.ApproachNPC, handler(self, self.ApproachNPCHandler))
-    self:AddMessageListener(Enum_MessageType.LeaveNPC, handler(self, self.LeaveNPCHandler))
-    self:AddMessageListener(Enum_MessageType.ChangeScene, handler(self, self.OnChangeScene))
+    self:AddMessageListener(Enum_NormalMessageType.PickUp, handler(self, self.PickUpHandler))
+    self:AddMessageListener(Enum_NormalMessageType.ApproachItem, handler(self, self.ApproachItemHandler))
+    self:AddMessageListener(Enum_NormalMessageType.LeaveItem, handler(self, self.LeaveItemHandler))
+    self:AddMessageListener(Enum_NormalMessageType.GameOver, handler(self, self.GameOverHandler))
+    self:AddMessageListener(Enum_NormalMessageType.ApproachNPC, handler(self, self.ApproachNPCHandler))
+    self:AddMessageListener(Enum_NormalMessageType.LeaveNPC, handler(self, self.LeaveNPCHandler))
+    self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 
     ---实际的角色
     self.character = character
@@ -54,13 +54,12 @@ function Battle:cotr(character, initialWeapon)
     if initialWeapon then
         self:AddWeapon(initialWeapon)
     end
+    --------------------------UI------------------------
 
     --- 金币数目
     self.goldCount = 0
     ---目前聚焦的可使用物体(包括NPC)
     self.useableThing = nil
-    ---生命值
-    self.heath =  self.character.heath
     ---用于计算射击CD
     self.CDTime = 0
 
@@ -165,9 +164,10 @@ end
 
 function Battle:ApproachItemHandler(kv)
     if kv.Key == Enum_ItemType.weapon then
-        print(kv.Value)
-        print("approach~")
+
         self.useableThing = kv.Value
+    elseif kv.Key == Enum_ItemType.equipment then
+
     end
 end
 

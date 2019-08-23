@@ -48,11 +48,11 @@ function Room:Collision()
         if type == Enum_CollisionType.TriggerEnter2D then
             if other.gameObject.layer == 9 then
                 print("enter room",thisTable.level,thisTable.type)
-                MC:SendMessage(Enum_MessageType.EnterRoom, require("KeyValue"):new(nil, thisTable))
+                MC:SendMessage(Enum_NormalMessageType.EnterRoom, require("KeyValue"):new(nil, thisTable))
             end
         elseif type == Enum_CollisionType.TriggerExit2D then
             if other.gameObject.layer == 9 then
-                MC:SendMessage(Enum_MessageType.EnterRoom, require("KeyValue"):new(nil, thisTable))
+                MC:SendMessage(Enum_NormalMessageType.EnterRoom, require("KeyValue"):new(nil, thisTable))
             end
         end
     end

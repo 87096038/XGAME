@@ -27,8 +27,8 @@ function ResourceManager:Init()
     self.manifest = self:InitManifest()
 
     ---因为这些监听会持续到游戏关闭，所以没有remove
-    MC:AddListener(Enum_MessageType.ChangeScene, handler(self, self.OnChangeScene))
-    MC:AddListener(Enum_MessageType.LateChangeScene ,handler(self, self.OnLateChangeScene))
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
+    MC:AddListener(Enum_NormalMessageType.LateChangeScene ,handler(self, self.OnLateChangeScene))
 end
 
 --------------------------------- 常用外部接口 ---------------------------

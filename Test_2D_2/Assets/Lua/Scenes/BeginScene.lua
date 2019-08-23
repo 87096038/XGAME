@@ -5,26 +5,30 @@
 local PathMgr = require("PathManager")
 local ResourceMgr = require("ResourceManager")
 local Timer = require("Timer")
-local Net=require("NetManager")
 local SceneMgr = require("SceneManager")
 local MC = require("MessageCenter")
-local NetMessageSender = require("NetMessageSender")
+local NetHelper = require("NetHelper")
 
 local BeginScene = {}
 
 function BeginScene:InitScene()
 
-    --local character = require("Character"):new()
-    --require("CameraFollowing"):BeginFollow(character.gameobject.transform)
-    --local gun = require("Normal_pistol"):new()
-    --require("Battle"):new(character, gun)
-    --character:Start()
+    ---设置光标样式
+    local tex = ResourceMgr:Load(PathMgr.ResourcePath.Sprite_Cursor_1, PathMgr.NamePath.Sprite_Cursor_1)
+    if tex then
+        UE.Cursor.SetCursor(tex, UE.Vector2(tex.height/2, tex.width/2), UE.CursorMode.Auto)
+    end
+    ---加载数据模块
+    self:LoadDatas()
+    require("CharacterState"):new()
+    ---添加登陆监听
+    MC:AddListener(Enum_NormalMessageType.Login, handler(self, self.OnLogin))
 
-    MC:AddListener(Enum_MessageType.Login, handler(self, self.OnLogin))
     self.hotUpdatePnl = ResourceMgr:Load(PathMgr.ResourcePath.UI_HotUpdate, PathMgr.NamePath.UI_HotUpdate)
     if IS_ONLINE_MODE then
-        local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
-        StartCoroutine(self.BeginImgFade, self, beginImgs.transform, nil, nil, nil, handler(self, self.HotUpdateStart) )
+        --local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
+        --StartCoroutine(self.BeginImgFade, self, beginImgs.transform, nil, nil, nil, handler(self, self.HotUpdateStart) )
+        self:HotUpdateStart()
     else
         self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
         self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))
@@ -34,18 +38,18 @@ function BeginScene:InitScene()
 end
 
 function BeginScene:HotUpdateStart()
-    Net.isUseMD5 = false
+    NetHelper:SetMD5(false)
     self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
     self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))
     self.hotUpdateStateText.text = "正在连接服务器"
-    if not Net:TCPConnect() then
+    if not NetHelper:TCPConnect() then
         self.hotUpdateStateText.text = "连接服务器失败，请重新打开游戏"
         return
     end
 
     self.hotUpdateStateText.text = "正在拉取更新..."
 
-    Net:StartHotUpdate(function (increaseCount, totalCount)
+    NetHelper:StartHotUpdate(function (increaseCount, totalCount)
         if totalCount then
             local Process = self.hotUpdatePnl.transform:Find("Process")
             Process.gameObject:SetActive(true)
@@ -55,7 +59,7 @@ function BeginScene:HotUpdateStart()
         end
         if increaseCount then
             self.hotUpdateProcessSlider.value = self.hotUpdateProcessSlider.value + increaseCount
-            self.hotUpdateStateText.text = "更新中, 已完成("..self.hotUpdateProcessSlider.value.."/"..self.hotUpdateProcessSlider.maxValue..")"
+            self.hotUpdateStateText.text = "更新中, 已完成("..math.ceil(self.hotUpdateProcessSlider.value).."/"..self.hotUpdateProcessSlider.maxValue..")"
         end
     end ,function (isSuccess)
         if isSuccess then
@@ -70,6 +74,7 @@ end
 
 --- 热更后刷新模块
 function BeginScene:ReLoadModule()
+
     --for k, v in pairs(package.loaded) do
     --    if v then
     --        package.loaded[k] = nil
@@ -80,16 +85,27 @@ function BeginScene:ReLoadModule()
     --require("Enum")
     --package.loaded["MessageCenter"] = nil
     --require("MessageCenter")
-    package.loaded["PathManager"] = nil
-    require("PathManager")
+    --package.loaded["PathManager"] = nil
+    --require("PathManager")
     --package.loaded["NetManager"] = nil
     --require("NetManager")
     --package.loaded["Timer"] = nil
     --require("Timer")
-    package.loaded["BeginScene"] = nil
-    require("BeginScene")
+    --package.loaded["UserInfoData"] = nil
+    --require("UserInfoData")
+    --package.loaded["SkinData"] = nil
+    --require("SkinData")
+    --package.loaded["RoleData"] = nil
+    --require("RoleData")
+    --package.loaded["BattleData"] = nil
+    --require("BattleData")
+    --package.loaded["BulletData"] = nil
+    --require("BulletData")
     --package.loaded["CameraFollowing"] = nil
     --require("CameraFollowing")
+
+    ---加载数据模块
+    --self:LoadDatas()
 end
 
 function BeginScene:Login()
@@ -114,7 +130,7 @@ function BeginScene:Login()
             return
         end
         self.login:SetActive(false)
-        NetMessageSender:SendLogin(userName.text, userName.text)
+        NetHelper:SendLogin(userName.text, userName.text)
     end);
 end
 
@@ -125,12 +141,25 @@ function BeginScene:WaitForClickUpdate()
     end
 end
 
+--- 加载数据模块
+function BeginScene:LoadDatas()
+    require("UserInfoData")
+    require("WeaponData")
+    require("RoleData")
+    require("SkinData")
+    require("PassiveSkillData")
+    require("BattleData")
+    require("BulletData")
+    require("ItemData")
+    require("EquipmentData")
+end
+
 ---------消息响应函数---------
 function BeginScene:OnLogin(kv)
     if kv.Value then
         if kv.Value.response then
             self.hotUpdateStateText.text = "点击进入游戏"
-            MC:RemoveListener(Enum_MessageType.Login, handler(self, self.OnLogin))
+            MC:RemoveListener(Enum_NormalMessageType.Login, handler(self, self.OnLogin))
             Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
         else
             SceneMgr:GetMessageBox("用户名或密码错误，请重新登陆。")

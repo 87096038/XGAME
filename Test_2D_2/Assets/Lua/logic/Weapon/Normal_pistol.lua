@@ -16,6 +16,8 @@ function Normal_pistol:cotr()
     self.shootType = weaponData.shootType
     ---基础伤害
     self.demage = weaponData.basicDamage
+    ---子弹速度
+    self.bulletSpeed = weaponData.basicSpeed
     --- 射击冷却时间
     self.shootCDTime = weaponData.basicCD
     --- 一弹夹子弹数量
@@ -29,7 +31,6 @@ function Normal_pistol:cotr()
     end
     --- 装弹时间
     self.reloadTime = weaponData.basicReloadTime
-
     --------------------------------------
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Normal_Rifle, PathMgr.NamePath.Normal_Rifle)
     self.collsion =  self.gameobject:GetComponentInChildren(typeof(UE.BoxCollider2D))
@@ -75,13 +76,13 @@ end
 function Normal_pistol:GenerateBullet()
     local dir = self.dirction.normalized
     if self.bulletType == Enum_BulletType.light then
-        require("LightBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation)
+        require("LightBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation,self.bulletSpeed)
     elseif self.bulletType == Enum_BulletType.heavy then
-        require("HeavyBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation)
+        require("HeavyBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation,self.bulletSpeed)
     elseif self.bulletType == Enum_BulletType.energy then
-        require("EnergyBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation)
+        require("EnergyBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation,self.bulletSpeed)
     elseif self.bulletType == Enum_BulletType.shell then
-        require("ShellBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation)
+        require("ShellBullet"):new(dir, self.gameobject.transform.position+dir*self.bulletStartDistance,self.gameobject.transform.rotation,self.bulletSpeed)
     end
 end
 
@@ -96,7 +97,7 @@ function Normal_pistol:Use()
         return
     end
     self.collsion.enabled = false
-    require("MessageCenter"):SendMessage(Enum_MessageType.PickUp, require("KeyValue"):new(Enum_ItemType.weapon, self))
+    require("MessageCenter"):SendMessage(Enum_NormalMessageType.PickUp, require("KeyValue"):new(Enum_ItemType.weapon, self))
     self.isPacked = true
 
 end

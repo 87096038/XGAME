@@ -5,8 +5,6 @@
 
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
-local Net = require("NetManager")
-local MC = require("MessageCenter")
 local UserInfoData = require("UserInfoData")
 
 local CurrencyInfoDlg = Class("CurrencyInfoDlg", require("Base"))
@@ -23,7 +21,7 @@ function CurrencyInfoDlg:cotr()
     self.diamondCountText.text =  self.diamondCount
     self.soulShardText.text =  self.soulShardCount
     -----------添加监听-----------
-    self:AddMessageListener(Enum_MessageType.RefreshCurrency, handler(self, self.OnRefreshCurrency))
+    self:AddMessageListener(Enum_NormalMessageType.RefreshCurrency, handler(self, self.OnRefreshCurrency))
 end
 
 function CurrencyInfoDlg:ChangeDiamond(value)
@@ -35,7 +33,7 @@ function CurrencyInfoDlg:ChangeDiamond(value)
         local wait = UE.WaitForSeconds(1/step)
         for i=1, count do
             currentCount = currentCount + step
-            self.diamondCountText.text = currentCount
+            self.diamondCountText.text = math.ceil(currentCount)
             coroutine.yield(wait)
         end
         self.diamondCountText.text = self.diamondCount
@@ -44,32 +42,28 @@ end
 
 function CurrencyInfoDlg:ChangeSoulShard(value)
     self.soulShardCount = self.soulShardCount + value
-    StartCoroutine(function ()
-        local currentCount = self.soulShardCount - value
-        local count = 30
-        local step = math.floor(value/count)
-        local wait = UE.WaitForSeconds(1/step)
-        for i=1, count do
-            currentCount = currentCount + step
-            self.soulShardText.text = currentCount
-            coroutine.yield(wait)
-        end
+    --StartCoroutine(function ()
+    --    local currentCount = self.soulShardCount - value
+    --    local count = 30
+    --    local step = math.floor(value/count)
+    --    local wait = UE.WaitForSeconds(1/step)
+    --    for i=1, count do
+    --        currentCount = currentCount + step
+    --        self.soulShardText.text = math.ceil(currentCount)
+    --        coroutine.yield(wait)
+    --    end
         self.soulShardText.text = self.soulShardCount
-    end)
+    --end)
 
-end
-
-function CurrencyInfoDlg:Destroy()
-    self.super:Destroy()
 end
 
 ---消息回调
 function CurrencyInfoDlg:OnRefreshCurrency(kv)
-    if kv.Value.diamond ~= self.diamondCount then
-        self:ChangeDiamond((kv.Value.diamond or 0) - self.diamondCount)
+    if UserInfoData.diamondCount ~= self.diamondCount then
+        self:ChangeDiamond((UserInfoData.diamondCount or 0) - self.diamondCount)
     end
-    if kv.Value.soulShard ~= self.soulShardCount then
-        self:ChangeSoulShard((kv.Value.soulShard or 0) - self.soulShardCount)
+    if UserInfoData.soulShardCount ~= self.soulShardCount then
+        self:ChangeSoulShard((UserInfoData.soulShardCount or 0) - self.soulShardCount)
     end
 end
 

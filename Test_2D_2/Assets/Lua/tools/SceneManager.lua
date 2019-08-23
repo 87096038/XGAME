@@ -46,7 +46,7 @@ function SceneManager:LoadScene(sceneBuildIndex)
     self.previousSceneBuildIndex = self.currentSceneBuildIndex
     self.currentSceneBuildIndex = sceneBuildIndex
 
-    MC:SendMessage(Enum_MessageType.ChangeScene, nil)
+    MC:SendMessage(Enum_NormalMessageType.ChangeScene, nil)
 
     for i = Main.UIRoot.transform.childCount-1,0,-1 do
         ResourceMgr:DestroyObject(Main.UIRoot.transform:GetChild(i).gameObject,true)
@@ -77,7 +77,7 @@ function SceneManager:LoadScene(sceneBuildIndex)
         end
         -- 执行初始Scenes脚本的初始化，删除loading UI
 
-        MC:SendMessage(Enum_MessageType.LateChangeScene, nil)
+        MC:SendMessage(Enum_NormalMessageType.LateChangeScene, nil)
         -- 由于加载过快再这里加了个等待0.7s，以后根据具体情况可修改
         --coroutine.yield(UE.WaitForSeconds(0.7))
         require(Enum_SceneName[sceneBuildIndex+1]):InitScene()
@@ -134,7 +134,7 @@ function SceneManager:BattleFinish()
 end
 
 -- 获取消息框
-function SceneManager:GetMessageBox(message,callback)
+function SceneManager:GetMessageBox(message, callback_yes, callback_no)
     local isNew
     self.UI_MessageBox, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_MessageBox, PathMgr.NamePath.UI_MessageBox, Main.UIRoot.transform)
     self.Button_Yes = self.UI_MessageBox.transform:Find("Button_Yes"):GetComponent(typeof(UE.UI.Button))
@@ -145,14 +145,16 @@ function SceneManager:GetMessageBox(message,callback)
         self.Button_Yes.onClick:RemoveAllListeners()
     end
      self.Button_Yes.onClick:AddListener(function ()
-         if callback then
-             callback()
+         if callback_yes then
+             callback_yes()
          end
-
          ResourceMgr:DestroyObject(self.UI_MessageBox)
      end)
 
     self.Button_No.onClick:AddListener(function()
+        if callback_no then
+            callback_no()
+        end
         ResourceMgr:DestroyObject(self.UI_MessageBox)
     end)
 end

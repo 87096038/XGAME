@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 //程序入口
@@ -71,7 +72,14 @@ public class Main : MonoBehaviour
         //var go = new GameObject();
         //go.transform.SetParent(UIRoot.transform);
         //var img = go.AddComponent<Image>();
+        //SpriteAtlas sa = Resources.Load<SpriteAtlas>("Sprite/Icons");
+        //img.sprite = sa.GetSprite("Icon_Gold");
+        Slider a;
+        
         ////Sprite m = Sprite.Create(a, Rect.zero, Vector2.zero);
+        //SpriteAtlas s;
+        //s.GetSprite()
+        GameObject m;
         
         //img.sprite = a;
         //img.sprite = null;

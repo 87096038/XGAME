@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 2049092009
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7c01f6de77e76d990e2715342b1524bc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 87f83e77d0e1769f7c61e9be630c7848
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/NPC/SkinSeller.prefab
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/characters/jambisheet.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/npc/skinseller/npc_1.ab

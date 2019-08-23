@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3973676870
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d4d17e9cf989afcd1127e2d20ca7272
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 25f4086c7b856bc267ee41cfe02c02df
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Animations/NPC/PassiveSkillSeller/Idle.anim
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/fromweb/npc_1.ab

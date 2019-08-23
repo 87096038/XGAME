@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1064213161
+CRC: 4179395336
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -86,11 +86,6 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: assetbundles/sprite/weapon/atlases/png/atlas_blue.ab
     Info_20:
-      Name: assetbundles/prefabs/npc/npc_1.ab
-      Dependencies:
-        Dependency_0: assetbundles/animations/npc/npc_1.ab
-        Dependency_1: assetbundles/sprite/characters/jambisheet.ab
-    Info_21:
       Name: assetbundles/prefabs/rooms/room_rest.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
@@ -125,56 +120,56 @@ AssetBundleManifest:
         Dependency_29: assetbundles/sprite/tiles/floorwatersquarecorners_6.ab
         Dependency_30: assetbundles/sprite/tiles/floorwatersquarecorners_7.ab
         Dependency_31: assetbundles/sprite/tiles/floorwatersquarecorners_8.ab
-    Info_22:
+    Info_21:
       Name: assetbundles/prefabs/ui/ui_messagebox.ab
       Dependencies: {}
-    Info_23:
+    Info_22:
       Name: assetbundles/prefabs/ui/battle/ui_bulletstate.ab
       Dependencies: {}
-    Info_24:
+    Info_23:
       Name: assetbundles/prefabs/ui/battle/ui_characterstate.ab
       Dependencies: {}
-    Info_25:
+    Info_24:
       Name: assetbundles/prefabs/ui/battle/ui_gold.ab
       Dependencies: {}
-    Info_26:
+    Info_25:
       Name: assetbundles/prefabs/ui/battle/ui_weaponstate.ab
       Dependencies: {}
-    Info_27:
+    Info_26:
       Name: assetbundles/prefabs/ui/begin/ui_loginpnl.ab
       Dependencies: {}
-    Info_28:
+    Info_27:
       Name: assetbundles/prefabs/ui/loading/ui_loading.ab
       Dependencies: {}
-    Info_29:
+    Info_28:
       Name: assetbundles/prefabs/ui/rest/ui_currencyinfo.ab
       Dependencies: {}
-    Info_30:
+    Info_29:
       Name: assetbundles/prefabs/ui/rest/ui_drawcardpnl.ab
       Dependencies: {}
-    Info_31:
+    Info_30:
       Name: assetbundles/prefabs/ui/rest/ui_skinitem.ab
       Dependencies: {}
-    Info_32:
+    Info_31:
       Name: assetbundles/prefabs/ui/rest/ui_skinselectpnl.ab
       Dependencies: {}
-    Info_33:
+    Info_32:
       Name: assetbundles/prefabs/ui/rest/ui_skin_btn.ab
       Dependencies: {}
-    Info_34:
+    Info_33:
       Name: assetbundles/animations/charactor/mrclock/idle.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/mrclockworksheet.ab
-    Info_35:
+    Info_34:
       Name: assetbundles/animations/charactor/mrclock/mrclock.ab
       Dependencies:
         Dependency_0: assetbundles/animations/charactor/mrclock/idle.ab
         Dependency_1: assetbundles/animations/charactor/mrclock/walk.ab
-    Info_36:
+    Info_35:
       Name: assetbundles/animations/charactor/mrclock/walk.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/mrclockworksheet.ab
-    Info_37:
+    Info_36:
       Name: assetbundles/animations/charactor/ruby/ruby.ab
       Dependencies:
         Dependency_0: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitdown.ab
@@ -193,387 +188,379 @@ AssetBundleManifest:
         Dependency_13: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunleft.ab
         Dependency_14: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunright.ab
         Dependency_15: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunup.ab
-    Info_38:
+    Info_37:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitdown.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_39:
+    Info_38:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitleft.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_40:
+    Info_39:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitright.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_41:
+    Info_40:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyhitup.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_42:
+    Info_41:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidledown.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_43:
+    Info_42:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleleft.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_44:
+    Info_43:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleright.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_45:
+    Info_44:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyidleup.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_46:
+    Info_45:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchdown.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_47:
+    Info_46:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchleft.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_48:
+    Info_47:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchright.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_49:
+    Info_48:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubylaunchup.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_50:
+    Info_49:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrundown.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_51:
+    Info_50:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunleft.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_52:
+    Info_51:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunright.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_53:
+    Info_52:
       Name: assetbundles/animations/charactor/ruby/animationclips/player/rubyrunup.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/rubysheet.ab
-    Info_54:
-      Name: assetbundles/animations/npc/npc_1.ab
-      Dependencies:
-        Dependency_0: assetbundles/animations/npc/animationclips/npc_1_idle.ab
-    Info_55:
-      Name: assetbundles/animations/npc/animationclips/npc_1_idle.ab
-      Dependencies:
-        Dependency_0: assetbundles/sprite/characters/jambisheet.ab
-    Info_56:
+    Info_53:
       Name: assetbundles/prefabs/portal.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/ui/uidialoguebox.ab
-    Info_57:
+    Info_54:
       Name: assetbundles/prefabs/ui/battle/ui_iteminfo.ab
       Dependencies: {}
-    Info_58:
+    Info_55:
       Name: assetbundles/prefabs/ui/battle/ui_weaponinfo.ab
       Dependencies: {}
-    Info_59:
+    Info_56:
       Name: assetbundles/prefabs/ui/rest/ui_iconitem.ab
       Dependencies: {}
-    Info_60:
+    Info_57:
       Name: assetbundles/sprite/characters/jambisheet.ab
       Dependencies: {}
-    Info_61:
+    Info_58:
       Name: assetbundles/sprite/characters/mrclock.ab
       Dependencies: {}
-    Info_62:
+    Info_59:
       Name: assetbundles/sprite/characters/mrclockworksheet.ab
       Dependencies: {}
-    Info_63:
+    Info_60:
       Name: assetbundles/sprite/characters/ruby.ab
       Dependencies: {}
-    Info_64:
+    Info_61:
       Name: assetbundles/sprite/characters/rubysheet.ab
       Dependencies: {}
-    Info_65:
+    Info_62:
       Name: assetbundles/sprite/characters/materials/ruby.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/characters/ruby.ab
-    Info_66:
+    Info_63:
       Name: assetbundles/sprite/environmnent/damageable.ab
       Dependencies: {}
-    Info_67:
+    Info_64:
       Name: assetbundles/sprite/environmnent/draincover.ab
       Dependencies: {}
-    Info_68:
+    Info_65:
       Name: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
       Dependencies: {}
-    Info_69:
+    Info_66:
       Name: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
       Dependencies: {}
-    Info_70:
+    Info_67:
       Name: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
       Dependencies: {}
-    Info_71:
+    Info_68:
       Name: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
       Dependencies: {}
-    Info_72:
+    Info_69:
       Name: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
       Dependencies: {}
-    Info_73:
+    Info_70:
       Name: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
       Dependencies: {}
-    Info_74:
+    Info_71:
       Name: assetbundles/sprite/environmnent/grasssmall.ab
       Dependencies: {}
-    Info_75:
+    Info_72:
       Name: assetbundles/sprite/environmnent/house.ab
       Dependencies: {}
-    Info_76:
+    Info_73:
       Name: assetbundles/sprite/environmnent/lotusflower.ab
       Dependencies: {}
-    Info_77:
+    Info_74:
       Name: assetbundles/sprite/environmnent/metalcube.ab
       Dependencies: {}
-    Info_78:
+    Info_75:
       Name: assetbundles/sprite/environmnent/mushrooms.ab
       Dependencies: {}
-    Info_79:
+    Info_76:
       Name: assetbundles/sprite/environmnent/telegraphpost.ab
       Dependencies: {}
-    Info_80:
+    Info_77:
       Name: assetbundles/sprite/environmnent/treebig1.ab
       Dependencies: {}
-    Info_81:
+    Info_78:
       Name: assetbundles/sprite/environmnent/treebig2.ab
       Dependencies: {}
-    Info_82:
+    Info_79:
       Name: assetbundles/sprite/environmnent/treebig3.ab
       Dependencies: {}
-    Info_83:
+    Info_80:
       Name: assetbundles/sprite/environmnent/treeforeground.ab
       Dependencies: {}
-    Info_84:
+    Info_81:
       Name: assetbundles/sprite/environmnent/treelittle.ab
       Dependencies: {}
-    Info_85:
+    Info_82:
       Name: assetbundles/sprite/environmnent/treeshadow.ab
       Dependencies: {}
-    Info_86:
+    Info_83:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_0.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_87:
+    Info_84:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_1.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_88:
+    Info_85:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_2.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_89:
+    Info_86:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_3.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_90:
+    Info_87:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_4.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_91:
+    Info_88:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_5.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_92:
+    Info_89:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_6.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_93:
+    Info_90:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_7.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_94:
+    Info_91:
       Name: assetbundles/sprite/tiles/floorbrickstograsscorner_8.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
-    Info_95:
+    Info_92:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_0.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_96:
+    Info_93:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_1.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_97:
+    Info_94:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_2.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_98:
+    Info_95:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_3.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_99:
+    Info_96:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_4.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_100:
+    Info_97:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_5.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_101:
+    Info_98:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_6.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_102:
+    Info_99:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_7.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_103:
+    Info_100:
       Name: assetbundles/sprite/tiles/floorbrickstograsssquare_8.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsssquare.ab
-    Info_104:
+    Info_101:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_0.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_105:
+    Info_102:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_1.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_106:
+    Info_103:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_2.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_107:
+    Info_104:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_3.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_108:
+    Info_105:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_4.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_109:
+    Info_106:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_5.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_110:
+    Info_107:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_6.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_111:
+    Info_108:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_7.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_112:
+    Info_109:
       Name: assetbundles/sprite/tiles/floorgrasstobrickscorner_8.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickscorner.ab
-    Info_113:
+    Info_110:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_0.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_114:
+    Info_111:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_1.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_115:
+    Info_112:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_2.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_116:
+    Info_113:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_3.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_117:
+    Info_114:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_4.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_118:
+    Info_115:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_5.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_119:
+    Info_116:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_6.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_120:
+    Info_117:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_7.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_121:
+    Info_118:
       Name: assetbundles/sprite/tiles/floorgrasstobrickssquare_8.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorgrasstobrickssquare.ab
-    Info_122:
+    Info_119:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_0.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_123:
+    Info_120:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_1.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_124:
+    Info_121:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_2.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_125:
+    Info_122:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_3.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_126:
+    Info_123:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_4.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_127:
+    Info_124:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_5.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_128:
+    Info_125:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_6.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_129:
+    Info_126:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_7.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_130:
+    Info_127:
       Name: assetbundles/sprite/tiles/floorwaterroundcorners_8.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwaterroundcorners.ab
-    Info_131:
+    Info_128:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_0.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_132:
+    Info_129:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_1.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_133:
+    Info_130:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_2.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_134:
+    Info_131:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_3.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_135:
+    Info_132:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_4.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_136:
+    Info_133:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_5.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_137:
+    Info_134:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_6.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_138:
+    Info_135:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_7.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_139:
+    Info_136:
       Name: assetbundles/sprite/tiles/floorwatersquarecorners_8.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorwatersquarecorners.ab
-    Info_140:
+    Info_137:
       Name: assetbundles/sprite/tiles/gamepalette.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/environmnent/floorbrickstograsscorner.ab
@@ -638,62 +625,128 @@ AssetBundleManifest:
         Dependency_59: assetbundles/sprite/tiles/floorwatersquarecorners_8.ab
         Dependency_60: assetbundles/sprite/tiles/new tile.ab
         Dependency_61: assetbundles/sprite/tiles/tile.ab
-    Info_141:
+    Info_138:
       Name: assetbundles/sprite/tiles/new tile.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/tiles/tile.ab
-    Info_142:
+    Info_139:
       Name: assetbundles/sprite/tiles/tile.ab
       Dependencies: {}
-    Info_143:
+    Info_140:
       Name: assetbundles/sprite/ui/characterportrait.ab
       Dependencies: {}
-    Info_144:
+    Info_141:
       Name: assetbundles/sprite/ui/npcportrait.ab
       Dependencies: {}
-    Info_145:
+    Info_142:
       Name: assetbundles/sprite/ui/uibulleticon.ab
       Dependencies: {}
-    Info_146:
+    Info_143:
       Name: assetbundles/sprite/ui/uidialoguebox.ab
       Dependencies: {}
-    Info_147:
+    Info_144:
       Name: assetbundles/sprite/ui/uihealthbar.ab
       Dependencies: {}
-    Info_148:
+    Info_145:
       Name: assetbundles/sprite/ui/uihealthframe.ab
       Dependencies: {}
-    Info_149:
+    Info_146:
       Name: assetbundles/sprite/vfx/cogbullet.ab
       Dependencies: {}
-    Info_150:
+    Info_147:
       Name: assetbundles/sprite/vfx/collectibleammo.ab
       Dependencies: {}
-    Info_151:
+    Info_148:
       Name: assetbundles/sprite/vfx/collectiblehealth.ab
       Dependencies: {}
-    Info_152:
+    Info_149:
       Name: assetbundles/sprite/vfx/particlespriteatlas.ab
       Dependencies: {}
-    Info_153:
+    Info_150:
       Name: assetbundles/sprite/vfx/shadow.ab
       Dependencies: {}
-    Info_154:
+    Info_151:
       Name: assetbundles/sprite/vfx/materials/collectiblehealth.ab
       Dependencies:
         Dependency_0: assetbundles/sprite/vfx/collectiblehealth.ab
-    Info_155:
+    Info_152:
       Name: assetbundles/sprite/weapon/atlases/png/atlas_blue.ab
       Dependencies: {}
-    Info_156:
+    Info_153:
       Name: assetbundles/sprite/weapon/atlases/png/atlas_green.ab
       Dependencies: {}
-    Info_157:
+    Info_154:
       Name: assetbundles/sprite/weapon/atlases/png/atlas_orange.ab
       Dependencies: {}
-    Info_158:
+    Info_155:
       Name: assetbundles/sprite/weapon/atlases/png/atlas_purple.ab
       Dependencies: {}
-    Info_159:
+    Info_156:
       Name: assetbundles/sprite/weapon/atlases/png/atlas_red.ab
+      Dependencies: {}
+    Info_157:
+      Name: assetbundles/prefabs/npc/passiveskillseller.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/npc/passiveskillseller/npc_2.ab
+        Dependency_1: assetbundles/sprite/fromweb/npc_1.ab
+        Dependency_2: assetbundles/sprite/fromweb/skil_icons.ab
+    Info_158:
+      Name: assetbundles/prefabs/npc/skinseller.ab
+      Dependencies:
+        Dependency_0: assetbundles/sprite/characters/jambisheet.ab
+        Dependency_1: assetbundles/animations/npc/skinseller/npc_1.ab
+    Info_159:
+      Name: assetbundles/animations/npc/passiveskillseller/idle.ab
+      Dependencies:
+        Dependency_0: assetbundles/sprite/fromweb/npc_1.ab
+    Info_160:
+      Name: assetbundles/animations/npc/passiveskillseller/npc_2.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/npc/passiveskillseller/idle.ab
+    Info_161:
+      Name: assetbundles/animations/npc/skinseller/npc_1.ab
+      Dependencies:
+        Dependency_0: assetbundles/animations/npc/skinseller/animationclips/npc_1_idle.ab
+    Info_162:
+      Name: assetbundles/animations/npc/skinseller/animationclips/npc_1_idle.ab
+      Dependencies:
+        Dependency_0: assetbundles/sprite/characters/jambisheet.ab
+    Info_163:
+      Name: assetbundles/sprite/fromweb/character.ab
+      Dependencies: {}
+    Info_164:
+      Name: assetbundles/sprite/fromweb/enemy_1.ab
+      Dependencies: {}
+    Info_165:
+      Name: assetbundles/sprite/fromweb/enemy_2.ab
+      Dependencies: {}
+    Info_166:
+      Name: assetbundles/sprite/fromweb/enemy_3.ab
+      Dependencies: {}
+    Info_167:
+      Name: assetbundles/sprite/fromweb/enemy_4.ab
+      Dependencies: {}
+    Info_168:
+      Name: assetbundles/sprite/fromweb/enemy_5.ab
+      Dependencies: {}
+    Info_169:
+      Name: assetbundles/sprite/fromweb/environment.ab
+      Dependencies: {}
+    Info_170:
+      Name: assetbundles/sprite/fromweb/npc_1.ab
+      Dependencies: {}
+    Info_171:
+      Name: assetbundles/sprite/fromweb/npc_2.ab
+      Dependencies: {}
+    Info_172:
+      Name: assetbundles/sprite/fromweb/skil_icons.ab
+      Dependencies: {}
+    Info_173:
+      Name: assetbundles/sprite/fromweb/weapons.ab
+      Dependencies: {}
+    Info_174:
+      Name: "assetbundles/sprite/fromweb/\u673A\u7532.ab"
+      Dependencies: {}
+    Info_175:
+      Name: "assetbundles/sprite/fromweb/\u7279\u6548.ab"
       Dependencies: {}

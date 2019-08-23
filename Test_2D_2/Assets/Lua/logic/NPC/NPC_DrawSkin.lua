@@ -34,7 +34,7 @@ function NPC_DrawSkin:OnCollision(type, other)
     if type == Enum_CollisionType.TriggerEnter2D then
         --- 主角的Layer
         if other.gameObject.layer == 9 then
-            MC:SendMessage(Enum_MessageType.ApproachNPC, require("KeyValue"):new(NPC_DrawSkin.type, NPC_DrawSkin))
+            MC:SendMessage(Enum_NormalMessageType.ApproachNPC, require("KeyValue"):new(NPC_DrawSkin.type, NPC_DrawSkin))
         end
     end
     if type == Enum_CollisionType.TriggerExit2D then
@@ -42,7 +42,7 @@ function NPC_DrawSkin:OnCollision(type, other)
             if NPC_DrawSkin.drawSkinDlg then
                 NPC_DrawSkin.drawSkinDlg:Hide()
             end
-            MC:SendMessage(Enum_MessageType.LeaveNPC, require("KeyValue"):new(NPC_DrawSkin.type, NPC_DrawSkin))
+            MC:SendMessage(Enum_NormalMessageType.LeaveNPC, require("KeyValue"):new(NPC_DrawSkin.type, NPC_DrawSkin))
         end
     end
 end

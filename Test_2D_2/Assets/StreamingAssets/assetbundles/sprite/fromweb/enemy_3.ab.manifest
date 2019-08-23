@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3558503549
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bf2ad4d66bba79f35e013d7d020871d3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/FromWeb/Enemy_3.png
+Dependencies: []

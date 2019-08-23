@@ -22,7 +22,7 @@ function MessageCenter:AddListener(messageType, handler)
             if self.ListenerMap[messageType] == nil then
                 self.ListenerMap[messageType] = {handler}
             else
-                table.insert( self.ListenerMap[messageType], handler)
+                table.insert(self.ListenerMap[messageType], handler)
             end
         else
             print("Fail to AddListener: wrong handler type!")

@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 1408423534
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fbc79494671efb41168a1e40a7c1162d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/FromWeb/Weapons.png
+Dependencies: []

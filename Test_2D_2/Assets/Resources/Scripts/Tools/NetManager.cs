@@ -81,7 +81,14 @@ public class NetManager
         System.Buffer.BlockCopy(data, 0, sendData, length.Length+1, data.Length);
         if (NS!=null)
         {
-            NS.BeginWrite(sendData, 0, sendData.Length, SendDataEnd, NS);
+            try
+            {
+                NS.BeginWrite(sendData, 0, sendData.Length, SendDataEnd, NS);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message);
+            }
         }
     }
     
