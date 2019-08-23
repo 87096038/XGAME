@@ -8,6 +8,7 @@ TextureImporter:
     21300006: Icons_PassiveSkill_ArmorUp
     21300008: Icon_SoulShard
     21300010: Icons_PassiveSkill_SpeedUp
+    21300012: Icon_SelledOut
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -198,13 +199,33 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: eedc43f7ca01e44b28d817054efd72c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SelledOut
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 846
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbe6dc38d4404ffba5b77e4617c0e0c
       vertices: []
       indices: 
       edges: []

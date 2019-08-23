@@ -3,20 +3,38 @@ local PathMgr = require("PathManager")
 
 local LightBullet = Class("LightBullet", require("Bullet_base"))
 
-function LightBullet:cotr(dirction, position, rotation)
+function LightBullet:cotr(dirction, position, rotation, speed, damage)
     self.super:cotr()
-    self.gameobject = nil
+    self.damage = damage
     self.dirction = UE.Vector3(dirction.x, dirction.y, dirction.z)
-    self.speed = 8
+    self.speed = speed
+    --- 携带的特殊效果
+    self.buffs={}
+    --这里应该是从CharacterState获取BUff
 
-    local isNew
-    self.gameobject, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1, nil, position)
-    if isNew then
-        local collisionClass = self.gameobject:AddComponent(typeof(CS.Collision))
-        if collisionClass.CollisionHandle then
-            collisionClass.CollisionHandle = collisionClass.CollisionHandle + self.OnCollision_light
-        else
-            collisionClass.CollisionHandle = self.OnCollision_light
+    self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Bullet_1, PathMgr.NamePath.Bullet_1, nil, position)
+    ------------绑定碰撞--------------
+    local collisionClass = self.gameobject:GetComponent(typeof(CS.Collision))
+    if not collisionClass then
+        collisionClass = self.gameobject:AddComponent(typeof(CS.Collision))
+    end
+    collisionClass.CollisionHandle = function(type, other)
+        if type == Enum_CollisionType.TriggerEnter2D then
+            local layer = other.gameObject.layer
+            --- 主角
+            if layer == 9  then
+                self:Destroy()
+                ---敌人
+            elseif layer == 10 then
+                local enemy = require("RoomManager"):GetEnemy(other.gameObject)
+                enemy:GetDamage(self.damage, self.buffs)
+                self:Destroy()
+                ---墙
+            elseif layer == 5 then
+                if not self.isBounce then
+                    self:Destroy()
+                end
+            end
         end
     end
 
@@ -27,24 +45,6 @@ end
 
 function LightBullet:UpdateMove()
     self.gameobject.transform:Translate(require( "Timer").deltaTime * self.dirction *self.speed, UE.Space.World)
-end
-
-function LightBullet:OnCollision_light(type, other)
-    if type == Enum_CollisionType.TriggerEnter2D then
-        local layer = other.gameObject.layer
-        --- 主角和敌人的layer
-        if layer == 9 or layer == 10 then
-            self:Destroy()
-        elseif layer == 5 then
-            if not self.isBounce then
-                self:Destroy()
-            end
-        end
-    end
-end
-
-function LightBullet:Destroy()
-    self.super:Destroy()
 end
 
 return LightBullet

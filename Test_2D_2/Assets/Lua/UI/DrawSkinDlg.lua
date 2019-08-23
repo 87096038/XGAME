@@ -30,7 +30,7 @@ function DrawSkinDlg:cotr()
     end
 
     -------------注册监听----------
-    self:AddMessageListener(Enum_MessageType.DrawSkin, handler(self, self.OnDrawSkin))
+    self:AddMessageListener(Enum_NormalMessageType.DrawSkin, handler(self, self.OnDrawSkin))
 end
 
 --- 抽皮肤
@@ -49,6 +49,7 @@ function DrawSkinDlg:Hide()
     self.resultPnlObj:SetActive(false)
     self.gameobject:SetActive(false)
     for i=1, self.contentObj.transform.childCount do
+        --- GetChild的index从0开始
         ResourceMgr:DestroyObject(self.contentObj.transform:GetChild(i-1).gameObject)
     end
 end
@@ -59,23 +60,23 @@ function DrawSkinDlg:Destroy()
 end
 
 function DrawSkinDlg:OnDrawSkin(kv)
-    if kv.Value.skin then
+    if kv.Value then
         self.waiPnlObj:SetActive(false)
-        self.resultPnlObj:SetActive(true)
-        if kv.Value.response == 404 then
-            ---钻石不够
+        if kv.Value.response == Enum_DrawResponseType.NotEnoughDiamond then
+            require("SceneManager"):GetMessageBox("钻石不够~")
+        elseif kv.Value.response == Enum_DrawResponseType.Success then
+            --- 显示抽到的东西
+            self.resultPnlObj:SetActive(true)
+            for k, v in pairs(kv.Value.skin) do
+                local skinIcon = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_IconItem, PathMgr.NamePath.UI_IconItem, self.contentObj.transform)
+                local skinData = require("SkinData").Skins[v.roleType][v.index]
+                if skinData.spritePath then
+                    skinIcon:GetComponent(typeof(UE.UI.Image)).sprite = ResourceMgr:Load(skinData.spritePath, skinData.spriteName, typeof(UE.Sprite))
+                else
+                    skinIcon:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤"
+                end
+            end
         end
-        local skinIcon = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_IconItem, PathMgr.NamePath.UI_IconItem, self.contentObj.transform)
-        local skinData = require("SkinData").Skins[kv.Value.skin.roleType][kv.Value.skin.index]
-        if skinData.spritePath then
-            skinIcon:GetComponent(typeof(UE.UI.Image)).sprite = ResourceMgr:Load(skinData.spritePath, skinData.spriteName, typeof(UE.Sprite))
-        else
-            skinIcon:GetComponentInChildren(typeof(UE.UI.Text)).text = "皮肤2"
-        end
-        ---刷新Skin
-        NetHelper:SendRefreshSkin("require")
-        ---刷新货币
-        NetHelper:SendRefreshCurrency("require")
     end
     self.Draw_btn.interactable = true
 end

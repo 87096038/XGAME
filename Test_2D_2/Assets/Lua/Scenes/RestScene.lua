@@ -13,16 +13,10 @@ function RestScene:InitScene()
     local character = require("Character"):new()
     Camera:BeginFollow(character.gameobject.transform)
     Battle:new(character)
-    character:Start()
+
     ---地图Init
-    self:InitUI()
-    self:InitNPC()
-    self:InitSpecialThing()
 
-end
-
---- 初始化UI
-function RestScene:InitUI()
+    --- 初始化UI
     local SkinSelectDlg = require("SkinSelectDlg"):new()
     local Skin_btn = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Skin_btn, PathMgr.NamePath.UI_Skin_btn, Main.UIRoot.transform):GetComponent(typeof(UE.UI.Button))
     if Skin_btn then
@@ -32,15 +26,22 @@ function RestScene:InitUI()
             else
                 SkinSelectDlg:Show()
             end
-            end)
+        end)
     end
     local currencyInfoDlg = require("CurrencyInfoDlg"):new()
+    local CharacterStateDlg = require("CharacterStateDlg"):new(character)
+    self:InitNPC()
+    self:InitSpecialThing()
+    character:Start()
 end
+
 
 ---初始化NPC
 function RestScene:InitNPC()
     local NPC_DrawSkin = require("NPC_DrawSkin")
     NPC_DrawSkin:Generate()
+    local NPC_SellPassiveSkill = require("NPC_SellPassiveSkill")
+    NPC_SellPassiveSkill:Generate()
 end
 
 function RestScene:OnPortalCollision(type, other)

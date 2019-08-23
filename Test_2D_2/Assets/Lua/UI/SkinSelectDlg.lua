@@ -4,7 +4,7 @@
 --]]
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
-local Net = require("NetManager")
+local userData = require("UserInfoData")
 local MC = require("MessageCenter")
 local NetHelper = require("NetHelper")
 
@@ -23,6 +23,7 @@ function SkinSelectDlg:cotr()
     self.ownSkin={}
     self.Role_1_AllSkin={}
 
+    --- 生成所有皮肤
     for k, v in ipairs(require("SkinData").Skins[Enum_RoleType.Adventurer_1])do
         local skin = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_SkinItem, PathMgr.NamePath.UI_SkinItem, self.contentObj.transform)
         local skinImg = skin:GetComponent(typeof(UE.UI.Image))
@@ -34,9 +35,14 @@ function SkinSelectDlg:cotr()
         skin:GetComponent(typeof(UE.UI.Button)).interactable = false
         table.insert(self.Role_1_AllSkin, skin)
     end
+
+    --- 手动调用一次用以刷新皮肤数据
+    self:OnRefreshSkin()
+
     ---------消息注册----------
-    self:AddMessageListener(Enum_MessageType.RefreshSkin, handler(self, self.OnRefreshSkin))
-    NetHelper:SendRefreshSkin("require")
+    self:AddMessageListener(Enum_NormalMessageType.RefreshSkin, handler(self, self.OnRefreshSkin))
+    self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
+
 end
 
 function SkinSelectDlg:Show()
@@ -50,23 +56,26 @@ function SkinSelectDlg:Hide()
     self.isActive = false
 end
 
+
+--------------消息回调----------------
 function SkinSelectDlg:OnRefreshSkin(kv)
     self.ownSkin={}
-    for k, v in pairs(kv.Value.ownSkin)do
+    for k, v in pairs(userData.skins)do
         table.insert(self.ownSkin, v)
     end
     for k,v in pairs(self.ownSkin)do
         local btn = self.Role_1_AllSkin[v.index]:GetComponent(typeof(UE.UI.Button))
         btn.onClick:RemoveAllListeners()
         btn.onClick:AddListener(function ()
-            MC:SendMessage(Enum_MessageType.ChangeSkin,require("KeyValue"):new(v.roleType, v.index))
+            MC:SendMessage(Enum_NormalMessageType.ChangeSkin,require("KeyValue"):new(v.roleType, v.index))
         end)
         btn.interactable = true
     end
 end
 
-function SkinSelectDlg:Destroy()
-    self.super:Destroy()
+function SkinSelectDlg:OnChangeScene()
+    self:Destroy()
 end
+
 
 return SkinSelectDlg

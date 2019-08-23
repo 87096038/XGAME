@@ -46,11 +46,6 @@ message Message{
 }
 
 
-message Login{
-    required string userName    =1;
-    required string password    =2;
-    required bool response      =3;
-}
 message Role{
      required RoleType type     =1;
      required string name       =2;
@@ -59,116 +54,86 @@ message Role{
      required RoleType roleType     =1;
      required int32 index           =2;
  }
-message Item
-{
-    required int32 ID                       =1;
-    required int32 preID                    =2;
-    required int32 cost                     =3;
-    required ItemType type                  =4;
-    required string name                    =5;
-    required string info                    =6;
-    required float heathChange              =7;
-    required float armorChange              =8;
-    required float speedChange              =9;
-    required float lightBulletDamageChange  =10;
-    required float heavyBulletDamageChange  =11;
-    required float energyBulletDamageChange =12;
-    required float shellBulletDamageChange  =13;
-    required float lightBulletSpeedChange   =14;
-    required float heavyBulletSpeedChange   =15;
-    required float energyBulletSpeedChange  =16;
-    required float shellBulletSpeedChange   =17;
-    repeated int32 specialEffect            =18;
-}
 
-message Weapon
-{
-    required int32 ID                   =1;
-    required int32 preID                =2;
-    required int32 cost                 =3;
-    required string name                =4;
-    required string info                =5;
-    required WeaponType type            =6;
-    required BulletType bulletType      =7;
-    required ShootType shootType        =8;
-    required int32 basicDamage          =9;
-    required float basicCD              =10;
-    required float basicSpeed           =11;
-    required int32 basicClipsAmmoCount  =12;
-    required float basicReloadTime      =13;
-    optional string otherInfo           =14;
-}
-
-message Clothes
-{
-    required int32 ID               =1;
-    required int32 preID            =2;
-    required int32 cost             =3;
-    required string name            =4;
-    required string info            =5;
-    required ClothesType type       =6;
-    required float AamorChange      =7;
-    required float speedChange      =8;
-    repeated int32 specialEffect    =9;
-}
-
-message PassiveSkill
-{
-    required int32 ID                       =1;
-    required int32 preID                    =2;
-    required int32 cost                     =3;
-    required float heathChange              =4;
-    required float armorChange              =5;
-    required float speedChange              =6;
-    required float lightBulletDamageChange  =7;
-    required float heavyBulletDamageChange  =8;
-    required float energyBulletDamageChange =9;
-    required float shellBulletDamageChange  =10;
-    required float lightBulletSpeedChange   =11;
-    required float heavyBulletSpeedChange   =12;
-    required float energyBulletSpeedChange  =13;
-    required float shellBulletSpeedChange   =14;
-}
-message BattleInfo{
-     repeated PassiveSkill UnlockedPassiveSkills    =1;
-     repeated PassiveSkill LockedPassiveSkills      =2;
-     repeated Weapon UnlockedWeapons                =3;
-     repeated Weapon LockedWeapons                  =4;
-     repeated Clothes UnlockedClothes               =5;
-     repeated Clothes LockedClothes                 =6;
-     repeated Item UnlockedItems                    =7;
-     repeated Item LockedItems                      =8;
-}
-message UserInfo{
-    required int32 UID              =1;
-    required string userName        =2;
-    required string password        =3;
-    required int32 diamondCount     =4;
-    required int32 soulShardCount   =5;
-    repeated Role roles             =6;
-    repeated Skin skins             =7;
-    required BattleInfo info        =8;
-}
 enum DrawCountType
 {
     single=1;
     ten=2;
 }
+enum OuterThingType
+{
+    passiveSkill=1;
+    weapons=2;
+    equipments=3;
+    items=4;
+}
 
-message DrawSkin{
+
+
+
+
+
+
+message Net_Tick{
+    required string info    =1;
+}
+
+message Net_Login{
+    required string userName    =1;
+    required string password    =2;
+    required bool response      =3;
+}
+
+message Net_UserInfo{
+    required int32 UID                      =1;
+    required string userName                =2;
+    required string password                =3;
+    required int32 diamondCount             =4;
+    required int32 soulShardCount           =5;
+    required string name                    =6;
+    optional Role currentRole               =7;
+    optional Skin currentSkin               =8;
+    repeated Role roles                     =9;
+    repeated Skin skins                     =10;
+    repeated int32 UnlockedPassiveSkills    =11;
+    repeated int32 LockedPassiveSkills      =12;
+    repeated int32 UnlockedWeapons          =13;
+    repeated int32 LockedWeapons            =14;
+    repeated int32 UnlockedEquipments       =15;
+    repeated int32 LockedEquipments         =16;
+    repeated int32 UnlockedItems            =17;
+    repeated int32 LockedItems              =18;
+}
+message Net_DrawSkin{
     required DrawCountType type =1;
-    required Skin skin          =2;
+    repeated Skin skin          =2;
     required int32 response     =3;
 }
 
-message RefreshSkin{
+message Net_RefreshSkin{
     required string info        =1;
     repeated Skin ownSkin       =2;
 }
-message RefreshCurrency{
+message Net_RefreshCurrency{
     required string info        =1;
     required int32 diamond      =2;
     required int32 soulShard    =3;
+}
+message Net_BuyOuterThing{
+    required int32 ID               =1;
+    required OuterThingType type    =2;
+    optional int32 response         =3;
+}
+message Net_RefreshOuterThing{
+    required string info                =1;
+    repeated int32 UnlockedItems        =2;
+    repeated int32 LockedItems          =3;
+    repeated int32 UnlockedWeapons      =4;
+    repeated int32 LockedWeapons        =5;
+    repeated int32 UnlockedEquipments   =6;
+    repeated int32 LockedEquipments     =7;
+    repeated int32 UnlockedPassiveSkills=8;
+    repeated int32 LockedPassiveSkills  =9;
 }
 
 message OpenTreasureBox{
@@ -178,6 +143,6 @@ message OpenTreasureBox{
 }
 message OpenTreasureBoxResponse{
     required int32 itemCount    =1;
-    repeated Item  items        =2;
+    repeated ItemType  items        =2;
 }
 

@@ -107,10 +107,10 @@ function NetManager:TCPConnect()
 end
 
 --- 发送消息
----这里的Type对应枚举 Enum_NetMessageType 的key
+---这里的Type对应枚举 Enum_NetMessageType_Index 的key
 function NetManager:TCPSendMessage(type, message)
     if IS_ONLINE_MODE then
-        local bytes = pb.encode(Enum_NetMessageType[type], message)
+        local bytes = pb.encode(Enum_NetMessageType_Index[type], message)
         CS.NetManager.Instance:Send(type, bytes)
     else
         --self.TCPReceiveMessage(type, self.MessageReceiveMap[message])
@@ -121,10 +121,10 @@ end
 --- 接收消息 这里使用 . 主要因为是由C#端调用的这个接口，免得去传self
 function NetManager.TCPReceiveMessage(_type, data)
     if IS_ONLINE_MODE then
-        local data2 = pb.decode(Enum_NetMessageType[_type], data)
-        table.insert(NetManager.MessageQueue, {type = Enum_NetMessageType[_type], data = data2})
+        local data2 = pb.decode(Enum_NetMessageType_Index[_type], data)
+        table.insert(NetManager.MessageQueue, {type = Enum_NetMessageType_Index[_type], data = data2})
     else
-        --MC:SendMessage(Enum_NetMessageType[_type], require("KeyValue"):new(nil, data))
+        --MC:SendMessage(Enum_NetMessageType_Index[_type], require("KeyValue"):new(nil, data))
     end
 end
 

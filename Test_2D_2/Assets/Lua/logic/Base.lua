@@ -12,7 +12,7 @@ function Base:cotr()
 end
 
 --[[
-    封装事件监听，是为了方便在使用时，可以只管add不管remove(实际上在Destroy时统一remove)
+    封装事件监听和updateFunc，是为了方便在使用时，可以只管add不管remove(实际上在Destroy时统一remove)
 --]]
 -----------------事件监听-----------------
 function Base:AddMessageListener(messageType, handler)
@@ -33,7 +33,7 @@ function Base:DestroyAllMessageListener()
     end
     self.MessageListenerMap = {}
 end
-
+----------updateFunc-----------
 function Base:SetUpdateFunc(func)
     self.updateFunc = func
     Timer:AddUpdateFuc(self, func)
@@ -41,8 +41,6 @@ end
 
 ------------销毁实例时必须调用该函数-----------
 function Base:Destroy()
-    print(self)
-    print("basedestroy")
     self:DestroyAllMessageListener()
     if self.updateFunc then
         Timer:RemoveUpdateFuc(self.updateFunc)

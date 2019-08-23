@@ -15,6 +15,8 @@ function PathManager:Init()
             Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
             Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
             Portal = "assetbundles/prefabs/portal.ab",
+
+            Item_NormalClothes = "assetbundles/prefabs/equipments/normalclothes.ab",
             -----UI-----
             UI_MessageBox="assetbundles/prefabs/ui/ui_messagebox.ab",
 
@@ -31,10 +33,15 @@ function PathManager:Init()
             UI_Skin_btn  = "assetbundles/prefabs/ui/rest/ui_skin_btn.ab",
             UI_SkinItem = "assetbundles/prefabs/ui/rest/ui_skinitem.ab",
             UI_IconItem = "assetbundles/prefabs/ui/rest/ui_iconitem.ab",
+            UI_PassiveSkillInfo = "assetbundles/prefabs/ui/rest/ui_passiveskillinfo.ab",
 
             UI_CharacterStateInBattle = "assetbundles/prefabs/ui/battle/ui_characterstate.ab",
             UI_WeaponState = "assetbundles/prefabs/ui/battle/ui_weaponstate.ab",
             UI_BulletState = "assetbundles/prefabs/ui/battle/ui_bulletstate.ab",
+            UI_ItemInfo = "assetbundles/prefabs/ui/battle/ui_iteminfo.ab",
+            UI_WeaponInfo = "assetbundles/prefabs/ui/battle/ui_weaponinfo.ab",
+            UI_EquipmentInfo = "assetbundles/prefabs/ui/battle/ui_equipmentinfo.ab",
+
             UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
             --------Tiles----------
             Tile_Base = "assetbundles/sprite/tiles/floorbrickstograsscorner_0.ab",
@@ -49,7 +56,8 @@ function PathManager:Init()
             Road = "assetbundles/prefabs/rooms/road.ab",
             GridRoot = "assetbundles/prefabs/rooms/gridroot.ab",
             ----------NPCs----------
-            NPC_DrawSkin="assetbundles/prefabs/npc/npc_1.ab",
+            NPC_DrawSkin="assetbundles/prefabs/npc/skinseller.ab",
+            NPC_SellPassiveSkill="assetbundles/prefabs/npc/passiveskillseller.ab",
 
             Camera_Main = "assetbundles/prefabs/maincamera.ab",
             -------------------------------Assets---------------------------------------
@@ -59,6 +67,9 @@ function PathManager:Init()
             ----------Sprite-------------
             Sprite_Role_1_Skin_1="assetbundles/sprite/characters/ruby.ab",
             Sprite_Role_1_Skin_2="assetbundles/sprite/characters/mrclock.ab",
+            Sprite_Cursor_1 = "assetbundles/sprite/cursor_1.ab",
+            ---------SpriteAtlas----------
+            SpriteAtlas_Icons = "assetbundles/sprite/icons.ab",
         }
     else
         self.ResourcePath={
@@ -69,6 +80,8 @@ function PathManager:Init()
             Normal_Sniper_Rifle="Prefabs/Gun/Normal_Sniper_Rifle",
             Audio_Title_BGM="Audio/Audio_Title_BGM",
             Portal = "Prefabs/Portal",
+
+            Item_NormalClothes = "Prefabs/Equipments/NormalClothes",
             -----UI-----
             UI_MessageBox="Prefabs/UI/UI_MessageBox",
 
@@ -85,10 +98,14 @@ function PathManager:Init()
             UI_Skin_btn  = "Prefabs/UI/Rest/UI_Skin_btn",
             UI_SkinItem = "Prefabs/UI/Rest/UI_SkinItem",
             UI_IconItem = "Prefabs/UI/Rest/UI_IconItem",
+            UI_PassiveSkillInfo = "Prefabs/UI/Rest/UI_PassiveSkillInfo",
 
             UI_CharacterStateInBattle = "Prefabs/UI/Battle/UI_CharacterState",
             UI_WeaponState = "Prefabs/UI/Battle/UI_WeaponState",
             UI_BulletState = "Prefabs/UI/Battle/UI_BulletState",
+            UI_ItemInfo = "Prefabs/UI/Battle/UI_ItemInfo",
+            UI_WeaponInfo = "Prefabs/UI/Battle/UI_WeaponInfo",
+            UI_EquipmentInfo = "Prefabs/UI/Battle/UI_EquipmentInfo",
 
             UI_Loading = "Prefabs/UI/Loading/UI_Loading",
             --------Tiles----------
@@ -104,7 +121,8 @@ function PathManager:Init()
             Road = "Prefabs/Rooms/Road",
             GridRoot = "Prefabs/Rooms/GridRoot",
             ----------NPCs----------
-            NPC_DrawSkin="Prefabs/NPC/NPC_1",
+            NPC_DrawSkin="Prefabs/NPC/SkinSeller",
+            NPC_SellPassiveSkill="Prefabs/NPC/PassiveSkillSeller",
 
             Camera_Main = "Prefabs/MainCamera",
             -------------------------------Assets---------------------------------------
@@ -114,6 +132,10 @@ function PathManager:Init()
             ----------Sprite-------------
             Sprite_Role_1_Skin_1="Sprite/Characters/Ruby",
             Sprite_Role_1_Skin_2="Sprite/Characters/MrClock",
+
+            Sprite_Cursor_1 = "Sprite/Cursor_1",
+            ---------SpriteAtlas----------
+            SpriteAtlas_Icons = "Sprite/Icons",
         }
     end
 
@@ -128,6 +150,7 @@ function PathManager:Init()
             Audio_Title_BGM="audio_title_bgm",
             Portal = "portal",
 
+            Item_NormalClothes = "normalclothes",
             -----UI-----
             UI_MessageBox="ui_messagebox",
 
@@ -144,10 +167,14 @@ function PathManager:Init()
             UI_Skin_btn  = "ui_skin_btn",
             UI_SkinItem = "ui_skinitem",
             UI_IconItem = "ui_iconitem",
+            UI_PassiveSkillInfo = "ui_passiveskillinfo",
 
             UI_CharacterStateInBattle = "ui_characterstate",
             UI_WeaponState = "ui_weaponstate",
             UI_BulletState = "ui_bulletstate",
+            UI_ItemInfo = "ui_iteminfo",
+            UI_WeaponInfo = "ui_weaponinfo",
+            UI_EquipmentInfo = "ui_equipmentinfo",
 
             UI_Loading = "ui_loading",
             --------Tiles----------
@@ -163,7 +190,8 @@ function PathManager:Init()
             Road = "road",
             GridRoot = "gridroot",
             ----------NPCs----------
-            NPC_DrawSkin="npc_1",
+            NPC_DrawSkin="skinseller",
+            NPC_SellPassiveSkill="passiveskillseller",
 
             Camera_Main = "maincamera",
             -------------------------------Assets---------------------------------------
@@ -173,6 +201,9 @@ function PathManager:Init()
             ----------Sprite-------------
             Sprite_Role_1_Skin_1="ruby",
             Sprite_Role_1_Skin_2="mrclock",
+            Sprite_Cursor_1 = "cursor_1",
+            ---------SpriteAtlas----------
+            SpriteAtlas_Icons = "icons",
         }
     else
         self.NamePath={

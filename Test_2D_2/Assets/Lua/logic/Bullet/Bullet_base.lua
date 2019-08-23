@@ -13,11 +13,11 @@ function Bullet_base:cotr()
 end
 
 function Bullet_base:Destroy()
-    self.super:Destroy()
     if self.explosionEffect then
 
     end
     ResourceMgr:DestroyObject(self.gameObject)
+    self.super.Destroy(self)
 end
 
 return Bullet_base

@@ -7,7 +7,7 @@ function Timer:Init()
     self.deltaTime=0
     self.UpdateFucs={}
 
-    MC:AddListener(Enum_MessageType.ChangeScene, handler(self, self.ChangeSceneHandler))
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.ChangeSceneHandler))
 end
 
 function Timer:Update()

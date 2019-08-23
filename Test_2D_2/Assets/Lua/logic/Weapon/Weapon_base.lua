@@ -24,9 +24,4 @@ function Weapon_base:Drop()
     print("Not implement Exception.")
 end
 
---- 刷新数据
-function Weapon_base:RefreshData()
-    print("Not implement Exception.")
-end
-
 return Weapon_base
