@@ -2,6 +2,7 @@
 --[[
     负责Battle场景的初始化
 --]]
+local Camera =  require("CameraFollowing")
 
 local BeattleScene = {}
 
@@ -10,7 +11,9 @@ function BeattleScene:InitScene()
     local Character = require("Character"):new()
     local battle = require("Battle"):new(Character)
     battle:AddWeapon(Normal_pistol)
+    Camera:BeginFollow(Character.gameobject.transform)
     Character:Start()
+    require("RoomManager"):CreateRooms(1,5,1,1)
 end
 
 return BeattleScene

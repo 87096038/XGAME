@@ -15,6 +15,7 @@ function PathManager:Init()
             Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
             Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
             Portal = "assetbundles/prefabs/portal.ab",
+            Enemy_1 = "assetbundles/prefabs/enemy_1.ab",
             -----UI-----
             UI_MessageBox="assetbundles/prefabs/ui/ui_messagebox.ab",
 
@@ -69,6 +70,7 @@ function PathManager:Init()
             Normal_Sniper_Rifle="Prefabs/Gun/Normal_Sniper_Rifle",
             Audio_Title_BGM="Audio/Audio_Title_BGM",
             Portal = "Prefabs/Portal",
+            Enemy_1 = "Prefabs/Enemy_1",
             -----UI-----
             UI_MessageBox="Prefabs/UI/UI_MessageBox",
 

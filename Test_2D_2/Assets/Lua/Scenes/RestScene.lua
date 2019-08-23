@@ -18,7 +18,6 @@ function RestScene:InitScene()
     self:InitUI()
     self:InitNPC()
     self:InitSpecialThing()
-
 end
 
 --- 初始化UI

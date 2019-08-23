@@ -1,68 +1,59 @@
 ﻿local ResourceMgr = require("ResourceManager")
-local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
 
-local Room = Class("Room")
+local Room = Class("Room", require("Base"))
 
--- 这相当于static？
--- 因为存在"哈希表"内不能用#来计算个数所以多加了一个RoomTypeCnt
-Room.RoomType = {start = 1, boss = 2, monster = 3,
-                 shop = 4, treasure = 5, statue = 6, employ = 7}
-Room.RoomTypeCnt = 7
-Room.Direction = {up = 1, down = 2, left = 3, right = 4}
-
+-- 构造函数
 function Room:cotr(tileMapPath,tileMapName,level,type,length,width)
-
-    -- 这几个属性在构造的时候必须要有
+    -- 基本属性
     self.level = level
     self.type = type
-    self.length = length or 0
-    self.width = width or 0
+    self.length = length
+    self.width = width
 
-    --
+    -- 预先资源加载
     self.tileMap = ResourceMgr:Load(tileMapPath,tileMapName)
 
-    -- 这几个属性在生成地图的时候才赋予，位置相对于tilemap
-    --self.id = nil
+    -- 下面函数用到的一些东西
+    self.gameObject = nil
+    self.collision = nil
+
+    -- 坐标位置，相对于tilemap，生成地图时赋予
     self.positionX = nil
     self.positionY = nil
+
+    -- 房间状态
+    self.hasVisited = false
     self.active = false
 
-    -- 上下左右的房间
-    --self.up = nil
-    --self.down = nil
-    --self.left = nil
-    --self.right = nil
+    self.enemyBornPos = {UE.Vector3(-5,-5),UE.Vector3(-5,5),UE.Vector3(5,-5),UE.Vector3(5,5)}
 end
 
-function Room:Instantiate()
-    ResourceMgr:Instantiate(self.tileMap)
+-- 实例化
+function Room:Instantiate(parent,pos)
+    -- 实例化
+    self.gameObject = ResourceMgr:Instantiate(self.tileMap,parent,pos)
+    -- 绑定碰撞
+    self:Collision()
+    -- 返回实例对象
+    return self.gameObject
 end
 
-function Room:getPosition()
-    return self.position;
-end
-
-function Room:transformWallToDoor(direction)
-    if(direction == Room.Direction.up) then
-        -- 统一路宽5
-        for i = -2,2,1 do
-            local pos = UE.Vector3Int(i,self.width/2,0)
-            self.tileMap.setTile(pos,self.doorTileBase)
-        end
-    elseif(direction == Room.Direction.down) then
-        for i = -2,2,1 do
-            local pos = UE.Vector3Int(i,-self.width/2,0)
-            self.tileMap.setTile(pos,self.doorTileBase)
-        end
-    elseif(direction == Room.Direction.left) then
-        for i = -2,2,1 do
-            local pos = UE.Vector3Int(-self.length,i,0)
-            self.tileMap.setTile(pos,self.doorTileBase)
-        end
-    elseif(direction == Room.Direction.right) then
-        for i = -2,2,1 do
-            local pos = UE.Vector3Int(self.length,i,0)
-            self.tileMap.setTile(pos,self.doorTileBase)
+function Room:Collision()
+    local thisTable = self
+    if not self.collision then
+        self.collision = self.gameObject:AddComponent(typeof(CS.Collision))
+    end
+    self.collision.CollisionHandle = function(self, type, other)
+        if type == Enum_CollisionType.TriggerEnter2D then
+            if other.gameObject.layer == 9 then
+                print("enter room",thisTable.level,thisTable.type)
+                MC:SendMessage(Enum_MessageType.EnterRoom, require("KeyValue"):new(nil, thisTable))
+            end
+        elseif type == Enum_CollisionType.TriggerExit2D then
+            if other.gameObject.layer == 9 then
+                MC:SendMessage(Enum_MessageType.EnterRoom, require("KeyValue"):new(nil, thisTable))
+            end
         end
     end
 end

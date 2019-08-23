@@ -1,29 +1,20 @@
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
+local Enemy = require("Enemy_1")
 local Room = require("Room")
+local RoomData = require("RoomData")
+local MC = require("MessageCenter")
 
 local RoomManager = {}
 
 function RoomManager:Init()
-    -- 房间资源预加载
-    self.girdRoot = ResourceMgr:Load(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot)
-    self.road = ResourceMgr:Load(PathMgr.ResourcePath.Road,PathMgr.NamePath.Road)
-    self.tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
 
-    -- 关卡数
-    self.levelCount = 3
-    -- 房间之间的距离
+    -- 房间距离
     self.roomDistance = 40
 
-    -- 房间缓存池
-    self.roomTable = {}
-    for i = 1, self.levelCount do
-        self.roomTable[i]={}
-        -- 注意这里的SceneManager与SceneMgr不同
-        for j = 1, Room.RoomTypeCnt do
-            self.roomTable[i][j]= {}
-        end
-    end
+    -- 当前关卡，当前房间
+    self.currentLevel = nil
+    self.currentRoom = nil
 
     -- 房间地图记录
     self.roomMapSize = 20
@@ -35,37 +26,67 @@ function RoomManager:Init()
         end
     end
 
+    -- 主角、子弹、怪物缓存
+    self.hero = nil
+    self.enemies = {}
+
+    -- 添加监听
+    MC:AddListener(Enum_MessageType.EnterRoom,handler(self,self.AfterEnterRoom))
+
 end
 
 --生成地图，随机生成房间及连接通路
 --关卡、怪物房数量、商店房数量、宝箱房数量
-function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoomCnt)
+function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
 
-    -- 将房间放入缓存池
-    self:pushRoomsIntoTable()
+    -- 实例化网格和road的tileMap
+    self.girdRoot = ResourceMgr:GetGameObject(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot)
+    self.road = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Road,PathMgr.NamePath.Road,self.girdRoot.transform)
+    self.tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
 
     -- 时间种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
 
+    -- 将各房间加入房间随机池子
     local randomRoomTable = {}
-    for i = 1, monsterRoomCnt do
-        table.insert(randomRoomTable,self.roomTable[mapLevel][Room.RoomType.monster][i])
+    for i = 1, normalRoomCnt do
+        local id = math.random(1,#RoomData.Rooms[mapLevel][Enum_RoomType.normal])
+        local room_info = RoomData.Rooms[mapLevel][Enum_RoomType.normal][id]
+        local room = Room:new(room_info.path,room_info.name,mapLevel,Enum_RoomType.normal,room_info.length,room_info.width)
+        table.insert(randomRoomTable,room)
     end
     for i = 1, shopRoomCnt do
-        table.insert(randomRoomTable,self.roomTable[mapLevel][Room.RoomType.shop][i])
+        local id = math.random(1,#RoomData.Rooms[mapLevel][Enum_RoomType.shop])
+        local room_info = RoomData.Rooms[mapLevel][Enum_RoomType.shop][id]
+        local room = Room:new(room_info.path,room_info.name,mapLevel,Enum_RoomType.shop,room_info.length,room_info.width)
+        table.insert(randomRoomTable,room)
     end
     for i = 1, treasureRoomCnt do
-        table.insert(randomRoomTable,self.roomTable[mapLevel][Room.RoomType.treasure][i])
+        local id = math.random(1,#RoomData.Rooms[mapLevel][Enum_RoomType.treasure])
+        local room_info = RoomData.Rooms[mapLevel][Enum_RoomType.treasure][id]
+        local room = Room:new(room_info.path,room_info.name,mapLevel,Enum_RoomType.treasure,room_info.length,room_info.width)
+        table.insert(randomRoomTable,room)
     end
+
+    -- 起始房间设置于地图（0，0）
+    local id = math.random(1,#RoomData.Rooms[mapLevel][Enum_RoomType.born])
+    local room_info = RoomData.Rooms[mapLevel][Enum_RoomType.born][id]
+    self.roomMap[0][0] = Room:new(room_info.path,room_info.name,mapLevel,Enum_RoomType.born,room_info.length,room_info.width)
+    self.roomMap[0][0].positionX = 0
+    self.roomMap[0][0].positionY = 0
+
+    -- boss房间，注意这个room_boss后面会用到
+    id = math.random(1,#RoomData.Rooms[mapLevel][Enum_RoomType.boss])
+    room_info = RoomData.Rooms[mapLevel][Enum_RoomType.boss][id]
+    local room_boss = Room:new(room_info.path,room_info.name,mapLevel,Enum_RoomType.boss,room_info.length,room_info.width)
+
+    -- 记录当前关卡等级和房间
+    self.currentLevel = mapLevel
+    self.currentRoom = self.roomMap[0][0]
 
     -- 上下左右
     local DirectionX = {0,0,-1,1}
     local DirectionY = {1,-1,0,0}
-
-    -- 起始房间设置于地图（0，0）
-    self.roomMap[0][0] = self.roomTable[mapLevel][Room.RoomType.start][1]
-    self.roomMap[0][0].positionX = 0
-    self.roomMap[0][0].positionY = 0
 
     -- 随机生成地图算法
     local q = CS.System.Collections.Queue()
@@ -83,13 +104,13 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
                 break
             end
 
+            -- 这里的while服务于continue，并不是真正的循环，见末尾的break
             while true do
                 -- 下一个房间的相对坐标
                 local nextRoomPosX = currentRoomPosX + DirectionX[i]
                 local nextRoomPosY = currentRoomPosY + DirectionY[i]
 
                 -- 判断该方向是否有房间
-                --print(nextRoomPosX,nextRoomPosY)
                 if self.roomMap[nextRoomPosX][nextRoomPosY] ~= nil then
                     break   --continue
                 end
@@ -117,15 +138,14 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
                 -- 进队列
                 q:Enqueue(self.roomMap[nextRoomPosX][nextRoomPosY])
 
-                if nextRoom.type == Room.RoomType.boss then
+                if nextRoom.type == Enum_RoomType.boss then
                     break
                 end
 
                 -- 插入boss房
                 if #randomRoomTable == 0 then
-                    table.insert(randomRoomTable,self.roomTable[mapLevel][Room.RoomType.boss][1])
+                    table.insert(randomRoomTable,room_boss)
                 end
-
 
                 break   --这个break绝对不能漏
             end
@@ -160,12 +180,12 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
                     -- 进队列
                     q:Enqueue(self.roomMap[nextRoomPosX][nextRoomPosY])
 
-                    if nextRoom.type == Room.RoomType.boss then
+                    if nextRoom.type == Enum_RoomType.boss then
                         break
                     end
 
                     if #randomRoomTable == 0 then
-                        table.insert(randomRoomTable,self.roomTable[mapLevel][Room.RoomType.boss][1])
+                        table.insert(randomRoomTable,room_boss)
                     end
                     break
                 end
@@ -179,7 +199,6 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
 end
 
 function RoomManager:InstantiateRooms()
-    self.girdRoot = ResourceMgr:Instantiate(self.girdRoot)
 
     -- 上下左右
     local DirectionX = {0,0,-1,1}
@@ -203,8 +222,8 @@ function RoomManager:InstantiateRooms()
 
         --房间实例化
         local currentRoomPos = UE.Vector3(currentRoomPosX * self.roomDistance,currentRoomPosY * self.roomDistance,0)
-        local currentRoomIns = ResourceMgr:Instantiate(currentRoom.tileMap,self.girdRoot.transform,currentRoomPos)
-        --标记为已经访问
+        local currentRoomIns = currentRoom:Instantiate(self.girdRoot.transform,currentRoomPos)
+        --标记为已经访问，此处的已访问指生成地图过程，而非游戏中角色已经访问
         roomHasVisited[currentRoomPosX][currentRoomPosY] = true
 
         for i = 1, 4 do
@@ -235,12 +254,9 @@ function RoomManager:InstantiateRooms()
     end
 end
 
-
-
 --房间1，房间2，房间1方向（x，y）
 function RoomManager:InstantiateRoad(room1,room2,dx,dy)
 
-    self.road = ResourceMgr:Instantiate(self.road, self.girdRoot.transform)
     local roadTileMap = self.road:GetComponent(typeof(UE.Tilemaps.Tilemap))
     --
     if dx == 0 then
@@ -276,6 +292,64 @@ function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)
 
     local roomTileMap = roomIns:GetComponent(typeof(UE.Tilemaps.Tilemap))
 
+    local px = (room.length-1)/2 * dx
+    local py = (room.width-1)/2 * dy
+
+    if px == 0 then
+        for i = px-2,px+2 do
+            local p = UE.Vector3Int(i,py,0)
+            roomTileMap:SetTile(p,self.tileBase)
+        end
+    else
+        for i = py-2,py+2 do
+            local p = UE.Vector3Int(px,i,0)
+            roomTileMap:SetTile(p,self.tileBase)
+        end
+    end
+end
+
+function RoomManager:AfterEnterRoom(kv)
+    local room = kv.Value
+    self.currentRoom = room
+
+    print("hello, get the room",room.type,room.positionX,room.positionY)
+
+    --    -- 房间已经访问过
+    if room.hasVisited == true then
+        return
+    end
+    room.hasVisited = true
+    -- 房间不存在战斗
+    if not (room.type == Enum_RoomType.normal or room.type == Enum_RoomType.boss) then
+        return
+    end
+    -- 关门放狗
+    --self:CloseCurrentRoomsDoor()
+    self:CreateMonster()
+
+end
+
+-- n
+function RoomManager:AfterBattle()
+    self:CreateTreasure()
+    self:OpenCurrentRoomsDoor()
+end
+
+-- n
+function RoomManager:AfterEnemyDead()
+
+end
+
+function RoomManager:CloseCurrentRoomsDoor()
+    -- 上下左右
+    local DirectionX = {0,0,-1,1}
+    local DirectionY = {1,-1,0,0}
+
+    local room = self.currentRoom
+
+    for i = 1, 4 do
+
+    end
 
     local px = (room.length-1)/2 * dx
     local py = (room.width-1)/2 * dy
@@ -293,21 +367,37 @@ function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)
     end
 end
 
+-- n
+function RoomManager:CreateMonster()
+    local room = self.currentRoom
+    local roomPos = room.gameObject.transform.position
 
--- 该函数用于将所有的场景先放入table中
--- 但应该会很占内存？
--- 暂时用来测试
-function RoomManager:pushRoomsIntoTable()
-    -- tileMapPath,doorTileBasePath,level,type,length,width
-    -- 啊看着好难受
-    table.insert(self.roomTable[1][Room.RoomType.start],Room:new(PathMgr.ResourcePath.Room01, PathMgr.NamePath.Room01, 1, Room.RoomType.start, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.boss],Room:new(PathMgr.ResourcePath.Room02, PathMgr.NamePath.Room02, 1, Room.RoomType.boss, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room03, PathMgr.NamePath.Room03, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room04, PathMgr.NamePath.Room04, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room05, PathMgr.NamePath.Room05, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.monster],Room:new(PathMgr.ResourcePath.Room06, PathMgr.NamePath.Room06, 1, Room.RoomType.monster, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.shop],Room:new(PathMgr.ResourcePath.Room07, PathMgr.NamePath.Room07, 1, Room.RoomType.shop, 21, 21))
-    table.insert(self.roomTable[1][Room.RoomType.treasure],Room:new(PathMgr.ResourcePath.Room08, PathMgr.NamePath.Room08, 1, Room.RoomType.treasure, 21, 21))
+    for _,v in pairs(room.enemyBornPos) do
+        local enemyBornPos = roomPos + v
+        local enemy = Enemy:new(enemyBornPos)
+        table.insert(self.enemies,enemy)
+    end
+end
+
+-- n
+function RoomManager:CreateTreasure()
+
+end
+-- n
+function RoomManager:OpenCurrentRoomsDoor()
+
+end
+
+function RoomManager:GetHero()
+    return self.hero
+end
+
+function RoomManager:GetEnemy(go)
+    for _,v in pairs(self.enemies) do
+        if v.gameobject == go then
+            return v
+        end
+    end
 end
 
 RoomManager:Init()

@@ -44,7 +44,7 @@ Enum_DrawCountType = { single=1, ten=2, }
 --- 这里value的类型可以跟随c#里和lua里的KeyValue的key类型一起改变
 Enum_MessageType={ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login",
                   UserInfo="UserInfo",DrawSkin="DrawSkin", RefreshSkin="RefreshSkin", ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC",
-                  RefreshData="RefreshData", ChangeSkin="ChangeSkin",RefreshCurrency="RefreshCurrency",
+                  RefreshData="RefreshData", ChangeSkin="ChangeSkin",RefreshCurrency="RefreshCurrency", EnterRoom = "EnterRoom", LeaveRoom = "LeaveRoom",
 }
 
 --- 网络消息类型 格式为:index - Enum_MessageType
