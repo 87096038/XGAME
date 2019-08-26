@@ -71,22 +71,23 @@ Enum_ItemToolType= {AmysBow=1, Van=2, PangsSkateboardShoes=3, }
 --- 普通消息
 Enum_NormalMessageType={
     ChangeScene="ChangeScene", LateChangeScene="LateChangeScene", PickUp="PickUp", GameOver="GameOver", Login="Login", DrawSkin="DrawSkin",
-    ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC", ChangeSkin="ChangeSkin",
+    ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC", ChangeRole="ChangeRole", ChangeSkin="ChangeSkin",
     RefreshCurrency="RefreshCurrency", RefreshSkin="RefreshSkin", RefreshOuterThing="RefreshOuterThing", RefreshCharacterState="RefreshCharacterState",
     ChangeHeath = "ChangeHeath", ChangeArmor = "ChangeArmor", ChangeSpeed="ChangeSpeed", ChangeHeathCeiling="ChangeHeathCeiling", ChangeArmorCeiling = "ChangeArmorCeiling", ChangeSpeedCeiling="ChangeSpeedCeiling",
-    AddKeepBuff = "AddKeepBuff", RemoveKeepBuff = "RemoveKeepBuff",
+    AddKeepBuff = "AddKeepBuff", RemoveKeepBuff = "RemoveKeepBuff", Shoot="Shoot", ReloadBegin="ReloadBegin", ReloadEnd="ReloadEnd",
+    ChengeEffectMusicVolume="ChengeEffectMusicVolume", ChangeBGMVolume="ChangeBGMVolume",
 }
 
 --- 网络消息
 Enum_NetMessageType={
     Tick = "Net_Tick", Login="Net_Login", UserInfo="Net_UserInfo", DrawSkin="Net_DrawSkin", RefreshSkin="Net_RefreshSkin", RefreshCurrency="Net_RefreshCurrency",
-    ChangeRole = "Net_ChangeRole", ChangeSkin = "Net_ChangeSkin", BuyOuterThing="Net_BuyOuterThing", RefreshOuterThing="Net_RefreshOuterThing",
+    BuyOuterThing="Net_BuyOuterThing", RefreshOuterThing="Net_RefreshOuterThing", ChangeCurrentRoleAndSkin = "Net_ChangeCurrentRoleAndSkin",
 }
 
 --- 网络消息(index) 格式为:index - Enum_NetMessageType
 Enum_NetMessageType_Index={
     [1] = Enum_NetMessageType.Tick, [2] = Enum_NetMessageType.Login, [3] = Enum_NetMessageType.UserInfo,[4] = Enum_NetMessageType.DrawSkin, [5] = Enum_NetMessageType.RefreshSkin,
-    [6] = Enum_NetMessageType.RefreshCurrency, [7] = Enum_NetMessageType.BuyOuterThing, [8] = Enum_NetMessageType.RefreshOuterThing,
+    [6] = Enum_NetMessageType.RefreshCurrency, [7] = Enum_NetMessageType.BuyOuterThing, [8] = Enum_NetMessageType.RefreshOuterThing, [9] = Enum_NetMessageType.ChangeCurrentRoleAndSkin
 }
 -------------------------------------------消息Response---------------------------------------------
 --- 抽奖反馈

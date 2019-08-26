@@ -20,6 +20,8 @@ function TitleScene:InitScene()
     self.Button_Setting = self.UI_Title.transform:Find("Setting")
     self.Button_Exit = self.UI_Title.transform:Find("Exit")
 
+    self.setting = require("SettingDlg"):new()
+
     self.Button_Start:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(self.StartOnClick)
     self.Button_Setting:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(self.SettingOnClick)
     self.Button_Exit:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(self.ExitOnClick)

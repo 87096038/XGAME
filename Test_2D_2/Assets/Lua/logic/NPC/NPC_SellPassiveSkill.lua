@@ -165,9 +165,10 @@ function NPC_SellPassiveSkill:ShowInfoPnl(index)
     StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnl:GetComponent(typeof(UE.RectTransform))
-        local initPos = UE.Vector2(0, RectTrans.rect.y*2*(RectTrans.anchorMax.y/(RectTrans.anchorMax.y-RectTrans.anchorMin.y)))
-        while RectTrans.anchoredPosition ~= UE.Vector2.zero do
-            local position = UE.Vector2.Lerp(initPos, UE.Vector2.zero, time)
+        local InitPos = UE.Vector2(0, -RectTrans.rect.height/2)
+        local targetPos = UE.Vector2(0, RectTrans.rect.height/2+30)
+        while RectTrans.anchoredPosition ~= targetPos do
+            local position = UE.Vector2.Lerp(InitPos, targetPos, time)
             RectTrans.anchoredPosition = position
             time = time + self.lerpTime
             coroutine.yield(UE.WaitForSeconds(self.lerpTime/5))
@@ -179,9 +180,10 @@ function NPC_SellPassiveSkill:HideInfoPnl(index)
     StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnl:GetComponent(typeof(UE.RectTransform))
-        local targetPos = UE.Vector2(0, RectTrans.rect.y*2*(RectTrans.anchorMax.y/(RectTrans.anchorMax.y-RectTrans.anchorMin.y)))
+        local InitPos = UE.Vector2(0, RectTrans.rect.height/2+30)
+        local targetPos = UE.Vector2(0, -RectTrans.rect.height/2)
         while RectTrans.anchoredPosition ~= targetPos do
-            local position = UE.Vector2.Lerp(UE.Vector2.zero, targetPos, time)
+            local position = UE.Vector2.Lerp(InitPos, targetPos, time)
             RectTrans.anchoredPosition = position
             time = time + self.lerpTime
             coroutine.yield(UE.WaitForSeconds(self.lerpTime/5))

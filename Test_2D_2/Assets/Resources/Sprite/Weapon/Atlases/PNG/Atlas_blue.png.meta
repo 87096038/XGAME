@@ -6,10 +6,10 @@ TextureImporter:
     21300002: ammo_iso_blue
     21300004: armor_blue
     21300006: armor_iso_blue
-    21300008: blaster_blue
+    21300008: sniper_rifle_blue
     21300010: grenade_blue
     21300012: flamethrower_blue
-    21300014: gun_blue
+    21300014: pistol_blue
     21300016: missile_blue
     21300018: kit_blue
     21300020: knife_blue
@@ -17,7 +17,7 @@ TextureImporter:
     21300024: laser_blue
     21300026: med_iso_blue
     21300028: med_blue
-    21300030: machine_gun_blue
+    21300030: rifle_gun_blue
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -169,7 +169,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blaster_blue
+      name: sniper_rifle_blue
       rect:
         serializedVersion: 2
         x: 28
@@ -229,7 +229,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gun_blue
+      name: pistol_blue
       rect:
         serializedVersion: 2
         x: 1160
@@ -389,7 +389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: machine_gun_blue
+      name: rifle_gun_blue
       rect:
         serializedVersion: 2
         x: 579
@@ -411,7 +411,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 805ea1626c7da4d20ac884c4045cbfd4
     vertices: []
     indices: 
     edges: []

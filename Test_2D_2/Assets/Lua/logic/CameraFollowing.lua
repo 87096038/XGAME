@@ -1,6 +1,8 @@
-﻿local Timer = require("Timer")
-local CameraFollowing={}
+﻿
+local Timer = require("Timer")
 local PathMgr = require("PathManager")
+
+local CameraFollowing={}
 function CameraFollowing:Init()
 
     ---要跟随的物体的transform

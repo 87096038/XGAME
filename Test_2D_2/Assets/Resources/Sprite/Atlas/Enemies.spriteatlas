@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemies
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300002, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300004, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300006, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300008, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300010, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300012, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300014, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    - {fileID: 21300016, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+    totalSpriteSurfaceArea: 25232
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300010, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300008, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300014, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300012, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300002, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300000, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300006, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300004, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  - {fileID: 21300016, guid: ff3711a62b39140c8a0ea0d2394f7816, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Enemy_4_5
+  - Enemy_4_4
+  - Enemy_4_7
+  - Enemy_4_6
+  - Enemy_4_1
+  - Enemy_4_0
+  - Enemy_4_3
+  - Enemy_4_2
+  - Enemy_4_8
+  m_Tag: Enemies
+  m_IsVariant: 0

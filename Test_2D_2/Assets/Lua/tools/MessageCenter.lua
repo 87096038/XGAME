@@ -55,11 +55,16 @@ function MessageCenter:RemoveMessageType(messageType)
 end
 
 function MessageCenter:SendMessage(messageType, kv)
+    --- 缓存，用于解决循环中改变循环数组，从而出Bug的问题
+    local ListenerCache = {}
     if self.ListenerMap[messageType] ~= nil then
         for _, v in ipairs(self.ListenerMap[messageType])do
             if v then
-                v(kv)
+                table.insert(ListenerCache, v)
             end
+        end
+        for _, v in ipairs(ListenerCache) do
+            v(kv)
         end
     else
         print("Fail to send message: no one receive message type: "..messageType)

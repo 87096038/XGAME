@@ -74,6 +74,16 @@ function NetHelper:SendRefreshOuterThing(info)
     local data={info = info or "require"}
     Net:TCPSendMessage(8, data)
 end
+function NetHelper:SendChangeCurrentRoleAndSkin(role, skin)
+    if not role then
+        role = require("UserInfoData").currentRole
+    end
+    if not skin then
+        skin = require("UserInfoData").currentSkin
+    end
+    local data={role=role, skin=skin}
+    Net:TCPSendMessage(9, data)
+end
 
 ----------------消息回调---------------
 function NetHelper:OnTick()

@@ -7,8 +7,7 @@ local Timer = require("Timer")
 local Base = Class("Base")
 
 function Base:cotr()
-    self.MessageListenerMap={}
-    self.updateFunc = nil
+
 end
 
 --[[
@@ -16,6 +15,9 @@ end
 --]]
 -----------------事件监听-----------------
 function Base:AddMessageListener(messageType, handler)
+    if not self.MessageListenerMap then
+        self.MessageListenerMap={}
+    end
     self.MessageListenerMap[messageType] = handler
     MC:AddListener(messageType, handler)
 end
@@ -39,12 +41,16 @@ function Base:SetUpdateFunc(func)
     Timer:AddUpdateFuc(self, func)
 end
 
-------------销毁实例时必须调用该函数-----------
-function Base:Destroy()
-    self:DestroyAllMessageListener()
+function Base:RemoveUpdateFunc()
     if self.updateFunc then
         Timer:RemoveUpdateFuc(self.updateFunc)
     end
+end
+
+------------销毁实例时必须调用该函数-----------
+function Base:Destroy()
+    self:DestroyAllMessageListener()
+    self:RemoveUpdateFunc()
 end
 
 return Base

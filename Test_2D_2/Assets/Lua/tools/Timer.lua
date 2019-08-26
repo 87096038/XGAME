@@ -35,13 +35,11 @@ function Timer:AddUpdateFuc(table, func)
 end
 
 function Timer:RemoveUpdateFuc(fuc)
-    print("remove")
     if type(fuc) ~= "function" then
         return
     end
     for k, v in pairs(self.UpdateFucs) do
         if v == fuc then
-            print(v)
             self.UpdateFucs[k] = nil
             return
         end

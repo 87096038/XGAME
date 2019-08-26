@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using UnityEngine.Assertions.Must;
+using UnityEngine.EventSystems; 
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
@@ -75,12 +76,15 @@ public class Main : MonoBehaviour
         //SpriteAtlas sa = Resources.Load<SpriteAtlas>("Sprite/Icons");
         //img.sprite = sa.GetSprite("Icon_Gold");
         Slider a;
-        
+        EventTrigger b;
+        SpriteRenderer d;
+        EventTriggerType t;
+
+        //UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
         ////Sprite m = Sprite.Create(a, Rect.zero, Vector2.zero);
         //SpriteAtlas s;
         //s.GetSprite()
-        GameObject m;
-        
+
         //img.sprite = a;
         //img.sprite = null;
         //Debug.Log(a.GetType());

@@ -11,14 +11,22 @@ function PathManager:Init()
             ---------------------------Prefabs-------------------------------------
             Bullet_1="assetbundles/prefabs/bullet_1.ab",
             Character_1="assetbundles/prefabs/character.ab",
-            Normal_Rifle="assetbundles/prefabs/gun/normal_rifle.ab",
-            Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
-            Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
+
+            Trivial_Thing_Bullet_Box="assetbundles/prefabs/trivialthings/bulletbox.ab",
+            Trivial_Thing_Gold="assetbundles/prefabs/trivialthings/gold.ab",
+            -------Guns-----------------
+            Gun_Normal_Rifle="assetbundles/prefabs/gun/normal_rifle.ab",
+            Gun_Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
+            Gun_Normal_Pistol="assetbundles/prefabs/gun/normal_pistol.ab",
+
             Portal = "assetbundles/prefabs/portal.ab",
 
             Item_NormalClothes = "assetbundles/prefabs/equipments/normalclothes.ab",
+
+            Icon_LightBullet = "assetbundles/prefabs/bullets/icon_lightbullet.ab",
             -----UI-----
             UI_MessageBox="assetbundles/prefabs/ui/ui_messagebox.ab",
+            UI_Setting="assetbundles/prefabs/ui/ui_setting.ab",
 
             UI_Begin_Imgs="assetbundles/prefabs/ui/begin/beginimgs.ab",
             UI_HotUpdate="assetbundles/prefabs/ui/begin/ui_hotupdate.ab",
@@ -41,6 +49,7 @@ function PathManager:Init()
             UI_ItemInfo = "assetbundles/prefabs/ui/battle/ui_iteminfo.ab",
             UI_WeaponInfo = "assetbundles/prefabs/ui/battle/ui_weaponinfo.ab",
             UI_EquipmentInfo = "assetbundles/prefabs/ui/battle/ui_equipmentinfo.ab",
+            UI_ItemsContainer = "assetbundles/prefabs/ui/battle/ui_itemscontainer.ab",
 
             UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
             --------Tiles----------
@@ -69,21 +78,36 @@ function PathManager:Init()
             Sprite_Role_1_Skin_2="assetbundles/sprite/characters/mrclock.ab",
             Sprite_Cursor_1 = "assetbundles/sprite/cursor_1.ab",
             ---------SpriteAtlas----------
-            SpriteAtlas_Icons = "assetbundles/sprite/icons.ab",
+            SpriteAtlas_Icons = "assetbundles/atlas/common.ab",
+
+            ----------Audio--------------
+            Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
+
+            Audio_Shoot_ES="assetbundles/audio/shoot.ab",
+            Audio_ReloadAmmo_Es="assetbundles/audio/reloadammo.ab",
         }
     else
         self.ResourcePath={
             ---------------------------Prefabs-------------------------------------
             Bullet_1="Prefabs/Bullet_1",
             Character_1="Prefabs/Character",
-            Normal_Rifle="Prefabs/Gun/Normal_Rifle",
-            Normal_Sniper_Rifle="Prefabs/Gun/Normal_Sniper_Rifle",
-            Audio_Title_BGM="Audio/Audio_Title_BGM",
+
+            Trivial_Thing_Bullet_Box="Prefabs/TrivialThings/BulletBox",
+            Trivial_Thing_Gold="Prefabs/TrivialThings/Gold",
+
+            -------Guns-----------------
+            Gun_Normal_Pistol="Prefabs/Gun/Normal_Pistol",
+            Gun_Normal_Rifle="Prefabs/Gun/Normal_Rifle",
+            Gun_Normal_Sniper_Rifle="Prefabs/Gun/Normal_Sniper_Rifle",
+
             Portal = "Prefabs/Portal",
 
             Item_NormalClothes = "Prefabs/Equipments/NormalClothes",
+
+            Icon_LightBullet = "Prefabs/Bullets/Icon_LightBullet",
             -----UI-----
             UI_MessageBox="Prefabs/UI/UI_MessageBox",
+            UI_Setting="Prefabs/UI/UI_Setting",
 
             UI_Begin_Imgs="Prefabs/UI/Begin/BeginImgs",
             UI_HotUpdate="Prefabs/UI/Begin/UI_HotUpdate",
@@ -106,6 +130,7 @@ function PathManager:Init()
             UI_ItemInfo = "Prefabs/UI/Battle/UI_ItemInfo",
             UI_WeaponInfo = "Prefabs/UI/Battle/UI_WeaponInfo",
             UI_EquipmentInfo = "Prefabs/UI/Battle/UI_EquipmentInfo",
+            UI_ItemsContainer = "Prefabs/UI/Battle/UI_ItemsContainer",
 
             UI_Loading = "Prefabs/UI/Loading/UI_Loading",
             --------Tiles----------
@@ -135,7 +160,14 @@ function PathManager:Init()
 
             Sprite_Cursor_1 = "Sprite/Cursor_1",
             ---------SpriteAtlas----------
-            SpriteAtlas_Icons = "Sprite/Icons",
+            SpriteAtlas_Icons = "Sprite/Atlas/Common",
+
+            ----------Audio--------------
+            Audio_Title_BGM="Audio/Audio_Title_BGM",
+
+            Audio_Shoot_ES="Audio/Shoot",
+            Audio_ReloadAmmo_Es="Audio/ReloadAmmo",
+
         }
     end
 
@@ -145,14 +177,22 @@ function PathManager:Init()
             ---------------------------Prefabs-------------------------------------
             Bullet_1="bullet_1",
             Character_1="character",
-            Normal_Rifle="normal_rifle",
-            Normal_Sniper_Rifle="normal_sniper_rifle",
-            Audio_Title_BGM="audio_title_bgm",
+
+            Trivial_Thing_Bullet_Box="bulletbox",
+            Trivial_Thing_Gold="gold",
+            -------Guns-----------------
+            Gun_Normal_Rifle="normal_rifle",
+            Gun_Normal_Sniper_Rifle="normal_sniper_rifle",
+            Gun_Normal_Pistol="normal_pistol",
+
             Portal = "portal",
 
             Item_NormalClothes = "normalclothes",
+
+            Icon_LightBullet = "icon_lightbullet",
             -----UI-----
             UI_MessageBox="ui_messagebox",
+            UI_Setting="ui_setting",
 
             UI_Begin_Imgs="beginimgs",
             UI_HotUpdate="ui_hotupdate",
@@ -175,6 +215,7 @@ function PathManager:Init()
             UI_ItemInfo = "ui_iteminfo",
             UI_WeaponInfo = "ui_weaponinfo",
             UI_EquipmentInfo = "ui_equipmentinfo",
+            UI_ItemsContainer = "ui_itemscontainer",
 
             UI_Loading = "ui_loading",
             --------Tiles----------
@@ -203,7 +244,13 @@ function PathManager:Init()
             Sprite_Role_1_Skin_2="mrclock",
             Sprite_Cursor_1 = "cursor_1",
             ---------SpriteAtlas----------
-            SpriteAtlas_Icons = "icons",
+            SpriteAtlas_Icons = "common",
+
+            ----------Audio--------------
+            Audio_Title_BGM="audio_title_bgm",
+
+            Audio_Shoot_ES="shoot",
+            Audio_ReloadAmmo_Es="reloadammo",
         }
     else
         self.NamePath={

@@ -8,6 +8,7 @@ local Timer = require("Timer")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local MC = require("MessageCenter")
+local RoomMgr = require("RoomManager")
 
 local character_base = require("character_base")
 local Character=Class("Character", character_base)
@@ -31,10 +32,12 @@ function Character:cotr()
     ------------设置成员变量--------------
     self.currentRole = RoleData.Roles[UserData.currentRole.type]
     self.currentSkin = SkinData.Skins[UserData.currentSkin.roleType][UserData.currentSkin.index]
+    self.roleName = UserData.currentRole.name
 
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
     self.animatior = self.gameobject:GetComponent("Animator")
+    self.animatior.runtimeAnimatorController = ResourceMgr:Load(self.currentSkin.animationResourcePath, self.currentSkin.animationResourceName)
 
     -----------状态数据----------
     self.state = require("CharacterState"):new()
@@ -181,11 +184,17 @@ function Character:OnCollision(type, other)
     if type == Enum_CollisionType.TriggerEnter2D then
         --- 武器的layer
         if other.gameObject.layer ==  12 then
-            MC:SendMessage(Enum_NormalMessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
+            MC:SendMessage(Enum_NormalMessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.weapon, RoomMgr:GetWeapon(other.gameObject)))
+        --- 装备的layer
+        elseif other.gameObject.layer == 13 then
+            MC:SendMessage(Enum_NormalMessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.equipment, RoomMgr:GetEquipment(other.gameObject)))
         end
     elseif type == Enum_CollisionType.TriggerExit2D then
         if other.gameObject.layer ==  12 then
-            MC:SendMessage(Enum_NormalMessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.weapon, other.gameobject))
+            MC:SendMessage(Enum_NormalMessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.weapon,  RoomMgr:GetWeapon(other.gameObject)))
+            --- 装备的layer
+        elseif other.gameObject.layer == 13 then
+            MC:SendMessage(Enum_NormalMessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.equipment, RoomMgr:GetEquipment(other.gameObject)))
         end
     end
 end
@@ -280,7 +289,7 @@ end
 
 function Character:OnChangeScene(kv)
     if self.calcBuffPerSecond then
-        StartCoroutine(self.calcBuffPerSecond)
+        StopCoroutine(self.calcBuffPerSecond)
     end
     self:Destroy()
 end
