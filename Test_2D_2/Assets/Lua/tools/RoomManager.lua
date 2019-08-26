@@ -35,6 +35,21 @@ function RoomManager:Init()
 
 end
 
+function RoomManager:GetEquipment(go)
+    for _, v in pairs(self.equipmnets) do
+        if v.gameobject == go then
+            return v
+        end
+    end
+    return nil
+end
+function RoomManager:GetWeapon(go)
+    for _, v in pairs(self.Weapons) do
+        if v.gameobject == go then
+            return v
+        end
+    end
+end
 --生成地图，随机生成房间及连接通路
 --关卡、怪物房数量、商店房数量、宝箱房数量
 function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
@@ -199,6 +214,9 @@ function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoom
 
     -- 实例化所有房间（和道路）
     self:InstantiateRooms()
+    self.equipmnets = {require("ThingsFactory"):GetThing(70001, UE.Vector3(2, 1, 0))}
+    self.Weapons={require("ThingsFactory"):GetThing(60004, UE.Vector3(-2, 1, 0)),
+                  require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0))}
 end
 
 function RoomManager:InstantiateRooms()

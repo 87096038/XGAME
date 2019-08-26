@@ -31,6 +31,7 @@ function DrawSkinDlg:cotr()
 
     -------------注册监听----------
     self:AddMessageListener(Enum_NormalMessageType.DrawSkin, handler(self, self.OnDrawSkin))
+    self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 end
 
 --- 抽皮肤
@@ -54,11 +55,6 @@ function DrawSkinDlg:Hide()
     end
 end
 
-function DrawSkinDlg:Destroy()
-    self.super:Destroy()
-
-end
-
 function DrawSkinDlg:OnDrawSkin(kv)
     if kv.Value then
         self.waiPnlObj:SetActive(false)
@@ -80,5 +76,7 @@ function DrawSkinDlg:OnDrawSkin(kv)
     end
     self.Draw_btn.interactable = true
 end
-
+function DrawSkinDlg:OnChangeScene()
+    self:Destroy()
+end
 return DrawSkinDlg

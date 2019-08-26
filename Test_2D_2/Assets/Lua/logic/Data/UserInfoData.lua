@@ -39,6 +39,7 @@ function UserInfoData:Init()
     MC:AddListener(Enum_NetMessageType.UserInfo, handler(self, self.OnUserInfo))
     MC:AddListener(Enum_NetMessageType.BuyOuterThing, handler(self, self.OnBuyOuterThing))
     MC:AddListener(Enum_NetMessageType.RefreshOuterThing, handler(self, self.OnRefreshOuterThing))
+    MC:AddListener(Enum_NetMessageType.ChangeCurrentRoleAndSkin, handler(self, self.OnChangeCurrentRoleAndSkin))
 
 end
 
@@ -114,6 +115,17 @@ function UserInfoData:OnRefreshOuterThing(kv)
     self.UnlockedPassiveSkills = kv.Value.UnlockedPassiveSkills or {}
     self.LockedPassiveSkills = kv.Value.LockedPassiveSkills or {}
     MC:SendMessage(Enum_NormalMessageType.RefreshOuterThing, nil)
+end
+
+function UserInfoData:OnChangeCurrentRoleAndSkin(kv)
+    if kv.Value.role.type ~= self.currentRole.type then
+        self.currentRole = kv.Value.role
+        MC:SendMessage(Enum_NormalMessageType.ChangeRole,require("KeyValue"):new(nil, kv.Value.role))
+    end
+    if kv.Value.skin.roleType ~= self.currentSkin.roleType or kv.Value.skin.index ~= self.currentSkin.index then
+        self.currentSkin = kv.Value.skin
+        MC:SendMessage(Enum_NormalMessageType.ChangeSkin,require("KeyValue"):new(self.currentSkin.roleType, self.currentSkin.index))
+    end
 end
 
 UserInfoData:Init()

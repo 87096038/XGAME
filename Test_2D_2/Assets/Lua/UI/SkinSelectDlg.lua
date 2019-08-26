@@ -67,7 +67,10 @@ function SkinSelectDlg:OnRefreshSkin(kv)
         local btn = self.Role_1_AllSkin[v.index]:GetComponent(typeof(UE.UI.Button))
         btn.onClick:RemoveAllListeners()
         btn.onClick:AddListener(function ()
-            MC:SendMessage(Enum_NormalMessageType.ChangeSkin,require("KeyValue"):new(v.roleType, v.index))
+            if v.roleType == userData.currentSkin.roleType and v.index == userData.currentSkin.index then
+                return
+            end
+            NetHelper:SendChangeCurrentRoleAndSkin(nil, v)
         end)
         btn.interactable = true
     end

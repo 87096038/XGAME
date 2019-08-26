@@ -11,40 +11,8 @@ local protoc = require('protoc')
 
 NetManager = {}
 
-protoc:loadfile("Assets/lua/protocol/Protocol.proto")
+protoc:loadfile("Assets/Resources/protocol/Protocol.proto")
 
---local data={
---    userName="hahaha",
---    password="123456"
---}
---assert(protoc:load [[
---        message Phone {
---            optional string name        = 1;
---            optional int64  phonenumber = 2;
---        }
---        message Person {
---            optional string name     = 1;
---            optional int32  age      = 2;
---            optional string address  = 3;
---            repeated Phone  contacts = 4;
---        } ]])
---local data = {
---    name = 'ilse',
---    age  = 18,
---    contacts = {
---        { name = 'alice', phonenumber = 12312341234 },
---        { name = 'bob',   phonenumber = 45645674567 }
---    }
---}
-
---local bytes = pb.encode('User', data)
---print(bytes)
---print(pb.tohex(bytes))
---local data2 = pb.decode('User', bytes)
---print(data2.userName)
---print(data2.password)
-
----以上为测试代码
 --[[
 本来想用lua的os.execute写文件夹相关，谁料os.execute为nil ？？？所以本lua代码用的是CS.System.IO.Directory
 if not self:FileExists(Path) then

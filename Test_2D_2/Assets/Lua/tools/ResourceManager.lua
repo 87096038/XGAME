@@ -26,6 +26,9 @@ function ResourceManager:Init()
     ---初始化manifest
     self.manifest = self:InitManifest()
 
+    --local localFile = io.open(self.localResourcePath.."/version.txt", "r")
+
+
     ---因为这些监听会持续到游戏关闭，所以没有remove
     MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
     MC:AddListener(Enum_NormalMessageType.LateChangeScene ,handler(self, self.OnLateChangeScene))

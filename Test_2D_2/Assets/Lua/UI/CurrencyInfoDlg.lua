@@ -22,6 +22,7 @@ function CurrencyInfoDlg:cotr()
     self.soulShardText.text =  self.soulShardCount
     -----------添加监听-----------
     self:AddMessageListener(Enum_NormalMessageType.RefreshCurrency, handler(self, self.OnRefreshCurrency))
+    self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 end
 
 function CurrencyInfoDlg:ChangeDiamond(value)
@@ -65,6 +66,10 @@ function CurrencyInfoDlg:OnRefreshCurrency(kv)
     if UserInfoData.soulShardCount ~= self.soulShardCount then
         self:ChangeSoulShard((UserInfoData.soulShardCount or 0) - self.soulShardCount)
     end
+end
+
+function CurrencyInfoDlg:OnChangeScene()
+    self:Destroy()
 end
 
 return CurrencyInfoDlg

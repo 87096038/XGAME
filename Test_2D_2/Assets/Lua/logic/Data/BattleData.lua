@@ -7,7 +7,6 @@ local BattleData={}
 
 function BattleData:Init()
     self.currentBattle=nil
-
 end
 
 BattleData:Init()
