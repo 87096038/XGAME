@@ -28,7 +28,8 @@ function BeginScene:InitScene()
     if IS_ONLINE_MODE then
         --local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
         --StartCoroutine(self.BeginImgFade, self, beginImgs.transform, nil, nil, nil, handler(self, self.HotUpdateStart) )
-        self:HotUpdateStart()
+        NetHelper:TCPConnect()
+        self:Login()
     else
         self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
         self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))
@@ -109,7 +110,7 @@ function BeginScene:ReLoadModule()
 end
 
 function BeginScene:Login()
-    self.hotUpdateStateText.text = "登陆中...."
+    --self.hotUpdateStateText.text = "登陆中...."
     if not self.login then
         self.login = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_LoginPnl, PathMgr.NamePath.UI_LoginPnl, Main.UIRoot.transform)
     else
@@ -158,7 +159,7 @@ end
 function BeginScene:OnLogin(kv)
     if kv.Value then
         if kv.Value.response then
-            self.hotUpdateStateText.text = "点击进入游戏"
+            --self.hotUpdateStateText.text = "点击进入游戏"
             MC:RemoveListener(Enum_NormalMessageType.Login, handler(self, self.OnLogin))
             Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
         else

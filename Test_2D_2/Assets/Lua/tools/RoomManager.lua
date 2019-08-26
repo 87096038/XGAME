@@ -27,7 +27,7 @@ function RoomManager:Init()
     end
 
     -- 主角、子弹、怪物缓存
-    self.hero = nil
+    self.character = nil
     self.enemies = {}
 
     -- 添加监听
@@ -42,7 +42,10 @@ function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoom
     -- 实例化网格和road的tileMap
     self.girdRoot = ResourceMgr:GetGameObject(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot)
     self.road = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Road,PathMgr.NamePath.Road,self.girdRoot.transform)
+
     self.tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
+    self.tileWall = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Wall,PathMgr.NamePath.Tile_Wall)
+    print("tilewall",self.tileWall)
 
     -- 时间种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
@@ -236,7 +239,7 @@ function RoomManager:InstantiateRooms()
                     break
                 end
                 -- 打墙，这里要传实例化后的房间
-                self:replaceRoomsWall(currentRoom,currentRoomIns,DirectionX[i],DirectionY[i])
+                self:replaceRoomsWall(currentRoom,currentRoomIns,DirectionX[i],DirectionY[i],self.tileBase)
 
                 -- 判断该房间是否访问过，如果没有就进队列
                 if roomHasVisited[nextRoomPosX][nextRoomPosY] then
@@ -265,8 +268,15 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
 
         local px_2 = room2.positionX * self.roomDistance
         local py_2 = room2.positionY * self.roomDistance - (room2.width-1)/2 * dy - dy
-
-        for i = px_1 - 2, px_1 + 2 do
+        -- 墙
+        for i = py_1, py_2, dy do
+            local p1 = UE.Vector3Int(px_1-2,i,0)
+            roadTileMap:SetTile(p1,self.tileWall)
+            local p2 = UE.Vector3Int(px_1+2,i,0)
+            roadTileMap:SetTile(p2,self.tileWall)
+        end
+        -- 路
+        for i = px_1 - 1, px_1 + 1 do
             for j = py_1, py_2, dy do
                 local p = UE.Vector3Int(i,j,0)
                 roadTileMap:SetTile(p,self.tileBase)
@@ -278,9 +288,16 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
 
         local px_2 = room2.positionX * self.roomDistance - (room2.length-1)/2 * dx
         local py_2 = room2.positionY * self.roomDistance
-
+        -- 墙
         for i = px_1, px_2, dx do
-            for j = py_1-2,py_1+2 do
+            local p1 = UE.Vector3Int(i,py_1-2,0)
+            roadTileMap:SetTile(p1,self.tileWall)
+            local p2 = UE.Vector3Int(i,py_1+2,0)
+            roadTileMap:SetTile(p2,self.tileWall)
+        end
+        -- 路
+        for i = px_1, px_2, dx do
+            for j = py_1-1,py_1+1 do
                 local p = UE.Vector3Int(i,j,0)
                 roadTileMap:SetTile(p,self.tileBase)
             end
@@ -288,7 +305,7 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
     end
 end
 
-function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)
+function RoomManager:replaceRoomsWall(room,roomIns,dx,dy,tile)
 
     local roomTileMap = roomIns:GetComponent(typeof(UE.Tilemaps.Tilemap))
 
@@ -298,12 +315,12 @@ function RoomManager:replaceRoomsWall(room,roomIns,dx,dy)
     if px == 0 then
         for i = px-2,px+2 do
             local p = UE.Vector3Int(i,py,0)
-            roomTileMap:SetTile(p,self.tileBase)
+            roomTileMap:SetTile(p,tile)
         end
     else
         for i = py-2,py+2 do
             local p = UE.Vector3Int(px,i,0)
-            roomTileMap:SetTile(p,self.tileBase)
+            roomTileMap:SetTile(p,tile)
         end
     end
 end
@@ -324,7 +341,7 @@ function RoomManager:AfterEnterRoom(kv)
         return
     end
     -- 关门放狗
-    --self:CloseCurrentRoomsDoor()
+    self:CloseCurrentRoomsDoor()
     self:CreateMonster()
 
 end
@@ -346,25 +363,18 @@ function RoomManager:CloseCurrentRoomsDoor()
     local DirectionY = {1,-1,0,0}
 
     local room = self.currentRoom
+    local currentRoomPosX = room.positionX
+    local currentRoomPosY = room.positionY
 
     for i = 1, 4 do
+        local nextRoomPosX = currentRoomPosX + DirectionX[i]
+        local nextRoomPosY = currentRoomPosY + DirectionY[i]
 
-    end
-
-    local px = (room.length-1)/2 * dx
-    local py = (room.width-1)/2 * dy
-
-    if px == 0 then
-        for i = px-2,px+2 do
-            local p = UE.Vector3Int(i,py,0)
-            roomTileMap:SetTile(p,self.tileBase)
-        end
-    else
-        for i = py-2,py+2 do
-            local p = UE.Vector3Int(px,i,0)
-            roomTileMap:SetTile(p,self.tileBase)
+        if self.roomMap[nextRoomPosX][nextRoomPosY] ~= nil then
+            self:replaceRoomsWall(room,room.gameObject,DirectionX[i],DirectionY[i],self.tileWall)
         end
     end
+
 end
 
 -- n
@@ -388,8 +398,12 @@ function RoomManager:OpenCurrentRoomsDoor()
 
 end
 
-function RoomManager:GetHero()
-    return self.hero
+function RoomManager:SetCharacter(character)
+    self.character = character
+end
+
+function RoomManager:GetCharacter()
+    return self.character
 end
 
 function RoomManager:GetEnemy(go)
@@ -398,6 +412,18 @@ function RoomManager:GetEnemy(go)
             return v
         end
     end
+end
+
+function RoomManager:GetWeapon(go)
+
+end
+
+function RoomManager:GetEquipment(go)
+
+end
+
+function RoomManager:GetItem(go)
+
 end
 
 RoomManager:Init()

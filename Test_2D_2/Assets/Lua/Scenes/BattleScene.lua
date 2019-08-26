@@ -13,6 +13,7 @@ function BeattleScene:InitScene()
     local battle = require("Battle"):new(Character)
     battle:AddWeapon(Normal_pistol)
     Camera:BeginFollow(Character.gameobject.transform)
+    require("RoomManager"):SetCharacter(Character)
     require("RoomManager"):CreateRooms(1,3,1,1)
     Character:Start()
 end
