@@ -11,6 +11,7 @@ function PathManager:Init()
             ---------------------------Prefabs-------------------------------------
             Bullet_1="assetbundles/prefabs/bullet_1.ab",
             Character_1="assetbundles/prefabs/character.ab",
+            Enemy_1 = "assetbundles/prefabs/enemy_1.ab",
 
             Trivial_Thing_Bullet_Box="assetbundles/prefabs/trivialthings/bulletbox.ab",
             Trivial_Thing_Gold="assetbundles/prefabs/trivialthings/gold.ab",
@@ -54,6 +55,7 @@ function PathManager:Init()
             UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
             --------Tiles----------
             Tile_Base = "assetbundles/sprite/tiles/floorbrickstograsscorner_0.ab",
+            Tile_Wall = "assetbundles/sprite/tiles/floorbrickstograsscorner_2.ab",
             Room01 = "assetbundles/prefabs/rooms/room01.ab",
             Room02 = "assetbundles/prefabs/rooms/room02.ab",
             Room03 = "assetbundles/prefabs/rooms/room03.ab",
@@ -91,6 +93,7 @@ function PathManager:Init()
             ---------------------------Prefabs-------------------------------------
             Bullet_1="Prefabs/Bullet_1",
             Character_1="Prefabs/Character",
+            Enemy_1 = "Prefabs/Enemy_1",
 
             Trivial_Thing_Bullet_Box="Prefabs/TrivialThings/BulletBox",
             Trivial_Thing_Gold="Prefabs/TrivialThings/Gold",
@@ -135,6 +138,7 @@ function PathManager:Init()
             UI_Loading = "Prefabs/UI/Loading/UI_Loading",
             --------Tiles----------
             Tile_Base = "Sprite/Tiles/FloorBricksToGrassCorner_0",
+            Tile_Wall = "Sprite/Tiles/FloorBricksToGrassCorner_2",
             Room01 = "Prefabs/Rooms/Room01",
             Room02 = "Prefabs/Rooms/Room02",
             Room03 = "Prefabs/Rooms/Room03",
@@ -177,6 +181,7 @@ function PathManager:Init()
             ---------------------------Prefabs-------------------------------------
             Bullet_1="bullet_1",
             Character_1="character",
+            Enemy_1 = "enemy_1",
 
             Trivial_Thing_Bullet_Box="bulletbox",
             Trivial_Thing_Gold="gold",
@@ -220,6 +225,7 @@ function PathManager:Init()
             UI_Loading = "ui_loading",
             --------Tiles----------
             Tile_Base = "floorbrickstograsscorner_0",
+            Tile_Wall = "floorbrickstograsscorner_2",
             Room01 = "room01",
             Room02 = "room02",
             Room03 = "room03",

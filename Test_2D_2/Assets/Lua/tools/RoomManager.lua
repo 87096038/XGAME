@@ -32,24 +32,10 @@ function RoomManager:Init()
 
     -- 添加监听
     MC:AddListener(Enum_NormalMessageType.EnterRoom,handler(self,self.AfterEnterRoom))
+    MC:AddListener(Enum_NormalMessageType.EnemyDead,handler(self,self.AfterEnemyDead))
 
 end
 
-function RoomManager:GetEquipment(go)
-    for _, v in pairs(self.equipmnets) do
-        if v.gameobject == go then
-            return v
-        end
-    end
-    return nil
-end
-function RoomManager:GetWeapon(go)
-    for _, v in pairs(self.Weapons) do
-        if v.gameobject == go then
-            return v
-        end
-    end
-end
 --生成地图，随机生成房间及连接通路
 --关卡、怪物房数量、商店房数量、宝箱房数量
 function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
@@ -219,6 +205,7 @@ function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoom
                   require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0))}
 end
 
+-- 实例化所有房间
 function RoomManager:InstantiateRooms()
 
     -- 上下左右
@@ -275,7 +262,7 @@ function RoomManager:InstantiateRooms()
     end
 end
 
---房间1，房间2，房间1方向（x，y）
+-- 将道路实例化，参数为房间1，房间2，房间1方向（x，y）
 function RoomManager:InstantiateRoad(room1,room2,dx,dy)
 
     local roadTileMap = self.road:GetComponent(typeof(UE.Tilemaps.Tilemap))
@@ -323,6 +310,7 @@ function RoomManager:InstantiateRoad(room1,room2,dx,dy)
     end
 end
 
+-- 替换房间的墙壁/门
 function RoomManager:replaceRoomsWall(room,roomIns,dx,dy,tile)
 
     local roomTileMap = roomIns:GetComponent(typeof(UE.Tilemaps.Tilemap))
@@ -343,6 +331,7 @@ function RoomManager:replaceRoomsWall(room,roomIns,dx,dy,tile)
     end
 end
 
+-- 在进入房间门后触发的事件
 function RoomManager:AfterEnterRoom(kv)
     local room = kv.Value
     self.currentRoom = room
@@ -364,17 +353,22 @@ function RoomManager:AfterEnterRoom(kv)
 
 end
 
--- n
-function RoomManager:AfterBattle()
-    self:CreateTreasure()
-    self:OpenCurrentRoomsDoor()
+-- 在怪物死后销毁怪物gameObject及table
+-- 若怪物缓存table为空，则生城宝箱及打开房间门
+function RoomManager:AfterEnemyDead(kv)
+    local enemy = kv.Value
+    for k,v in ipairs(self.enemies) do
+        if enemy == v then
+            table.remove(self.enemies,k)
+        end
+    end
+    if #self.enemies == 0 then
+        self:CreateTreasure()
+        self:OpenCurrentRoomsDoor()
+    end
 end
 
--- n
-function RoomManager:AfterEnemyDead()
-
-end
-
+-- 在进入怪物房间后关上房间门
 function RoomManager:CloseCurrentRoomsDoor()
     -- 上下左右
     local DirectionX = {0,0,-1,1}
@@ -395,7 +389,7 @@ function RoomManager:CloseCurrentRoomsDoor()
 
 end
 
--- n
+-- n，创建怪物
 function RoomManager:CreateMonster()
     local room = self.currentRoom
     local roomPos = room.gameObject.transform.position
@@ -407,39 +401,72 @@ function RoomManager:CreateMonster()
     end
 end
 
--- n
+-- 在怪物全部消灭后生成宝箱
 function RoomManager:CreateTreasure()
-
+    print("生成宝箱")
 end
--- n
+
+-- 在怪物全部消灭后打开房间门
 function RoomManager:OpenCurrentRoomsDoor()
+    local DirectionX = {0,0,-1,1}
+    local DirectionY = {1,-1,0,0}
 
-end
+    local room = self.currentRoom
+    local currentRoomPosX = room.positionX
+    local currentRoomPosY = room.positionY
 
-function RoomManager:SetCharacter(character)
-    self.character = character
-end
+    for i = 1, 4 do
+        local nextRoomPosX = currentRoomPosX + DirectionX[i]
+        local nextRoomPosY = currentRoomPosY + DirectionY[i]
 
-function RoomManager:GetCharacter()
-    return self.character
-end
-
-function RoomManager:GetEnemy(go)
-    for _,v in pairs(self.enemies) do
-        if v.gameobject == go then
-            return v
+        if self.roomMap[nextRoomPosX][nextRoomPosY] ~= nil then
+            self:replaceRoomsWall(room,room.gameObject,DirectionX[i],DirectionY[i],self.tileBase)
         end
     end
 end
 
+-- 角色table缓存
+function RoomManager:SetCharacter(character)
+    self.character = character
+end
+
+-- 获取角色table
+function RoomManager:GetCharacter()
+    return self.character
+end
+
+-- 获取怪物
+function RoomManager:GetEnemy(go)
+    for _,v in ipairs(self.enemies) do
+        if v.collision_attack == go then
+            print(v,go,v.collision_attack)
+            return v
+        end
+    end
+    return nil
+end
+
+-- 获取武器
 function RoomManager:GetWeapon(go)
-
+    for _, v in ipairs(self.Weapons) do
+        if v.gameobject == go then
+            return v
+        end
+    end
+    return nil
 end
 
+-- 获取装备
 function RoomManager:GetEquipment(go)
-
+    for _, v in ipairs(self.equipmnets) do
+        if v.gameobject == go then
+            return v
+        end
+    end
+    return nil
 end
 
+-- 获取道具
 function RoomManager:GetItem(go)
 
 end

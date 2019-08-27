@@ -24,6 +24,7 @@ function BeattleScene:InitScene()
     AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM))
     --- 可以开始移动了
     Character:Start()
+    require("RoomManager"):SetCharacter(Character)
 end
 
 return BeattleScene

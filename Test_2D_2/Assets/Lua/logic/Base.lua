@@ -28,6 +28,9 @@ function Base:DestroyMessageListener(messageType, handler)
 end
 
 function Base:DestroyAllMessageListener()
+    if not self.MessageListenerMap then
+        return
+    end
     for k, v in pairs(self.MessageListenerMap) do
         if v then
             MC:RemoveListener(k, v)
@@ -37,13 +40,15 @@ function Base:DestroyAllMessageListener()
 end
 ----------updateFunc-----------
 function Base:SetUpdateFunc(func)
+    print("设置更新",self.name,func)
     self.updateFunc = func
     Timer:AddUpdateFuc(self, func)
 end
 
 function Base:RemoveUpdateFunc()
+    print("移除更新",self.name,self.updateFunc)
     if self.updateFunc then
-        Timer:RemoveUpdateFuc(self.updateFunc)
+        Timer:RemoveUpdateFuc(self, self.updateFunc)
     end
 end
 

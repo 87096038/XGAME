@@ -137,7 +137,7 @@ end
 
 function BeginScene:WaitForClickUpdate()
     if UE.Input.GetMouseButtonUp(0) then
-        Timer:RemoveUpdateFuc(self.WaitForClickUpdate)
+        Timer:RemoveUpdateFuc(self,self.WaitForClickUpdate)
         require("SceneManager"):LoadScene(Enum_Scenes.Title)
     end
 end

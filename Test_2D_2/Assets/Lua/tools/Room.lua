@@ -26,7 +26,10 @@ function Room:cotr(tileMapPath,tileMapName,level,type,length,width)
     self.hasVisited = false
     self.active = false
 
-    self.enemyBornPos = {UE.Vector3(-5,-5),UE.Vector3(-5,5),UE.Vector3(5,-5),UE.Vector3(5,5)}
+    -- 怪物出生点
+    self.enemyBornPos = {}
+    self:InitEnemyBornPos()
+
 end
 
 -- 实例化
@@ -56,6 +59,13 @@ function Room:Collision()
             end
         end
     end
+end
+
+function Room:InitEnemyBornPos()
+
+    --self.enemyBornPos = {UE.Vector3(0,0),UE.Vector3(0,1)}
+
+    self.enemyBornPos = {UE.Vector3(-5,-5),UE.Vector3(-5,5),UE.Vector3(5,-5),UE.Vector3(5,5)}
 end
 
 return Room

@@ -1,6 +1,7 @@
 local PathMgr = require("PathManager")
 local ResourceMgr = require("ResourceManager")
 local Timer = require("Timer")
+local MC = require("MessageCenter")
 
 local enemy_base = require("Enemy_base")
 local Enemy_1 = Class("Enemy_1",enemy_base)
@@ -11,48 +12,82 @@ function Enemy_1:cotr(position)
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Enemy_1, PathMgr.NamePath.Enemy_1,nil,position)
 
     -----设置成员变量------
-    self.speed = 4
     self.rigidbody2d = self.gameobject:GetComponent("Rigidbody2D")
     self.transform = self.gameobject:GetComponent("Transform")
-    --self.animatior = self.gameobject:GetComponent("Animator")
-
-    print(self,self.gameobject,self.speed,self.rigidbody2d,self.transform)
+    self.animator = self.gameobject:GetComponent("Animator")
+    self.collision_attack = self.transform:Find("Collider_Attack").gameObject
+    self.collision_findCharacter = self.transform:Find("Collider_FindCharacter").gameObject
+    self.character = require("RoomManager"):GetCharacter()
 
     -------状态数据-----
-    self.maxHeath = 100
-    self.currentHeath = 100
+    self.maxHeath = 5
+    self.currentHeath = 5
+    self.attack = 5
+    self.speed = 2
+    self.isFoundCharacter = false
 
     ---------监听注册--------
 
 
     --------添加碰撞--------
-    --self:Collision()
+    self:Collision()
     --------添加update()
     self:Start()
 end
 
 function Enemy_1:Collision()
+    local thisTable = self
     -------绑定碰撞------
-    self.collsion = self.gameobject:AddComponent(typeof(CS.Collision))
-    self.collsion.CollisionHandle = function(self, type, other)
-        if type == Enum_CollisionType.TriggerEnter2D then
 
+    self.collision_a = self.collision_attack:AddComponent(typeof(CS.Collision))
+    self.collision_a.CollisionHandle = function(self, type, other)
+        if type == Enum_CollisionType.TriggerEnter2D then
+            if other.gameObject.layer == 9 then
+                thisTable:TouchCharacter()
+            end
+        end
+    end
+
+    self.collision_f = self.collision_findCharacter:AddComponent(typeof(CS.Collision))
+    self.collision_f.CollisionHandle = function(self, type, other)
+        if type == Enum_CollisionType.TriggerEnter2D then
+            if other.gameObject.layer == 9 then
+                thisTable.isFoundCharacter = true
+            end
+        elseif type == Enum_CollisionType.TriggerExit2D then
+            if other.gameObject.layer == 9 then
+                thisTable.isFoundCharacter = false
+            end
         end
     end
 end
 
 function Enemy_1:Start()
     self:SetUpdateFunc(self.Update)
+    print("生成怪物时的table",self)
 end
 
 --- 加入update的函数
 function Enemy_1:Update()
-    self:MoveToCharacter()
+    if self.isFoundCharacter then
+        self:MoveToCharacter()
+    else
+        self:Stand()
+    end
+
+end
+
+function Enemy_1:Stand()
+    self.animator:ResetTrigger("Move")
+    self.animator:SetTrigger("Dance")
 end
 
 function Enemy_1:MoveToCharacter()
-    local character = require("RoomManager"):GetCharacter()
-    local characterPos = character.rigidbody2d.position
+
+    self.animator:ResetTrigger("Dance")
+    self.animator:SetTrigger("Move")
+
+    local characterPos = self.character.rigidbody2d.position
     local enemyPos = self.rigidbody2d.position
     local horizontal = 0
     local vertical = 0
@@ -69,20 +104,23 @@ function Enemy_1:MoveToCharacter()
         horizontal = 1
     end
 
-    --self.animatior.SetFloat("MoveX",horizontal)
-    --self.animatior.SetFloat("MoveY",vertical)
+    self.animator:SetFloat("MoveX",horizontal)
+    self.animator:SetFloat("MoveY",vertical)
 
     local position = enemyPos
 
     position.x = position.x + self.speed * horizontal * Timer.deltaTime
     position.y = position.y + self.speed * vertical * Timer.deltaTime
 
-    --print(position.x, self.speed, horizontal, Timer.deltaTime)
-
     self.rigidbody2d:MovePosition(position)
 end
 
-function Enemy_1:Hurt(damage,buff)
+function Enemy_1:TouchCharacter()
+    --print("get character")
+end
+
+function Enemy_1:GetDamage(damage,buff)
+    --print("Enemy Injury",damage)
     self.currentHeath = self.currentHeath - damage
     if self.currentHeath <= 0 then
         self:Dead()
@@ -90,7 +128,9 @@ function Enemy_1:Hurt(damage,buff)
 end
 
 function Enemy_1:Dead()
-
+    self:Destroy()
+    ResourceMgr:DestroyObject(self.gameobject,true)
+    MC:SendMessage(Enum_NormalMessageType.EnemyDead,require("KeyValue"):new(nil, self))
 end
 
 return Enemy_1

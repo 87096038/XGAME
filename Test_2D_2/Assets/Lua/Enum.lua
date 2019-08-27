@@ -75,7 +75,7 @@ Enum_NormalMessageType={
     RefreshCurrency="RefreshCurrency", RefreshSkin="RefreshSkin", RefreshOuterThing="RefreshOuterThing", RefreshCharacterState="RefreshCharacterState",
     ChangeHeath = "ChangeHeath", ChangeArmor = "ChangeArmor", ChangeSpeed="ChangeSpeed", ChangeHeathCeiling="ChangeHeathCeiling", ChangeArmorCeiling = "ChangeArmorCeiling", ChangeSpeedCeiling="ChangeSpeedCeiling",
     AddKeepBuff = "AddKeepBuff", RemoveKeepBuff = "RemoveKeepBuff", Shoot="Shoot", ReloadBegin="ReloadBegin", ReloadEnd="ReloadEnd",
-    ChengeEffectMusicVolume="ChengeEffectMusicVolume", ChangeBGMVolume="ChangeBGMVolume",
+    ChengeEffectMusicVolume="ChengeEffectMusicVolume", ChangeBGMVolume="ChangeBGMVolume",EnterRoom = "EnterRoom", LeaveRoom = "LeaveRoom", EnemyDead = "EnemyDead",
 }
 
 --- 网络消息
