@@ -11,10 +11,16 @@ local PathMgr = require("PathManager")
 local WeaponStateDlg = Class("WeaponStateDlg", require("Base"))
 
 function WeaponStateDlg:cotr()
+    self.super:cotr()
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_WeaponState, PathMgr.NamePath.UI_WeaponState, Main.UIRoot.transform)
     self.currentWeaponImg =  self.gameobject.transform:Find("CurrentWeapon"):GetComponent(typeof(UE.UI.Image))
     self.nextWeaponImg =  self.gameobject.transform:Find("NextWeapon"):GetComponent(typeof(UE.UI.Image))
     self.bulletsContainer = self.gameobject.transform:Find("Bullet"):GetComponentInChildren(typeof(UE.UI.GridLayoutGroup)).transform
+    self.CDImg = self.currentWeaponImg.transform:Find("CDImage"):GetComponent(typeof(UE.UI.Image))
+
+    ---------------添加监听---------------
+    self:AddMessageListener(Enum_NormalMessageType.ReloadBegin, handler(self, self.OnReloadBegin))
+    self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 end
 
 function WeaponStateDlg:ChangeToNext(newNextSprite)
@@ -59,6 +65,32 @@ function WeaponStateDlg:ReduceBullet(reduceValue)
     for i=1, value do
         ResourceMgr:DestroyObject(self.bulletsContainer:GetChild(0).gameObject)
     end
+end
+
+--- 主武器开始CD
+function WeaponStateDlg:BeginCD(time)
+    StartCoroutine(function ()
+        self.CDImg.fillAmount = 1
+        local loopCount = 20
+        local step = 1/loopCount
+        local wait = UE.WaitForSeconds(time/loopCount)
+        for i=1, loopCount do
+            self.CDImg.fillAmount = self.CDImg.fillAmount - step
+            coroutine.yield(wait)
+        end
+    end)
+end
+
+
+----------------消息回调----------------
+function WeaponStateDlg:OnReloadBegin(kv)
+    if kv.Value.owner == require("BattleData").currentBattle.character then
+        self:BeginCD(kv.Key)
+    end
+end
+
+function WeaponStateDlg:OnChangeScene(kv)
+    self:Destroy()
 end
 
 return WeaponStateDlg

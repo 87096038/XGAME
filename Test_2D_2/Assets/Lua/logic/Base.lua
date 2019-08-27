@@ -40,15 +40,13 @@ function Base:DestroyAllMessageListener()
 end
 ----------updateFunc-----------
 function Base:SetUpdateFunc(func)
-    print("设置更新",self.name,func)
     self.updateFunc = func
     Timer:AddUpdateFuc(self, func)
 end
 
 function Base:RemoveUpdateFunc()
-    print("移除更新",self.name,self.updateFunc)
     if self.updateFunc then
-        Timer:RemoveUpdateFuc(self, self.updateFunc)
+        Timer:RemoveUpdateFuc(self,self.updateFunc)
     end
 end
 

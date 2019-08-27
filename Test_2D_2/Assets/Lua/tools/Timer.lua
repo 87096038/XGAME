@@ -35,12 +35,11 @@ function Timer:AddUpdateFuc(table, func)
 end
 
 function Timer:RemoveUpdateFuc(table, fuc)
-    if type(fuc) ~= "function" then
+    if type(fuc) ~= "function" or type(table) ~= "table"then
         return
     end
-    print("移除2",table,fuc)
     for k, v in pairs(self.UpdateFucs) do
-        if table == k and v == fuc then
+        if k == table and v == fuc then
             self.UpdateFucs[k] = nil
             return
         end

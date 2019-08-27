@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2205403126
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a474f16a2bfb709a3cbb1976a0675bfa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fdf6c57a251b9f6ec27bdd2fe01b033c
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Animations/Enemy/Normal_Pistol.controller
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/enemy/normal_pistol_dead.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/enemy/normal_pistol_idle.ab
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/enemy/normal_pistol_run.ab

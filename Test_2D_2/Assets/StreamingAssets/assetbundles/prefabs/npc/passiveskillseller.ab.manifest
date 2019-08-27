@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3336187466
+CRC: 3450996642
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d58d2c8cf5458e76cc1b0bcf4b212f1a
+    Hash: 750479b0da9cafb6e8c54481e09f1b38
   TypeTreeHash:
     serializedVersion: 2
     Hash: 87f83e77d0e1769f7c61e9be630c7848
@@ -32,4 +32,3 @@ Assets:
 Dependencies:
 - /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/animations/npc/passiveskillseller/npc_2.ab
 - /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/fromweb/npc_1.ab
-- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/fromweb/skil_icons.ab

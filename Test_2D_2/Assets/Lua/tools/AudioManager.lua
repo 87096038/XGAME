@@ -8,7 +8,9 @@ local AudioManager = {}
 
 function AudioManager:Init()
     self.backgroundMusicSource = Main.gameObject:AddComponent(typeof(UE.AudioSource))
+    self.backgroundMusicSource.playOnAwake = false
     self.effectMusicSource = Main.gameObject:AddComponent(typeof(UE.AudioSource))
+    self.effectMusicSource.playOnAwake = false
     self.currentBGM = nil
     self.currentEffectMusic = nil
     self.BGMVolume = 1
@@ -68,7 +70,7 @@ function AudioManager:PlayAudio(source, audioClip, delay, isLoop)
     if audioClip then
         if audioClip == source.clip then
             if source.isPlaying then
-                return
+
             end
         else
             source.clip = audioClip
@@ -87,6 +89,12 @@ function AudioManager:PlayAudio(source, audioClip, delay, isLoop)
         source:PlayDelayed(delay)
     else
         source:Play()
+    end
+end
+
+function AudioManager:StopBGM()
+    if self.backgroundMusicSource then
+        self.backgroundMusicSource:Stop()
     end
 end
 

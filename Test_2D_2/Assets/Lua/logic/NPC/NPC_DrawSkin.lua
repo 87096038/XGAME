@@ -6,14 +6,14 @@ local MC= require("MessageCenter")
 local NPC_DrawSkin = {}
 
 function NPC_DrawSkin:Init()
-    self.position = UE.Vector3(0, 10, 0)
+    self.position = UE.Vector3(0, 10, -1)
     self.type = Enum_NPCType.draw_skin
     self.gameobject = nil
     self.drawSkinDlg = nil
 end
 
 function NPC_DrawSkin:Generate()
-    if self.gameobject then
+    if not CS.Util.IsNull(self.gameobject) then
         return
     end
     local isNew

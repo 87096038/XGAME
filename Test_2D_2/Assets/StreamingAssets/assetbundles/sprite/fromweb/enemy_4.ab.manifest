@@ -1,16 +1,21 @@
 ManifestFileVersion: 0
-CRC: 583720451
+CRC: 2264312004
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 00d611d685b40a6a440fee21af766282
+    Hash: a0b0e61b8d64d863a9a392c31a865cd7
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+    Hash: 8f81471f4cfc7bf93c7fa752ebb4eb40
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Sprite/FromWeb/Enemy_4.png
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/atlas/enemies.ab

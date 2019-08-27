@@ -8,10 +8,10 @@ local MC = require("MessageCenter")
 local AudioMgr = require("AudioManager")
 
 local NormalRifle=Class("NormalRifle", require("Weaponbase"))
-
+local weaponData
 function NormalRifle:cotr(ID, position)
     self.super:cotr()
-    local weaponData = require("WeaponData").Weapons[ID]
+    weaponData = require("WeaponData").Weapons[ID]
     ---------初始化属性-----------
     self.name = weaponData.name
     self.info = weaponData.info
@@ -37,14 +37,20 @@ function NormalRifle:cotr(ID, position)
     --- 装弹时间
     self.reloadTime = weaponData.basicReloadTime
 
+    --- 拥有者
+    self.owner = nil
+
     self.isReloading = false
     --------------------------------------
     self.gameobject = ResourceMgr:GetGameObject(weaponData.PrefabPath, weaponData.PrefabName, nil, position)
     self.spriteRenderer = self.gameobject:GetComponentInChildren(typeof(UE.SpriteRenderer))
     self.collsion =  self.gameobject:GetComponentInChildren(typeof(UE.BoxCollider2D))
-    self.audioSource = self.gameobject:AddComponent(typeof(UE.AudioSource))
+    if CS.Util.IsNull(self.audioSource) then
+        self.audioSource = self.gameobject:AddComponent(typeof(UE.AudioSource))
+        self.audioSource.playOnAwake = false
+    end
 
-
+    self.icon =  self.spriteRenderer.sprite
     ---子弹出口位置距枪的位置的长度
     self.bulletStartDistance = 1.2
     ---初始枪口朝向
@@ -56,7 +62,19 @@ function NormalRifle:cotr(ID, position)
     self:SetUpdateFunc(self.UpdateIdle)
     --------------添加监听---------------------
     self:AddMessageListener(Enum_NormalMessageType.ChengeEffectMusicVolume, handler(self, self.OnChengeEffectMusicVolume))
+    self:AddMessageListener(Enum_NormalMessageType.BuffHasChanged, handler(self, self.OnBuffHasChanged))
     self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
+end
+
+---设置拥有者
+function NormalRifle:SetOwner(owner)
+    if not owner then
+        return
+    end
+    self.owner = owner
+    if owner.state and owner.state.States then
+        self:RefreshData(owner.state.States)
+    end
 end
 
 --- 没有被捡起的时候
@@ -70,7 +88,7 @@ function NormalRifle:UpdateShootBegin()
         return
     end
     if self.currentAmmoACount <= 0 then
-        self:Reload()
+        MC:SendMessage(Enum_NormalMessageType.OutOfAmmo, require("KeyValue"):new(self.owner, self))
     else
         self.isCD = true
         Timer:InvokeCoroutine(function () self.isCD = false end, self.shootCDTime)
@@ -113,22 +131,22 @@ function NormalRifle:GenerateBullet()
     end
 end
 
-function NormalRifle:Reload()
-    if not self.battle or self.battle.BulletsCount[self.bulletType] <= 0 then
+function NormalRifle:Reload(totalAmmo)
+    if not totalAmmo or totalAmmo <= 0 then
         return
     end
     if self.audioSource then
         AudioMgr:PlayAudio(self.audioSource, ResourceMgr:Load(PathMgr.ResourcePath.Audio_ReloadAmmo_Es, PathMgr.NamePath.Audio_ReloadAmmo_Es))
     end
     self.isReloading = true
-    MC:SendMessage(Enum_NormalMessageType.ReloadBegin, require("KeyValue"):new(self.weaponType, self))
+    MC:SendMessage(Enum_NormalMessageType.ReloadBegin, require("KeyValue"):new(self.reloadTime, self))
     Timer:InvokeCoroutine(function ()
-        if self.battle.BulletsCount[self.bulletType] < self.clipsAmmoCount then
-            self.currentAmmoACount = self.battle.BulletsCount[self.bulletType]
+        if totalAmmo < self.clipsAmmoCount then
+            self.currentAmmoACount = totalAmmo
         else
             self.currentAmmoACount = self.clipsAmmoCount
         end
-        MC:SendMessage(Enum_NormalMessageType.ReloadEnd, require("KeyValue"):new(self.weaponType, self))
+        MC:SendMessage(Enum_NormalMessageType.ReloadEnd, require("KeyValue"):new(self.reloadTime, self))
         self.isReloading = false end, self.reloadTime)
     --- 播放动画
 end
@@ -151,13 +169,31 @@ function NormalRifle:Drop()
     self.spriteRenderer.sortingLayerName = "Weapon"
     self:SetUpdateFunc(self.UpdateIdle)
 end
+
+function NormalRifle:RefreshData(buff)
+    if self.bulletType == Enum_BulletType.light then
+        self.demage = (weaponData.basicDamage + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.lightBulletDamage])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.lightBulletDamage]
+        self.bulletSpeed = (weaponData.basicSpeed + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.lightBulletSpeed])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.lightBulletSpeed]
+    elseif self.bulletType == Enum_BulletType.heavy then
+        self.demage = (weaponData.basicDamage + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.heavyBulletDamage])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.heavyBulletDamage]
+        self.bulletSpeed = (weaponData.basicSpeed + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.heavyBulletSpeed])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.heavyBulletSpeed]
+    elseif self.bulletType == Enum_BulletType.energy then
+        self.demage = (weaponData.basicDamage + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.energyBulletDamage])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.energyBulletDamage]
+        self.bulletSpeed = (weaponData.basicSpeed + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.energyBulletSpeed])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.energyBulletSpeed]
+    elseif self.bulletType == Enum_BulletType.shell then
+        self.demage = (weaponData.basicDamage + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.shellBulletDamage])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.shellBulletDamage]
+        self.bulletSpeed = (weaponData.basicSpeed + buff[Enum_CharacterStateChangeType.number][Enum_CharacterStateSpecificChangeType.shellBulletSpeed])*buff[Enum_CharacterStateChangeType.percent][Enum_CharacterStateSpecificChangeType.shellBulletSpeed]
+    end
+end
 ---------------消息回调---------------
 function NormalRifle:OnChengeEffectMusicVolume(kv)
     if self.audioSource then
         self.audioSource.volume = kv.Value
     end
 end
-
+function NormalRifle:OnBuffHasChanged(kv)
+    self:RefreshData(kv.Value)
+end
 function NormalRifle:OnChangeScene(kv)
     self:Destroy()
 end

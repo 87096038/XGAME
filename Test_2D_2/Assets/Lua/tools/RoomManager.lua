@@ -9,6 +9,40 @@ local RoomManager = {}
 
 function RoomManager:Init()
 
+
+
+    -- 添加监听
+    MC:AddListener(Enum_NormalMessageType.EnterRoom,handler(self,self.AfterEnterRoom))
+    MC:AddListener(Enum_NormalMessageType.EnemyDead,handler(self,self.AfterEnemyDead))
+
+end
+
+function RoomManager:StartBattle()
+    -- 房间距离
+    self.roomDistance = 40
+
+    -- 当前关卡，当前房间
+    self.currentLevel = nil
+    self.currentRoom = nil
+
+    -- 房间地图记录
+    self.roomMapSize = 20
+    self.roomMap = {}
+    for i = -self.roomMapSize,self.roomMapSize do
+        self.roomMap[i]={}
+        for j = -self.roomMapSize,self.roomMapSize do
+            self.roomMap[i][j] = nil
+        end
+    end
+
+    -- 主角、子弹、怪物缓存
+    self.character = nil
+    self.enemies = {}
+end
+
+--生成地图，随机生成房间及连接通路
+--关卡、怪物房数量、商店房数量、宝箱房数量
+function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
     -- 房间距离
     self.roomDistance = 40
 
@@ -30,23 +64,12 @@ function RoomManager:Init()
     self.character = nil
     self.enemies = {}
 
-    -- 添加监听
-    MC:AddListener(Enum_NormalMessageType.EnterRoom,handler(self,self.AfterEnterRoom))
-    MC:AddListener(Enum_NormalMessageType.EnemyDead,handler(self,self.AfterEnemyDead))
-
-end
-
---生成地图，随机生成房间及连接通路
---关卡、怪物房数量、商店房数量、宝箱房数量
-function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
-
     -- 实例化网格和road的tileMap
-    self.girdRoot = ResourceMgr:GetGameObject(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot)
+    self.girdRoot = ResourceMgr:GetGameObject(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot,nil,UE.Vector3(0,0,1))
     self.road = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Road,PathMgr.NamePath.Road,self.girdRoot.transform)
 
     self.tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
     self.tileWall = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Wall,PathMgr.NamePath.Tile_Wall)
-    print("tilewall",self.tileWall)
 
     -- 时间种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))

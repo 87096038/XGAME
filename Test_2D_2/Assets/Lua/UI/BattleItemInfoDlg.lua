@@ -46,9 +46,6 @@ function BattleItemInfoDlg:Show(ItemType, name, info, extraInfo)
 end
 
 function BattleItemInfoDlg:Hide(ItemType)
-    if self.isShowing == false then
-        return
-    end
     StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnls[ItemType]:GetComponent(typeof(UE.RectTransform))

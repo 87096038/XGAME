@@ -5,8 +5,6 @@
 
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
-local Net = require("NetManager")
-local MC = require("MessageCenter")
 local NetHelper = require("NetHelper")
 
 local DrawSkinDlg = Class("DrawSkinDlg", require("Base"))

@@ -86,7 +86,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 543767077f31b45488e60efcc580e9e1
     vertices: []
     indices: 
     edges: []
@@ -95,5 +95,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/sprite/equipment/heavyarmour
+  assetBundleVariant: ab

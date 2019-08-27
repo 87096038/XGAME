@@ -47,7 +47,7 @@ function ThingsFactory:GetEquipment(ID, position)
 end
 
 function ThingsFactory:GetItem(ID, position)
-
+    return require("Item"):new(ID, position)
 end
 
 ThingsFactory:Init()

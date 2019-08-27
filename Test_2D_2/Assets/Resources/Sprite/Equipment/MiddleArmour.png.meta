@@ -86,7 +86,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 414fde2bf38bf411ea02584abfc07991
     vertices: []
     indices: 
     edges: []
@@ -95,5 +95,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/sprite/equipment/middlearmour
+  assetBundleVariant: ab

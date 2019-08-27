@@ -11,20 +11,36 @@ function PathManager:Init()
             ---------------------------Prefabs-------------------------------------
             Bullet_1="assetbundles/prefabs/bullet_1.ab",
             Character_1="assetbundles/prefabs/character.ab",
-            Enemy_1 = "assetbundles/prefabs/enemy_1.ab",
+            Enemy_1="assetbundles/prefabs/enemy_1.ab",
+            PoisonArea="assetbundles/prefabs/poisonarea.ab",
 
             Trivial_Thing_Bullet_Box="assetbundles/prefabs/trivialthings/bulletbox.ab",
             Trivial_Thing_Gold="assetbundles/prefabs/trivialthings/gold.ab",
             -------Guns-----------------
             Gun_Normal_Rifle="assetbundles/prefabs/gun/normal_rifle.ab",
-            Gun_Normal_Sniper_Rifle="assetbundles/gun/prefabs/normal_sniper_rifle.ab",
+            Gun_Normal_Sniper_Rifle="assetbundles/prefabs/gun/normal_sniper_rifle.ab",
             Gun_Normal_Pistol="assetbundles/prefabs/gun/normal_pistol.ab",
 
             Portal = "assetbundles/prefabs/portal.ab",
 
-            Item_NormalClothes = "assetbundles/prefabs/equipments/normalclothes.ab",
 
             Icon_LightBullet = "assetbundles/prefabs/bullets/icon_lightbullet.ab",
+
+            ---------------Item-------------------
+            Item_AmysBow ="assetbundles/prefabs/items/amysbow.ab",
+            Item_Van ="assetbundles/prefabs/items/van.ab",
+            Item_PangsSkateboardShoes ="assetbundles/prefabs/items/pangsskateboardshoes.ab",
+
+            -------------Equipments----------------
+            Equipments_NormalClothes = "assetbundles/prefabs/equipments/normalclothes.ab",
+            Equipments_LightArmour = "assetbundles/prefabs/equipments/lightarmour.ab",
+            Equipments_MiddleArmour = "assetbundles/prefabs/equipments/middlearmour.ab",
+            Equipments_HeavyArmour = "assetbundles/prefabs/equipments/heavyarmour.ab",
+            Equipments_CXKVest = "assetbundles/prefabs/equipments/cxkvest.ab",
+            Equipments_PRClothes = "assetbundles/prefabs/equipments/prclothes.ab",
+            Equipments_GrandmasVest = "assetbundles/prefabs/equipments/grandmasvest.ab",
+            Equipments_MomsLongJohns = "assetbundles/prefabs/equipments/momslongjohns.ab",
+
             -----UI-----
             UI_MessageBox="assetbundles/prefabs/ui/ui_messagebox.ab",
             UI_Setting="assetbundles/prefabs/ui/ui_setting.ab",
@@ -51,6 +67,8 @@ function PathManager:Init()
             UI_WeaponInfo = "assetbundles/prefabs/ui/battle/ui_weaponinfo.ab",
             UI_EquipmentInfo = "assetbundles/prefabs/ui/battle/ui_equipmentinfo.ab",
             UI_ItemsContainer = "assetbundles/prefabs/ui/battle/ui_itemscontainer.ab",
+            UI_GoldAndSoulShard = "assetbundles/prefabs/ui/battle/ui_goldandsoulshard.ab",
+            UI_Equipments = "assetbundles/prefabs/ui/battle/ui_equipments.ab",
 
             UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
             --------Tiles----------
@@ -69,6 +87,8 @@ function PathManager:Init()
             ----------NPCs----------
             NPC_DrawSkin="assetbundles/prefabs/npc/skinseller.ab",
             NPC_SellPassiveSkill="assetbundles/prefabs/npc/passiveskillseller.ab",
+            NPC_SellEquipment="assetbundles/prefabs/npc/equipmentseller.ab",
+            NPC_SellItem="assetbundles/prefabs/npc/itemseller.ab",
 
             Camera_Main = "assetbundles/prefabs/maincamera.ab",
             -------------------------------Assets---------------------------------------
@@ -79,8 +99,15 @@ function PathManager:Init()
             Sprite_Role_1_Skin_1="assetbundles/sprite/characters/ruby.ab",
             Sprite_Role_1_Skin_2="assetbundles/sprite/characters/mrclock.ab",
             Sprite_Cursor_1 = "assetbundles/sprite/cursor_1.ab",
+            Sprite_Equipment_LightArmour = "assetbundles/sprite/equipment/lightarmour.ab",
+            Sprite_Equipment_MiddleArmour = "assetbundles/sprite/equipment/middlearmour.ab",
+            Sprite_Equipment_HeavyArmour = "assetbundles/sprite/equipment/heavyarmour.ab",
+            Sprite_Equipment_CXKVest = "assetbundles/sprite/equipment/cxkvest.ab",
+            Sprite_Equipment_PRClothes = "assetbundles/sprite/equipment/prclothes.ab",
+            Sprite_Equipment_GrandmasVest = "assetbundles/sprite/equipment/grandmasvest.ab",
+            Sprite_Equipment_MomsLongJohns = "assetbundles/sprite/equipment/momslongjohns.ab",
             ---------SpriteAtlas----------
-            SpriteAtlas_Icons = "assetbundles/atlas/common.ab",
+            SpriteAtlas_Icons = "assetbundles/sprite/atlas/common.ab",
 
             ----------Audio--------------
             Audio_Title_BGM="assetbundles/audio/audio_title_bgm.ab",
@@ -94,6 +121,7 @@ function PathManager:Init()
             Bullet_1="Prefabs/Bullet_1",
             Character_1="Prefabs/Character",
             Enemy_1 = "Prefabs/Enemy_1",
+            PoisonArea="Prefabs/PoisonArea",
 
             Trivial_Thing_Bullet_Box="Prefabs/TrivialThings/BulletBox",
             Trivial_Thing_Gold="Prefabs/TrivialThings/Gold",
@@ -105,9 +133,24 @@ function PathManager:Init()
 
             Portal = "Prefabs/Portal",
 
-            Item_NormalClothes = "Prefabs/Equipments/NormalClothes",
+
 
             Icon_LightBullet = "Prefabs/Bullets/Icon_LightBullet",
+
+            ---------------Item-------------------
+           Item_AmysBow ="Prefabs/Items/AmysBow",
+           Item_Van ="Prefabs/Items/Van",
+           Item_PangsSkateboardShoes ="Prefabs/Items/PangsSkateboardShoes",
+
+            -------------Equipments----------------
+            Equipments_NormalClothes = "Prefabs/Equipments/NormalClothes",
+            Equipments_LightArmour = "Prefabs/Equipments/LightArmour",
+            Equipments_MiddleArmour = "Prefabs/Equipments/MiddleArmour",
+            Equipments_HeavyArmour = "Prefabs/Equipments/HeavyArmour",
+            Equipments_CXKVest = "Prefabs/Equipments/CXKVest",
+            Equipments_PRClothes = "Prefabs/Equipments/PRClothes",
+            Equipments_GrandmasVest = "Prefabs/Equipments/GrandmasVest",
+            Equipments_MomsLongJohns = "Prefabs/Equipments/MomsLongJohns",
             -----UI-----
             UI_MessageBox="Prefabs/UI/UI_MessageBox",
             UI_Setting="Prefabs/UI/UI_Setting",
@@ -134,6 +177,8 @@ function PathManager:Init()
             UI_WeaponInfo = "Prefabs/UI/Battle/UI_WeaponInfo",
             UI_EquipmentInfo = "Prefabs/UI/Battle/UI_EquipmentInfo",
             UI_ItemsContainer = "Prefabs/UI/Battle/UI_ItemsContainer",
+            UI_GoldAndSoulShard = "Prefabs/UI/Battle/UI_GoldAndSoulShard",
+            UI_Equipments = "Prefabs/UI/Battle/UI_Equipments",
 
             UI_Loading = "Prefabs/UI/Loading/UI_Loading",
             --------Tiles----------
@@ -152,6 +197,8 @@ function PathManager:Init()
             ----------NPCs----------
             NPC_DrawSkin="Prefabs/NPC/SkinSeller",
             NPC_SellPassiveSkill="Prefabs/NPC/PassiveSkillSeller",
+            NPC_SellEquipment="Prefabs/NPC/EquipmentSeller",
+            NPC_SellItem="Prefabs/NPC/ItemSeller",
 
             Camera_Main = "Prefabs/MainCamera",
             -------------------------------Assets---------------------------------------
@@ -163,6 +210,13 @@ function PathManager:Init()
             Sprite_Role_1_Skin_2="Sprite/Characters/MrClock",
 
             Sprite_Cursor_1 = "Sprite/Cursor_1",
+            Sprite_Equipment_LightArmour = "Sprite/Equipment/LightArmour",
+            Sprite_Equipment_MiddleArmour = "Sprite/Equipment/MiddleArmour",
+            Sprite_Equipment_HeavyArmour = "Sprite/Equipment/HeavyArmour",
+            Sprite_Equipment_CXKVest = "Sprite/Equipment/CXKVest",
+            Sprite_Equipment_PRClothes = "Sprite/Equipment/PRClothes",
+            Sprite_Equipment_GrandmasVest = "Sprite/Equipment/GrandmasVest",
+            Sprite_Equipment_MomsLongJohns = "Sprite/Equipment/MomsLongJohns",
             ---------SpriteAtlas----------
             SpriteAtlas_Icons = "Sprite/Atlas/Common",
 
@@ -182,6 +236,7 @@ function PathManager:Init()
             Bullet_1="bullet_1",
             Character_1="character",
             Enemy_1 = "enemy_1",
+            PoisonArea="poisonarea",
 
             Trivial_Thing_Bullet_Box="bulletbox",
             Trivial_Thing_Gold="gold",
@@ -192,9 +247,25 @@ function PathManager:Init()
 
             Portal = "portal",
 
-            Item_NormalClothes = "normalclothes",
+
 
             Icon_LightBullet = "icon_lightbullet",
+
+            ---------------Item-------------------
+            Item_AmysBow ="amysbow",
+            Item_Van ="van",
+            Item_PangsSkateboardShoes ="pangsskateboardshoes",
+
+            -------------Equipments----------------
+            Equipments_NormalClothes = "normalclothes",
+            Equipments_LightArmour = "lightarmour",
+            Equipments_MiddleArmour = "middlearmour",
+            Equipments_HeavyArmour = "heavyarmour",
+            Equipments_CXKVest = "cxkvest",
+            Equipments_PRClothes = "prclothes",
+            Equipments_GrandmasVest = "grandmasvest",
+            Equipments_MomsLongJohns = "momslongjohns",
+
             -----UI-----
             UI_MessageBox="ui_messagebox",
             UI_Setting="ui_setting",
@@ -221,6 +292,8 @@ function PathManager:Init()
             UI_WeaponInfo = "ui_weaponinfo",
             UI_EquipmentInfo = "ui_equipmentinfo",
             UI_ItemsContainer = "ui_itemscontainer",
+            UI_GoldAndSoulShard = "ui_goldandsoulshard",
+            UI_Equipments = "ui_equipments",
 
             UI_Loading = "ui_loading",
             --------Tiles----------
@@ -239,6 +312,8 @@ function PathManager:Init()
             ----------NPCs----------
             NPC_DrawSkin="skinseller",
             NPC_SellPassiveSkill="passiveskillseller",
+            NPC_SellEquipment="equipmentseller",
+            NPC_SellItem="itemseller",
 
             Camera_Main = "maincamera",
             -------------------------------Assets---------------------------------------
@@ -249,6 +324,13 @@ function PathManager:Init()
             Sprite_Role_1_Skin_1="ruby",
             Sprite_Role_1_Skin_2="mrclock",
             Sprite_Cursor_1 = "cursor_1",
+            Sprite_Equipment_LightArmour = "lightarmour",
+            Sprite_Equipment_MiddleArmour = "middlearmour",
+            Sprite_Equipment_HeavyArmour = "heavyarmour",
+            Sprite_Equipment_CXKVest = "cxkvest",
+            Sprite_Equipment_PRClothes = "prclothes",
+            Sprite_Equipment_GrandmasVest = "grandmasvest",
+            Sprite_Equipment_MomsLongJohns = "momslongjohns",
             ---------SpriteAtlas----------
             SpriteAtlas_Icons = "common",
 

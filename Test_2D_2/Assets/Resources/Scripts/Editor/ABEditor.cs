@@ -20,6 +20,10 @@ public class ABEditor : Editor
         string path2 = Application.dataPath + "/Resources/Sprite";
         DirectoryInfo dir2 = new DirectoryInfo (path2);
         SetName(dir2);
+        
+        string path3 = Application.dataPath + "/Resources/Audio";
+        DirectoryInfo dir3 = new DirectoryInfo (path3);
+        SetName(dir3);
     }
     public static void SetName(DirectoryInfo dir)
     {

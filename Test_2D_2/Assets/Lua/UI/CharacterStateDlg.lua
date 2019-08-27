@@ -10,6 +10,7 @@ local BattleData = require("BattleData")
 local CharacterStateDlg = Class("CharacterStateDlg", require("Base"))
 
 function CharacterStateDlg:cotr(character)
+    self.super:cotr()
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_CharacterStateInBattle, PathMgr.NamePath.UI_CharacterStateInBattle, Main.UIRoot.transform)
     self.character = nil
     self.heath = {icon = self.gameobject.transform:Find("Heath"):Find("Icon"), slider = self.gameobject.transform:Find("Heath"):GetComponentInChildren(typeof(UE.UI.Slider)), text = self.gameobject.transform:Find("Heath"):Find("Slider"):GetComponentInChildren(typeof(UE.UI.Text)) }

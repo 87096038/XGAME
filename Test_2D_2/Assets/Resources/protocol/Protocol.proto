@@ -139,6 +139,17 @@ message Net_ChangeCurrentRoleAndSkin{
     required Role role      =1;
     required Skin skin      =2;
 }
+message Net_LevelReward{
+    required int32 levelCount       =1;
+    required int32 goldCount        =2;
+    required int32 souleShardCount  =3;
+    repeated int32 AmmoCount        =4;
+    repeated int32 Things           =5;
+}
+
+
+
+
 message OpenTreasureBox{
     required int32 level        =1;
     required int32 quality      =2;

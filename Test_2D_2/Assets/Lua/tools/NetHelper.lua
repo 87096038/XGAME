@@ -84,6 +84,10 @@ function NetHelper:SendChangeCurrentRoleAndSkin(role, skin)
     local data={role=role, skin=skin}
     Net:TCPSendMessage(9, data)
 end
+function NetHelper:SendLevelReward(levelCount, roomsArray)
+    local data={levelCount = levelCount or 1, goldCount=0, souleShardCount=0, AmmoCount=nil, Things=roomsArray}
+    Net:TCPSendMessage(10, data)
+end
 
 ----------------消息回调---------------
 function NetHelper:OnTick()

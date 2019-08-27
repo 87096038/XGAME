@@ -46,6 +46,10 @@ function SceneManager:LoadScene(sceneBuildIndex)
     self.previousSceneBuildIndex = self.currentSceneBuildIndex
     self.currentSceneBuildIndex = sceneBuildIndex
 
+    if self.previousSceneBuildIndex then
+        require(Enum_SceneName[self.previousSceneBuildIndex+1]):OverScene()
+    end
+
     MC:SendMessage(Enum_NormalMessageType.ChangeScene, nil)
 
     for i = Main.UIRoot.transform.childCount-1,0,-1 do

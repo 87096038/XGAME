@@ -7,6 +7,9 @@ local ResourceMgr = require("ResourceManager")
 local SceneMgr = require("SceneManager")
 local Battle = require("Battle")
 local Camera =  require("CameraFollowing")
+local MC = require("MessageCenter")
+
+
 local RestScene = {}
 
 function RestScene:InitScene()
@@ -30,25 +33,29 @@ function RestScene:InitScene()
     end
     local currencyInfoDlg = require("CurrencyInfoDlg"):new()
     local CharacterStateDlg = require("CharacterStateDlg"):new(character)
+    local SettingDlg = require("SettingDlg"):new()
+
     self:InitNPC()
     self:InitSpecialThing()
     character:Start()
 end
 
-
 ---初始化NPC
 function RestScene:InitNPC()
     local NPC_DrawSkin = require("NPC_DrawSkin")
     NPC_DrawSkin:Generate()
+
     local NPC_SellPassiveSkill = require("NPC_SellPassiveSkill")
     NPC_SellPassiveSkill:Generate()
+
+    local NPC_SellEquipment = require("NPC_SellEquipment")
+    NPC_SellEquipment:Generate()
 end
 
 function RestScene:OnPortalCollision(type, other)
     if type == Enum_CollisionType.TriggerEnter2D then
         --- 角色的layer
         if other.gameObject.layer ==  9 then
-            Camera:EndFollow()
             SceneMgr:LoadScene(Enum_Scenes.Battle)
         end
     end
@@ -56,19 +63,21 @@ end
 
 ---初始化特殊物品
 function RestScene:InitSpecialThing()
-    local isNew
-    local portal, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Portal, PathMgr.NamePath.Portal, nil, UE.Vector3(10, 0, 0))
+    -------------下一关的门------------
+    local portal = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Portal, PathMgr.NamePath.Portal, nil, UE.Vector3(10, 0, -1))
     -------绑定碰撞------
-    local collsion = portal:AddComponent(typeof(CS.Collision))
-    if isNew then
-        if collsion.CollisionHandle then
-            collsion.CollisionHandle = collsion.CollisionHandle + self.OnPortalCollision
-        else
-            collsion.CollisionHandle = self.OnPortalCollision
-        end
+    local collsion = portal:GetComponent(typeof(CS.Collision))
+    if not collsion then
+        collsion = portal:AddComponent(typeof(CS.Collision))
     end
+    collsion.CollisionHandle = self.OnPortalCollision
+
+    -----------毒区--------------
+    require("PoisonArea"):Generate()
 end
 
-
+function RestScene:OverScene()
+    Camera:EndFollow()
+end
 
 return RestScene

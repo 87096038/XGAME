@@ -86,7 +86,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b2482cfe045524fc197960bc072a757d
     vertices: []
     indices: 
     edges: []
@@ -95,5 +95,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/sprite/equipment/lightarmour
+  assetBundleVariant: ab

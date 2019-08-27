@@ -64,15 +64,51 @@ function Character:cotr()
     self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
     self:AddMessageListener(Enum_NormalMessageType.PickUp, handler(self, self.OnPickUp))
     self:AddMessageListener(Enum_NormalMessageType.RefreshOuterThing, handler(self, self.OnRefreshOuterThing))
-    self:AddMessageListener(Enum_NormalMessageType.AddKeepBuff, handler(self, self.OnAddKeepBuff))
-    self:AddMessageListener(Enum_NormalMessageType.RemoveKeepBuff, handler(self, self.OnRemoveKeepBuff))
+    self:AddMessageListener(Enum_NormalMessageType.BuffHasChanged, handler(self, self.OnBuffHasChanged))
 
 
 end
 
+
+
+-------------------public------------------
+--- 开始运动
 function Character:Start()
     self:SetUpdateFunc(self.Update)
+    self:CalcBuffPerSecond()
 end
+--- 受伤
+function Character:GetDamage(damageValue, buff)
+    if buff then
+        for k, v in pairs(buff) do
+            self.state.States[Enum_CharacterStateChangeType.buff][k] = v
+            self.state:AddBuff(BuffData.Buffs[k].buff)
+        end
+    end
+    if damageValue and damageValue > 0 then
+        if self.currentArmor > 0 then
+            local diff = self.currentArmor - damageValue
+            if diff < 0 then
+                self:ChangeArmor(-self.currentArmor)
+                self:ChangeHeath(diff)
+            else
+                self:ChangeArmor(-damageValue)
+            end
+        else
+            self:ChangeHeath(-damageValue)
+        end
+    end
+end
+--- 加Buff
+function Character:AddBuff(buff)
+    self.state:AddBuff(buff)
+end
+--- 减Buff
+function Character:RemoveBuff(buff)
+    self.state:RemoveBuff(buff)
+end
+
+--------------------private-------------------
 
 --- 加入update的函数
 function Character:Update()
@@ -110,11 +146,17 @@ function Character:RefreshProperty()
     if self.maxHeath ~= heath then
         local diff = heath-self.maxHeath
         self.maxHeath = heath
+        if self.currentHeath > self.maxHeath then
+            self.currentHeath = self.maxHeath
+        end
         MC:SendMessage(Enum_NormalMessageType.ChangeHeathCeiling,require("KeyValue"):new(diff, self.maxHeath))
     end
     if self.maxArmor ~= armor then
         local diff = armor-self.maxArmor
         self.maxArmor = armor
+        if self.currentArmor > self.maxArmor then
+            self.currentArmor = self.maxArmor
+        end
         MC:SendMessage(Enum_NormalMessageType.ChangeArmorCeiling,require("KeyValue"):new(diff, self.maxArmor))
     end
     if self.speed ~= speed then
@@ -188,6 +230,9 @@ function Character:OnCollision(type, other)
         --- 装备的layer
         elseif other.gameObject.layer == 13 then
             MC:SendMessage(Enum_NormalMessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.equipment, RoomMgr:GetEquipment(other.gameObject)))
+        --- 物品的layer
+        elseif other.gameObject.layer == 14 then
+            MC:SendMessage(Enum_NormalMessageType.ApproachItem, require("KeyValue"):new(Enum_ItemType.item, RoomMgr:GetItem(other.gameObject)))
         end
     elseif type == Enum_CollisionType.TriggerExit2D then
         if other.gameObject.layer ==  12 then
@@ -195,31 +240,13 @@ function Character:OnCollision(type, other)
             --- 装备的layer
         elseif other.gameObject.layer == 13 then
             MC:SendMessage(Enum_NormalMessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.equipment, RoomMgr:GetEquipment(other.gameObject)))
+            --- 物品的layer
+        elseif other.gameObject.layer == 14 then
+            MC:SendMessage(Enum_NormalMessageType.LeaveItem, require("KeyValue"):new(Enum_ItemType.item, RoomMgr:GetItem(other.gameObject)))
         end
     end
 end
 
-function Character:GetDamage(damageValue, buff)
-    if buff then
-        for k, v in pairs(buff) do
-            self.state.States[Enum_CharacterStateChangeType.buff][k] = v
-            self.state:AddBuff(BuffData.Buffs[k].buff)
-        end
-    end
-    if damageValue and damageValue > 0 then
-        if self.currentArmor > 0 then
-            local diff = self.currentArmor - damageValue
-            if diff < 0 then
-                self:ChangeArmor(-self.currentArmor)
-                self:ChangeHeath(diff)
-            else
-                self:ChangeArmor(-damageValue)
-            end
-        else
-            self:ChangeHeath(-damageValue)
-        end
-    end
-end
 
 function Character:CheckIsDead()
     return self.currentHeath <= 0
@@ -233,15 +260,19 @@ end
 function Character:CalcBuffPerSecond()
     local wait = UE.WaitForSeconds(1)
     self.calcBuffPerSecond = StartCoroutine(function ()
-        for k, v in pairs(self.state.States[Enum_CharacterStateChangeType.buff]) do
-            self:GetDamage(BuffData.Buffs[k].basicDamage)
-            v = v-1
-            if v <= 0 then
-                self.state:RemoveBuff(BuffData.Buffs[k].buff)
-                self.state.States[Enum_CharacterStateChangeType.buff][k] = nil
+        while(true) do
+            for k, v in pairs(self.state.States[Enum_CharacterStateChangeType.buff]) do
+                if v > 0 then
+                    self:GetDamage(BuffData.Buffs[k].basicDamage)
+                    self.state.States[Enum_CharacterStateChangeType.buff][k] = v-1
+                    if v <= 0 then
+                        self.state:RemoveBuff(BuffData.Buffs[k].buff)
+                        self.state.States[Enum_CharacterStateChangeType.buff][k] = nil
+                    end
+                end
             end
+            coroutine.yield(wait)
         end
-        coroutine.yield(wait)
     end)
 end
 
@@ -279,11 +310,7 @@ function Character:OnRefreshOuterThing(kv)
     end
 end
 
-function Character:OnAddKeepBuff(kv)
-    self:RefreshProperty()
-end
-
-function Character:OnRemoveKeepBuff(kv)
+function Character:OnBuffHasChanged()
     self:RefreshProperty()
 end
 

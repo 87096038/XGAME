@@ -75,17 +75,22 @@ public class Main : MonoBehaviour
         //var img = go.AddComponent<Image>();
         //SpriteAtlas sa = Resources.Load<SpriteAtlas>("Sprite/Icons");
         //img.sprite = sa.GetSprite("Icon_Gold");
-        Slider a;
+        Transform a;
         EventTrigger b;
         SpriteRenderer d;
         EventTriggerType t;
-
+        PointerEventData p;
+        BaseEventData basee;
+        AudioSource aa;
+        //a.fillAmount
+        //p.button
+        //PointerEventData.InputButton.Left
         //UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
         ////Sprite m = Sprite.Create(a, Rect.zero, Vector2.zero);
         //SpriteAtlas s;
         //s.GetSprite()
-
-        //img.sprite = a;
+        //AssetBundle.LoadFromFile()
+        //AssetBundle.LoadFromFile()
         //img.sprite = null;
         //Debug.Log(a.GetType());
         //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
@@ -110,14 +115,17 @@ public class Main : MonoBehaviour
 
     private void OnDisable()
     {
+        Quit();
+        Init = null;
+        Loop = null;
+        Quit = null;
         if(luaEnv != null)
             luaEnv.Dispose();
     }
 
     private void OnDestroy()
     {
-        Quit();
-
+        
     }
 
     byte[] InitLoader(ref string path)

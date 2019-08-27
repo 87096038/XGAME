@@ -1,5 +1,6 @@
 ﻿local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
 
 local LightBullet = Class("LightBullet", require("Bullet_base"))
 
@@ -19,7 +20,7 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
         collisionClass = self.gameobject:AddComponent(typeof(CS.Collision))
     end
     local thisTable = self
-    collisionClass.CollisionHandle = function(self, type, other)
+    collisionClass.CollisionHandle = function(self,type, other)
         if type == Enum_CollisionType.TriggerEnter2D then
             local layer = other.gameObject.layer
             --- 主角
@@ -34,7 +35,6 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
                 end
                 ---墙
             elseif layer == 16 then
-                print("ok")
                 if not thisTable.isBounce then
                     thisTable:Destroy()
                 end
@@ -43,9 +43,16 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
     end
 
     self.gameobject.transform.rotation = rotation or UE.Quaternion.identity
+    ------------------添加监听-----------------
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
+
+
     self:SetUpdateFunc(self.UpdateMove)
 end
 
+function LightBullet:OnChangeScene(kv)
+    self:Destroy()
+end
 
 function LightBullet:UpdateMove()
     self.gameobject.transform:Translate(require( "Timer").deltaTime * self.dirction *self.speed, UE.Space.World)

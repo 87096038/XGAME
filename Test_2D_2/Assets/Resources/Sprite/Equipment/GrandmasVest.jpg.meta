@@ -86,7 +86,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 37ece3aed35064092b1092fcaef6adc1
     vertices: []
     indices: 
     edges: []
@@ -95,5 +95,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/sprite/equipment/grandmasvest
+  assetBundleVariant: ab

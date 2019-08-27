@@ -376,6 +376,11 @@ end
 
 ---消息回调
 function ResourceManager:OnChangeScene(kv)
+    for _, v in pairs(self.ObjectPool) do
+        for _, v2 in pairs(v) do
+            UE.GameObject.Destroy(v2)
+        end
+    end
     self.ObjectPool={}
     self.AssetCacheMap = {}
 end

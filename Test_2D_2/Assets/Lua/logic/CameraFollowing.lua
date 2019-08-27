@@ -18,7 +18,7 @@ function CameraFollowing:Init()
     self.transform = self.gameobject:GetComponent("Transform")
 
     ---相机距目标的高度
-    self.height = 10
+    self.height = 5
     self.LerpSpeed = 0.1
 end
 
@@ -30,6 +30,7 @@ end
 
 function CameraFollowing:EndFollow()
     Timer:RemoveUpdateFuc(self,self.UpdateFollow)
+    self.targetTansform = nil
 end
 
 function CameraFollowing:UpdateFollow()
