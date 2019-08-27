@@ -5,10 +5,12 @@
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local AudioMgr = require("AudioManager")
+local SceneMgr = require("SceneManager")
 
 local SettingDlg = Class("SettingDlg", require("Base"))
 
 function SettingDlg:cotr()
+    self.super:cotr()
     local isNwe
     self.gameobject, isNwe = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Setting, PathMgr.NamePath.UI_Setting, Main.UIRoot.transform)
     self.settingPnlObj = self.gameobject.transform:Find("Panel").gameObject
@@ -28,19 +30,32 @@ function SettingDlg:cotr()
         local trigger_2 = self.EffectVolumeSlider.gameObject:AddComponent(typeof(UE.EventSystems.EventTrigger))
         local Entry = UE.EventSystems.EventTrigger.Entry()
         Entry.eventID = UE.EventSystems.EventTriggerType.PointerUp;
-        Entry.callback:AddListener(function (eventData) AudioMgr:BGMVolumeChengeTo(self.EffectVolumeSlider.value)  end);
+        Entry.callback:AddListener(function (eventData) AudioMgr:EffectMusicVolumeChengeTo(self.EffectVolumeSlider.value)  end);
         trigger_2.triggers:Add(Entry)
         ----------设置btn---------------
         self.gameobject.transform:Find("Setting_Btn"):GetComponent(typeof(UE.UI.Button)).onClick:AddListener(function()
-            if self.settingPnlObj.activeSelf then
-                self.settingPnlObj:SetActive(false)
-            else
-                self.settingPnlObj:SetActive(true)
-            end
+            self:ShowOrHide()
         end)
     end
+    self.ExitBtn = self.settingPnlObj.transform:Find("Exit"):GetComponent(typeof(UE.UI.Button))
+    self.ExitBtn.onClick:AddListener(function ()
+        local currentScenen = SceneMgr.currentSceneBuildIndex
+        if currentScenen == Enum_Scenes.Title then
+            UE.Application.Quit()
+        elseif currentScenen == Enum_Scenes.Begin then
+
+        else
+            SceneMgr:LoadScene(currentScenen-1)
+        end
+    end)
 end
 
-
+function SettingDlg:ShowOrHide()
+    if self.settingPnlObj.activeSelf then
+        self.settingPnlObj:SetActive(false)
+    else
+        self.settingPnlObj:SetActive(true)
+    end
+end
 
 return SettingDlg

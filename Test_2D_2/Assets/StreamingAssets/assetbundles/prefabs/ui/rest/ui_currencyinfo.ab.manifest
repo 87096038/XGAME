@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2353397399
+CRC: 4069271922
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f6dab91b3c2b5f69332cdb9a2f5bc3ac
+    Hash: d8ec4a9e0698264547af80a806b9dac9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d55f5a294c93f8470af8538c63b63923
+    Hash: 9282560e1d80bb50e2b04c6963f1d8d2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,10 +25,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 128
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Prefabs/UI/Rest/UI_CurrencyInfo.prefab
-Dependencies: []
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/fromweb/skill_icons.ab

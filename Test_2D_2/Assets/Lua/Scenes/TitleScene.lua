@@ -23,12 +23,10 @@ function TitleScene:InitScene()
     self.setting = require("SettingDlg"):new()
 
     self.Button_Start:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(self.StartOnClick)
-    self.Button_Setting:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(self.SettingOnClick)
+    self.Button_Setting:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(function ()
+        self.setting:ShowOrHide()
+    end)
     self.Button_Exit:GetComponent(typeof(UE.UI.Button)).onClick:AddListener(self.ExitOnClick)
-
-end
-
-function TitleScene:LoadResource()
 
 end
 
@@ -37,16 +35,12 @@ function TitleScene:StartOnClick()
     SceneMgr:LoadScene(Enum_Scenes.Rest)
 end
 
-function TitleScene:SettingOnClick()
-end
-
 function TitleScene:ExitOnClick()
-    -- 要打包后才能生效？
     UE.Application.Quit()
 end
 
---function Title:test()
---    print("hello")
---end
+function TitleScene:OverScene()
+
+end
 
 return TitleScene

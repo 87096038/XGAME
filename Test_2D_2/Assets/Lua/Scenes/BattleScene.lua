@@ -20,10 +20,18 @@ function BeattleScene:InitScene()
     battle:BeginFight()
     --- 生成地图
     require("RoomManager"):CreateRooms(1,3,1,1)
+    --- 创建UI
+    local CharacterStateDlg = require("CharacterStateDlg"):new(Character)
+    local SettingDlg = require("SettingDlg"):new()
     --- 播放BGM
-    AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM))
+    AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 0, true)
     --- 可以开始移动了
     Character:Start()
+end
+
+function BeattleScene:OverScene()
+    Camera:EndFollow()
+    AudioMgr:StopBGM()
 end
 
 return BeattleScene

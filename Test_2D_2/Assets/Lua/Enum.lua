@@ -32,7 +32,7 @@ Enum_ItemType={weapon="weapon",item="item", equipment = "equipment", bullet="bul
 Enum_RoleType={Adventurer_1="Adventurer_1"}
 
 --- NPC种类
-Enum_NPCType={draw_skin="drawSkin", sell_passive_skill = "sell_passive_skill",}
+Enum_NPCType={draw_skin="drawSkin", sell_passive_skill = "sell_passive_skill", sell_equipment="sell_equipment", sell_item="sell_item",}
 
 --- 抽奖种类(数量)
 Enum_DrawCountType={single=1, ten=2, }
@@ -74,20 +74,21 @@ Enum_NormalMessageType={
     ApproachItem="ApproachItem", LeaveItem="LeaveItem", ApproachNPC="ApproachNPC", LeaveNPC="LeaveNPC", ChangeRole="ChangeRole", ChangeSkin="ChangeSkin",
     RefreshCurrency="RefreshCurrency", RefreshSkin="RefreshSkin", RefreshOuterThing="RefreshOuterThing", RefreshCharacterState="RefreshCharacterState",
     ChangeHeath = "ChangeHeath", ChangeArmor = "ChangeArmor", ChangeSpeed="ChangeSpeed", ChangeHeathCeiling="ChangeHeathCeiling", ChangeArmorCeiling = "ChangeArmorCeiling", ChangeSpeedCeiling="ChangeSpeedCeiling",
-    AddKeepBuff = "AddKeepBuff", RemoveKeepBuff = "RemoveKeepBuff", Shoot="Shoot", ReloadBegin="ReloadBegin", ReloadEnd="ReloadEnd",
-    ChengeEffectMusicVolume="ChengeEffectMusicVolume", ChangeBGMVolume="ChangeBGMVolume",
+    AddKeepBuff = "AddKeepBuff", RemoveKeepBuff = "RemoveKeepBuff", BuffHasChanged = "BuffHasChanged", Shoot="Shoot", OutOfAmmo="OutOfAmmo", ReloadBegin="ReloadBegin", ReloadEnd="ReloadEnd",
+    ChengeEffectMusicVolume="ChengeEffectMusicVolume", ChangeBGMVolume="ChangeBGMVolume", SelectItem = "SelectItem", LevelReward="LevelReward",
 }
 
 --- 网络消息
 Enum_NetMessageType={
     Tick = "Net_Tick", Login="Net_Login", UserInfo="Net_UserInfo", DrawSkin="Net_DrawSkin", RefreshSkin="Net_RefreshSkin", RefreshCurrency="Net_RefreshCurrency",
-    BuyOuterThing="Net_BuyOuterThing", RefreshOuterThing="Net_RefreshOuterThing", ChangeCurrentRoleAndSkin = "Net_ChangeCurrentRoleAndSkin",
+    BuyOuterThing="Net_BuyOuterThing", RefreshOuterThing="Net_RefreshOuterThing", ChangeCurrentRoleAndSkin = "Net_ChangeCurrentRoleAndSkin", LevelReward="Net_LevelReward",
 }
 
 --- 网络消息(index) 格式为:index - Enum_NetMessageType
 Enum_NetMessageType_Index={
     [1] = Enum_NetMessageType.Tick, [2] = Enum_NetMessageType.Login, [3] = Enum_NetMessageType.UserInfo,[4] = Enum_NetMessageType.DrawSkin, [5] = Enum_NetMessageType.RefreshSkin,
-    [6] = Enum_NetMessageType.RefreshCurrency, [7] = Enum_NetMessageType.BuyOuterThing, [8] = Enum_NetMessageType.RefreshOuterThing, [9] = Enum_NetMessageType.ChangeCurrentRoleAndSkin
+    [6] = Enum_NetMessageType.RefreshCurrency, [7] = Enum_NetMessageType.BuyOuterThing, [8] = Enum_NetMessageType.RefreshOuterThing, [9] = Enum_NetMessageType.ChangeCurrentRoleAndSkin,
+    [10] = Enum_NetMessageType.LevelReward,
 }
 -------------------------------------------消息Response---------------------------------------------
 --- 抽奖反馈

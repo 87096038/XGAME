@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2875083644
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 48c4292be18900624dfdc672b0a2f3d6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8f81471f4cfc7bf93c7fa752ebb4eb40
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/Atlas/Enemies.spriteatlas
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/fromweb/enemy_4.ab

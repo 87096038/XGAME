@@ -136,7 +136,7 @@ end
 
 function BeginScene:WaitForClickUpdate()
     if UE.Input.GetMouseButtonUp(0) then
-        Timer:RemoveUpdateFuc(self.WaitForClickUpdate)
+        Timer:RemoveUpdateFuc(self, self.WaitForClickUpdate)
         require("SceneManager"):LoadScene(Enum_Scenes.Title)
     end
 end
@@ -166,6 +166,10 @@ function BeginScene:OnLogin(kv)
             self:Login()
         end
     end
+end
+
+function BeginScene:OverScene()
+
 end
 
 ---step: 0~1之间，每次变化的透明度多少，推荐0.02

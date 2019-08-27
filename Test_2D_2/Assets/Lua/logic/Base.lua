@@ -28,6 +28,9 @@ function Base:DestroyMessageListener(messageType, handler)
 end
 
 function Base:DestroyAllMessageListener()
+    if not self.MessageListenerMap then
+        return
+    end
     for k, v in pairs(self.MessageListenerMap) do
         if v then
             MC:RemoveListener(k, v)
@@ -43,7 +46,7 @@ end
 
 function Base:RemoveUpdateFunc()
     if self.updateFunc then
-        Timer:RemoveUpdateFuc(self.updateFunc)
+        Timer:RemoveUpdateFuc(self,self.updateFunc)
     end
 end
 

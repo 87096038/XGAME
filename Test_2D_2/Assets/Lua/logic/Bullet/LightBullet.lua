@@ -1,5 +1,6 @@
 ﻿local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
 
 local LightBullet = Class("LightBullet", require("Bullet_base"))
 
@@ -30,7 +31,7 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
                 enemy:GetDamage(self.damage, self.buffs)
                 self:Destroy()
                 ---墙
-            elseif layer == 5 then
+            elseif layer == 16 then
                 if not self.isBounce then
                     self:Destroy()
                 end
@@ -39,9 +40,16 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
     end
 
     self.gameobject.transform.rotation = rotation or UE.Quaternion.identity
+    ------------------添加监听-----------------
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
+
+
     self:SetUpdateFunc(self.UpdateMove)
 end
 
+function LightBullet:OnChangeScene(kv)
+    self:Destroy()
+end
 
 function LightBullet:UpdateMove()
     self.gameobject.transform:Translate(require( "Timer").deltaTime * self.dirction *self.speed, UE.Space.World)

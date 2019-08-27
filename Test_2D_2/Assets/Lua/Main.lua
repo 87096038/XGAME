@@ -127,14 +127,13 @@ local Camera = require("CameraFollowing")
 --local AudioMgr = require("AudioManager")
 local BeginScene = require("BeginScene")
 -------------------------------
+
 --初始化
 function Init()
     --- 设置随机种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
     --- 开始加载游戏
     BeginScene:InitScene()
-    --AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 5)
-    --SceneMgr:GenerateBattleMap(1,3,1,1)
 end
 
 --主循环
@@ -147,4 +146,3 @@ function Quit()
     print("Quit")
 end
 ------------------------------
-

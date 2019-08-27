@@ -14,29 +14,27 @@ function Equipment:cotr(equipmentID, position)
     self.super:cotr()
     local data = EquipmentData.Equipments[equipmentID]
     self.gameobject = ResourceMgr:GetGameObject(data.PrefabPath, data.PrefabName, nil, position)
+    self.collsion =  self.gameobject:GetComponentInChildren(typeof(UE.BoxCollider2D))
+    self.type = data.type
     self.name = data.name
     self.info = data.info
     self.extraInfo = data.extraInfo
+    self.buff = data.buff
+    self.icon = self.gameobject:GetComponentInChildren(typeof(UE.SpriteRenderer)).sprite
     self.isPacked = false
-    ---------------绑定碰撞------------
-    --self.collsion = self.gameobject:GetComponent(typeof(CS.Collision))
-    --if not self.collsion then
-    --    self.collsion = self.gameobject:AddComponent(typeof(CS.Collision))
-    --end
-    --self.collsion.CollisionHandle = function(self, type, other)
-    --    if type == Enum_CollisionType.TriggerEnter2D then
-    --        local layer = other.gameObject.layer
-    --        --- 主角
-    --        if layer == 9 then
---
-    --        end
-    --    end
-    --end
 end
 
 function Equipment:Use()
+    self.collsion.enabled = false
     MC:SendMessage(Enum_NormalMessageType.PickUp, require("KeyValue"):new(Enum_ItemType.equipment, self))
+    self.gameobject:SetActive(false)
     self.isPacked = true
+end
+
+function Equipment:Drop()
+    self.collsion.enabled = true
+    self.gameobject:SetActive(true)
+    self.isPacked = false
 end
 
 return Equipment

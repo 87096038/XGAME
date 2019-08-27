@@ -12,8 +12,7 @@ local NetHelper = require("NetHelper")
 local NPC_SellPassiveSkill ={}
 
 function NPC_SellPassiveSkill:Init()
-    self.position = UE.Vector3(2, 5, 0)
-    self.targetPosY = 120
+    self.position = UE.Vector3(2, 8, 0)
     self.lerpTime = 0.04
     self.type = Enum_NPCType.sell_passive_skill
 
@@ -26,6 +25,9 @@ function NPC_SellPassiveSkill:Init()
     self.infoPnlTitle = nil
     self.infoPnlContent = nil
     self.infoPnlPrice = nil
+
+    ------------------添加监听-------------------
+    MC:AddListener(Enum_NormalMessageType.RefreshOuterThing, handler(self, self.OnRefreshOuterThing))
 end
 
 function NPC_SellPassiveSkill:Generate()
@@ -68,9 +70,6 @@ function NPC_SellPassiveSkill:Generate()
             end
         end
     end
-
-    ------------------添加监听-------------------
-    MC:AddListener(Enum_NormalMessageType.RefreshOuterThing, handler(self, self.OnRefreshOuterThing))
 
     self:GenerateItems()
 end
@@ -199,6 +198,9 @@ end
 
 -----------------消息回调--------------
 function NPC_SellPassiveSkill:OnRefreshOuterThing(kv)
+    if not self.gameobject then
+        return
+    end
     for i=1, 3 do
         if self.SelledItems[i] then
             local flag = true

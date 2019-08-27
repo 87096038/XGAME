@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 4249109823
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c60b28fb94b4bcf2fd87b80cf7c4b63f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 060adad4ebb0cda02c02dc3bb7ed3e53
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Equipments/PRClothes.prefab
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/equipment/prclothes.ab

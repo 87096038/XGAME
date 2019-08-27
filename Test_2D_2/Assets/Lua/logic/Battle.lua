@@ -20,6 +20,8 @@ function Battle:cotr(character, initialWeapon)
     self:AddMessageListener(Enum_NormalMessageType.ApproachNPC, handler(self, self.ApproachNPCHandler))
     self:AddMessageListener(Enum_NormalMessageType.LeaveNPC, handler(self, self.LeaveNPCHandler))
     self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
+    self:AddMessageListener(Enum_NormalMessageType.OutOfAmmo, handler(self, self.OnOutOfAmmo))
+    self:AddMessageListener(Enum_NormalMessageType.SelectItem, handler(self, self.OnSelectItem))
 
     ---实际的角色
     self.character = character
@@ -62,14 +64,19 @@ function Battle:cotr(character, initialWeapon)
     self.currentItem = nil
     ---所拥有的物品
     self.Items={}
-    --------------------------物品UI------------------------
+    ----物品弹出UI--
     self.itemInfoDlg = require("BattleItemInfoDlg"):new()
+
+    -------------------------货币------------------------
+    --- 金币
+    self.goldCount = 0
+    --- 灵魂碎片
+    self.soulShard = 0
+
 
     if initialWeapon then
         self:AddWeapon(initialWeapon)
     end
-    --- 金币数目
-    self.goldCount = 0
     ---目前聚焦的可使用物体(包括NPC)
     self.useableThing = nil
     ---用于计算射击CD
@@ -93,12 +100,16 @@ function Battle:BeginFight()
     self:AddMessageListener(Enum_NormalMessageType.Shoot, handler(self, self.OnShoot))
     self:AddMessageListener(Enum_NormalMessageType.ReloadEnd, handler(self, self.OnReloadEnd))
     self:AddMessageListener(Enum_NormalMessageType.GameOver, handler(self, self.GameOverHandler))
-    ---子弹UI
-    self.BulletsCountPnl = require("BulletsCountDlg"):new(self.BulletsCount[Enum_BulletType.light],  self.BulletsCount[Enum_BulletType.heavy], self.BulletsCount[Enum_BulletType.energy],  self.BulletsCount[Enum_BulletType.shell])
+    --- 子弹UI
+    self.bulletsCountPnl = require("BulletsCountDlg"):new(self.BulletsCount[Enum_BulletType.light],  self.BulletsCount[Enum_BulletType.heavy], self.BulletsCount[Enum_BulletType.energy],  self.BulletsCount[Enum_BulletType.shell])
     --- 武器UI
-    self.WeaponStateDlg = require("WeaponStateDlg"):new()
+    self.weaponStateDlg = require("WeaponStateDlg"):new()
     --- 物品UI
-    self.ItemsContainerPnl = require("ItemsContainerDlg"):new()
+    self.itemsContainerPnl = require("ItemsContainerDlg"):new()
+    --- 装备UI
+    self.equipmentsPnl = require("EquipmentsDlg"):new()
+    --- 战斗里货币UI
+    self.goldAndSoulShardPnl = require("GoldAndSoulShardDlg"):new(self.goldCount, self.soulShard)
 end
 
 -----------------------------武器交互--------------------------------
@@ -119,14 +130,14 @@ function Battle:ChangeWeapon(index)
     self.currentWeaponIndex = index
     self.weaponObj = self.currentWeapon.gameobject
     self.weaponObj:SetActive(true)
-    if self.WeaponStateDlg then
+    if self.weaponStateDlg then
         local nextIndex = index + 1
         nextIndex = nextIndex % #self.Weapons
         if nextIndex == 0 then
             nextIndex = #self.Weapons
         end
-        self.WeaponStateDlg:ChangeToNext(self.Weapons[nextIndex].gameobject:GetComponentInChildren(typeof(UE.SpriteRenderer)).sprite)
-        self.WeaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
+        self.weaponStateDlg:ChangeToNext(self.Weapons[nextIndex].icon)
+        self.weaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
     end
     --weapon
 
@@ -134,26 +145,28 @@ end
 
 --- 添加武器
 function Battle:AddWeapon(weapon)
-    if #self.Weapons >= self.maxWeaponCount then
+    while #self.Weapons >= self.maxWeaponCount do
         self:DropWeapon()
     end
     self.currentWeapon = weapon
     table.insert(self.Weapons, self.currentWeaponIndex, weapon)
+    weapon:SetOwner(self.character)
     if self.weaponObj then
         self.weaponObj:SetActive(false)
-        if self.WeaponStateDlg then
-            self.WeaponStateDlg:ChangeNext(self.weaponObj:GetComponentInChildren(typeof(UE.SpriteRenderer)).sprite)
+        if self.weaponStateDlg then
+            self.weaponStateDlg:ChangeNext(self.currentWeapon.icon)
         end
     end
     self.weaponObj = weapon.gameobject
     self.weaponObj.transform:SetParent(self.weaponStoreTrans)
-    if self.WeaponStateDlg then
-        self.WeaponStateDlg:ChangeCurrent(self.weaponObj:GetComponentInChildren(typeof(UE.SpriteRenderer)).sprite)
-        self.WeaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
+    if self.weaponStateDlg then
+        self.weaponStateDlg:ChangeCurrent(self.currentWeapon.icon)
+        self.weaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
     end
 end
 
 --- 扔掉武器
+--- 只有拥有两个及以上武器才能调用此函数
 function Battle:DropWeapon()
     ---至少持有一个武器
     if #self.Weapons <= 1 then
@@ -169,44 +182,101 @@ function Battle:DropWeapon()
     self.currentWeapon = self.Weapons[self.currentWeaponIndex]
     self.weaponObj = self.currentWeapon.gameobject
     self.weaponObj:SetActive(true)
-    if self.WeaponStateDlg then
-        self.WeaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
+    if self.weaponStateDlg then
+        self.weaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
         if #self.Weapons > 1 then
             local nextIndex = self.currentWeaponIndex + 1
             nextIndex = nextIndex % #self.Weapons
             if nextIndex == 0 then
                 nextIndex = #self.Weapons
             end
-            self.WeaponStateDlg:ChangeToNext(self.Weapons[nextIndex].gameobject:GetComponentInChildren(typeof(UE.SpriteRenderer)).sprite)
+            self.weaponStateDlg:ChangeToNext(self.Weapons[nextIndex].icon)
         else
-            self.WeaponStateDlg:ChangeToNext()
+            self.weaponStateDlg:ChangeToNext()
         end
     end
 end
 -----------------------------装备交互-------------------------
-
+--- 添加装备
 function Battle:AddEquipment(equipment)
     if self.currentEquipment then
         self:DropEquipment()
     end
-    self.ItemsContainerPnl:AddItem(equipment)
+    self.currentEquipment = equipment
+    self.character:AddBuff(equipment.buff)
+    equipment.gameobject.transform:SetParent(self.EquipmentStoreTrans)
+    self.equipmentsPnl:ChangeSprite(equipment.icon)
 end
-
+--- 丢掉装备
 function Battle:DropEquipment()
-
+    self.character:RemoveBuff(self.currentEquipment.buff)
+    self.equipmentsPnl:RemoveSprite()
+    self.currentEquipment:Drop()
+    self.currentEquipment = nil
 end
 
 -----------------------------物品交互--------------------------
+--- 添加物品
+function Battle:AddItem(Item)
+    while #self.Items >= self.maxItemCount do
+        self:DropItem()
+    end
+    self.character:AddBuff(Item.buff)
+    self.itemsContainerPnl:AddItem(Item)
+    table.insert(self.Items, Item)
+    Item.gameobject.transform:SetParent(self.ItemStoreTrans)
+    if #self.Items == 1 then
+        self.currentItem = Item
+    end
+end
 
+---丢掉物品
+function Battle:DropItem()
+    if #self.Items <= 0 then
+        return
+    end
+    self.character:RemoveBuff(self.currentItem.buff)
+    self.itemsContainerPnl:RemoveItem(self.currentItem)
+    table.remove(self.Items, self.currentItemIndex)
+    self.currentItem.gameobject.transform:SetParent(nil)
+    self.currentItem:Drop()
+    if #self.Items > 0 then
+        self.currentItemIndex = self.currentItemIndex % #self.Items
+        if self.currentItemIndex == 0 then
+            self.currentItemIndex = #self.Items
+        end
+        self.currentItem = self.Items[self.currentItemIndex]
+    else
+        self.currentItem = nil
+        self.currentItemIndex = 1
+    end
+end
+
+--- 选择物体
+function Battle:SelectItem(Item)
+    for k, v in ipairs(self.Items) do
+        if v == Item then
+            self.currentItem = v
+            self.currentItemIndex = k
+        end
+    end
+end
+------------------------Update---------------------
 function Battle:UpdateBattle()
 
-    if self.weaponObj then
-        ---武器跟随玩家
-        for _, v in pairs(self.Weapons) do
-            v.gameobject.transform.position = self.character.gameobject.transform.position
-        end
+    ---所有东西都跟随玩家
+    for _, v in pairs(self.Weapons) do
+        v.gameobject.transform.position = self.character.gameobject.transform.position
+    end
+    for _, v in pairs(self.Items) do
+        v.gameobject.transform.position = self.character.gameobject.transform.position
+    end
+    if self.currentEquipment then
+        self.currentEquipment.gameobject.transform.position = self.character.gameobject.transform.position
+    end
 
-        ---武器跟随鼠标旋转
+    ---武器跟随鼠标旋转
+    if self.weaponObj then
         self.mousePosition_screen = UE.Input.mousePosition
         self.mousePosition_screen.z = -Camera.gameobject.transform.position.z
         self.mousePosition_world = Camera.camera:ScreenToWorldPoint(self.mousePosition_screen)
@@ -244,15 +314,19 @@ function Battle:UpdateBattle()
             end
         end
         if UE.Input.GetKeyDown(UE.KeyCode.R) then
-            self.currentWeapon:Reload()
+            self.currentWeapon:Reload(self.BulletsCount[ self.currentWeapon.bulletType])
         elseif UE.Input.GetKeyDown(UE.KeyCode.G) then
             self:DropWeapon()
         end
     end
     if UE.Input.GetKeyDown(UE.KeyCode.E) and self.useableThing then
-        if self.useableThing.Use then
+        if  self.currentWeapon and self.currentWeapon.isReloading then
+
+        elseif self.useableThing.Use then
             self.useableThing:Use()
         end
+    elseif UE.Input.GetKeyDown(UE.KeyCode.C) then
+        self:DropItem()
     end
 end
 
@@ -262,6 +336,8 @@ function Battle:PickUpHandler(kv)
         self:AddWeapon(kv.Value)
     elseif kv.Key == Enum_ItemType.equipment then
         self:AddEquipment(kv.Value)
+    elseif kv.Key == Enum_ItemType.item then
+        self:AddItem(kv.Value)
     end
 end
 
@@ -272,6 +348,9 @@ function Battle:ApproachItemHandler(kv)
     elseif kv.Key == Enum_ItemType.equipment then
         self.useableThing = kv.Value
         self.itemInfoDlg:Show(Enum_ItemType.equipment, kv.Value.name, kv.Value.info, kv.Value.extraInfo)
+    elseif kv.Key == Enum_ItemType.item then
+        self.useableThing = kv.Value
+        self.itemInfoDlg:Show(Enum_ItemType.item, kv.Value.name, kv.Value.info, kv.Value.extraInfo)
     end
 
 end
@@ -286,6 +365,8 @@ function Battle:LeaveItemHandler(kv)
         self.itemInfoDlg:Hide(kv.Key)
     elseif kv.Key == Enum_ItemType.equipment then
         self.itemInfoDlg:Hide(kv.Key)
+    elseif kv.Key == Enum_ItemType.item then
+        self.itemInfoDlg:Hide(kv.Key)
     end
 end
 
@@ -293,16 +374,26 @@ function Battle:LeaveNPCHandler(kv)
     self.useableThing = nil
 end
 
-function Battle:OnShoot(kv)
-    if self.BulletsCount[kv.Key] > 0 then
-        self.BulletsCount[kv.Key] = self.BulletsCount[kv.Key] -1
-        self.BulletsCountPnl:BulletCountChangeTo(kv.Key, self.BulletsCount[kv.Key])
-        self.WeaponStateDlg:ReduceBullet(1)
+function Battle:OnOutOfAmmo(kv)
+    if kv.Key == self.character then
+        self.currentWeapon:Reload(self.BulletsCount[ self.currentWeapon.bulletType])
     end
 end
 
+function Battle:OnShoot(kv)
+    if self.BulletsCount[kv.Key] > 0 then
+        self.BulletsCount[kv.Key] = self.BulletsCount[kv.Key] -1
+        self.bulletsCountPnl:BulletCountChangeTo(kv.Key, self.BulletsCount[kv.Key])
+        self.weaponStateDlg:ReduceBullet(1)
+    end
+end
+
+function Battle:OnSelectItem(kv)
+    self:SelectItem(kv.Value)
+end
+
 function Battle:OnReloadEnd(kv)
-    self.WeaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
+    self.weaponStateDlg:ReSetBullet(self.currentWeapon.bulletType, self.currentWeapon.currentAmmoACount)
 end
 
 function Battle:GameOverHandler(kv)

@@ -29,7 +29,8 @@ function CameraFollowing:BeginFollow(targetTansform)
 end
 
 function CameraFollowing:EndFollow()
-    Timer:RemoveUpdateFuc(self.UpdateFollow)
+    Timer:RemoveUpdateFuc(self,self.UpdateFollow)
+    self.targetTansform = nil
 end
 
 function CameraFollowing:UpdateFollow()

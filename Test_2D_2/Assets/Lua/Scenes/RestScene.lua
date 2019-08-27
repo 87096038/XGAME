@@ -7,6 +7,9 @@ local ResourceMgr = require("ResourceManager")
 local SceneMgr = require("SceneManager")
 local Battle = require("Battle")
 local Camera =  require("CameraFollowing")
+local MC = require("MessageCenter")
+
+
 local RestScene = {}
 
 function RestScene:InitScene()
@@ -30,25 +33,29 @@ function RestScene:InitScene()
     end
     local currencyInfoDlg = require("CurrencyInfoDlg"):new()
     local CharacterStateDlg = require("CharacterStateDlg"):new(character)
+    local SettingDlg = require("SettingDlg"):new()
+
     self:InitNPC()
     self:InitSpecialThing()
     character:Start()
 end
 
-
 ---初始化NPC
 function RestScene:InitNPC()
     local NPC_DrawSkin = require("NPC_DrawSkin")
     NPC_DrawSkin:Generate()
+
     local NPC_SellPassiveSkill = require("NPC_SellPassiveSkill")
     NPC_SellPassiveSkill:Generate()
+
+    local NPC_SellEquipment = require("NPC_SellEquipment")
+    NPC_SellEquipment:Generate()
 end
 
 function RestScene:OnPortalCollision(type, other)
     if type == Enum_CollisionType.TriggerEnter2D then
         --- 角色的layer
         if other.gameObject.layer ==  9 then
-            Camera:EndFollow()
             SceneMgr:LoadScene(Enum_Scenes.Battle)
         end
     end
@@ -56,6 +63,7 @@ end
 
 ---初始化特殊物品
 function RestScene:InitSpecialThing()
+    -------------下一关的门------------
     local isNew
     local portal, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Portal, PathMgr.NamePath.Portal, nil, UE.Vector3(10, 0, 0))
     -------绑定碰撞------
@@ -67,8 +75,12 @@ function RestScene:InitSpecialThing()
             collsion.CollisionHandle = self.OnPortalCollision
         end
     end
+    -----------毒区--------------
+    require("PoisonArea"):Generate()
 end
 
-
+function RestScene:OverScene()
+    Camera:EndFollow()
+end
 
 return RestScene

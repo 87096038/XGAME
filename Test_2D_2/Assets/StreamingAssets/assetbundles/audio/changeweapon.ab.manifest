@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3507378313
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b35fb6ddb23b3369e7c0eddf88dd2f70
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Audio/ChangeWeapon.mp3
+Dependencies: []

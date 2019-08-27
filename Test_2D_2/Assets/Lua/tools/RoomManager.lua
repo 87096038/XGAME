@@ -7,7 +7,7 @@ local RoomManager = {}
 function RoomManager:Init()
     -- 房间资源预加载
     self.girdRoot = ResourceMgr:Load(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot)
-    self.road = ResourceMgr:Load(PathMgr.ResourcePath.Road,PathMgr.NamePath.Road)
+    self.road = ResourceMgr:Load(PathMgr.ResourcePath.Road ,PathMgr.NamePath.Road)
     self.tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
 
     -- 关卡数
@@ -47,6 +47,13 @@ function RoomManager:GetEquipment(go)
 end
 function RoomManager:GetWeapon(go)
     for _, v in pairs(self.Weapons) do
+        if v.gameobject == go then
+            return v
+        end
+    end
+end
+function RoomManager:GetItem(go)
+    for _, v in pairs(self.Items) do
         if v.gameobject == go then
             return v
         end
@@ -191,9 +198,24 @@ function RoomManager:CreateRooms(mapLevel,monsterRoomCnt,shopRoomCnt,treasureRoo
 
     -- 实例化所有房间（和道路）
     self:InstantiateRooms()
-    self.equipmnets = {require("ThingsFactory"):GetThing(70001, UE.Vector3(2, 1, 0))}
+
+    self.Items = {require("ThingsFactory"):GetThing(80002, UE.Vector3(-2, 3, 0)),
+                  require("ThingsFactory"):GetThing(80001, UE.Vector3(0, 3, 0)),
+                  require("ThingsFactory"):GetThing(80003, UE.Vector3(2, 3, 0)),
+    }
+    self.equipmnets = {require("ThingsFactory"):GetThing(70001, UE.Vector3(-4, 2, 0)),
+                       require("ThingsFactory"):GetThing(70002, UE.Vector3(-3, 2, 0)),
+                       require("ThingsFactory"):GetThing(70003, UE.Vector3(-2, 2, 0)),
+                       require("ThingsFactory"):GetThing(70004, UE.Vector3(-1, 2, 0)),
+                       require("ThingsFactory"):GetThing(70005, UE.Vector3(0, 2, 0)),
+                       require("ThingsFactory"):GetThing(70006, UE.Vector3(1, 2, 0)),
+                       require("ThingsFactory"):GetThing(70007, UE.Vector3(2, 2, 0)),
+    }
     self.Weapons={require("ThingsFactory"):GetThing(60004, UE.Vector3(-2, 1, 0)),
-                  require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0))}
+                  require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0)),
+                  require("ThingsFactory"):GetThing(60002, UE.Vector3(2, 1, 0)),
+
+    }
 end
 
 function RoomManager:InstantiateRooms()

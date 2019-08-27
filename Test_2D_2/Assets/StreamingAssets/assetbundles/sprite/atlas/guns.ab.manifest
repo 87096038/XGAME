@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 433323912
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4e8169ed842a6be6dea805c89db1450f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8f81471f4cfc7bf93c7fa752ebb4eb40
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/Atlas/Guns.spriteatlas
+Dependencies:
+- /Users/xiejiahong/XGAME/Test_2D_2/Assets/StreamingAssets/assetbundles/sprite/weapon/atlases/png/atlas_blue.ab

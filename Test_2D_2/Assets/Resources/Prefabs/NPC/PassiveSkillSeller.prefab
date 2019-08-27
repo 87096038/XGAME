@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1811656049345355602}
   - component: {fileID: 1811656049345355601}
   - component: {fileID: 1811656049345355603}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: First
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1811656049567954162}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1811656049772593973}
   - component: {fileID: 1811656049772593972}
   - component: {fileID: 1811656049772593971}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: NPC_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 1811656050125331794}
   - component: {fileID: 1811656050125331796}
   - component: {fileID: 1811656050125331795}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Third
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 1811656050511980551}
   - component: {fileID: 1811656050511980553}
   - component: {fileID: 1811656050511980552}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Second
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8255164264165299044}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PassiveSkillSeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

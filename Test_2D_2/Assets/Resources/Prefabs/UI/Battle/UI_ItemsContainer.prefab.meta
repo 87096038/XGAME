@@ -3,5 +3,5 @@ guid: 4d559c3cd3aa44f1e94ad12752c1ab3f
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assetbundles/prefabs/ui/battle/ui_itemscontainer
+  assetBundleVariant: ab

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1463134010
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: eb855c9fd2c828591ce1b280f43cdbea
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Sprite/Equipment/PRClothes.png
+Dependencies: []

@@ -8,6 +8,7 @@ local PathMgr = require("PathManager")
 local BulletsCountDlg = Class("BulletsCountDlg", require("Base"))
 
 function BulletsCountDlg:cotr(lightCount, heavyCount, energyCount, shellCount)
+    self.super:cotr()
     self.numberToStringCache = {}
     --for i = 1, 999 do
     --    table.insert(self.numberToStringCache, tostring(i))
