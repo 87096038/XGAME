@@ -28,7 +28,10 @@ function BeginScene:InitScene()
     if IS_ONLINE_MODE then
         --local beginImgs = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_Begin_Imgs, PathMgr.NamePath.UI_Begin_Imgs, Main.UIRoot.transform)
         --StartCoroutine(self.BeginImgFade, self, beginImgs.transform, nil, nil, nil, handler(self, self.HotUpdateStart) )
-        self:HotUpdateStart()
+        --self:HotUpdateStart()
+        NetHelper:SetMD5(false)
+        NetHelper:TCPConnect()
+        Timer:AddUpdateFuc(self, self.WaitForClickUpdate)
     else
         self.hotUpdatePnl = ResourceMgr:Instantiate(self.hotUpdatePnl, Main.UIRoot.transform)
         self.hotUpdateStateText = self.hotUpdatePnl.transform:Find("State"):GetComponentInChildren(typeof(UE.UI.Text))

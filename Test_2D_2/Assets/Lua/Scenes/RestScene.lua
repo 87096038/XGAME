@@ -64,17 +64,14 @@ end
 ---初始化特殊物品
 function RestScene:InitSpecialThing()
     -------------下一关的门------------
-    local isNew
-    local portal, isNew = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Portal, PathMgr.NamePath.Portal, nil, UE.Vector3(10, 0, 0))
+    local portal = ResourceMgr:GetGameObject(PathMgr.ResourcePath.Portal, PathMgr.NamePath.Portal, nil, UE.Vector3(10, 0, -1))
     -------绑定碰撞------
-    local collsion = portal:AddComponent(typeof(CS.Collision))
-    if isNew then
-        if collsion.CollisionHandle then
-            collsion.CollisionHandle = collsion.CollisionHandle + self.OnPortalCollision
-        else
-            collsion.CollisionHandle = self.OnPortalCollision
-        end
+    local collsion = portal:GetComponent(typeof(CS.Collision))
+    if not collsion then
+        collsion = portal:AddComponent(typeof(CS.Collision))
     end
+    collsion.CollisionHandle = self.OnPortalCollision
+
     -----------毒区--------------
     require("PoisonArea"):Generate()
 end

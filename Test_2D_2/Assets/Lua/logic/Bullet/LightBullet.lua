@@ -19,21 +19,24 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
     if not collisionClass then
         collisionClass = self.gameobject:AddComponent(typeof(CS.Collision))
     end
-    collisionClass.CollisionHandle = function(type, other)
+    local thisTable = self
+    collisionClass.CollisionHandle = function(self,type, other)
         if type == Enum_CollisionType.TriggerEnter2D then
             local layer = other.gameObject.layer
             --- 主角
             if layer == 9  then
-                self:Destroy()
+                thisTable:Destroy()
                 ---敌人
             elseif layer == 10 then
                 local enemy = require("RoomManager"):GetEnemy(other.gameObject)
-                enemy:GetDamage(self.damage, self.buffs)
-                self:Destroy()
+                if enemy ~= nil then
+                    enemy:GetDamage(thisTable.damage, thisTable.buffs)
+                    thisTable:Destroy()
+                end
                 ---墙
             elseif layer == 16 then
-                if not self.isBounce then
-                    self:Destroy()
+                if not thisTable.isBounce then
+                    thisTable:Destroy()
                 end
             end
         end

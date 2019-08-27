@@ -16,7 +16,9 @@ function Bullet_base:Destroy()
     if self.explosionEffect then
 
     end
-    ResourceMgr:DestroyObject(self.gameobject)
+    if not CS.Util.IsNull(self.gameobject) then
+        ResourceMgr:DestroyObject(self.gameobject)
+    end
     self.super.super.Destroy(self)
 end
 

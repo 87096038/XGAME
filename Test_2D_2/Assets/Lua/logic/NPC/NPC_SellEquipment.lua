@@ -12,7 +12,7 @@ local NetHelper = require("NetHelper")
 local NPC_SellEquipment={}
 
 function NPC_SellEquipment:Init()
-    self.position = UE.Vector3(6, 5, 0)
+    self.position = UE.Vector3(6, 5, -1)
     self.lerpTime = 0.04
     self.type = Enum_NPCType.sell_equipment
 
@@ -31,7 +31,7 @@ function NPC_SellEquipment:Init()
 end
 
 function NPC_SellEquipment:Generate()
-    if self.gameobject then
+    if not CS.Util.IsNull(self.gameobject) then
         return
     end
     self.gameobject = ResourceMgr:GetGameObject(PathMgr.ResourcePath.NPC_SellEquipment, PathMgr.NamePath.NPC_SellEquipment, nil, self.position)

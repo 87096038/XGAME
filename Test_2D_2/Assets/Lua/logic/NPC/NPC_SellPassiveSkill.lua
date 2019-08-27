@@ -12,7 +12,7 @@ local NetHelper = require("NetHelper")
 local NPC_SellPassiveSkill ={}
 
 function NPC_SellPassiveSkill:Init()
-    self.position = UE.Vector3(2, 8, 0)
+    self.position = UE.Vector3(2, 8, -1)
     self.lerpTime = 0.04
     self.type = Enum_NPCType.sell_passive_skill
 
@@ -31,7 +31,7 @@ function NPC_SellPassiveSkill:Init()
 end
 
 function NPC_SellPassiveSkill:Generate()
-    if self.gameobject then
+    if not CS.Util.IsNull(self.gameobject) then
         return
     end
     local isNew
