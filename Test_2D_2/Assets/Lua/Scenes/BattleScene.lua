@@ -20,7 +20,7 @@ function BeattleScene:InitScene()
     battle:BeginFight()
 
     --- 生成地图
-    require("RoomManager"):CreateRooms(1,3,1,1)
+    require("RoomManager"):CreateRooms(1,4,0,1)
 
     --- 创建UI
     local CharacterStateDlg = require("CharacterStateDlg"):new(Character)

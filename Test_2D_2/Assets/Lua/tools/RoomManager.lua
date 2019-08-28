@@ -4,12 +4,11 @@ local Enemy = require("Enemy_1")
 local Room = require("Room")
 local RoomData = require("RoomData")
 local MC = require("MessageCenter")
+local NetHelper = require("NetHelper")
 
 local RoomManager = {}
 
 function RoomManager:Init()
-
-
 
     -- 添加监听
     MC:AddListener(Enum_NormalMessageType.EnterRoom,handler(self,self.AfterEnterRoom))
@@ -17,12 +16,12 @@ function RoomManager:Init()
 
 end
 
-function RoomManager:StartBattle()
+function RoomManager:InitRoom(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
     -- 房间距离
     self.roomDistance = 40
 
     -- 当前关卡，当前房间
-    self.currentLevel = nil
+    self.currentLevel = mapLevel
     self.currentRoom = nil
 
     -- 房间地图记录
@@ -35,34 +34,12 @@ function RoomManager:StartBattle()
         end
     end
 
-    -- 主角、子弹、怪物缓存
+    -- 主角、怪物、武器、装备、物品缓存
     self.character = nil
     self.enemies = {}
-end
-
---生成地图，随机生成房间及连接通路
---关卡、怪物房数量、商店房数量、宝箱房数量
-function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
-    -- 房间距离
-    self.roomDistance = 40
-
-    -- 当前关卡，当前房间
-    self.currentLevel = nil
-    self.currentRoom = nil
-
-    -- 房间地图记录
-    self.roomMapSize = 20
-    self.roomMap = {}
-    for i = -self.roomMapSize,self.roomMapSize do
-        self.roomMap[i]={}
-        for j = -self.roomMapSize,self.roomMapSize do
-            self.roomMap[i][j] = nil
-        end
-    end
-
-    -- 主角、子弹、怪物缓存
-    self.character = nil
-    self.enemies = {}
+    self.weapons = {}
+    self.equipments = {}
+    self.items = {}
 
     -- 实例化网格和road的tileMap
     self.girdRoot = ResourceMgr:GetGameObject(PathMgr.ResourcePath.GridRoot,PathMgr.NamePath.GridRoot,nil,UE.Vector3(0,0,1))
@@ -70,6 +47,43 @@ function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoom
 
     self.tileBase = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Base, PathMgr.NamePath.Tile_Base)
     self.tileWall = ResourceMgr:Load(PathMgr.ResourcePath.Tile_Wall,PathMgr.NamePath.Tile_Wall)
+
+    NetHelper:SendLevelReward(mapLevel, {1, normalRoomCnt, treasureRoomCnt, treasureRoomCnt, 1, 0})
+    MC:AddListener(Enum_NormalMessageType.LevelReward, handler(self, self.GetRewardInfo))
+end
+
+-- 获取关卡内物资
+function RoomManager:GetRewardInfo(kv)
+
+    print("物资分配",kv)
+
+    if kv.Value.levelCount ~= self.currentLevel then
+        print("物资分配有误，非当前关卡")
+    end
+
+    self.goldCnt = kv.Value.goldCount
+    self.soulShardCnt = kv.Value.souleShardCount
+    self.AmmoCnt = kv.Value.AmmoCount               -- 数组，分别对应轻子弹、重子弹、激光子弹、炮弹的数量
+    self.ItemPool = kv.Value.Things                 -- 数组，每个数字代表一个物品的id
+    self.ItemCnt = #self.ItemPool
+
+    --print("金币数",self.goldCnt)
+    --print("碎片数",self.soulShardCnt)
+    --for i,v in ipairs(self.AmmoCnt) do
+    --    print("弹药",i,v)
+    --end
+    for i,v in ipairs(self.ItemPool) do
+        print("物品",i,v)
+    end
+
+
+end
+
+--生成地图，随机生成房间及连接通路
+--关卡、怪物房数量、商店房数量、宝箱房数量
+function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
+
+    self:InitRoom(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoomCnt)
 
     -- 时间种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
@@ -107,8 +121,7 @@ function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoom
     room_info = RoomData.Rooms[mapLevel][Enum_RoomType.boss][id]
     local room_boss = Room:new(room_info.path,room_info.name,mapLevel,Enum_RoomType.boss,room_info.length,room_info.width)
 
-    -- 记录当前关卡等级和房间
-    self.currentLevel = mapLevel
+    -- 记录当前房间
     self.currentRoom = self.roomMap[0][0]
 
     -- 上下左右
@@ -223,9 +236,15 @@ function RoomManager:CreateRooms(mapLevel,normalRoomCnt,shopRoomCnt,treasureRoom
 
     -- 实例化所有房间（和道路）
     self:InstantiateRooms()
-    self.equipmnets = {require("ThingsFactory"):GetThing(70001, UE.Vector3(2, 1, 0))}
-    self.Weapons={require("ThingsFactory"):GetThing(60004, UE.Vector3(-2, 1, 0)),
-                  require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0))}
+    local equipment_1 = require("ThingsFactory"):GetThing(70001, UE.Vector3(2, 1, 0))
+    local weapon_1 = require("ThingsFactory"):GetThing(60004, UE.Vector3(-2, 1, 0))
+    local weapon_2 = require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0))
+    table.insert(self.equipments, equipment_1)
+    table.insert(self.weapons, weapon_1)
+    table.insert(self.weapons, weapon_2)
+    --self.equipmnets = {require("ThingsFactory"):GetThing(70001, UE.Vector3(2, 1, 0))}
+    --self.Weapons={require("ThingsFactory"):GetThing(60004, UE.Vector3(-2, 1, 0)),
+    --              require("ThingsFactory"):GetThing(60001, UE.Vector3(0, 1, 0))}
 end
 
 -- 实例化所有房间
@@ -361,18 +380,20 @@ function RoomManager:AfterEnterRoom(kv)
 
     print("hello, get the room",room.type,room.positionX,room.positionY)
 
-    --    -- 房间已经访问过
+    -- 房间已经访问过
     if room.hasVisited == true then
         return
     end
     room.hasVisited = true
-    -- 房间不存在战斗
-    if not (room.type == Enum_RoomType.normal or room.type == Enum_RoomType.boss) then
+    -- 对应房间逻辑
+    if (room.type == Enum_RoomType.normal or room.type == Enum_RoomType.boss) then
+        self:CloseCurrentRoomsDoor()
+        self:CreateMonster()
+        return
+    elseif room.type == Enum_RoomType.treasure then
+        self:CreateTreasure()
         return
     end
-    -- 关门放狗
-    self:CloseCurrentRoomsDoor()
-    self:CreateMonster()
 
 end
 
@@ -424,9 +445,41 @@ function RoomManager:CreateMonster()
     end
 end
 
--- 在怪物全部消灭后生成宝箱
+-- 在怪物全部消灭后生成宝箱及弹药金币
 function RoomManager:CreateTreasure()
-    print("生成宝箱")
+    if #self.ItemPool ~= 0 then
+        local treasureID = self.ItemPool[1]
+        table.remove(self.ItemPool,1)
+        local pos = UE.Vector3(self.currentRoom.positionX * self.roomDistance,self.currentRoom.positionY * self.roomDistance,0)
+        local thing,thingType =require("ThingsFactory"):GetThing(treasureID,pos)
+
+        if thingType == Enum_ItemType.weapon then
+            table.insert(self.weapons,thing)
+        elseif thingType == Enum_ItemType.equipment then
+            table.insert(self.equipments,thing)
+        elseif thingType == Enum_ItemType.item then
+            table.insert(self.items,thing)
+        else
+            print("错误，无此类型Thing")
+        end
+    end
+
+    -- 时间种子
+    math.randomseed(tostring(os.time()):reverse():sub(1, 7))
+
+    local goldCnt = math.random(1,self.goldCnt/2)
+    self.goldCnt = self.goldCnt - goldCnt
+    MC:SendMessage(Enum_NormalMessageType.GetGold,require("KeyValue"):new(nil,goldCnt))
+
+
+    if self.soulShardCnt >= 1 then
+        local giveSoulOrNOt = math.random(1,2)
+        if giveSoulOrNOt == 1 then
+            MC:SendMessage(Enum_NormalMessageType.GetSoulShard,require("KeyValue"):new(nil,1))
+        end
+    end
+
+
 end
 
 -- 在怪物全部消灭后打开房间门
@@ -471,7 +524,7 @@ end
 
 -- 获取武器
 function RoomManager:GetWeapon(go)
-    for _, v in ipairs(self.Weapons) do
+    for _, v in ipairs(self.weapons) do
         if v.gameobject == go then
             return v
         end
@@ -481,7 +534,7 @@ end
 
 -- 获取装备
 function RoomManager:GetEquipment(go)
-    for _, v in ipairs(self.equipmnets) do
+    for _, v in ipairs(self.equipments) do
         if v.gameobject == go then
             return v
         end
@@ -489,10 +542,16 @@ function RoomManager:GetEquipment(go)
     return nil
 end
 
--- 获取道具
+-- 获取物品
 function RoomManager:GetItem(go)
-
+    for _, v in ipairs(self.items) do
+        if v.gameobject == go then
+            return v
+        end
+    end
+    return nil
 end
+
 
 RoomManager:Init()
 
