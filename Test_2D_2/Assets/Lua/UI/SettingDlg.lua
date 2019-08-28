@@ -6,6 +6,7 @@ local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local AudioMgr = require("AudioManager")
 local SceneMgr = require("SceneManager")
+local MC = require("MessageCenter")
 
 local SettingDlg = Class("SettingDlg", require("Base"))
 
@@ -44,6 +45,8 @@ function SettingDlg:cotr()
             UE.Application.Quit()
         elseif currentScenen == Enum_Scenes.Begin then
 
+        elseif currentScenen == Enum_Scenes.Battle then
+            MC:SendMessage(Enum_NormalMessageType.GameOver, require("KeyValue"):new(false, false))
         else
             SceneMgr:LoadScene(currentScenen-1)
         end

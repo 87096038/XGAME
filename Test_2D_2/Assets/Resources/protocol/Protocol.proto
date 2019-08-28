@@ -146,7 +146,9 @@ message Net_LevelReward{
     repeated int32 AmmoCount        =4;
     repeated int32 Things           =5;
 }
-
+message Net_GameOver{
+    required int32 souleShardCount  =1;
+}
 
 
 

@@ -6,6 +6,7 @@
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
 local UserInfoData = require("UserInfoData")
+local NetHelper = require("NetHelper")
 
 local CurrencyInfoDlg = Class("CurrencyInfoDlg", require("Base"))
 
@@ -20,6 +21,7 @@ function CurrencyInfoDlg:cotr()
 
     self.diamondCountText.text =  self.diamondCount
     self.soulShardText.text =  self.soulShardCount
+    NetHelper:SendRefreshCurrency("require")
     -----------添加监听-----------
     self:AddMessageListener(Enum_NormalMessageType.RefreshCurrency, handler(self, self.OnRefreshCurrency))
     self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))

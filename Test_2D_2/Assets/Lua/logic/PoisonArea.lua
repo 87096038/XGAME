@@ -10,7 +10,7 @@ local PathMgr = require("PathManager")
 local PoisonArea={}
 
 function PoisonArea:Init()
-    self.position = UE.Vector3(-8, 0, 0)
+    self.position = UE.Vector3(-8, 0, -1)
     self.buff = {[Enum_BuffAndDebuffType.poisoning] = 3}
     self.co = nil
     self.isIn = false

@@ -12,7 +12,7 @@ local NetHelper = require("NetHelper")
 local NPC_SellPassiveSkill ={}
 
 function NPC_SellPassiveSkill:Init()
-    self.position = UE.Vector3(2, 8, -1)
+    self.position = UE.Vector3(4, 5, -1)
     self.lerpTime = 0.04
     self.type = Enum_NPCType.sell_passive_skill
 
@@ -26,8 +26,12 @@ function NPC_SellPassiveSkill:Init()
     self.infoPnlContent = nil
     self.infoPnlPrice = nil
 
+    ---coroutine
+    self.showCo = nil
+    self.hideCo = nil
     ------------------添加监听-------------------
     MC:AddListener(Enum_NormalMessageType.RefreshOuterThing, handler(self, self.OnRefreshOuterThing))
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 end
 
 function NPC_SellPassiveSkill:Generate()
@@ -41,6 +45,7 @@ function NPC_SellPassiveSkill:Generate()
     self.infoPnlContent = self.infoPnl.transform:Find("ItemInfo_Txt"):GetComponent(typeof(UE.UI.Text))
     self.infoPnlPrice = self.infoPnl.transform:Find("Price"):GetComponentInChildren(typeof(UE.UI.Text))
     self.SelledItemsTrans = self.gameobject.transform:Find("Container"):GetComponentsInChildren(typeof(UE.Transform))
+
     -------------------绑定碰撞------------------
     local thisNPC = self
     for i = 1, 3 do
@@ -235,6 +240,15 @@ function NPC_SellPassiveSkill:OnRefreshOuterThing(kv)
                 end
             end
         end
+    end
+end
+
+function NPC_SellPassiveSkill:OnChangeScene(kv)
+    if self.showCo then
+        StopCoroutine(self.showCo)
+    end
+    if self.hideCo then
+        StopCoroutine(self.hideCo)
     end
 end
 

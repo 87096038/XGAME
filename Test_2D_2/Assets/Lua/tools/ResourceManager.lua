@@ -376,13 +376,19 @@ end
 
 ---消息回调
 function ResourceManager:OnChangeScene(kv)
+    --- 清空物品池
     for _, v in pairs(self.ObjectPool) do
         for _, v2 in pairs(v) do
             UE.GameObject.Destroy(v2)
         end
     end
+    --- 清空AB
+    for _, v in pairs(self.AssetBundleCacheMap) do
+        v.assetBundle:Unload(false)
+    end
     self.ObjectPool={}
     self.AssetCacheMap = {}
+    self.AssetBundleCacheMap={}
 end
 
 function ResourceManager:OnLateChangeScene()

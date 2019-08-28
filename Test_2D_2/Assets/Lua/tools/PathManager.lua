@@ -69,6 +69,7 @@ function PathManager:Init()
             UI_ItemsContainer = "assetbundles/prefabs/ui/battle/ui_itemscontainer.ab",
             UI_GoldAndSoulShard = "assetbundles/prefabs/ui/battle/ui_goldandsoulshard.ab",
             UI_Equipments = "assetbundles/prefabs/ui/battle/ui_equipments.ab",
+            UI_ResultPnl = "assetbundles/prefabs/ui/battle/ui_resultpnl.ab",
 
             UI_Loading = "assetbundles/prefabs/ui/loading/ui_loading.ab",
             --------Tiles----------
@@ -179,6 +180,7 @@ function PathManager:Init()
             UI_ItemsContainer = "Prefabs/UI/Battle/UI_ItemsContainer",
             UI_GoldAndSoulShard = "Prefabs/UI/Battle/UI_GoldAndSoulShard",
             UI_Equipments = "Prefabs/UI/Battle/UI_Equipments",
+            UI_ResultPnl = "Prefabs/UI/Battle/UI_ResultPnl",
 
             UI_Loading = "Prefabs/UI/Loading/UI_Loading",
             --------Tiles----------
@@ -294,6 +296,7 @@ function PathManager:Init()
             UI_ItemsContainer = "ui_itemscontainer",
             UI_GoldAndSoulShard = "ui_goldandsoulshard",
             UI_Equipments = "ui_equipments",
+            UI_ResultPnl = "ui_resultpnl",
 
             UI_Loading = "ui_loading",
             --------Tiles----------

@@ -88,6 +88,12 @@ function NetHelper:SendLevelReward(levelCount, roomsArray)
     local data={levelCount = levelCount or 1, goldCount=0, souleShardCount=0, AmmoCount=nil, Things=roomsArray}
     Net:TCPSendMessage(10, data)
 end
+function NetHelper:SendGameOver(souleShardCount)
+    if souleShardCount then
+        local data={souleShardCount=souleShardCount}
+        Net:TCPSendMessage(11, data)
+    end
+end
 
 ----------------消息回调---------------
 function NetHelper:OnTick()
