@@ -5,6 +5,7 @@
 
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
+local MC = require("MessageCenter")
 
 local BattleItemInfoDlg = Class("BattleItemInfoDlg", require("Base"))
 
@@ -16,6 +17,13 @@ function BattleItemInfoDlg:cotr()
     self.infoPnls[Enum_ItemType.item] = ResourceMgr:GetGameObject(PathMgr.ResourcePath.UI_ItemInfo, PathMgr.NamePath.UI_ItemInfo, Main.UIRoot.transform)
     self.lerpTime = 0.04
     self.isShowing = false
+
+    ---coroutine
+    self.ShowCos = {}
+    self.HideCos = {}
+
+    ------------------添加监听-------------------
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 end
 
 --- ItemType: Enum_ItemType
@@ -31,7 +39,7 @@ function BattleItemInfoDlg:Show(ItemType, name, info, extraInfo)
     elseif ItemType == Enum_ItemType.item then
         self:SetItemPnl(name, info, extraInfo)
     end
-    StartCoroutine(function ()
+    self.ShowCos[ItemType] = StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnls[ItemType]:GetComponent(typeof(UE.RectTransform))
         local InitPos = UE.Vector2(0, -RectTrans.rect.height/2)
@@ -46,7 +54,7 @@ function BattleItemInfoDlg:Show(ItemType, name, info, extraInfo)
 end
 
 function BattleItemInfoDlg:Hide(ItemType)
-    StartCoroutine(function ()
+    self.HideCos[ItemType] = StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnls[ItemType]:GetComponent(typeof(UE.RectTransform))
         local InitPos = UE.Vector2(0, RectTrans.rect.height/2+30)
@@ -90,6 +98,20 @@ end
 
 function BattleItemInfoDlg:GetColorText(info)
     return "<color=#2D78FF>"..info.."</color>"
+end
+
+function BattleItemInfoDlg:OnChangeScene(kv)
+    for _, v in pairs(self.ShowCos) do
+        if v then
+            StopCoroutine(v)
+        end
+    end
+    for _, v in pairs(self.HideCos) do
+        if v then
+            StopCoroutine(v)
+        end
+    end
+    self:Destroy()
 end
 
 return BattleItemInfoDlg

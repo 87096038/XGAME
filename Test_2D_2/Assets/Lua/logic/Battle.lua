@@ -5,7 +5,7 @@
 local Timer = require("Timer")
 local Camera = require("CameraFollowing")
 local MC = require("MessageCenter")
-
+local NetHelper = require("NetHelper")
 
 local Battle=Class("Battle", require("Base"))
 
@@ -71,7 +71,7 @@ function Battle:cotr(character, initialWeapon)
     --- 金币
     self.goldCount = 0
     --- 灵魂碎片
-    self.soulShard = 0
+    self.soulShardCount = 0
 
 
     if initialWeapon then
@@ -109,7 +109,7 @@ function Battle:BeginFight()
     --- 装备UI
     self.equipmentsPnl = require("EquipmentsDlg"):new()
     --- 战斗里货币UI
-    self.goldAndSoulShardPnl = require("GoldAndSoulShardDlg"):new(self.goldCount, self.soulShard)
+    self.goldAndSoulShardPnl = require("GoldAndSoulShardDlg"):new(self.goldCount, self.soulShardCount)
 end
 
 -----------------------------武器交互--------------------------------
@@ -209,10 +209,12 @@ function Battle:AddEquipment(equipment)
 end
 --- 丢掉装备
 function Battle:DropEquipment()
-    self.character:RemoveBuff(self.currentEquipment.buff)
-    self.equipmentsPnl:RemoveSprite()
-    self.currentEquipment:Drop()
-    self.currentEquipment = nil
+    if self.currentEquipment then
+        self.character:RemoveBuff(self.currentEquipment.buff)
+        self.equipmentsPnl:RemoveSprite()
+        self.currentEquipment:Drop()
+        self.currentEquipment = nil
+    end
 end
 
 -----------------------------物品交互--------------------------
@@ -327,6 +329,8 @@ function Battle:UpdateBattle()
         end
     elseif UE.Input.GetKeyDown(UE.KeyCode.C) then
         self:DropItem()
+    elseif UE.Input.GetKeyDown(UE.KeyCode.X) then
+        self:DropEquipment()
     end
 end
 
@@ -397,7 +401,17 @@ function Battle:OnReloadEnd(kv)
 end
 
 function Battle:GameOverHandler(kv)
-    --self:Destroy()
+    require("BattleResultDlg"):new(self.soulShardCount)
+    if self.soulShardCount > 0 then
+        NetHelper:SendGameOver(self.soulShardCount)
+    end
+
+    Timer:AddUpdateFuc(self, function ()
+        if UE.Input.GetMouseButtonDown(0) then
+            Timer:RemoveUpdateFuc(self, self.WaitForClickUpdate)
+            require("SceneManager"):LoadScene(Enum_Scenes.Rest)
+        end
+    end)
 end
 function Battle:OnChangeScene(kv)
     self:Destroy()

@@ -63,45 +63,13 @@ public class Main : MonoBehaviour
         DontDestroyOnLoad(EventSystem);
 
         luaEnv = new LuaEnv();
-        //GameObject go = new GameObject("123");
-        //UnityWebRequest a;
-        //Server.Instance.StartListen();
-        //Quaternion b = Quaternion.identity;
-        //gameObject.AddComponent<AudioSource>();
-        //gameObject.GetComponent(typeof(AudioSource));
-        //Sprite a = Resources.Load("Sprite/Characters/Ruby", typeof(Sprite)) as Sprite;
-        //var go = new GameObject();
-        //go.transform.SetParent(UIRoot.transform);
-        //var img = go.AddComponent<Image>();
-        //SpriteAtlas sa = Resources.Load<SpriteAtlas>("Sprite/Icons");
-        //img.sprite = sa.GetSprite("Icon_Gold");
-        Transform a;
-        EventTrigger b;
-        SpriteRenderer d;
-        EventTriggerType t;
-        PointerEventData p;
-        BaseEventData basee;
-        AudioSource aa;
-        //a.fillAmount
-        //p.button
-        //PointerEventData.InputButton.Left
-        //UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
-        ////Sprite m = Sprite.Create(a, Rect.zero, Vector2.zero);
-        //SpriteAtlas s;
-        //s.GetSprite()
-        //AssetBundle.LoadFromFile()
-        //AssetBundle.LoadFromFile()
-        //img.sprite = null;
-        //Debug.Log(a.GetType());
-        //System.IO.Directory.CreateDirectory(@"/Users/xiejiahong/Library/Application Support/DefaultCompany/Test_2D_2/resources/123");
-        //Camera.main.ScreenToWorldPoint(Input.mousePosition)
+
         luaEnv.AddLoader(InitLoader);
         luaEnv.DoString("require'Main'");
         luaEnv.Global.Get("Init", out Init);
         luaEnv.Global.Get("MainLoop", out Loop);
         luaEnv.Global.Get("Quit", out Quit);
         Init();
-        //AudioSource asr = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
     }
 
     private void Update()

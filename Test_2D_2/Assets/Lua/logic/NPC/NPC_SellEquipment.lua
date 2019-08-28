@@ -12,7 +12,7 @@ local NetHelper = require("NetHelper")
 local NPC_SellEquipment={}
 
 function NPC_SellEquipment:Init()
-    self.position = UE.Vector3(6, 5, -1)
+    self.position = UE.Vector3(10, 5, -1)
     self.lerpTime = 0.04
     self.type = Enum_NPCType.sell_equipment
 
@@ -26,8 +26,12 @@ function NPC_SellEquipment:Init()
     self.infoPnlContent = nil
     self.infoPnlPrice = nil
 
+    ---coroutine
+    self.showCo = nil
+    self.hideCo = nil
     ------------------添加监听-------------------
     MC:AddListener(Enum_NormalMessageType.RefreshOuterThing, handler(self, self.OnRefreshOuterThing))
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 end
 
 function NPC_SellEquipment:Generate()
@@ -41,6 +45,7 @@ function NPC_SellEquipment:Generate()
     self.infoPnlContent = self.infoPnl.transform:Find("ItemInfo_Txt"):GetComponent(typeof(UE.UI.Text))
     self.infoPnlPrice = self.infoPnl.transform:Find("Price"):GetComponentInChildren(typeof(UE.UI.Text))
     self.SelledItemsTrans = self.gameobject.transform:Find("Container"):GetComponentsInChildren(typeof(UE.Transform))
+
     -------------------绑定碰撞------------------
     local thisNPC = self
     for i = 1, 3 do
@@ -160,7 +165,7 @@ function NPC_SellEquipment:ShowInfoPnl(index)
     self.infoPnlTitle.text = self.SelledItems[index].name
     self.infoPnlContent.text = self.SelledItems[index].info
     self.infoPnlPrice.text = self.SelledItems[index].cost
-    StartCoroutine(function ()
+    self.showCo = StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnl:GetComponent(typeof(UE.RectTransform))
         local InitPos = UE.Vector2(0, -RectTrans.rect.height/2)
@@ -175,7 +180,7 @@ function NPC_SellEquipment:ShowInfoPnl(index)
 end
 
 function NPC_SellEquipment:HideInfoPnl(index)
-    StartCoroutine(function ()
+    self.hideCo = StartCoroutine(function ()
         local time = 0
         local RectTrans = self.infoPnl:GetComponent(typeof(UE.RectTransform))
         local InitPos = UE.Vector2(0, RectTrans.rect.height/2+30)
@@ -234,6 +239,15 @@ function NPC_SellEquipment:OnRefreshOuterThing(kv)
                 end
             end
         end
+    end
+end
+
+function NPC_SellEquipment:OnChangeScene(kv)
+    if self.showCo then
+        StopCoroutine(self.showCo)
+    end
+    if self.hideCo then
+        StopCoroutine(self.hideCo)
     end
 end
 

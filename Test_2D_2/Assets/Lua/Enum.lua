@@ -83,13 +83,14 @@ Enum_NormalMessageType={
 Enum_NetMessageType={
     Tick = "Net_Tick", Login="Net_Login", UserInfo="Net_UserInfo", DrawSkin="Net_DrawSkin", RefreshSkin="Net_RefreshSkin", RefreshCurrency="Net_RefreshCurrency",
     BuyOuterThing="Net_BuyOuterThing", RefreshOuterThing="Net_RefreshOuterThing", ChangeCurrentRoleAndSkin = "Net_ChangeCurrentRoleAndSkin", LevelReward="Net_LevelReward",
+    GameOver="Net_GameOver",
 }
 
 --- 网络消息(index) 格式为:index - Enum_NetMessageType
 Enum_NetMessageType_Index={
     [1] = Enum_NetMessageType.Tick, [2] = Enum_NetMessageType.Login, [3] = Enum_NetMessageType.UserInfo,[4] = Enum_NetMessageType.DrawSkin, [5] = Enum_NetMessageType.RefreshSkin,
     [6] = Enum_NetMessageType.RefreshCurrency, [7] = Enum_NetMessageType.BuyOuterThing, [8] = Enum_NetMessageType.RefreshOuterThing, [9] = Enum_NetMessageType.ChangeCurrentRoleAndSkin,
-    [10] = Enum_NetMessageType.LevelReward,
+    [10] = Enum_NetMessageType.LevelReward, [11] = Enum_NetMessageType.GameOver
 }
 -------------------------------------------消息Response---------------------------------------------
 --- 抽奖反馈

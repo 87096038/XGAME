@@ -6,7 +6,7 @@ local MC= require("MessageCenter")
 local NPC_DrawSkin = {}
 
 function NPC_DrawSkin:Init()
-    self.position = UE.Vector3(0, 10, -1)
+    self.position = UE.Vector3(0, 5, -2)
     self.type = Enum_NPCType.draw_skin
     self.gameobject = nil
     self.drawSkinDlg = nil

@@ -8,9 +8,6 @@ local MC = require("MessageCenter")
 local RoomManager = {}
 
 function RoomManager:Init()
-
-
-
     -- 添加监听
     MC:AddListener(Enum_NormalMessageType.EnterRoom,handler(self,self.AfterEnterRoom))
     MC:AddListener(Enum_NormalMessageType.EnemyDead,handler(self,self.AfterEnemyDead))

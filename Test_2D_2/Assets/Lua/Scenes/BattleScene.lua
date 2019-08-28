@@ -7,7 +7,6 @@ local Camera =  require("CameraFollowing")
 local AudioMgr = require("AudioManager")
 local ResourceMgr = require("ResourceManager")
 local PathMgr = require("PathManager")
-local GunMgr = require("GunManager")
 
 local BeattleScene = {}
 
@@ -21,6 +20,7 @@ function BeattleScene:InitScene()
 
     --- 生成地图
     require("RoomManager"):CreateRooms(1,3,1,1)
+    require("RoomManager"):SetCharacter(Character)
 
     --- 创建UI
     local CharacterStateDlg = require("CharacterStateDlg"):new(Character)
@@ -30,11 +30,9 @@ function BeattleScene:InitScene()
     AudioMgr:PlayBackgroundMusic(ResourceMgr:Load(PathMgr.ResourcePath.Audio_Title_BGM, PathMgr.NamePath.Audio_Title_BGM), 0, true)
     --- 可以开始移动了
     Character:Start()
-    require("RoomManager"):SetCharacter(Character)
 end
 
 function BeattleScene:OverScene()
-    require("RoomManager"):Init()
     Camera:EndFollow()
     AudioMgr:StopBGM()
 end
