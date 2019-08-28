@@ -14,11 +14,11 @@ end
 
 function ThingsFactory:GetThing(ID, position)
     if WeaponData.Weapons[ID] then
-        return self:GetGun(ID, position)
+        return self:GetGun(ID, position), Enum_ItemType.weapon
     elseif EquipmentData.Equipments[ID] then
-        return self:GetEquipment(ID, position)
+        return self:GetEquipment(ID, position), Enum_ItemType.equipment
     elseif ItemData.Items[ID] then
-        return self:GetItem(ID, position)
+        return self:GetItem(ID, position), Enum_ItemType.item
     end
 end
 

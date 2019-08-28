@@ -18,16 +18,16 @@ function Enemy_1:cotr(position)
     self.collision_attack = self.transform:Find("Collider_Attack").gameObject
     self.collision_findCharacter = self.transform:Find("Collider_FindCharacter").gameObject
     self.character = require("RoomManager"):GetCharacter()
-
+    self.isDead = false
     -------状态数据-----
-    self.maxHeath = 5
-    self.currentHeath = 5
+    self.maxHeath = 13
+    self.currentHeath = 13
     self.attack = 5
     self.speed = 2
     self.isFoundCharacter = false
 
     ---------监听注册--------
-
+    MC:AddListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
 
     --------添加碰撞--------
     self:Collision()
@@ -122,7 +122,7 @@ end
 function Enemy_1:GetDamage(damage,buff)
     --print("Enemy Injury",damage)
     self.currentHeath = self.currentHeath - damage
-    if self.currentHeath <= 0 then
+    if self.currentHeath <= 0 and not self.isDead then
         self:Dead()
     end
 end
@@ -133,4 +133,10 @@ function Enemy_1:Dead()
     MC:SendMessage(Enum_NormalMessageType.EnemyDead,require("KeyValue"):new(nil, self))
 end
 
+------------------消息回调---------------
+function Enemy_1:OnChangeScene(kv)
+    if not self.isDead then
+        self:Destroy()
+    end
+end
 return Enemy_1
