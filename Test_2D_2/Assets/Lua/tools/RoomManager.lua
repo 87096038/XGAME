@@ -433,7 +433,7 @@ function RoomManager:CloseCurrentRoomsDoor()
 
 end
 
--- n，创建怪物
+-- 创建怪物
 function RoomManager:CreateMonster()
     local room = self.currentRoom
     local roomPos = room.gameObject.transform.position
@@ -450,7 +450,7 @@ function RoomManager:CreateTreasure()
     if #self.ItemPool ~= 0 then
         local treasureID = self.ItemPool[1]
         table.remove(self.ItemPool,1)
-        local pos = UE.Vector3(self.currentRoom.positionX * self.roomDistance,self.currentRoom.positionY * self.roomDistance,0)
+        local pos = UE.Vector3(self.currentRoom.positionX * self.roomDistance - 2,self.currentRoom.positionY * self.roomDistance + 2,0)
         local thing,thingType =require("ThingsFactory"):GetThing(treasureID,pos)
 
         if thingType == Enum_ItemType.weapon then
@@ -467,11 +467,12 @@ function RoomManager:CreateTreasure()
     -- 时间种子
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
 
-    local goldCnt = math.random(1,self.goldCnt/2)
+    -- 获取金币
+    local goldCnt = math.random(1,self.goldCnt)
     self.goldCnt = self.goldCnt - goldCnt
     MC:SendMessage(Enum_NormalMessageType.GetGold,require("KeyValue"):new(nil,goldCnt))
 
-
+    -- 获取碎片
     if self.soulShardCnt >= 1 then
         local giveSoulOrNOt = math.random(1,2)
         if giveSoulOrNOt == 1 then
@@ -479,7 +480,10 @@ function RoomManager:CreateTreasure()
         end
     end
 
-
+    -- 获取子弹
+    local LightBulletCnt = math.random(1,self.AmmoCnt[1])
+    self.AmmoCnt[1] = self.AmmoCnt[1] - LightBulletCnt
+    MC:SendMessage(Enum_NormalMessageType.GetBullet,require("KeyValue"):new(nil,LightBulletCnt))
 end
 
 -- 在怪物全部消灭后打开房间门

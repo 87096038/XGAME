@@ -9,6 +9,7 @@ function LightBullet:cotr(dirction, position, rotation, speed, damage)
     self.damage = damage
     self.dirction = UE.Vector3(dirction.x, dirction.y, dirction.z)
     self.speed = speed
+    self.isDestroyed = false
     --- 携带的特殊效果
     self.buffs={}
     --这里应该是从CharacterState获取BUff

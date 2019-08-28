@@ -76,7 +76,7 @@ Enum_NormalMessageType={
     ChangeHeath = "ChangeHeath", ChangeArmor = "ChangeArmor", ChangeSpeed="ChangeSpeed", ChangeHeathCeiling="ChangeHeathCeiling", ChangeArmorCeiling = "ChangeArmorCeiling", ChangeSpeedCeiling="ChangeSpeedCeiling",
     AddKeepBuff = "AddKeepBuff", RemoveKeepBuff = "RemoveKeepBuff", BuffHasChanged = "BuffHasChanged", Shoot="Shoot", OutOfAmmo="OutOfAmmo", ReloadBegin="ReloadBegin", ReloadEnd="ReloadEnd",
     ChengeEffectMusicVolume="ChengeEffectMusicVolume", ChangeBGMVolume="ChangeBGMVolume", SelectItem = "SelectItem", LevelReward="LevelReward", EnterRoom = "EnterRoom", LeaveRoom = "LeaveRoom", GetCharacter = "GetCharacter",
-    EnemyDead = "EnemyDead", GetGold = "GetGold", GetSoulShard = "GetSoulShard"
+    EnemyDead = "EnemyDead", GetGold = "GetGold", GetSoulShard = "GetSoulShard", GetBullet = "GetBullet"
 }
 
 --- 网络消息

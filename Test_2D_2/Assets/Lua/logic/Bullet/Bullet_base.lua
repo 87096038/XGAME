@@ -13,6 +13,10 @@ function Bullet_base:cotr()
 end
 
 function Bullet_base:Destroy()
+    if self.isDestroyed then
+        return
+    end
+    self.isDestroyed = true
     if self.explosionEffect then
 
     end

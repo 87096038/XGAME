@@ -22,6 +22,9 @@ function Battle:cotr(character, initialWeapon)
     self:AddMessageListener(Enum_NormalMessageType.ChangeScene, handler(self, self.OnChangeScene))
     self:AddMessageListener(Enum_NormalMessageType.OutOfAmmo, handler(self, self.OnOutOfAmmo))
     self:AddMessageListener(Enum_NormalMessageType.SelectItem, handler(self, self.OnSelectItem))
+    self:AddMessageListener(Enum_NormalMessageType.GetGold, handler(self,self.GetGold))
+    self:AddMessageListener(Enum_NormalMessageType.GetSoulShard, handler(self, self.GetSoulShard))
+    self:AddMessageListener(Enum_NormalMessageType.GetBullet, handler(self, self.GetAmmo))
 
     ---实际的角色
     self.character = character
@@ -401,20 +404,39 @@ function Battle:OnReloadEnd(kv)
 end
 
 function Battle:GameOverHandler(kv)
-    require("BattleResultDlg"):new(self.soulShardCount)
+    local resultDlg = require("BattleResultDlg"):new(self.soulShardCount)
     if self.soulShardCount > 0 then
         NetHelper:SendGameOver(self.soulShardCount)
     end
 
-    Timer:AddUpdateFuc(self, function ()
-        if UE.Input.GetMouseButtonDown(0) then
-            Timer:RemoveUpdateFuc(self, self.WaitForClickUpdate)
-            require("SceneManager"):LoadScene(Enum_Scenes.Rest)
-        end
+    resultDlg:SetExitBtnFuc(function ()
+        require("SceneManager"):LoadScene(Enum_Scenes.Rest)
     end)
+
+
 end
 function Battle:OnChangeScene(kv)
     self:Destroy()
     require("BattleData").currentBattle = nil
 end
+
+function Battle:GetGold(kv)
+    self.goldCount = self.goldCount + kv.Value
+    self.goldAndSoulShardPnl:ChangeGold(self.goldCount)
+
+end
+
+function Battle:GetSoulShard(kv)
+    self.soulShardCount = self.soulShardCount + kv.Value
+    self.goldAndSoulShardPnl:ChangeSoulShard(self.soulShardCount)
+end
+
+function Battle:GetAmmo(kv)
+    self.BulletsCount[Enum_BulletType.light] = self.BulletsCount[Enum_BulletType.light] + kv.Value
+    self.bulletsCountPnl:BulletCountChangeTo(Enum_BulletType.light,self.BulletsCount[Enum_BulletType.light])
+    --self.BulletsCount[Enum_BulletType.heavy] = self.BulletsCount[Enum_BulletType.heavy] + kv.Value
+    --self.BulletsCount[Enum_BulletType.energy] = self.BulletsCount[Enum_BulletType.energy] + kv.Value
+    --self.BulletsCount[Enum_BulletType.shell] = self.BulletsCount[Enum_BulletType.shell] + kv.Value
+end
+
 return Battle
